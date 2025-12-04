@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Aditya Raj Singh</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="./tailwind.config.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
+</head>
+<body class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
+
+    <div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
+        <img src="./images/header-bg-color.png" alt="" class="w-full">
+    </div>
+
+    <!-- ---------- NAVBAR ---------- -->
+    <nav class="w-full fixed px-5 lg:px-8 xl:px-[8%] py-4 flex items-center justify-between z-50">
+
+        <!-- LEFT: Logo -->
+        <div class="flex items-center flex-shrink-0">
+            <img src="./images/name-logo-light.png" alt="Logo"
+                 class="w-28 cursor-pointer mr-4 dark:hidden">
+            <img src="./images/name-logo-dark.png" alt="Logo"
+                 class="w-28 cursor-pointer mr-4 hidden dark:block">
+        </div>
+
+        <!-- MIDDLE: Main nav menu + social (desktop only) -->
+        <div class="hidden md:flex items-center flex-1 justify-center">
+            <ul class="flex items-center gap-6 lg:gap-8 rounded-full px-12 py-3 bg-white shadow-sm bg-opacity-50 font-Ovo
+                       dark:border dark:border-white/50 dark:bg-transparent">
+                <li><a href="#top">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#publications">Publication</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <!-- Social icons (GitHub + LinkedIn) -->
+            <div class="flex items-center gap-3 ml-6">
+                <!-- GitHub -->
+                <a href="https://github.com/iadityarajsingh" target="_blank"
+                   class="flex items-center justify-center w-9 h-9 rounded-full border border-gray-400 bg-white/70 
+                          hover:-translate-y-0.5 hover:shadow-md transition
+                          dark:bg-transparent dark:border-white/60">
+                    <img src="./images/github-mark.png" alt="GitHub" class="w-5 h-5 dark:hidden">
+                    <img src="./images/github-mark-white.png" alt="GitHub Dark" class="w-5 h-5 hidden dark:block">
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/your-linkedin-url" target="_blank"
+                   class="flex items-center justify-center w-9 h-9 rounded-full border border-gray-400 bg-white/70 
+                          hover:-translate-y-0.5 hover:shadow-md transition
+                          dark:bg-transparent dark:border-white/60">
+                    <img src="./images/linkedin.png" alt="LinkedIn" class="w-5 h-5 dark:hidden">
+                    <img src="./images/linkedin.png" alt="LinkedIn Dark" class="w-5 h-5 hidden dark:block">
+                </a>
+            </div>
+        </div>
+
+        <!-- RIGHT: theme toggle + contact + mobile menu -->
+        <div class="flex items-center gap-4 flex-shrink-0">
+            <button onclick="toggleTheme()">
+                <img src="./images/moon_icon.png" alt="" class="w-6 dark:hidden">
+                <img src="./images/sun_icon.png" alt="" class="w-6 hidden dark:block">
+            </button>
+
+            <a href="#contact" 
+               class="hidden lg:flex items-center gap-3 px-10 py-2.5 border border-gray-500 rounded-full ml-2 font-Ovo dark:border-white/50">
+                Contact 
+                <img src="./images/arrow-icon.png" alt="" class="w-3 dark:hidden">
+                <img src="./images/arrow-icon-dark.png" alt="" class="w-3 hidden dark:block">
+            </a>
+
+            <button class="block md:hidden ml-2" onclick="openMenu()">
+                <img src="./images/menu-black.png" alt="" class="w-6 dark:hidden">
+                <img src="./images/menu-white.png" alt="" class="w-6 hidden dark:block">
+            </button>
+        </div>
+    </nav>
+
+    <!-- ----- mobile menu (outside nav so it doesn't affect layout) ------  -->
+    <ul id="sideMenu" class="flex md:hidden flex-col gap-4 py-20 px-10 fixed -right-64 top-0 bottom-0 w-64 z-50 h-screen bg-rose-50 transition duration-500 font-Ovo dark:bg-darkHover dark:text-white">
+        <div class="absolute right-6 top-6" onclick="closeMenu()">
+            <img src="./images/close-black.png" alt="" class="w-5 cursor-pointer dark:hidden">
+            <img src="./images/close-white.png" alt="" class="w-5 cursor-pointer hidden dark:block">
+        </div>
+
+        <li><a href="#top" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#skills" onclick="closeMenu()">Skills</a></li>
+        <li><a href="#education" onclick="closeMenu()">Education</a></li>
+        <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
+        <li><a href="#publications" onclick="closeMenu()">Publication</a></li>
+        <li><a href="#work" onclick="closeMenu()">Work</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+    </ul>
+
+    <!-- ------ header --------------  -->
+
+    <div id="top" class="w-11/12 max-w-3xl text-center mx-auto h-screen flex flex-col items-center justify-center gap-4">
+        <div class="flex flex-col items-center gap-2">
+            <img src="./images/profile-img.png" alt="" class="rounded-full w-32">
+
+            <!-- Blinking dot below image with role text -->
+            <div class="flex items-center gap-2">
+                <span class="relative flex items-center justify-center">
+                    <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+                    <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
+                </span>
+                <span class="text-xs sm:text-sm text-gray-700 dark:text-white/80">
+                    Open for Cloud & DevOps roles
+                </span>
+            </div>
+        </div>
+
+        <h3 class="flex items-end gap-2 text-xl md:text-2xl mb-3 font-Ovo">
+            Hi! I'm Aditya Raj Singh
+        </h3>
+        <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo">
+            Cloud & DevOps enthusiast and full-stack web developer.
+        </h1>
+        <p class="max-w-2xl mx-auto font-Ovo">
+            I’m a software developer with a background in cloud computing and web development,
+            currently completing my MCA from the Central University of Himachal Pradesh after my BCA from LPU.
+            I enjoy building real-world projects around web, cloud, and DevOps.
+        </p>
+
+        <div class="flex flex-col sm:flex-row items-center gap-4 mt-4">
+            <a href="#contact"
+               class="px-10 py-3 border rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 dark:border-transparent">
+                contact me <img src="./images/right-arrow-white.png" alt="" class="w-4">
+            </a>
+
+            <a href="./images/logo.png" download
+               class="px-10 py-3 border rounded-full border-gray-500 flex items-center gap-2 bg-white dark:text-black">
+                my resume <img src="./images/download-icon.png" alt="" class="w-4">
+            </a>
+        </div>
+    </div>
+
+    <!-- ------------ about me -----------  -->
+    <div id="about" class="w-full px-[12%] py-10 scroll-mt-20">
+        <h4 class="text-center mb-2 text-lg font-Ovo">Introduction</h4>
+        <h2 class="text-center text-5xl font-Ovo">About me</h2>
+
+        <div class="flex w-full flex-col lg:flex-row items-center gap-20 my-20">
+            <div class="max-w-max mx-auto relative">
+                <img src="./images/user-image.png" alt="" class="w-64 sm:w-80 rounded-3xl max-w-none">
+                <!-- spinning circle + circular text removed as requested -->
+            </div>
+            <div class="flex-1">
+                <p class="mb-10 max-w-2xl font-Ovo">
+                    I’m a cloud-focused developer who loves working end-to-end:
+                    from building full-stack web applications to deploying them on cloud platforms.
+                    I’ve worked as a cloud intern at Teqtive IT Services and explored multi-cloud, DevOps,
+                    and infrastructure basics while pursuing my MCA.
+                </p>
+
+                <ul class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl">
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black
+                               dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+                        <img src="./images/code-icon.png" alt="" class="w-7 mt-3 dark:hidden">
+                        <img src="./images/code-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
+
+                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Languages & Tech</h3>
+                        <p class="text-gray-600 text-sm dark:text-white/80">
+                            HTML, CSS, JavaScript, Python, Java, SQL, Git
+                        </p>
+                    </li>
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black
+                               dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+                        <img src="./images/edu-icon.png" alt="" class="w-7 mt-3 dark:hidden">
+                        <img src="./images/edu-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
+
+                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Education</h3>
+                        <p class="text-gray-600 text-sm dark:text-white/80">
+                            BCA – Lovely Professional University (2021)<br>
+                            MCA – Central University of Himachal Pradesh (2025)
+                        </p>
+                    </li>
+                    <li class="border-[0.5px] border-gray-400 rounded-xl p-6 cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 hover:shadow-black
+                               dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/50">
+                        <img src="./images/project-icon.png" alt="" class="w-7 mt-3 dark:hidden">
+                        <img src="./images/project-icon-dark.png" alt="" class="w-7 mt-3 hidden dark:block">
+
+                        <h3 class="my-4 font-semibold text-gray-700 dark:text-white">Projects</h3>
+                        <p class="text-gray-600 text-sm dark:text-white/80">
+                            Hands-on projects in full-stack web, cloud, IoT-based monitoring,
+                            and blockchain-based e-voting systems.
+                        </p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- ----------- skills + tools ---------  -->
+
+    <div id="skills" class="w-full px-[12%] py-10 scroll-mt-20">
+        <h4 class="text-center mb-2 text-lg font-Ovo">What I do</h4>
+        <h2 class="text-center text-5xl font-Ovo">Skills</h2>
+        <p class="text-center max-w-2xl mx-auto mt-5 font-Ovo">
+            I work across cloud platforms, DevOps tooling, scripting, and systems — with a focus on hands-on, project-based learning.
+        </p>
+
+        <div class="grid grid-cols-auto gap-6 my-10">
+
+  <!-- Card 1 — Cloud Platforms -->
+  <div class="border border-gray-400 rounded-lg px-8 py-12
+      hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500
+      dark:hover:bg-darkHover dark:hover:shadow-white
+      max-h-72 overflow-y-auto md:max-h-none md:overflow-visible">
+      
+    <img src="./images/web-icon.png" alt="" class="w-10">
+    <h3 class="text-lg my-4 text-gray-700 dark:text-white">Cloud Platforms</h3>
+
+    <div class="flex flex-wrap gap-2">
+      <!-- AWS -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">☁️ AWS EC2</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">📦 S3</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🔐 IAM</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🌐 VPC</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">⚙️ Lambda</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🚀 CloudFront</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🗄️ RDS</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">📊 CloudWatch</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🧭 Route 53</span>
+
+      <!-- Azure -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🟦 Azure VM</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">💾 Azure Storage</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🧩 Azure App Services</span>
+
+      <!-- GCP -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🟡 GCP Compute Engine</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">☁️ GCP Storage</span>
+    </div>
+  </div>
+
+
+  <!-- Card 2 — DevOps Tools -->
+  <div class="border border-gray-400 rounded-lg px-8 py-12
+      hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500
+      dark:hover:bg-darkHover dark:hover:shadow-white
+      max-h-72 overflow-y-auto md:max-h-none md:overflow-visible">
+
+    <img src="./images/mobile-icon.png" alt="" class="w-10">
+    <h3 class="text-lg my-4 text-gray-700 dark:text-white">DevOps Tools</h3>
+
+    <div class="flex flex-wrap gap-2">
+      <!-- CI/CD -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🤖 Jenkins</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">⚙️ GitHub Actions</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🦊 GitLab CI</span>
+
+      <!-- IaC -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🧩 Terraform</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🧱 AWS CloudFormation</span>
+
+      <!-- Containers -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🐳 Docker</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🧬 Docker Compose</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">☸️ Kubernetes Basics</span>
+
+      <!-- Config Mgmt -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🛠️ Ansible Basics</span>
+    </div>
+  </div>
+
+
+  <!-- Card 3 — Scripting & Programming -->
+  <div class="border border-gray-400 rounded-lg px-8 py-12
+      hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500
+      dark:hover:bg-darkHover dark:hover:shadow-white
+      max-h-72 overflow-y-auto md:max-h-none md:overflow-visible">
+
+    <img src="./images/ui-icon.png" alt="" class="w-10">
+    <h3 class="text-lg my-4 text-gray-700 dark:text-white">Scripting &amp; Programming</h3>
+
+    <div class="flex flex-wrap gap-2">
+      <!-- Languages -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🐍 Python</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🐚 Bash / Shell</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">📄 YAML</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🧾 JSON</span>
+
+      <!-- Web -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🌐 HTML</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🎨 CSS</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">⚡ JavaScript Basics</span>
+    </div>
+  </div>
+
+
+  <!-- Card 4 — Operating Systems & Tools -->
+  <div class="border border-gray-400 rounded-lg px-8 py-12
+      hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500
+      dark:hover:bg-darkHover dark:hover:shadow-white
+      max-h-72 overflow-y-auto md:max-h-none md:overflow-visible">
+
+    <img src="./images/graphics-icon.png" alt="" class="w-10">
+    <h3 class="text-lg my-4 text-gray-700 dark:text-white">Operating Systems &amp; Tools</h3>
+
+    <div class="flex flex-wrap gap-2">
+      <!-- OS -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🐧 Linux (Ubuntu)</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🐧 Linux (CentOS)</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🪟 Windows Server</span>
+
+      <!-- Version Control -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🧪 Git</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🐙 GitHub</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🦊 GitLab</span>
+
+      <!-- Monitoring -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">📊 CloudWatch</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">📡 Prometheus</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">📈 Grafana</span>
+
+      <!-- Networking -->
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🌐 TCP/IP</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🧩 DNS</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🔒 HTTP/HTTPS</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🛡️ Security Groups</span>
+      <span class="px-3 py-1 bg-gray-100 dark:bg-white/10 rounded-md text-[13px]">🔐 VPN Basics</span>
+    </div>
+  </div>
+
+</div>
+
+        <h4 class="my-6 text-gray-700 font-Ovo dark:text-white/80 text-center sm:text-left">Tools I use</h4>
+
+        <ul class="flex flex-wrap items-center gap-3 sm:gap-5">
+            <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                <img src="./images/vscode.png" alt="" class="w-5 sm:w-7">
+            </li>
+            <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                <img src="./images/git.png" alt="" class="w-5 sm:w-7">
+            </li>
+            <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                <img src="./images/mongodb.png" alt="" class="w-5 sm:w-7">
+            </li>
+            <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                <img src="./images/firebase.png" alt="" class="w-5 sm:w-7">
+            </li>
+            <li class="flex items-center justify-center w-12 sm:w-14 aspect-square border border-gray-400 rounded-lg cursor-pointer hover:-translate-y-1 duration-500">
+                <img src="./images/figma.png" alt="" class="w-5 sm:w-7">
+            </li>
+        </ul>
+    </div>
+
+    <!-- ------------ education timeline ------------  -->
+    <div id="education" class="w-full px-[12%] py-10 scroll-mt-20">
+        <h4 class="text-center mb-2 text-lg font-Ovo">Timeline of</h4>
+        <h2 class="text-center text-5xl font-Ovo">My Education</h2>
+
+        <p class="text-center max-w-2xl mx-auto mt-5 font-Ovo">
+            My academic journey has shaped both my technical foundation and my interest in cloud computing,
+            DevOps, and full-stack development. Here’s a quick walk through the milestones that built the
+            base for my career.
+        </p>
+
+        <div class="max-w-4xl mx-auto mt-14 relative">
+
+            <!-- Vertical timeline line -->
+            <div class="absolute left-6 top-0 bottom-0 w-px bg-gray-400 dark:bg-white/40"></div>
+
+            <!-- ITEM 1 — MCA -->
+            <div class="flex gap-6 mb-12 relative">
+                <!-- Dot -->
+                <div class="w-3 h-3 bg-black dark:bg-white rounded-full mt-2 ml-[4px] z-10"></div>
+
+                <!-- Card -->
+                <div class="flex-1 border border-gray-400 rounded-lg px-8 py-8
+                            hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500
+                            dark:hover:bg-darkHover dark:hover:shadow-white bg-transparent dark:bg-transparent">
+
+                    <p class="text-xs uppercase tracking-[0.15em] text-gray-500 dark:text-white/70 mb-1">
+                        2023 – 2025
+                    </p>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">
+                        Master of Computer Applications (MCA)
+                    </h3>
+
+                    <p class="text-gray-600 dark:text-white/75 text-sm mt-1">
+                        Central University of Himachal Pradesh
+                    </p>
+
+                    <p class="text-gray-700 dark:text-white/80 text-sm mt-4 leading-6">
+                        My postgraduate work strengthened my expertise in cloud computing, DevOps practices,
+                        application development, and distributed systems. During this time, I also worked on my dissertation:
+                        <span class="italic">“Permissioned Smart Contract–based E-Voting System for University.”</span>
+                        This project deepened my understanding of blockchain, smart contracts, and secure system design.
+                    </p>
+                </div>
+            </div>
+
+            <!-- ITEM 2 — BCA -->
+            <div class="flex gap-6 mb-4 relative">
+                <!-- Dot -->
+                <div class="w-3 h-3 bg-black dark:bg-white rounded-full mt-2 ml-[4px] z-10"></div>
+
+                <!-- Card -->
+                <div class="flex-1 border border-gray-400 rounded-lg px-8 py-8
+                            hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500
+                            dark:hover:bg-darkHover dark:hover:shadow-white bg-transparent dark:bg-transparent">
+
+                    <p class="text-xs uppercase tracking-[0.15em] text-gray-500 dark:text-white/70 mb-1">
+                        2018 – 2021
+                    </p>
+
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">
+                        Bachelor of Computer Applications (BCA)
+                    </h3>
+
+                    <p class="text-gray-600 dark:text-white/75 text-sm mt-1">
+                        Lovely Professional University
+                    </p>
+
+                    <p class="text-gray-700 dark:text-white/80 text-sm mt-4 leading-6">
+                        This phase helped me build strong fundamentals in programming, data structures,
+                        databases, networking, and operating systems. It also sparked my interest in
+                        cloud and system engineering, ultimately leading me to pursue DevOps and
+                        cloud platforms more seriously.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ----------- certifications ---------  -->
+    <div id="certifications" class="w-full px-[12%] py-10 scroll-mt-20">
+        <h4 class="text-center mb-2 text-lg font-Ovo">Credentials</h4>
+        <h2 class="text-center text-5xl font-Ovo">Certifications</h2>
+        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+            A mix of cloud, DevOps, professional readiness, mobile development, and generative AI learning.
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-6 my-10">
+
+            <!-- AWS Certified Cloud Practitioner -->
+            <div class="border border-gray-400 rounded-lg px-8 py-8 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <h3 class="text-lg my-2 text-gray-700 dark:text-white font-semibold">
+                            AWS Certified Cloud Practitioner
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-white/70">
+                            Amazon Web Services
+                        </p>
+                    </div>
+
+                    <a href="#" target="_blank"
+                       class="mt-2 inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-gray-400 text-[11px] sm:text-xs text-gray-700 bg-white/80
+                              hover:bg-lightHover hover:-translate-y-[1px] transition whitespace-nowrap shrink-0
+                              dark:bg-transparent dark:text-white/80 dark:border-white/60 dark:hover:bg-darkHover">
+                        <span>Verify certificate</span>
+                        <img src="./images/right-arrow.png" alt="" class="w-3 dark:hidden">
+                        <img src="./images/right-arrow-white.png" alt="" class="w-3 hidden dark:block">
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-600 leading-5 dark:text-white/80 mt-4">
+                    Validates understanding of AWS fundamentals, core services, security, pricing, and cloud best practices.
+                </p>
+                <p class="mt-2 text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
+                    Cloud fundamentals
+                </p>
+            </div>
+
+            <!-- DevOps Engineering Program (GeeksforGeeks) -->
+            <div class="border border-gray-400 rounded-lg px-8 py-8 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <h3 class="text-lg my-2 text-gray-700 dark:text-white font-semibold">
+                            DevOps Engineering Program (Internship Training)
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-white/70">
+                            GeeksforGeeks · 23 Aug 2025 – 9 Nov 2025
+                        </p>
+                    </div>
+
+                    <a href="#" target="_blank"
+                       class="mt-2 inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-gray-400 text-[11px] sm:text-xs text-gray-700 bg-white/80
+                              hover:bg-lightHover hover:-translate-y-[1px] transition whitespace-nowrap shrink-0
+                              dark:bg-transparent dark:text-white/80 dark:border-white/60 dark:hover:bg-darkHover">
+                        <span>Verify certificate</span>
+                        <img src="./images/right-arrow.png" alt="" class="w-3 dark:hidden">
+                        <img src="./images/right-arrow-white.png" alt="" class="w-3 hidden dark:block">
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-600 leading-5 dark:text-white/80 mt-4">
+                    Hands-on exposure to CI/CD, containerization, cloud deployment workflows, and monitoring as part of a structured DevOps training program.
+                </p>
+                <p class="mt-2 text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
+                    DevOps internship training
+                </p>
+            </div>
+
+            <!-- TCS iON Career Edge -->
+            <div class="border border-gray-400 rounded-lg px-8 py-8 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <h3 class="text-lg my-2 text-gray-700 dark:text-white font-semibold">
+                            TCS iON Career Edge – Young Professional
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-white/70">
+                            TCS iON
+                        </p>
+                    </div>
+
+                    <a href="#" target="_blank"
+                       class="mt-2 inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-gray-400 text-[11px] sm:text-xs text-gray-700 bg-white/80
+                              hover:bg-lightHover hover:-translate-y-[1px] transition whitespace-nowrap shrink-0
+                              dark:bg-transparent dark:text-white/80 dark:border-white/60 dark:hover:bg-darkHover">
+                        <span>Verify certificate</span>
+                        <img src="./images/right-arrow.png" alt="" class="w-3 dark:hidden">
+                        <img src="./images/right-arrow-white.png" alt="" class="w-3 hidden dark:block">
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-600 leading-5 dark:text-white/80 mt-4">
+                    Covers business communication, corporate etiquette, goal setting, and foundational soft skills needed for early-career professionals.
+                </p>
+                <p class="mt-2 text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
+                    Professional readiness
+                </p>
+            </div>
+
+            <!-- Android App Development -->
+            <div class="border border-gray-400 rounded-lg px-8 py-8 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <h3 class="text-lg my-2 text-gray-700 dark:text-white font-semibold">
+                            Android App Development
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-white/70">
+                            Internshala
+                        </p>
+                    </div>
+
+                    <a href="#" target="_blank"
+                       class="mt-2 inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-gray-400 text-[11px] sm:text-xs text-gray-700 bg-white/80
+                              hover:bg-lightHover hover:-translate-y-[1px] transition whitespace-nowrap shrink-0
+                              dark:bg-transparent dark:text-white/80 dark:border-white/60 dark:hover:bg-darkHover">
+                        <span>Verify certificate</span>
+                        <img src="./images/right-arrow.png" alt="" class="w-3 dark:hidden">
+                        <img src="./images/right-arrow-white.png" alt="" class="w-3 hidden dark:block">
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-600 leading-5 dark:text-white/80 mt-4">
+                    Learned the basics of Android app development, UI components, activities, and integrating core features into functional mobile apps.
+                </p>
+                <p class="mt-2 text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
+                    Mobile development
+                </p>
+            </div>
+
+            <!-- Foundations of Generative AI -->
+            <div class="border border-gray-400 rounded-lg px-8 py-8 hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 dark:hover:bg-darkHover dark:hover:shadow-white">
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <h3 class="text-lg my-2 text-gray-700 dark:text-white font-semibold">
+                            Foundations of Generative AI
+                        </h3>
+                        <p class="text-sm text-gray-500 dark:text-white/70">
+                            UpGrad
+                        </p>
+                    </div>
+
+                    <a href="#" target="_blank"
+                       class="mt-2 inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-gray-400 text-[11px] sm:text-xs text-gray-700 bg-white/80
+                              hover:bg-lightHover hover:-translate-y-[1px] transition whitespace-nowrap shrink-0
+                              dark:bg-transparent dark:text-white/80 dark:border-white/60 dark:hover:bg-darkHover">
+                        <span>Verify certificate</span>
+                        <img src="./images/right-arrow.png" alt="" class="w-3 dark:hidden">
+                        <img src="./images/right-arrow-white.png" alt="" class="w-3 hidden dark:block">
+                    </a>
+                </div>
+
+                <p class="text-sm text-gray-600 leading-5 dark:text-white/80 mt-4">
+                    Introduces core generative AI concepts, model basics, and how modern tools can be used to augment software development and problem-solving.
+                </p>
+                <p class="mt-2 text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
+                    GenAI fundamentals
+                </p>
+            </div>
+
+        </div>
+    </div>
+
+
+
+<!-- ----------- publications ---------  -->
+<div id="publications" class="w-full px-[12%] py-10 scroll-mt-20">
+  <h4 class="text-center mb-2 text-lg font-Ovo">Research & Writing</h4>
+  <h2 class="text-center text-5xl font-Ovo">Publication</h2>
+  <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+    My research currently focuses on applying blockchain and smart contracts to build secure,
+    transparent, and decentralized systems for real-world use cases.
+  </p>
+
+  <div class="grid md:grid-cols-2 gap-6 my-10">
+
+    <!-- Paper 1: Blockchain-based e-voting for university -->
+    <div class="border border-gray-400 rounded-lg px-8 py-8 
+                hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 
+                dark:hover:bg-darkHover dark:hover:shadow-white
+                max-h-80 overflow-y-auto md:max-h-none md:overflow-visible">
+
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-lg my-2 text-gray-700 dark:text-white font-semibold">
+            Blockchain-Based E-Voting for University
+          </h3>
+          <p class="text-[13px] text-gray-500 dark:text-white/70">
+            NetCrypt 2025 · Jawaharlal Nehru University, New Delhi · Published in IEEE Xplore
+          </p>
+        </div>
+
+        <!-- Verify / IEEE link placeholder -->
+        <a href="#" target="_blank"
+           class="mt-2 inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-gray-400 
+                  text-[11px] sm:text-xs text-gray-700 bg-white/80 whitespace-nowrap shrink-0
+                  hover:bg-lightHover hover:-translate-y-[1px] transition
+                  dark:bg-transparent dark:text-white/80 dark:border-white/60 dark:hover:bg-darkHover">
+          <span>View paper</span>
+          <img src="./images/right-arrow.png" alt="" class="w-3 dark:hidden">
+          <img src="./images/right-arrow-white.png" alt="" class="w-3 hidden dark:block">
+        </a>
+      </div>
+
+      <p class="text-[13px] text-gray-600 leading-5 dark:text-white/80 mt-4">
+        Proposes a permissioned blockchain-based e-voting system tailored for university elections,
+        leveraging smart contracts to ensure transparency, immutability, and verifiable results while
+        preserving voter privacy and integrity.
+      </p>
+      <p class="mt-2 text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
+        E-voting · Blockchain · Smart contracts
+      </p>
+    </div>
+
+    <!-- Paper 2: Medical records & prescriptions on Ethereum + IPFS -->
+    <div class="border border-gray-400 rounded-lg px-8 py-8 
+                hover:shadow-black cursor-pointer hover:bg-lightHover hover:-translate-y-1 duration-500 
+                dark:hover:bg-darkHover dark:hover:shadow-white
+                max-h-80 overflow-y-auto md:max-h-none md:overflow-visible">
+
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-lg my-2 text-gray-700 dark:text-white font-semibold">
+            A Role-Based Secure and Decentralized Framework for Medical Record and Prescription Verification
+            Using Ethereum Smart Contracts and IPFS
+          </h3>
+          <p class="text-[13px] text-gray-500 dark:text-white/70">
+            NetCrypt 2025 · Jawaharlal Nehru University, New Delhi · Published in IEEE Xplore
+          </p>
+        </div>
+
+        <!-- Verify / IEEE link placeholder -->
+        <a href="#" target="_blank"
+           class="mt-2 inline-flex items-center gap-1 px-2.5 py-1 rounded-full border border-gray-400 
+                  text-[11px] sm:text-xs text-gray-700 bg-white/80 whitespace-nowrap shrink-0
+                  hover:bg-lightHover hover:-translate-y-[1px] transition
+                  dark:bg-transparent dark:text-white/80 dark:border-white/60 dark:hover:bg-darkHover">
+          <span>View paper</span>
+          <img src="./images/right-arrow.png" alt="" class="w-3 dark:hidden">
+          <img src="./images/right-arrow-white.png" alt="" class="w-3 hidden dark:block">
+        </a>
+      </div>
+
+      <p class="text-[13px] text-gray-600 leading-5 dark:text-white/80 mt-4">
+        Introduces a role-based, decentralized framework where medical records and prescriptions are 
+        stored using IPFS and verified through Ethereum smart contracts, improving data integrity, 
+        auditability, and patient–doctor–pharmacy trust.
+      </p>
+      <p class="mt-2 text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
+        Healthcare · Ethereum · IPFS · Access control
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+
+    
+    <!-- ------------ my work ------------  -->
+<div id="work" class="w-full px-[12%] py-10 scroll-mt-20">
+  <h4 class="text-center mb-2 text-lg font-Ovo">My portfolio</h4>
+  <h2 class="text-center text-5xl font-Ovo">My latest work</h2>
+  <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+      A snapshot of the projects I’ve been building around web development,
+      cloud, and emerging technologies.
+  </p>
+
+  <div class="grid grid-cols-auto my-10 gap-5 dark:text-black">
+
+    <!-- CARD 1 -->
+    <div class="aspect-square relative cursor-pointer group overflow-hidden rounded-lg">
+      <!-- Zooming background image -->
+      <div class="absolute inset-0 bg-[url('./images/work-1.png')] bg-no-repeat bg-cover bg-center 
+                  transition-transform duration-500 ease-out group-hover:scale-110"></div>
+
+      <!-- Overlay -->
+      <a href="https://github.com/iadityarajsingh/Login-and-SignUp-Form-with-Captcha-Validation" target="_blank"
+         class="absolute bottom-6 left-1/2 -translate-x-1/2 transform z-10
+                bg-white w-10/12 rounded-md py-3 px-5
+                flex items-center justify-between duration-500 group-hover:-translate-y-1">
+        <div>
+          <h2 class="font-semibold">User Authentication System</h2>
+          <p class="text-sm text-gray-700">Login & Signup with Captcha</p>
+        </div>
+        <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center 
+                    shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+          <img src="./images/send-icon.png" alt="" class="w-5">
+        </div>
+      </a>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="aspect-square relative cursor-pointer group overflow-hidden rounded-lg">
+      <div class="absolute inset-0 bg-[url('./images/work-2.png')] bg-no-repeat bg-cover bg-center 
+                  transition-transform duration-500 ease-out group-hover:scale-110"></div>
+
+      <a href="https://github.com/iadityarajsingh" target="_blank"
+         class="absolute bottom-6 left-1/2 -translate-x-1/2 transform z-10
+                bg-white w-10/12 rounded-md py-3 px-5
+                flex items-center justify-between duration-500 group-hover:-translate-y-1">
+        <div>
+          <h2 class="font-semibold">IT Service Management Portal</h2>
+          <p class="text-sm text-gray-700">Full-stack Java project</p>
+        </div>
+        <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center 
+                    shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+          <img src="./images/send-icon.png" alt="" class="w-5">
+        </div>
+      </a>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="aspect-square relative cursor-pointer group overflow-hidden rounded-lg">
+      <div class="absolute inset-0 bg-[url('./images/work-3.png')] bg-no-repeat bg-cover bg-center 
+                  transition-transform duration-500 ease-out group-hover:scale-110"></div>
+
+      <a href="https://github.com/iadityarajsingh" target="_blank"
+         class="absolute bottom-6 left-1/2 -translate-x-1/2 transform z-10
+                bg-white w-10/12 rounded-md py-3 px-5
+                flex items-center justify-between duration-500 group-hover:-translate-y-1">
+        <div>
+          <h2 class="font-semibold">Remote Patient Monitoring</h2>
+          <p class="text-sm text-gray-700">IoT · Cloud · AI</p>
+        </div>
+        <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center 
+                    shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+          <img src="./images/send-icon.png" alt="" class="w-5">
+        </div>
+      </a>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="aspect-square relative cursor-pointer group overflow-hidden rounded-lg">
+      <div class="absolute inset-0 bg-[url('./images/work-4.png')] bg-no-repeat bg-cover bg-center 
+                  transition-transform duration-500 ease-out group-hover:scale-110"></div>
+
+      <a href="https://github.com/iadityarajsingh" target="_blank"
+         class="absolute bottom-6 left-1/2 -translate-x-1/2 transform z-10
+                bg-white w-10/12 rounded-md py-3 px-5
+                flex items-center justify-between duration-500 group-hover:-translate-y-1">
+        <div>
+          <h2 class="font-semibold">Permissioned E-Voting System</h2>
+          <p class="text-sm text-gray-700">Blockchain · Smart contracts</p>
+        </div>
+        <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center 
+                    shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
+          <img src="./images/send-icon.png" alt="" class="w-5">
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+  <a href="https://github.com/iadityarajsingh" target="_blank"
+     class="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500
+            dark:text-white dark:border-white dark:hover:bg-darkHover">
+    Show more
+    <img src="./images/right-arrow-bold.png" alt="" class="w-4 dark:hidden">
+    <img src="./images/right-arrow-bold-dark.png" alt="" class="w-4 hidden dark:block">
+  </a>
+</div>
+
+
+    <!-- ----- contact -------------  -->
+    <div id="contact" class="w-full px-[12%] py-10 scroll-mt-20 bg-[url('./images/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center dark:bg-none">
+        <h4 class="text-center mb-2 text-lg font-Ovo">Connect with me</h4>
+        <h2 class="text-center text-5xl font-Ovo">Get in touch</h2>
+        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
+            If you’d like to collaborate, discuss a project, or just talk tech, feel free to reach out.
+        </p>
+
+        <form method="POST" action="https://api.web3forms.com/submit" class="max-w-2xl mx-auto">
+            <!-- Enter your web3 form access key below -->
+            <input type="hidden" name="access_key" value="9630561b-62b0-4a75-9624-72a96af1fecf">
+
+            <div class="grid grid-cols-auto gap-6 mt-10 mb-8">
+                <input type="text" placeholder="Enter your name" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90" required name="name">
+                <input type="email" placeholder="Enter your email" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90" required name="email">
+            </div>
+
+            <textarea rows="6" placeholder="Enter your message" class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90" required name="message"></textarea>
+
+            <button class="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">
+                Submit now
+                <img src="./images/right-arrow-white.png" alt="" class="w-4">
+            </button>
+        </form>
+    </div>
+
+    <!-- ----------- footer ---------  -->
+    <div class="mt-20">
+        <div class="text-center">
+            <img src="./images/name-logo-light.png" alt="" class="w-36 mx-auto mb-2 dark:hidden">
+            <img src="./images/name-logo-dark.png" alt="" class="w-36 mx-auto mb-2 hidden dark:block">
+
+            <div class="w-max flex items-center gap-2 mx-auto">
+                <img src="./images/mail_icon.png" alt="" class="w-6 dark:hidden">
+                <img src="./images/mail_icon_dark.png" alt="" class="w-6 hidden dark:block">
+
+                adityarsingh.work@gmail.com
+            </div>
+        </div>
+        <div class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
+            <p>© Made with ❤️ by Aditya.</p>
+            <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
+                <li><a target="_blank" href="https://github.com/iadityarajsingh">GitHub</a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/ars01">LinkedIn</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
