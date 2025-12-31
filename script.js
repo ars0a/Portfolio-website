@@ -1,7 +1,8 @@
 // ================= ELEMENT REFERENCES =================
 const sideMenu = document.querySelector('#sideMenu');
-const navBar = document.querySelector('nav');
-const navLinks = document.querySelector('nav ul'); // may be null on mobile
+const navbar = document.getElementById('navbar');
+const navLinks = document.querySelectorAll('.nav-link');
+const sections = document.querySelectorAll('section[id], div[id]');
 
 // ================= MOBILE MENU =================
 function openMenu() {
@@ -12,51 +13,33 @@ function closeMenu() {
   sideMenu.style.transform = 'translateX(16rem)';
 }
 
-// ================= NAVBAR SCROLL EFFECT =================
+// ================= NAVBAR SHRINK ON SCROLL =================
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navBar.classList.add(
-      'bg-white',
-      'bg-opacity-50',
-      'backdrop-blur-lg',
-      'shadow-sm',
-      'dark:bg-darkTheme',
-      'dark:shadow-white/20'
-    );
-
-    if (navLinks) {
-      navLinks.classList.remove(
-        'bg-white',
-        'shadow-sm',
-        'bg-opacity-50',
-        'dark:border',
-        'dark:border-white/50',
-        'dark:bg-transparent'
-      );
-    }
-
+  if (window.scrollY > 40) {
+    navbar.classList.add('nav-shrink');
   } else {
-    navBar.classList.remove(
-      'bg-white',
-      'bg-opacity-50',
-      'backdrop-blur-lg',
-      'shadow-sm',
-      'dark:bg-darkTheme',
-      'dark:shadow-white/20'
-    );
-
-    if (navLinks) {
-      navLinks.classList.add(
-        'bg-white',
-        'shadow-sm',
-        'bg-opacity-50',
-        'dark:border',
-        'dark:border-white/50',
-        'dark:bg-transparent'
-      );
-    }
+    navbar.classList.remove('nav-shrink');
   }
 });
+
+// ================= ACTIVE NAV LINK ON SCROLL =================
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navLinks.forEach(link => {
+          const targetId = link.getAttribute('href')?.substring(1);
+          link.classList.toggle('active', targetId === entry.target.id);
+        });
+      }
+    });
+  },
+  {
+    rootMargin: '-45% 0px -45% 0px'
+  }
+);
+
+sections.forEach(section => sectionObserver.observe(section));
 
 // ================= DARK / LIGHT MODE =================
 if (
@@ -77,8 +60,6 @@ function toggleTheme() {
 }
 
 // ================= SCROLL REVEAL (IntersectionObserver) =================
-
-// Respect reduced motion preference
 const prefersReducedMotion = window.matchMedia(
   '(prefers-reduced-motion: reduce)'
 ).matches;
@@ -91,7 +72,7 @@ if (!prefersReducedMotion) {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('show');
-          observer.unobserve(entry.target); // animate once
+          observer.unobserve(entry.target);
         }
       });
     },
@@ -102,7 +83,6 @@ if (!prefersReducedMotion) {
 
   revealElements.forEach(el => revealObserver.observe(el));
 } else {
-  // Reduced motion: show everything immediately
   document.querySelectorAll('.reveal').forEach(el => {
     el.classList.add('show');
   });

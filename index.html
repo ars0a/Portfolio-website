@@ -7,72 +7,15 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="./tailwind.config.js"></script>
+    <link rel="stylesheet" href="./style.css">
+
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
 </head>
 
-<style>
-  .animate-hero {
-    opacity: 0;
-    transform: translateY(24px);
-    animation: heroFadeUp 0.8s ease-out forwards;
-  }
 
-  .delay-1 { animation-delay: 0.1s; }
-  .delay-2 { animation-delay: 0.25s; }
-  .delay-3 { animation-delay: 0.4s; }
-  .delay-4 { animation-delay: 0.55s; }
-  .delay-5 { animation-delay: 0.7s; }
-
-  @keyframes heroFadeUp {
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  section,
-  div[id] {
-    scroll-margin-top: 6rem; /* ~ navbar height */
-  }
-
-  @media (min-width: 768px) {
-    section,
-    div[id] {
-      scroll-margin-top: 7rem;
-    }
-  }
-
-  /* ===== Scroll reveal (default) ===== */
-.reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* ===== Reduced motion support ===== */
-@media (prefers-reduced-motion: reduce) {
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-
-  .animate-hero {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
-
-</style>
 
 
 <body class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
@@ -83,121 +26,114 @@
 </div>
 
 <!-- ================= NAVBAR ================= -->
-<nav class="w-full fixed px-4 md:px-6 lg:px-8 xl:px-[8%] py-4
-            flex items-center justify-center z-50">
+<nav id="navbar"
+     class="fixed top-0 z-50 w-full
+            px-4 md:px-6 lg:px-8 xl:px-[8%]
+            py-6 md:py-4
+            flex items-center justify-center
+            transition-all duration-300 ease-out">
 
-    <!-- LEFT: Logo -->
-    <div class="absolute left-4 md:left-6 lg:left-8 xl:left-[8%] flex items-center shrink-0">
-        <img src="./images/name-logo-light.png"
-             class="w-28 cursor-pointer mr-4 dark:hidden">
-        <img src="./images/name-logo-dark.png"
-             class="w-28 cursor-pointer mr-4 hidden dark:block">
-    </div>
+  <!-- LEFT: Logo -->
+  <div class="absolute left-4 md:left-6 lg:left-8 xl:left-[8%]
+              flex items-center h-full">
+    <img src="./images/name-logo-light.png"
+         class="w-28 cursor-pointer dark:hidden">
+    <img src="./images/name-logo-dark.png"
+         class="w-28 cursor-pointer hidden dark:block">
+  </div>
 
-    <!-- MIDDLE: Nav links (desktop only) -->
-    <div class="hidden md:flex items-center justify-center">
+  <!-- CENTER: Desktop Nav -->
+  <ul id="navLinks"
+      class="hidden md:flex items-center gap-6 lg:gap-8
+             rounded-full px-10 py-3
+             bg-white/60 backdrop-blur
+             shadow-sm font-Ovo
+             transition-all duration-300
+             dark:bg-transparent dark:border dark:border-white/50">
 
-        <ul class="flex items-center gap-6 lg:gap-8 rounded-full px-10 py-3
-                   bg-white/60 shadow-sm font-Ovo
-                   dark:bg-transparent dark:border dark:border-white/50">
-            <li><a href="#top">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#education">Education</a></li>
-            <li><a href="#certifications">Certifications</a></li>
-            <li><a href="#publications">Publication</a></li>
-            <li><a href="#work">Work</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </div>
+    <li><a href="#top" class="nav-link">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#education" class="nav-link">Education</a></li>
+    <li><a href="#certifications" class="nav-link">Certifications</a></li>
+    <li><a href="#publications" class="nav-link">Publication</a></li>
+    <li><a href="#work" class="nav-link">Work</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
 
-    <!-- RIGHT: Social + theme + mobile -->
-    <div class="absolute right-4 md:right-6 lg:right-8 xl:right-[8%] flex items-center gap-3 shrink-0">
+  <!-- RIGHT: Controls -->
+  <div class="absolute right-4 md:right-6 lg:right-8 xl:right-[8%]
+              flex items-center gap-2 h-full">
 
-        <!-- Social icons (xl+ ONLY, smaller size) -->
-        <div class="hidden xl:flex items-center gap-2 mr-2">
+    <!-- Theme toggle (mobile + desktop) -->
+    <button onclick="toggleTheme()" class="p-2">
+      <img src="./images/moon_icon.png" class="w-6 dark:hidden">
+      <img src="./images/sun_icon.png" class="w-6 hidden dark:block">
+    </button>
 
-            <a href="https://github.com/iadityarajsingh" target="_blank"
-               class="flex items-center justify-center w-8 h-8 rounded-full
-                      border border-gray-400 bg-white/70
-                      hover:-translate-y-0.5 hover:shadow-md transition
-                      dark:bg-transparent dark:border-white/60">
-                <img src="./images/github-mark.png"
-                     class="w-4 h-4 dark:hidden">
-                <img src="./images/github-mark-white.png"
-                     class="w-4 h-4 hidden dark:block">
-            </a>
+    <!-- Mobile menu -->
+    <button class="block md:hidden p-2" onclick="openMenu()">
+      <img src="./images/menu-black.png" class="w-6 dark:hidden">
+      <img src="./images/menu-white.png" class="w-6 hidden dark:block">
+    </button>
 
-            <a href="https://www.linkedin.com/in/your-linkedin-url" target="_blank"
-               class="flex items-center justify-center w-8 h-8 rounded-full
-                      border border-gray-400 bg-white/70
-                      hover:-translate-y-0.5 hover:shadow-md transition
-                      dark:bg-transparent dark:border-white/60">
-                <img src="./images/linkedin.png" class="w-4 h-4">
-            </a>
-        </div>
-
-        <!-- Theme toggle (md+) -->
-        <button onclick="toggleTheme()" class="hidden md:block">
-            <img src="./images/moon_icon.png" class="w-6 dark:hidden">
-            <img src="./images/sun_icon.png" class="w-6 hidden dark:block">
-        </button>
-
-        <!-- Contact button (lg+) -->
-        <a href="#contact"
-           class="hidden lg:flex items-center gap-2 px-8 py-2.5
-                  border border-gray-500 rounded-full font-Ovo
-                  dark:border-white/50">
-            Contact
-            <img src="./images/arrow-icon.png" class="w-3 dark:hidden">
-            <img src="./images/arrow-icon-dark.png" class="w-3 hidden dark:block">
-        </a>
-
-        <!-- Mobile menu (sm only) -->
-        <button class="block md:hidden ml-1" onclick="openMenu()">
-            <img src="./images/menu-black.png" class="w-6 dark:hidden">
-            <img src="./images/menu-white.png" class="w-6 hidden dark:block">
-        </button>
-    </div>
+    <!-- Contact button (desktop only) -->
+    <a href="#contact"
+       class="hidden lg:flex items-center gap-2 px-8 py-2.5
+              border border-gray-500 rounded-full font-Ovo
+              dark:border-white/50">
+      Contact
+      <img src="./images/arrow-icon.png" class="w-3 dark:hidden">
+      <img src="./images/arrow-icon-dark.png" class="w-3 hidden dark:block">
+    </a>
+  </div>
 </nav>
+
+
 
 
 <!-- ================= MOBILE MENU ================= -->
 <ul id="sideMenu"
-    class="flex md:hidden flex-col gap-4 py-20 px-10 fixed
-           -right-64 top-0 bottom-0 w-64 h-screen z-50
-           bg-rose-50 transition duration-500 font-Ovo
+    class="fixed top-0 right-[-16rem] z-50
+           h-screen w-64
+           flex flex-col gap-4
+           py-20 px-10
+           bg-rose-50 font-Ovo
+           transition-transform duration-500
+           md:hidden
            dark:bg-darkHover dark:text-white">
 
-    <div class="absolute right-6 top-6" onclick="closeMenu()">
-        <img src="./images/close-black.png" class="w-5 dark:hidden">
-        <img src="./images/close-white.png" class="w-5 hidden dark:block">
-    </div>
+  <!-- Close -->
+  <button class="absolute top-6 right-6" onclick="closeMenu()">
+    <img src="./images/close-black.png" class="w-5 dark:hidden">
+    <img src="./images/close-white.png" class="w-5 hidden dark:block">
+  </button>
 
-    <li><a href="#top" onclick="closeMenu()">Home</a></li>
-    <li><a href="#about" onclick="closeMenu()">About</a></li>
-    <li><a href="#education" onclick="closeMenu()">Education</a></li>
-    <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
-    <li><a href="#publications" onclick="closeMenu()">Publication</a></li>
-    <li><a href="#work" onclick="closeMenu()">Work</a></li>
-    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+  <li><a href="#top" onclick="closeMenu()">Home</a></li>
+  <li><a href="#about" onclick="closeMenu()">About</a></li>
+  <li><a href="#education" onclick="closeMenu()">Education</a></li>
+  <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
+  <li><a href="#publications" onclick="closeMenu()">Publication</a></li>
+  <li><a href="#work" onclick="closeMenu()">Work</a></li>
+  <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
 
-    <!-- mobile socials -->
-    <div class="flex items-center gap-3 mt-6 pt-4 border-t border-gray-300 dark:border-gray-600">
-        <a href="https://github.com/iadityarajsingh" target="_blank"
-           class="w-9 h-9 flex items-center justify-center rounded-full
-                  border border-gray-400 bg-rose-100
-                  dark:bg-darkHover dark:border-white/60">
-            <img src="./images/github-mark.png" class="w-5 dark:hidden">
-            <img src="./images/github-mark-white.png" class="w-5 hidden dark:block">
-        </a>
+  <!-- Mobile socials -->
+  <div class="flex items-center gap-3 mt-6 pt-4 border-t
+              border-gray-300 dark:border-gray-600">
+    <a href="https://github.com/iadityarajsingh" target="_blank"
+       class="w-9 h-9 flex items-center justify-center rounded-full
+              border border-gray-400 bg-rose-100
+              dark:bg-darkHover dark:border-white/60">
+      <img src="./images/github-mark.png" class="w-5 dark:hidden">
+      <img src="./images/github-mark-white.png" class="w-5 hidden dark:block">
+    </a>
 
-        <a href="https://www.linkedin.com/in/your-linkedin-url" target="_blank"
-           class="w-9 h-9 flex items-center justify-center rounded-full
-                  border border-gray-400 bg-rose-100
-                  dark:bg-darkHover dark:border-white/60">
-            <img src="./images/linkedin.png" class="w-5">
-        </a>
-    </div>
+    <a href="https://www.linkedin.com/in/your-linkedin-url" target="_blank"
+       class="w-9 h-9 flex items-center justify-center rounded-full
+              border border-gray-400 bg-rose-100
+              dark:bg-darkHover dark:border-white/60">
+      <img src="./images/linkedin.png" class="w-5">
+    </a>
+  </div>
 </ul>
 
 

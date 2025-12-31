@@ -1,0 +1,100 @@
+/* ================= HERO ENTRANCE ================= */
+.animate-hero {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: heroFadeUp 0.8s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.25s; }
+.delay-3 { animation-delay: 0.4s; }
+.delay-4 { animation-delay: 0.55s; }
+.delay-5 { animation-delay: 0.7s; }
+
+@keyframes heroFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= SCROLL OFFSET ================= */
+section,
+div[id] {
+  scroll-margin-top: 6rem;
+}
+
+@media (min-width: 768px) {
+  section,
+  div[id] {
+    scroll-margin-top: 7rem;
+  }
+}
+
+/* ================= SCROLL REVEAL ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= NAVBAR SHRINK ================= */
+#navbar {
+  transition:
+    padding 0.25s ease,
+    background-color 0.25s ease,
+    backdrop-filter 0.25s ease;
+}
+
+#navbar.nav-shrink {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.dark #navbar.nav-shrink {
+  background-color: rgba(10, 10, 10, 0.6);
+}
+
+/* ================= ACTIVE NAV LINK ================= */
+.nav-link {
+  position: relative;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+.nav-link.active {
+  color: #7c3aed; /* violet-600 */
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, #b820e6, #da7d20);
+  border-radius: 999px;
+}
+
+.dark .nav-link.active {
+  color: #c4b5fd;
+}
+
+/* ================= REDUCED MOTION ================= */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .animate-hero {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
+  }
+}
