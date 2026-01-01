@@ -2,57 +2,6 @@
 <html lang="en" class="scroll-smooth">
 <head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Aditya Raj Singh</title>
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="./tailwind.config.js"></script>
-    <link rel="stylesheet" href="./style.css">
-
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
-</head>
-
-
-
-
-<body class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
-
-<!-- background accent -->
-<div class="fixed top-0 right-0 w-11/12 -z-10 translate-y-[-80%] dark:hidden">
-    <img src="./images/header-bg-color.png" alt="" class="w-full">
-</div>
-
-<!-- ================= NAVBAR ================= -->
-<nav id="navbar"
-     class="fixed top-0 z-50 w-full
-            px-4 md:px-6 lg:px-8 xl:px-[8%]
-            py-6 md:py-4
-            flex items-center justify-center
-            transition-all duration-300 ease-out">
-
-  <!-- LEFT: Logo -->
-  <div class="absolute left-4 md:left-6 lg:left-8 xl:left-[8%]
-              flex items-center h-full">
-    <img src="./images/name-logo-light.png"
-         class="w-28 cursor-pointer dark:hidden">
-    <img src="./images/name-logo-dark.png"
-         class="w-28 cursor-pointer hidden dark:block">
-  </div>
-
-  <!-- CENTER: Desktop Nav -->
-  <ul id="navLinks"
-      class="hidden md:flex items-center gap-6 lg:gap-8
-             rounded-full px-10 py-3
-             bg-white/60 backdrop-blur
-             shadow-sm font-Ovo
-             transition-all duration-300
-             dark:bg-transparent dark:border dark:border-white/50">
-
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portfolio · Aditya Raj Singh</title>
@@ -92,21 +41,18 @@
 
   <!-- Logo -->
   <div class="absolute left-4 md:left-6 lg:left-8 xl:left-[8%] flex items-center h-full">
-<a href="#top" aria-label="Scroll to top">
-  <img
-    src="./images/name-logo-light.png"
-    alt="Aditya Raj Singh logo"
-    class="w-32 sm:w-36 md:w-40 cursor-pointer transition-opacity hover:opacity-80 dark:hidden"
-  />
-</a>
-
-<a href="#top" aria-label="Scroll to top">
-  <img
-    src="./images/name-logo-dark.png"
-    alt="Aditya Raj Singh logo"
-    class="w-32 sm:w-36 md:w-40 cursor-pointer transition-opacity hover:opacity-80 hidden dark:block"
-  />
-</a>
+    <a href="#top" aria-label="Scroll to top">
+      <img
+        src="./images/name-logo-light.png"
+        alt="Aditya Raj Singh logo"
+        class="w-32 sm:w-36 md:w-40 cursor-pointer hover:opacity-80 dark:hidden"
+      />
+      <img
+        src="./images/name-logo-dark.png"
+        alt="Aditya Raj Singh logo"
+        class="w-32 sm:w-36 md:w-40 cursor-pointer hover:opacity-80 hidden dark:block"
+      />
+    </a>
   </div>
 
   <!-- Desktop Nav -->
@@ -116,62 +62,35 @@
            rounded-full px-10 py-3
            bg-white/60 backdrop-blur
            shadow-sm font-Ovo
-           dark:bg-transparent dark:border dark:border-white/50
-           nav-link focus-visible:ring-2 focus-visible:ring-violet-500"
+           dark:bg-transparent dark:border dark:border-white/50"
   >
-
     <li><a href="#top" class="nav-link">Home</a></li>
     <li><a href="#about" class="nav-link">About</a></li>
     <li><a href="#education" class="nav-link">Education</a></li>
     <li><a href="#certifications" class="nav-link">Certifications</a></li>
-
-    <li><a href="#publications" class="nav-link">Publication</a></li>
-    <li><a href="#work" class="nav-link">Work</a></li>
-    <li><a href="#contact" class="nav-link">Contact</a></li>
-  </ul>
-
-  <!-- RIGHT: Controls -->
-  <div class="absolute right-4 md:right-6 lg:right-8 xl:right-[8%]
-              flex items-center gap-2 h-full">
-
-    <!-- Theme toggle (mobile + desktop) -->
-    <button onclick="toggleTheme()" class="p-2">
-      <img src="./images/moon_icon.png" class="w-6 dark:hidden">
-      <img src="./images/sun_icon.png" class="w-6 hidden dark:block">
-    </button>
-
-    <!-- Mobile menu -->
-    <button class="block md:hidden p-2" onclick="openMenu()">
-      <img src="./images/menu-black.png" class="w-6 dark:hidden">
-      <img src="./images/menu-white.png" class="w-6 hidden dark:block">
-    </button>
-
-    <!-- Contact button (desktop only) -->
-    <a href="#contact"
-       class="hidden lg:flex items-center gap-2 px-8 py-2.5
-              border border-gray-500 rounded-full font-Ovo
-              dark:border-white/50">
-      Contact
-      <img src="./images/arrow-icon.png" class="w-3 dark:hidden">
-      <img src="./images/arrow-icon-dark.png" class="w-3 hidden dark:block">
-
     <li><a href="#work" class="nav-link">Work</a></li>
     <li><a href="#publications" class="nav-link">Publications</a></li>
     <li><a href="#contact" class="nav-link">Contact</a></li>
   </ul>
 
   <!-- Right Controls -->
-  <div class="absolute right-4 md:right-6 lg:right-8 xl:right-[8%] flex items-center gap-2 h-full">
+  <div
+    class="absolute right-4 md:right-6 lg:right-8 xl:right-[8%]
+           flex items-center gap-2 h-full"
+  >
+    <!-- Theme toggle -->
     <button onclick="toggleTheme()" class="p-2" aria-label="Toggle theme">
       <img src="./images/moon_icon.png" class="w-6 dark:hidden" />
       <img src="./images/sun_icon.png" class="w-6 hidden dark:block" />
     </button>
 
+    <!-- Mobile menu -->
     <button class="md:hidden p-2" onclick="openMenu()" aria-label="Open menu">
       <img src="./images/menu-black.png" class="w-6 dark:hidden" />
       <img src="./images/menu-white.png" class="w-6 hidden dark:block" />
     </button>
 
+    <!-- Contact button (desktop only) -->
     <a
       href="#contact"
       class="hidden lg:flex items-center gap-2 px-8 py-2.5
@@ -179,105 +98,77 @@
              dark:border-white/50"
     >
       Contact
+      <img src="./images/arrow-icon.png" class="w-3 dark:hidden" />
+      <img src="./images/arrow-icon-dark.png" class="w-3 hidden dark:block" />
+    </a>
+  </div>
+</nav>
 
+<!-- ================= MOBILE MENU ================= -->
+<nav
+  id="sideMenu"
+  class="fixed top-0 right-[-16rem] z-50
+         h-screen w-64
+         flex flex-col
+         py-20 px-10
+         bg-rose-50 font-Ovo
+         transition-transform duration-500
+         md:hidden
+         dark:bg-darkHover dark:text-white"
+  aria-label="Mobile navigation"
+>
+
+  <!-- Close -->
+  <button
+    class="absolute top-6 right-6"
+    onclick="closeMenu()"
+    aria-label="Close menu"
+  >
+    <img src="./images/close-black.png" class="w-5 dark:hidden">
+    <img src="./images/close-white.png" class="w-5 hidden dark:block">
+  </button>
+
+  <ul class="flex flex-col gap-4">
+    <li><a href="#top" onclick="closeMenu()">Home</a></li>
+    <li><a href="#about" onclick="closeMenu()">About</a></li>
+    <li><a href="#education" onclick="closeMenu()">Education</a></li>
+    <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
+    <li><a href="#work" onclick="closeMenu()">Work</a></li>
+    <li><a href="#publications" onclick="closeMenu()">Publications</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+  </ul>
+
+  <!-- Mobile socials -->
+  <div class="flex items-center gap-3 mt-8 pt-6 border-t
+              border-gray-300 dark:border-gray-600">
+    <a
+      href="https://github.com/iadityarajsingh"
+      target="_blank"
+      aria-label="GitHub profile"
+      class="w-9 h-9 flex items-center justify-center rounded-full
+             border border-gray-400 bg-rose-100
+             dark:bg-darkHover dark:border-white/60"
+    >
+      <img src="./images/github-mark.png" class="w-5 dark:hidden">
+      <img src="./images/github-mark-white.png" class="w-5 hidden dark:block">
+    </a>
+
+    <a
+      href="https://www.linkedin.com/in/your-linkedin-url"
+      target="_blank"
+      aria-label="LinkedIn profile"
+      class="w-9 h-9 flex items-center justify-center rounded-full
+             border border-gray-400 bg-rose-100
+             dark:bg-darkHover dark:border-white/60"
+    >
+      <img src="./images/linkedin.png" class="w-5">
     </a>
   </div>
 </nav>
 
 
-<!-- ================= MOBILE MENU ================= -->
-<ul id="sideMenu"
-    class="fixed top-0 right-[-16rem] z-50
-           h-screen w-64
-           flex flex-col gap-4
-           py-20 px-10
-           bg-rose-50 font-Ovo
-           transition-transform duration-500
-           md:hidden
-           dark:bg-darkHover dark:text-white">
-
-  <!-- Close -->
-  <button class="absolute top-6 right-6" onclick="closeMenu()">
-    <img src="./images/close-black.png" class="w-5 dark:hidden">
-    <img src="./images/close-white.png" class="w-5 hidden dark:block">
-  </button>
-
-  <li><a href="#top" onclick="closeMenu()">Home</a></li>
-  <li><a href="#about" onclick="closeMenu()">About</a></li>
-  <li><a href="#education" onclick="closeMenu()">Education</a></li>
-  <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
-
-  <li><a href="#publications" onclick="closeMenu()">Publication</a></li>
-  <li><a href="#work" onclick="closeMenu()">Work</a></li>
-
-  <li><a href="#work" onclick="closeMenu()">Work</a></li>
-  <li><a href="#publications" onclick="closeMenu()">Publication</a></li>
-
-  <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-
-  <!-- Mobile socials -->
-  <div class="flex items-center gap-3 mt-6 pt-4 border-t
-              border-gray-300 dark:border-gray-600">
-    <a href="https://github.com/iadityarajsingh" target="_blank"
-       class="w-9 h-9 flex items-center justify-center rounded-full
-              border border-gray-400 bg-rose-100
-              dark:bg-darkHover dark:border-white/60">
-      <img src="./images/github-mark.png" class="w-5 dark:hidden">
-      <img src="./images/github-mark-white.png" class="w-5 hidden dark:block">
-    </a>
-
-    <a href="https://www.linkedin.com/in/your-linkedin-url" target="_blank"
-       class="w-9 h-9 flex items-center justify-center rounded-full
-              border border-gray-400 bg-rose-100
-              dark:bg-darkHover dark:border-white/60">
-      <img src="./images/linkedin.png" class="w-5">
-    </a>
-  </div>
-</ul>
-
-
-<!-- ------ HERO SECTION -------------- -->
-
-
-<div id="top"
-     class="w-11/12 max-w-3xl text-center mx-auto
-            min-h-screen
-            pt-24 md:pt-28
-            flex flex-col items-center justify-center gap-4">
-
-    <!-- Profile + status -->
-    <div class="flex flex-col items-center gap-2">
-        <img src="./images/profile-img.png"
-             alt="Profile photo"
-             class="rounded-full w-32 animate-hero delay-1">
-
-        <div class="flex items-center gap-2">
-            <span class="relative flex items-center justify-center">
-                <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
-                <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
-            </span>
-            <span class="text-xs sm:text-sm text-gray-700 dark:text-white/80">
-                Open for Cloud & DevOps roles
-            </span>
-        </div>
-    </div>
-
-    <!-- Headings -->
-    <h3 class="text-xl md:text-2xl mb-3 font-Ovo animate-hero delay-2">
-        Hi! I'm Aditya Raj Singh
-    </h3>
-
-    <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo animate-hero delay-3">
-        Cloud & DevOps enthusiast and full-stack web developer.
-    </h1>
-
-    <p class="max-w-2xl mx-auto font-Ovo animate-hero delay-4">
-        I’m a software developer with a background in cloud computing and web development,
-        currently completing my MCA from the Central University of Himachal Pradesh after my BCA from LPU.
-        I enjoy building real-world projects around web, cloud, and DevOps.
-    </p>
-
-<div
+<!-- ===== HERO SECTION ===== -->
+<section
   id="top"
   class="scroll-mt-28 md:scroll-mt-32
          w-11/12 max-w-3xl mx-auto
@@ -286,16 +177,18 @@
          flex flex-col items-center justify-center gap-4 text-center"
 >
 
-<img
-  src="./images/profile-img.png"
-  alt="Aditya Raj Singh profile photo"
-  width="128"
-  height="128"
-  class="rounded-full animate-hero delay-1"
-/>
+  <!-- Profile image -->
+  <img
+    src="./images/profile-img.png"
+    alt="Aditya Raj Singh profile photo"
+    width="128"
+    height="128"
+    loading="eager"
+    class="rounded-full animate-hero delay-1"
+  />
 
-
-  <div class="flex items-center gap-2">
+  <!-- Availability status -->
+  <div class="flex items-center gap-2 animate-hero delay-2">
     <span class="relative flex">
       <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
       <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
@@ -305,17 +198,20 @@
     </span>
   </div>
 
-  <h3 class="text-xl md:text-2xl font-Ovo animate-hero delay-2">
+  <!-- Intro -->
+  <h3 class="text-xl md:text-2xl font-Ovo animate-hero delay-3">
     Hi, I’m Aditya Raj Singh
   </h3>
 
-  <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo animate-hero delay-3">
-    Cloud & DevOps Engineer<br class="hidden sm:block" />
+  <!-- Headline -->
+  <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo animate-hero delay-4">
+    Cloud & DevOps Engineer
+    <br class="hidden sm:block" />
     with Full-Stack experience
   </h1>
 
-  <!-- NEW: CURRENT STATUS -->
-  <div class="animate-hero delay-4">
+  <!-- Status badge -->
+  <div class="animate-hero delay-5">
     <span class="inline-block text-xs px-4 py-1 rounded-full
                  bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10
                  text-gray-700 dark:text-white/80">
@@ -323,153 +219,41 @@
     </span>
   </div>
 
+  <!-- Summary -->
   <p class="max-w-2xl font-Ovo animate-hero delay-5">
     I build, deploy, automate, and debug real systems across cloud,
     DevOps pipelines, and modern web stacks.
   </p>
 
+  <!-- CTA buttons -->
+  <div class="flex flex-col sm:flex-row items-center gap-4 mt-6 animate-hero delay-5">
+    <a
+      href="#contact"
+      class="px-10 py-3 rounded-full
+             bg-gradient-to-r from-[#b820e6] to-[#da7d20]
+             text-white flex items-center gap-2"
+    >
+      Contact me
+      <img src="./images/right-arrow-white.png" alt="" class="w-4">
+    </a>
 
-    <!-- CTA buttons -->
-    <div class="flex flex-col sm:flex-row items-center gap-4 mt-4 animate-hero delay-5">
+    <a
+      href="#"
+      download
+      class="px-10 py-3 rounded-full border border-gray-500
+             flex items-center gap-2 bg-white dark:text-black"
+    >
+      My resume
+      <img src="./images/download-icon.png" alt="" class="w-4">
+    </a>
+  </div>
 
-        <a href="#contact"
-           class="px-10 py-3 rounded-full
-                  bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                  text-white flex items-center gap-2 dark:border-transparent">
-            Contact me
-            <img src="./images/right-arrow-white.png" alt="Arrow" class="w-4">
-        </a>
-
-        <a href="./images/logo.png" download
-           class="px-10 py-3 rounded-full border border-gray-500
-                  flex items-center gap-2 bg-white dark:text-black">
-            My resume
-            <img src="./images/download-icon.png" alt="Download" class="w-4">
-        </a>
-
-    </div>
-</div>
-
-
-
-
-<!-- ------------ ABOUT / EXPERTISE ----------- -->
-<div id="about" class="reveal w-full px-[12%] py-20 scroll-mt-20">
-
-    <!-- Heading -->
-    <h4 class="text-center mb-2 text-lg font-Ovo">Who I Am</h4>
-    <h2 class="text-center text-5xl font-Ovo">About Me</h2>
-
-    <div class="flex w-full flex-col lg:flex-row items-center gap-20 mt-20">
-
-        <!-- Image -->
-        <div class="max-w-max mx-auto">
-            <img src="./images/user-image.png"
-                 alt="Aditya Raj Singh"
-                 class="w-64 sm:w-80 rounded-3xl">
-        </div>
-
-        <!-- Content -->
-        <div class="flex-1">
-
-            <!-- Narrative -->
-            <p class="max-w-2xl font-Ovo text-gray-700 dark:text-white/80 mb-14 leading-relaxed">
-               
-                My experience spans cloud infrastructure, DevOps pipelines, Linux systems,
-                and cloud-hosted applications. Through my cloud internship at Teqtive IT Services
-                and independent projects, I’ve worked hands-on with AWS and multi-cloud setups,
-                containerized workloads, CI/CD pipelines, and infrastructure automation.
-                <br><br>
-                I’m most effective in environments where systems, automation, and reliability intersect.
-            </p>
-
-            <!-- Expertise Matrix -->
-            <div class="space-y-9 max-w-2xl">
-
-                <!-- Cloud -->
-                <div>
-                    <div class="flex justify-between mb-2">
-                        <h3 class="font-semibold text-gray-800 dark:text-white">
-                            ☁️ Cloud & Infrastructure Engineering
-                        </h3>
-                        <span class="text-sm text-gray-500">Advanced</span>
-                    </div>
-
-                    <div class="w-full h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-                        <div class="h-full w-[85%] bg-gradient-to-r from-indigo-500 to-purple-500"></div>
-                    </div>
-
-                    <p class="mt-3 text-sm text-gray-600 dark:text-white/70">
-                        AWS (EC2, VPC, IAM, S3, RDS, CloudWatch, Route 53), Azure VM & Storage,
-                        GCP basics, networking, monitoring, and cost-aware architecture.
-                    </p>
-                </div>
-
-                <!-- DevOps -->
-                <div>
-                    <div class="flex justify-between mb-2">
-                        <h3 class="font-semibold text-gray-800 dark:text-white">
-                            ⚙️ DevOps, CI/CD & Automation
-                        </h3>
-                        <span class="text-sm text-gray-500">Strong</span>
-                    </div>
-
-                    <div class="w-full h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-                        <div class="h-full w-[75%] bg-gradient-to-r from-emerald-500 to-teal-500"></div>
-                    </div>
-
-                    <p class="mt-3 text-sm text-gray-600 dark:text-white/70">
-                        Docker, Docker Compose, GitHub Actions, Jenkins, Terraform,
-                        CloudFormation basics, CI/CD design, automated deployments.
-                    </p>
-                </div>
-
-                <!-- Systems -->
-                <div>
-                    <div class="flex justify-between mb-2">
-                        <h3 class="font-semibold text-gray-800 dark:text-white">
-                            🧠 Linux, Systems & Scripting
-                        </h3>
-                        <span class="text-sm text-gray-500">Strong</span>
-                    </div>
-
-                    <div class="w-full h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-                        <div class="h-full w-[78%] bg-gradient-to-r from-orange-500 to-amber-500"></div>
-                    </div>
-
-                    <p class="mt-3 text-sm text-gray-600 dark:text-white/70">
-                        Linux administration (Ubuntu, CentOS), Bash and Python scripting,
-                        process management, troubleshooting, networking fundamentals.
-                    </p>
-                </div>
-
-                <!-- Web -->
-                <div>
-                    <div class="flex justify-between mb-2">
-                        <h3 class="font-semibold text-gray-800 dark:text-white">
-                            🌐 Web & Application Development
-                        </h3>
-                        <span class="text-sm text-gray-500">Working Proficiency</span>
-                    </div>
-
-                    <div class="w-full h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-                        <div class="h-full w-[65%] bg-gradient-to-r from-pink-500 to-rose-500"></div>
-                    </div>
-
-                    <p class="mt-3 text-sm text-gray-600 dark:text-white/70">
-                        HTML, CSS, JavaScript, backend integration, databases,
-                        cloud-deployed full-stack applications.
-                    </p>
-                </div>
-
-            </div>
-        </div>
-    </div>
+</section>
 
 
 
 <!-- ------------ ABOUT / EXPERTISE ----------- -->
-<div id="about" class="w-full px-[12%] py-20 scroll-mt-20">
+<section id="about" class="w-full px-[12%] py-20 scroll-mt-20">
 
   <!-- Heading -->
   <div class="reveal text-center">
@@ -482,9 +266,12 @@
 
     <!-- Image -->
     <div class="mx-auto lg:mx-0 reveal">
-      <img src="./images/user-image.png"
-           alt="Aditya Raj Singh"
-           class="w-56 sm:w-64 rounded-3xl">
+      <img
+        src="./images/user-image.png"
+        alt="Aditya Raj Singh"
+        loading="lazy"
+        class="w-56 sm:w-64 rounded-3xl"
+      />
     </div>
 
     <!-- Cards + Skills -->
@@ -494,10 +281,11 @@
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
 
         <!-- Card 1 -->
-        <div class="border border-gray-400 rounded-xl px-6 py-6
-                    bg-white/50 dark:bg-transparent
-                    hover:-translate-y-1 hover:shadow-black duration-500
-                    dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
+        <div
+          class="border border-gray-400 rounded-xl px-6 py-5 sm:py-6
+                 bg-white/50 dark:bg-transparent
+                 hover:-translate-y-1 hover:shadow-black duration-500
+                 dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
           <h3 class="font-semibold text-gray-800 dark:text-white mb-2">
             Who I am
           </h3>
@@ -508,10 +296,11 @@
         </div>
 
         <!-- Card 2 -->
-        <div class="border border-gray-400 rounded-xl px-6 py-6
-                    bg-white/50 dark:bg-transparent
-                    hover:-translate-y-1 hover:shadow-black duration-500
-                    dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
+        <div
+          class="border border-gray-400 rounded-xl px-6 py-5 sm:py-6
+                 bg-white/50 dark:bg-transparent
+                 hover:-translate-y-1 hover:shadow-black duration-500
+                 dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
           <h3 class="font-semibold text-gray-800 dark:text-white mb-2">
             What I work on
           </h3>
@@ -522,10 +311,11 @@
         </div>
 
         <!-- Card 3 -->
-        <div class="border border-gray-400 rounded-xl px-6 py-6
-                    bg-white/50 dark:bg-transparent
-                    hover:-translate-y-1 hover:shadow-black duration-500
-                    dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
+        <div
+          class="border border-gray-400 rounded-xl px-6 py-5 sm:py-6
+                 bg-white/50 dark:bg-transparent
+                 hover:-translate-y-1 hover:shadow-black duration-500
+                 dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
           <h3 class="font-semibold text-gray-800 dark:text-white mb-2">
             How I think
           </h3>
@@ -595,784 +385,344 @@
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<!-- ------------ TOOLS ----------- -->
+<section id="tools" class="w-full px-[12%] mt-28 scroll-mt-20">
+
+  <h4 class="text-center text-3xl font-Ovo mb-12 reveal">
+    Tools I Work With
+  </h4>
+
+  <ul class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto reveal">
+
+    <li class="tool-item">
+      <img src="./images/vscode.png" alt="VS Code" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/git.png" alt="Git" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/aws-icon.png" alt="AWS" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/docker.png" alt="Docker" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/jenkins.png" alt="Jenkins" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/GitHub Actions.png" alt="GitHub Actions" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/HashiCorp Terraform.png" alt="Terraform" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/kubernetes.png" alt="Kubernetes" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/linux-icon.png" alt="Linux" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/Python.png" alt="Python" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/Ansible.png" alt="Ansible" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/Grafana.png" alt="Grafana" loading="lazy" class="w-7">
+    </li>
+
+    <li class="tool-item">
+      <img src="./images/NGINX.png" alt="NGINX" loading="lazy" class="w-7">
+    </li>
+
+  </ul>
+</section>
 
 
+<!-- ------------ EDUCATION ------------ -->
+<section id="education" class="w-full px-[12%] py-20 scroll-mt-20">
 
-    <!-- TOOLS -->
-    <div class="mt-28 reveal">
-        <h4 class="text-center text-3xl font-Ovo mb-12">
-            Tools I Work With
-        </h4>
+  <!-- Heading -->
+  <div class="reveal text-center">
+    <h4 class="mb-2 text-lg font-Ovo">Academic Journey</h4>
+    <h2 class="text-5xl font-Ovo">Education</h2>
+  </div>
 
-        <ul class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto">
+  <!-- Timeline -->
+  <div class="max-w-4xl mx-auto mt-20 relative">
 
-            <!-- Tool item template -->
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl
-                       border border-gray-400 dark:border-white/50
-                       hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/vscode.png" alt="VS Code" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/git.png" alt="Git" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/aws-icon.png" alt="AWS" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/docker.png" alt="Docker" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/jenkins.png" alt="Jenkins" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/GitHub Actions.png" alt="GitHub Actions" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/HashiCorp Terraform.png" alt="Terraform" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/kubernetes.png" alt="Kubernetes" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/linux-icon.png" alt="Linux" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/Python.png" alt="Python" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/Ansible.png" alt="Ansible" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/Grafana.png" alt="Grafana" class="w-7">
-            </li>
-
-            <li class="w-16 h-16 flex items-center justify-center rounded-xl border border-gray-400 dark:border-white/50 hover:-translate-y-1 hover:shadow-lg duration-500">
-                <img src="./images/NGINX.png" alt="Grafana" class="w-7">
-            </li>
-
-
-        </ul>
+    <!-- Vertical line -->
+    <div
+      class="absolute left-6 top-0 bottom-0 w-px
+             bg-gradient-to-b from-transparent via-gray-400 to-transparent
+             dark:via-white/40">
     </div>
-</div>
 
+    <!-- ===== MCA ===== -->
+    <div class="flex gap-8 mb-16 relative reveal">
 
-
-<!-- ------------ EDUCATION TIMELINE ------------ -->
-<div id="education" class="reveal w-full px-[12%] py-20 scroll-mt-20">
-
-    <!-- Heading -->
-
-    <h4 class="text-center mb-2 text-lg font-Ovo">Academic Journey</h4>
-    <h2 class="text-center text-5xl font-Ovo">Education</h2>
-
-    <p class="text-center max-w-2xl mx-auto mt-5 font-Ovo text-gray-700 dark:text-white/80">
-        My academic path built the foundation for how I think about systems today —
-        starting from core computing fundamentals and evolving into cloud-native,
-        distributed, and automation-driven architectures.
-    </p>
-
-    <h4 class="text-center mb-2 text-lg font-Ovo">
-        Academic Journey
-    </h4>
-    <h2 class="text-center text-5xl font-Ovo">
-        Education
-    </h2>
-
-
-    <div class="max-w-4xl mx-auto mt-20 relative">
-
-        <!-- Timeline spine -->
-        <div class="absolute left-6 top-0 bottom-0 w-px
-                    bg-gradient-to-b from-transparent via-gray-400 to-transparent
-                    dark:via-white/40"></div>
-
-        <!-- ===== MCA ===== -->
-
-        <div class="flex gap-8 mb-20 relative">
-
-        <div class="flex gap-8 mb-20 relative reveal">
-
-
-            <!-- Dot -->
-            <div class="relative z-10 mt-2">
-                <div class="w-4 h-4 rounded-full border-2 border-gray-500
-                            bg-white dark:bg-darkTheme dark:border-white"></div>
-            </div>
-
-            <!-- Card -->
-            <div class="flex-1 border border-gray-400 rounded-xl px-8 py-8
-                        bg-white/40 dark:bg-transparent
-                        hover:-translate-y-1 hover:shadow-black duration-500
-                        dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-
-
-                <p class="text-xs uppercase tracking-[0.15em] text-gray-500 dark:text-white/70 mb-2">
-
-                <p class="text-xs uppercase tracking-[0.15em]
-                          text-gray-500 dark:text-white/70 mb-2">
-
-                    2023 – 2025
-                </p>
-
-                <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">
-                    Master of Computer Applications (MCA)
-                </h3>
-
-
-                <p class="text-gray-600 dark:text-white/75 text-sm mt-1">
-                    Central University of Himachal Pradesh
-                </p>
-
-                <p class="text-gray-700 dark:text-white/80 text-sm mt-5 leading-6">
-                    This phase strengthened my understanding of cloud computing,
-                    DevOps practices, application architecture, and distributed systems.
-                    Alongside coursework, I completed my dissertation titled
-                    <span class="italic">
-                        “Permissioned Smart Contract–based E-Voting System for University”
-                    </span>,
-                    which deepened my exposure to blockchain, smart contracts, and secure
-                    system design.
-                </p>
-
-                <p class="text-sm text-gray-600 dark:text-white/75 mt-1">
-                    Central University of Himachal Pradesh
-                </p>
-
-            </div>
+      <!-- Dot -->
+      <div class="relative z-10 mt-2">
+        <div class="w-4 h-4 rounded-full border-2 border-gray-500
+                    bg-white dark:bg-darkTheme dark:border-white">
         </div>
+      </div>
 
-        <!-- ===== BCA ===== -->
+      <!-- Card -->
+      <div
+        class="flex-1 border border-gray-400 rounded-xl px-8 py-6
+               bg-white/40 dark:bg-transparent
+               hover:-translate-y-1 hover:shadow-black duration-500
+               dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
 
-        <div class="flex gap-8 relative">
+        <p class="text-xs uppercase tracking-widest text-gray-500 dark:text-white/70 mb-2">
+          2023 – 2025
+        </p>
 
-        <div class="flex gap-8 relative reveal">
+        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+          Master of Computer Applications (MCA)
+        </h3>
 
-
-            <!-- Dot -->
-            <div class="relative z-10 mt-2">
-                <div class="w-4 h-4 rounded-full border-2 border-gray-500
-                            bg-white dark:bg-darkTheme dark:border-white"></div>
-            </div>
-
-            <!-- Card -->
-            <div class="flex-1 border border-gray-400 rounded-xl px-8 py-8
-                        bg-white/40 dark:bg-transparent
-                        hover:-translate-y-1 hover:shadow-black duration-500
-                        dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-
-
-                <p class="text-xs uppercase tracking-[0.15em] text-gray-500 dark:text-white/70 mb-2">
-
-                <p class="text-xs uppercase tracking-[0.15em]
-                          text-gray-500 dark:text-white/70 mb-2">
-
-                    2018 – 2021
-                </p>
-
-                <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">
-                    Bachelor of Computer Applications (BCA)
-                </h3>
-
-
-                <p class="text-gray-600 dark:text-white/75 text-sm mt-1">
-                    Lovely Professional University
-                </p>
-
-                <p class="text-gray-700 dark:text-white/80 text-sm mt-5 leading-6">
-                    This stage built my core foundation in programming, data structures,
-                    databases, networking, and operating systems. It also sparked my
-                    long-term interest in cloud platforms and system engineering,
-                    which later guided my transition toward DevOps and cloud-focused roles.
-                </p>
-
-                <p class="text-sm text-gray-600 dark:text-white/75 mt-1">
-                    Lovely Professional University
-                </p>
-
-            </div>
-        </div>
-
+        <p class="text-sm text-gray-600 dark:text-white/75 mt-1">
+          Central University of Himachal Pradesh
+        </p>
+      </div>
     </div>
-</div>
 
+    <!-- ===== BCA ===== -->
+    <div class="flex gap-8 relative reveal">
 
+      <!-- Dot -->
+      <div class="relative z-10 mt-2">
+        <div class="w-4 h-4 rounded-full border-2 border-gray-500
+                    bg-white dark:bg-darkTheme dark:border-white">
+        </div>
+      </div>
 
- <!-- ----------- CERTIFICATIONS --------- -->
-<div id="certifications" class="w-full px-[12%] py-20 scroll-mt-20">
+      <!-- Card -->
+      <div
+        class="flex-1 border border-gray-400 rounded-xl px-8 py-6
+               bg-white/40 dark:bg-transparent
+               hover:-translate-y-1 hover:shadow-black duration-500
+               dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
 
-    <h4 class="text-center mb-2 text-lg font-Ovo">Credentials</h4>
-    <h2 class="text-center text-5xl font-Ovo">Certifications</h2>
+        <p class="text-xs uppercase tracking-widest text-gray-500 dark:text-white/70 mb-2">
+          2018 – 2021
+        </p>
 
-    <p class="text-center max-w-2xl mx-auto mt-6 mb-14 font-Ovo text-gray-700 dark:text-white/80">
+        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
+          Bachelor of Computer Applications (BCA)
+        </h3>
+
+        <p class="text-sm text-gray-600 dark:text-white/75 mt-1">
+          Lovely Professional University
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- ----------- CERTIFICATIONS --------- -->
-<div id="certifications" class="w-full px-[12%] py-20 scroll-mt-20">
+<section id="certifications" class="w-full px-[12%] py-20 scroll-mt-20">
 
-    <h4 class="text-center mb-2 text-lg font-Ovo reveal">
-        Credentials
-    </h4>
-
-    <h2 class="text-center text-5xl font-Ovo reveal">
-        Certifications
-    </h2>
-
-    <p class="text-center max-w-2xl mx-auto mt-6 mb-14 font-Ovo
-              text-gray-700 dark:text-white/80 reveal">
-
-        Industry-recognized certifications and structured programs that validate my cloud,
-        DevOps, and professional skill set.
+  <!-- Heading -->
+  <div class="text-center reveal">
+    <h4 class="mb-2 text-lg font-Ovo">Credentials</h4>
+    <h2 class="text-5xl font-Ovo">Certifications</h2>
+    <p class="max-w-2xl mx-auto mt-6 text-gray-700 dark:text-white/80 font-Ovo">
+      Industry-recognized certifications and structured programs validating my
+      cloud, DevOps, and professional skill set.
     </p>
-
-
-    <!-- ===== Featured Certification ===== -->
-    <div class="max-w-4xl mx-auto mb-16">
-
-        <div class="border-2 border-gray-500 rounded-2xl px-10 py-10
-                    bg-white/60 dark:bg-darkHover/30
-                    hover:-translate-y-1 hover:shadow-black duration-500
-                    dark:border-white/70 dark:hover:shadow-white">
-
-            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-
-                <div>
-                    <span class="inline-block mb-2 text-xs uppercase tracking-widest
-                                 px-3 py-1 rounded-full
-                                 bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-white/80">
-                        Core Cloud Certification
-                    </span>
-
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">
-                        AWS Certified Cloud Practitioner
-                    </h3>
-
-                    <p class="text-sm text-gray-600 dark:text-white/70 mt-1">
-
-    <!-- ===== CERTIFICATION GRID ===== -->
-    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-
-        <!-- AWS Cloud Practitioner -->
-        <div class="border border-gray-400 rounded-xl px-8 py-8
-                    hover:-translate-y-1 hover:shadow-black duration-500
-                    dark:border-white dark:hover:shadow-white
-                    reveal">
-
-            <div class="flex items-start justify-between gap-4">
-                <div>
-                    <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
-                        Cloud Fundamentals
-                    </span>
-                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mt-1">
-                        AWS Certified Cloud Practitioner
-                    </h3>
-                    <p class="text-sm text-gray-500 dark:text-white/70">
-
-                        Amazon Web Services
-                    </p>
-                </div>
-
-
-                <!-- Verify Button -->
-                <a href="#" target="_blank"
-                   class="inline-flex items-center justify-center gap-2
-                          px-6 py-2 rounded-full border border-gray-500
-                          text-sm font-medium
-                          bg-white hover:bg-lightHover
-                          transition dark:bg-transparent dark:border-white/60 dark:hover:bg-darkHover">
-                    Verify Credential
-                    <img src="./images/right-arrow.png" class="w-4 dark:hidden">
-                    <img src="./images/right-arrow-white.png" class="w-4 hidden dark:block">
-                </a>
-            </div>
-
-            <p class="mt-6 text-sm text-gray-700 dark:text-white/80 leading-6 max-w-3xl">
-                Validates foundational knowledge of AWS cloud concepts, core services,
-                security best practices, pricing models, and architectural principles.
-            </p>
-        </div>
-    </div>
-
-    <!-- ===== Other Certifications ===== -->
-    <div class="grid md:grid-cols-2 gap-6">
-
-                <a href="#" target="_blank"
-                   class="shrink-0 inline-flex items-center gap-2
-                          px-4 py-1.5 rounded-full text-xs font-medium
-                          text-white
-                          bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                          hover:opacity-90 transition">
-                    Verify
-                    <img src="./images/right-arrow-white.png" class="w-3">
-                </a>
-            </div>
-
-            <p class="mt-4 text-sm text-gray-600 dark:text-white/80">
-                Validates foundational knowledge of AWS services, cloud concepts,
-                security, pricing models, and architectural principles.
-            </p>
-        </div>
-
-
-        <!-- DevOps Program -->
-        <div class="border border-gray-400 rounded-xl px-8 py-8
-                    hover:-translate-y-1 hover:shadow-black duration-500
-
-                    dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-
-                    dark:border-white dark:hover:shadow-white
-                    reveal">
-
-
-            <div class="flex items-start justify-between gap-4">
-                <div>
-                    <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
-                        DevOps Training
-                    </span>
-                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mt-1">
-                        DevOps Engineering Program
-                    </h3>
-                    <p class="text-sm text-gray-500 dark:text-white/70">
-                        GeeksforGeeks · Aug–Nov 2025
-                    </p>
-                </div>
-
-                <a href="#" target="_blank"
-
-                   class="shrink-0 inline-flex items-center gap-1 px-4 py-1.5
-                          rounded-full border border-gray-400 text-xs
-                          hover:bg-lightHover transition
-                          dark:border-white/60 dark:hover:bg-darkHover">
-                    Verify
-
-                   class="shrink-0 inline-flex items-center gap-2
-                          px-4 py-1.5 rounded-full text-xs font-medium
-                          text-white
-                          bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                          hover:opacity-90 transition">
-                    Verify
-                    <img src="./images/right-arrow-white.png" class="w-3">
-
-                </a>
-            </div>
-
-            <p class="mt-4 text-sm text-gray-600 dark:text-white/80">
-
-                Practical exposure to CI/CD pipelines, Docker, cloud deployments,
-                and monitoring through a structured DevOps workflow.
-
-                Hands-on exposure to CI/CD pipelines, containerization,
-                cloud deployments, and monitoring workflows.
-
-            </p>
-        </div>
-
-        <!-- TCS iON -->
-        <div class="border border-gray-400 rounded-xl px-8 py-8
-                    hover:-translate-y-1 hover:shadow-black duration-500
-
-                    dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-                    dark:border-white dark:hover:shadow-white
-                    reveal">
-
-
-            <div class="flex items-start justify-between gap-4">
-                <div>
-                    <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
-                        Professional Readiness
-                    </span>
-                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mt-1">
-                        TCS iON Career Edge
-                    </h3>
-                    <p class="text-sm text-gray-500 dark:text-white/70">
-                        TCS iON
-                    </p>
-                </div>
-
-                <a href="#" target="_blank"
-
-                   class="shrink-0 inline-flex items-center gap-1 px-4 py-1.5
-                          rounded-full border border-gray-400 text-xs
-                          hover:bg-lightHover transition
-                          dark:border-white/60 dark:hover:bg-darkHover">
-                    Verify
-
-                   class="shrink-0 inline-flex items-center gap-2
-                          px-4 py-1.5 rounded-full text-xs font-medium
-                          text-white
-                          bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                          hover:opacity-90 transition">
-                    Verify
-                    <img src="./images/right-arrow-white.png" class="w-3">
-
-                </a>
-            </div>
-
-            <p class="mt-4 text-sm text-gray-600 dark:text-white/80">
-
-                Focused on business communication, workplace readiness,
-                and professional skill development.
-
-                Focused on communication skills, workplace etiquette,
-                and professional effectiveness.
-
-            </p>
-        </div>
-
-        <!-- Android -->
-        <div class="border border-gray-400 rounded-xl px-8 py-8
-                    hover:-translate-y-1 hover:shadow-black duration-500
-
-                    dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-
-                    dark:border-white dark:hover:shadow-white
-                    reveal">
-
-
-            <div class="flex items-start justify-between gap-4">
-                <div>
-                    <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
-                        Mobile Development
-                    </span>
-                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mt-1">
-                        Android App Development
-                    </h3>
-                    <p class="text-sm text-gray-500 dark:text-white/70">
-                        Internshala
-                    </p>
-                </div>
-
-                <a href="#" target="_blank"
-
-                   class="shrink-0 inline-flex items-center gap-1 px-4 py-1.5
-                          rounded-full border border-gray-400 text-xs
-                          hover:bg-lightHover transition
-                          dark:border-white/60 dark:hover:bg-darkHover">
-                    Verify
-
-                   class="shrink-0 inline-flex items-center gap-2
-                          px-4 py-1.5 rounded-full text-xs font-medium
-                          text-white
-                          bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                          hover:opacity-90 transition">
-                    Verify
-                    <img src="./images/right-arrow-white.png" class="w-3">
-
-                </a>
-            </div>
-
-            <p class="mt-4 text-sm text-gray-600 dark:text-white/80">
-                Covered Android fundamentals, UI components,
-                activities, and basic app workflows.
-            </p>
-        </div>
-
-        <!-- GenAI -->
-        <div class="border border-gray-400 rounded-xl px-8 py-8
-                    hover:-translate-y-1 hover:shadow-black duration-500
-
-                    dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-
-                    dark:border-white dark:hover:shadow-white
-                    reveal">
-
-
-            <div class="flex items-start justify-between gap-4">
-                <div>
-                    <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
-                        Emerging Tech
-                    </span>
-                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white mt-1">
-                        Foundations of Generative AI
-                    </h3>
-                    <p class="text-sm text-gray-500 dark:text-white/70">
-                        UpGrad
-                    </p>
-                </div>
-
-                <a href="#" target="_blank"
-
-                   class="shrink-0 inline-flex items-center gap-1 px-4 py-1.5
-                          rounded-full border border-gray-400 text-xs
-                          hover:bg-lightHover transition
-                          dark:border-white/60 dark:hover:bg-darkHover">
-                    Verify
-
-                   class="shrink-0 inline-flex items-center gap-2
-                          px-4 py-1.5 rounded-full text-xs font-medium
-                          text-white
-                          bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                          hover:opacity-90 transition">
-                    Verify
-                    <img src="./images/right-arrow-white.png" class="w-3">
-
-                </a>
-            </div>
-
-            <p class="mt-4 text-sm text-gray-600 dark:text-white/80">
-                Introduced generative AI concepts, model basics,
-                and applied use cases for developers.
-            </p>
-        </div>
-
-    </div>
-</div>
-
-
-
-
-
-<!-- ----------- PUBLICATIONS --------- -->
-<div id="publications" class="w-full px-[12%] py-20 scroll-mt-20">
-
-    <h4 class="text-center mb-2 text-lg font-Ovo">Research & Writing</h4>
-    <h2 class="text-center text-5xl font-Ovo">Publications</h2>
-
-    <p class="text-center max-w-2xl mx-auto mt-6 mb-16 font-Ovo text-gray-700 dark:text-white/80">
-        My research focuses on applying blockchain and smart contracts to design secure,
-        transparent, and verifiable systems for real-world institutional use cases.
-    </p>
-
-    <div class="max-w-5xl mx-auto space-y-10">
-
-        <!-- ===== Publication 1 ===== -->
-        <div class="border border-gray-400 rounded-2xl px-10 py-8
-                    bg-white/40 dark:bg-transparent
-                    hover:-translate-y-1 hover:shadow-black duration-500
-                    dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-
-            <!-- Header -->
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
-
-                <div>
-                    <span class="inline-block mb-2 text-xs uppercase tracking-widest
-                                 px-3 py-1 rounded-full
-                                 bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-white/80">
-                        Peer-Reviewed · IEEE Xplore
-                    </span>
-
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white leading-snug">
-                        Blockchain-Based E-Voting for University
-                    </h3>
-
-                    <p class="text-sm text-gray-600 dark:text-white/70 mt-1">
-                        NetCrypt 2025 · Jawaharlal Nehru University, New Delhi
-                    </p>
-                </div>
-
-                <!-- View Paper CTA -->
-                <a href="#" target="_blank"
-                   class="inline-flex items-center gap-2 px-6 py-2 rounded-full
-                          border border-gray-500 text-sm font-medium
-                          bg-white hover:bg-lightHover transition
-                          dark:bg-transparent dark:border-white/60 dark:hover:bg-darkHover">
-                    View Paper
-                    <img src="./images/right-arrow.png" class="w-4 dark:hidden">
-                    <img src="./images/right-arrow-white.png" class="w-4 hidden dark:block">
-                </a>
-            </div>
-
-            <!-- Abstract -->
-            <p class="mt-6 text-sm text-gray-700 dark:text-white/80 leading-relaxed max-w-4xl">
-                Proposes a permissioned blockchain-based e-voting system tailored for university elections.
-                The architecture leverages smart contracts to ensure transparency, immutability,
-                and verifiable results while preserving voter privacy and institutional integrity.
-            </p>
-
-            <!-- Keywords -->
-            <div class="mt-4 flex flex-wrap gap-2">
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-                    E-Voting
-                </span>
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-                    Blockchain
-                </span>
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-                    Smart Contracts
-                </span>
-            </div>
-        </div>
-
-        <!-- ===== Publication 2 ===== -->
-        <div class="border border-gray-400 rounded-2xl px-10 py-8
-                    bg-white/40 dark:bg-transparent
-                    hover:-translate-y-1 hover:shadow-black duration-500
-                    dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6">
-
-                <div>
-                    <span class="inline-block mb-2 text-xs uppercase tracking-widest
-                                 px-3 py-1 rounded-full
-                                 bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-white/80">
-                        Peer-Reviewed · IEEE Xplore
-                    </span>
-
-                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white leading-snug">
-                        A Role-Based Secure and Decentralized Framework for Medical Record
-                        and Prescription Verification Using Ethereum Smart Contracts and IPFS
-                    </h3>
-
-                    <p class="text-sm text-gray-600 dark:text-white/70 mt-1">
-                        NetCrypt 2025 · Jawaharlal Nehru University, New Delhi
-                    </p>
-                </div>
-
-                <a href="#" target="_blank"
-                   class="inline-flex items-center gap-2 px-6 py-2 rounded-full
-                          border border-gray-500 text-sm font-medium
-                          bg-white hover:bg-lightHover transition
-                          dark:bg-transparent dark:border-white/60 dark:hover:bg-darkHover">
-                    View Paper
-                    <img src="./images/right-arrow.png" class="w-4 dark:hidden">
-                    <img src="./images/right-arrow-white.png" class="w-4 hidden dark:block">
-                </a>
-            </div>
-
-            <p class="mt-6 text-sm text-gray-700 dark:text-white/80 leading-relaxed max-w-4xl">
-                Introduces a role-based decentralized framework for storing and verifying
-                medical records and prescriptions using IPFS and Ethereum smart contracts.
-                The system enhances data integrity, auditability, and trust between patients,
-                doctors, and pharmacies.
-            </p>
-
-            <div class="mt-4 flex flex-wrap gap-2">
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-                    Healthcare
-                </span>
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-                    Ethereum
-                </span>
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-                    IPFS
-                </span>
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-                    Access Control
-                </span>
-            </div>
-        </div>
-
-    </div>
-</div>
-
-
-
-    
-    <!-- ------------ my work ------------  -->
-<div id="work" class="w-full px-[12%] py-10 scroll-mt-20">
-  <h4 class="text-center mb-2 text-lg font-Ovo">My portfolio</h4>
-  <h2 class="text-center text-5xl font-Ovo">My latest work</h2>
-  <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
-      A snapshot of the projects I’ve been building around web development,
-      cloud, and emerging technologies.
-  </p>
-
-  <div class="grid grid-cols-auto my-10 gap-5 dark:text-black">
-
-    <!-- CARD 1 -->
-    <div class="aspect-square relative cursor-pointer group overflow-hidden rounded-lg">
-      <!-- Zooming background image -->
-      <div class="absolute inset-0 bg-[url('./images/work-1.png')] bg-no-repeat bg-cover bg-center 
-                  transition-transform duration-500 ease-out group-hover:scale-110"></div>
-
-      <!-- Overlay -->
-      <a href="https://github.com/iadityarajsingh/Login-and-SignUp-Form-with-Captcha-Validation" target="_blank"
-         class="absolute bottom-6 left-1/2 -translate-x-1/2 transform z-10
-                bg-white w-10/12 rounded-md py-3 px-5
-                flex items-center justify-between duration-500 group-hover:-translate-y-1">
+  </div>
+
+  <!-- ===== Featured Certification ===== -->
+  <div class="max-w-4xl mx-auto mt-16 reveal">
+    <div
+      class="border-2 border-gray-500 rounded-2xl px-8 py-8
+             bg-white/60 dark:bg-darkHover/30
+             hover:-translate-y-1 hover:shadow-black duration-500
+             dark:border-white/70 dark:hover:shadow-white">
+
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
         <div>
-          <h2 class="font-semibold">User Authentication System</h2>
-          <p class="text-sm text-gray-700">Login & Signup with Captcha</p>
+          <span
+            class="inline-block mb-2 text-xs uppercase tracking-widest
+                   px-3 py-1 rounded-full
+                   bg-gray-200 dark:bg-white/10
+                   text-gray-700 dark:text-white/80">
+            Core Cloud Certification
+          </span>
+
+          <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">
+            AWS Certified Cloud Practitioner
+          </h3>
+
+          <p class="text-sm text-gray-600 dark:text-white/70 mt-1">
+            Amazon Web Services
+          </p>
         </div>
-        <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center 
-                    shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-          <img src="./images/send-icon.png" alt="" class="w-5">
+
+        <!-- Verify -->
+        <a
+          href="#"
+          target="_blank"
+          class="inline-flex items-center gap-2
+                 px-6 py-2 rounded-full text-sm font-medium
+                 text-white
+                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
+                 hover:opacity-90 transition">
+          Verify Credential
+          <img src="./images/right-arrow-white.png" class="w-4" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Other Certifications ===== -->
+  <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-16">
+
+    <!-- DevOps -->
+    <div class="border border-gray-400 rounded-xl px-6 py-6 reveal
+                hover:-translate-y-1 hover:shadow-black duration-500
+                dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
+            DevOps Training
+          </span>
+          <h3 class="text-lg font-semibold mt-1">
+            DevOps Engineering Program
+          </h3>
+          <p class="text-sm text-gray-500 dark:text-white/70">
+            GeeksforGeeks · 2025
+          </p>
         </div>
-      </a>
+
+        <a
+          href="#"
+          target="_blank"
+          class="inline-flex items-center gap-2 px-4 py-1.5
+                 rounded-full text-xs font-medium text-white
+                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
+                 hover:opacity-90 transition">
+          Verify
+        </a>
+      </div>
     </div>
 
-    <!-- CARD 2 -->
-    <div class="aspect-square relative cursor-pointer group overflow-hidden rounded-lg">
-      <div class="absolute inset-0 bg-[url('./images/work-2.png')] bg-no-repeat bg-cover bg-center 
-                  transition-transform duration-500 ease-out group-hover:scale-110"></div>
-
-      <a href="https://github.com/iadityarajsingh" target="_blank"
-         class="absolute bottom-6 left-1/2 -translate-x-1/2 transform z-10
-                bg-white w-10/12 rounded-md py-3 px-5
-                flex items-center justify-between duration-500 group-hover:-translate-y-1">
+    <!-- TCS iON -->
+    <div class="border border-gray-400 rounded-xl px-6 py-6 reveal
+                hover:-translate-y-1 hover:shadow-black duration-500
+                dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
+      <div class="flex items-start justify-between gap-4">
         <div>
-          <h2 class="font-semibold">IT Service Management Portal</h2>
-          <p class="text-sm text-gray-700">Full-stack Java project</p>
+          <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
+            Professional Readiness
+          </span>
+          <h3 class="text-lg font-semibold mt-1">
+            TCS iON Career Edge
+          </h3>
+          <p class="text-sm text-gray-500 dark:text-white/70">
+            TCS iON
+          </p>
         </div>
-        <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center 
-                    shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-          <img src="./images/send-icon.png" alt="" class="w-5">
-        </div>
-      </a>
+
+        <a
+          href="#"
+          target="_blank"
+          class="inline-flex items-center gap-2 px-4 py-1.5
+                 rounded-full text-xs font-medium text-white
+                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
+                 hover:opacity-90 transition">
+          Verify
+        </a>
+      </div>
     </div>
 
-    <!-- CARD 3 -->
-    <div class="aspect-square relative cursor-pointer group overflow-hidden rounded-lg">
-      <div class="absolute inset-0 bg-[url('./images/work-3.png')] bg-no-repeat bg-cover bg-center 
-                  transition-transform duration-500 ease-out group-hover:scale-110"></div>
-
-      <a href="https://github.com/iadityarajsingh" target="_blank"
-         class="absolute bottom-6 left-1/2 -translate-x-1/2 transform z-10
-                bg-white w-10/12 rounded-md py-3 px-5
-                flex items-center justify-between duration-500 group-hover:-translate-y-1">
+    <!-- Android -->
+    <div class="border border-gray-400 rounded-xl px-6 py-6 reveal
+                hover:-translate-y-1 hover:shadow-black duration-500
+                dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
+      <div class="flex items-start justify-between gap-4">
         <div>
-          <h2 class="font-semibold">Remote Patient Monitoring</h2>
-          <p class="text-sm text-gray-700">IoT · Cloud · AI</p>
+          <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
+            Mobile Development
+          </span>
+          <h3 class="text-lg font-semibold mt-1">
+            Android App Development
+          </h3>
+          <p class="text-sm text-gray-500 dark:text-white/70">
+            Internshala
+          </p>
         </div>
-        <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center 
-                    shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-          <img src="./images/send-icon.png" alt="" class="w-5">
-        </div>
-      </a>
+
+        <a
+          href="#"
+          target="_blank"
+          class="inline-flex items-center gap-2 px-4 py-1.5
+                 rounded-full text-xs font-medium text-white
+                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
+                 hover:opacity-90 transition">
+          Verify
+        </a>
+      </div>
     </div>
 
-    <!-- CARD 4 -->
-    <div class="aspect-square relative cursor-pointer group overflow-hidden rounded-lg">
-      <div class="absolute inset-0 bg-[url('./images/work-4.png')] bg-no-repeat bg-cover bg-center 
-                  transition-transform duration-500 ease-out group-hover:scale-110"></div>
-
-      <a href="https://github.com/iadityarajsingh" target="_blank"
-         class="absolute bottom-6 left-1/2 -translate-x-1/2 transform z-10
-                bg-white w-10/12 rounded-md py-3 px-5
-                flex items-center justify-between duration-500 group-hover:-translate-y-1">
+    <!-- GenAI -->
+    <div class="border border-gray-400 rounded-xl px-6 py-6 reveal
+                hover:-translate-y-1 hover:shadow-black duration-500
+                dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
+      <div class="flex items-start justify-between gap-4">
         <div>
-          <h2 class="font-semibold">Permissioned E-Voting System</h2>
-          <p class="text-sm text-gray-700">Blockchain · Smart contracts</p>
+          <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
+            Emerging Tech
+          </span>
+          <h3 class="text-lg font-semibold mt-1">
+            Foundations of Generative AI
+          </h3>
+          <p class="text-sm text-gray-500 dark:text-white/70">
+            UpGrad
+          </p>
         </div>
-        <div class="border rounded-full border-black w-9 aspect-square flex items-center justify-center 
-                    shadow-[2px_2px_0_#000] group-hover:bg-lime-300 transition">
-          <img src="./images/send-icon.png" alt="" class="w-5">
-        </div>
-      </a>
 
-    
+        <a
+          href="#"
+          target="_blank"
+          class="inline-flex items-center gap-2 px-4 py-1.5
+                 rounded-full text-xs font-medium text-white
+                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
+                 hover:opacity-90 transition">
+          Verify
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <!-- ------------ WORK / PROJECTS ------------ -->
-<div id="work" class="w-full px-[12%] py-20 scroll-mt-20">
+<section id="work" class="w-full px-[12%] py-20 scroll-mt-20">
 
   <!-- Section intro -->
   <div class="reveal text-center">
-    <h4 class="mb-2 text-lg font-Ovo">
-      Portfolio
-    </h4>
-
-    <h2 class="text-5xl font-Ovo">
-      Selected Projects
-    </h2>
+    <h4 class="mb-2 text-lg font-Ovo">Portfolio</h4>
+    <h2 class="text-5xl font-Ovo">Selected Projects</h2>
 
     <p class="max-w-2xl mx-auto mt-6 mb-16 font-Ovo
               text-gray-700 dark:text-white/80">
@@ -1384,21 +734,17 @@
   <!-- Projects Grid -->
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-    <!-- ===== Project 1 ===== -->
-    <div class="reveal">
-      <div class="relative group overflow-hidden rounded-xl aspect-[4/3] cursor-pointer">
+    <!-- Project 1 -->
+    <article class="reveal">
+      <div class="relative group overflow-hidden rounded-xl aspect-[4/3]">
 
-        <!-- Background -->
         <div class="absolute inset-0 bg-[url('./images/work-1.png')]
-                    bg-cover bg-center
-                    transition-transform duration-500
+                    bg-cover bg-center transition-transform duration-500
                     group-hover:scale-110"></div>
 
-        <!-- Overlay -->
         <div class="absolute inset-0 bg-black/30 opacity-0
                     group-hover:opacity-100 transition"></div>
 
-        <!-- Content -->
         <a href="https://github.com/iadityarajsingh/Login-and-SignUp-Form-with-Captcha-Validation"
            target="_blank"
            class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%]
@@ -1416,29 +762,28 @@
             </p>
           </div>
 
-          <div class="shrink-0 w-9 h-9 rounded-full border border-black
+          <div class="w-9 h-9 rounded-full border border-black
                       flex items-center justify-center
                       shadow-[2px_2px_0_#000]
                       group-hover:bg-lime-300 transition">
-            <img src="./images/send-icon.png" class="w-5">
+            <img src="./images/send-icon.png" class="w-5" alt="">
           </div>
         </a>
       </div>
-    </div>
+    </article>
 
-    <!-- ===== Project 2 ===== -->
-    <div class="reveal">
-      <div class="relative group overflow-hidden rounded-xl aspect-[4/3] cursor-pointer">
+    <!-- Project 2 -->
+    <article class="reveal">
+      <div class="relative group overflow-hidden rounded-xl aspect-[4/3]">
 
         <div class="absolute inset-0 bg-[url('./images/work-2.png')]
-                    bg-cover bg-center
-                    transition-transform duration-500
+                    bg-cover bg-center transition-transform duration-500
                     group-hover:scale-110"></div>
 
         <div class="absolute inset-0 bg-black/30 opacity-0
                     group-hover:opacity-100 transition"></div>
 
-        <a href="https://github.com/iadityarajsingh"
+        <a href="#"
            target="_blank"
            class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%]
                   bg-white rounded-lg px-5 py-4
@@ -1455,29 +800,28 @@
             </p>
           </div>
 
-          <div class="shrink-0 w-9 h-9 rounded-full border border-black
+          <div class="w-9 h-9 rounded-full border border-black
                       flex items-center justify-center
                       shadow-[2px_2px_0_#000]
                       group-hover:bg-lime-300 transition">
-            <img src="./images/send-icon.png" class="w-5">
+            <img src="./images/send-icon.png" class="w-5" alt="">
           </div>
         </a>
       </div>
-    </div>
+    </article>
 
-    <!-- ===== Project 3 ===== -->
-    <div class="reveal">
-      <div class="relative group overflow-hidden rounded-xl aspect-[4/3] cursor-pointer">
+    <!-- Project 3 -->
+    <article class="reveal">
+      <div class="relative group overflow-hidden rounded-xl aspect-[4/3]">
 
         <div class="absolute inset-0 bg-[url('./images/work-3.png')]
-                    bg-cover bg-center
-                    transition-transform duration-500
+                    bg-cover bg-center transition-transform duration-500
                     group-hover:scale-110"></div>
 
         <div class="absolute inset-0 bg-black/30 opacity-0
                     group-hover:opacity-100 transition"></div>
 
-        <a href="https://github.com/iadityarajsingh"
+        <a href="#"
            target="_blank"
            class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%]
                   bg-white rounded-lg px-5 py-4
@@ -1494,117 +838,17 @@
             </p>
           </div>
 
-          <div class="shrink-0 w-9 h-9 rounded-full border border-black
+          <div class="w-9 h-9 rounded-full border border-black
                       flex items-center justify-center
                       shadow-[2px_2px_0_#000]
                       group-hover:bg-lime-300 transition">
-            <img src="./images/send-icon.png" class="w-5">
+            <img src="./images/send-icon.png" class="w-5" alt="">
           </div>
         </a>
       </div>
-    </div>
-
-    <!-- ===== Project 4 ===== -->
-    <div class="reveal">
-      <div class="relative group overflow-hidden rounded-xl aspect-[4/3] cursor-pointer">
-
-        <div class="absolute inset-0 bg-[url('./images/work-4.png')]
-                    bg-cover bg-center
-                    transition-transform duration-500
-                    group-hover:scale-110"></div>
-
-        <div class="absolute inset-0 bg-black/30 opacity-0
-                    group-hover:opacity-100 transition"></div>
-
-        <a href="https://github.com/iadityarajsingh"
-           target="_blank"
-           class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%]
-                  bg-white rounded-lg px-5 py-4
-                  flex items-start justify-between gap-4
-                  transition-all duration-300
-                  group-hover:-translate-y-1">
-
-          <div>
-            <h3 class="font-semibold text-sm sm:text-base">
-              Permissioned E-Voting System
-            </h3>
-            <p class="text-xs text-gray-600 mt-1">
-              Blockchain · Smart contracts
-            </p>
-          </div>
-
-          <div class="shrink-0 w-9 h-9 rounded-full border border-black
-                      flex items-center justify-center
-                      shadow-[2px_2px_0_#000]
-                      group-hover:bg-lime-300 transition">
-            <img src="./images/send-icon.png" class="w-5">
-          </div>
-        </a>
-      </div>
-
-    </div>
+    </article>
 
   </div>
-
-  <a href="https://github.com/iadityarajsingh" target="_blank"
-     class="w-max flex items-center justify-center gap-2 text-gray-700 border-[0.5px] border-gray-700 rounded-full py-3 px-10 mx-auto my-20 hover:bg-lightHover duration-500
-            dark:text-white dark:border-white dark:hover:bg-darkHover">
-    Show more
-    <img src="./images/right-arrow-bold.png" alt="" class="w-4 dark:hidden">
-    <img src="./images/right-arrow-bold-dark.png" alt="" class="w-4 hidden dark:block">
-  </a>
-</div>
-
-
-    <!-- ----- contact -------------  -->
-    <div id="contact" class="w-full px-[12%] py-10 scroll-mt-20 bg-[url('./images/footer-bg-color.png')] bg-no-repeat bg-[length:90%_auto] bg-center dark:bg-none">
-        <h4 class="text-center mb-2 text-lg font-Ovo">Connect with me</h4>
-        <h2 class="text-center text-5xl font-Ovo">Get in touch</h2>
-        <p class="text-center max-w-2xl mx-auto mt-5 mb-12 font-Ovo">
-            If you’d like to collaborate, discuss a project, or just talk tech, feel free to reach out.
-        </p>
-
-        <form method="POST" action="https://api.web3forms.com/submit" class="max-w-2xl mx-auto">
-            <!-- Enter your web3 form access key below -->
-            <input type="hidden" name="access_key" value="9630561b-62b0-4a75-9624-72a96af1fecf">
-
-            <div class="grid grid-cols-auto gap-6 mt-10 mb-8">
-                <input type="text" placeholder="Enter your name" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90" required name="name">
-                <input type="email" placeholder="Enter your email" class="flex-1 p-3 outline-none border-[0.5px] border-gray-400 rounded-md bg-white dark:bg-darkHover/30 dark:border-white/90" required name="email">
-            </div>
-
-            <textarea rows="6" placeholder="Enter your message" class="w-full p-4 outline-none border-[0.5px] border-gray-400 rounded-md bg-white mb-6 dark:bg-darkHover/30 dark:border-white/90" required name="message"></textarea>
-
-            <button class="py-3 px-8 w-max flex items-center justify-between gap-2 bg-black/80 text-white rounded-full mx-auto hover:bg-black duration-500 dark:bg-transparent dark:border-[0.5px] dark:hover:bg-darkHover">
-                Submit now
-                <img src="./images/right-arrow-white.png" alt="" class="w-4">
-            </button>
-        </form>
-    </div>
-
-    <!-- ----------- footer ---------  -->
-    <div class="mt-20">
-        <div class="text-center">
-            <img src="./images/name-logo-light.png" alt="" class="w-36 mx-auto mb-2 dark:hidden">
-            <img src="./images/name-logo-dark.png" alt="" class="w-36 mx-auto mb-2 hidden dark:block">
-
-            <div class="w-max flex items-center gap-2 mx-auto">
-                <img src="./images/mail_icon.png" alt="" class="w-6 dark:hidden">
-                <img src="./images/mail_icon_dark.png" alt="" class="w-6 hidden dark:block">
-
-                adityarsingh.work@gmail.com
-            </div>
-        </div>
-        <div class="text-center sm:flex items-center justify-between border-t border-gray-400 mx-[10%] mt-12 py-6">
-            <p>© Made with ❤️ by Aditya.</p>
-            <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
-                <li><a target="_blank" href="https://github.com/iadityarajsingh">GitHub</a></li>
-                <li><a target="_blank" href="https://www.linkedin.com/ars01">LinkedIn</a></li>
-            </ul>
-        </div>
-    </div>
-
-    <script src="./script.js"></script>
 
   <!-- View more -->
   <a href="https://github.com/iadityarajsingh"
@@ -1615,155 +859,173 @@
             hover:bg-lightHover duration-500
             dark:text-white dark:border-white dark:hover:bg-darkHover">
     View more on GitHub
-    <img src="./images/right-arrow-bold.png" class="w-4 dark:hidden">
-    <img src="./images/right-arrow-bold-dark.png" class="w-4 hidden dark:block">
+    <img src="./images/right-arrow-bold.png" class="w-4 dark:hidden" alt="">
+    <img src="./images/right-arrow-bold-dark.png" class="w-4 hidden dark:block" alt="">
   </a>
 
-</div>
-
-
-
+</section>
 
 
 
 <!-- ----------- PUBLICATIONS --------- -->
-<div id="publications" class="reveal w-full px-[12%] py-20 scroll-mt-20">
+<section id="publications" class="w-full px-[12%] py-20 scroll-mt-20">
 
-    <!-- Heading -->
-    <h4 class="text-center mb-2 text-lg font-Ovo">Research & Writing</h4>
-    <h2 class="text-center text-5xl font-Ovo">Publications</h2>
-
-    <p class="text-center max-w-2xl mx-auto mt-6 mb-14 font-Ovo text-gray-700 dark:text-white/80">
-        Applied research focused on secure, distributed systems and real-world institutional use cases.
-        These works reflect how I think about architecture, trust, and system reliability.
+  <!-- Heading -->
+  <div class="text-center reveal">
+    <h4 class="mb-2 text-lg font-Ovo">Research & Writing</h4>
+    <h2 class="text-5xl font-Ovo">Publications</h2>
+    <p class="max-w-2xl mx-auto mt-6 text-gray-700 dark:text-white/80 font-Ovo">
+      Applied research exploring secure, distributed systems and real-world
+      institutional architectures.
     </p>
+  </div>
 
-    <!-- Publications Grid -->
-    <div class="max-w-5xl mx-auto grid gap-6">
+  <div class="max-w-5xl mx-auto mt-16 space-y-8">
 
-        <!-- ===== Publication 1 ===== -->
-        <div class="reveal border border-gray-400 rounded-xl
-                    px-6 sm:px-8 py-6
-                    bg-white/50 dark:bg-transparent
-                    hover:-translate-y-1 hover:shadow-black duration-500
-                    dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
+    <!-- ===== Publication 1 (Primary) ===== -->
+    <article
+      class="reveal border border-gray-400 rounded-xl
+             px-6 sm:px-8 py-6
+             bg-white/50 dark:bg-transparent
+             hover:-translate-y-1 hover:shadow-black duration-500
+             dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
 
-            <!-- Header -->
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+      <!-- Header -->
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5">
 
-                <div>
-                    <span class="inline-block mb-2 text-[11px] uppercase tracking-widest
-                                 px-3 py-1 rounded-full
-                                 bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-white/80">
-                        Published · IEEE Xplore
-                    </span>
+        <div>
+          <span
+            class="inline-block mb-2 text-[11px] uppercase tracking-widest
+                   px-3 py-1 rounded-full
+                   bg-gray-200 dark:bg-white/10
+                   text-gray-700 dark:text-white/80">
+            Peer-Reviewed · IEEE Xplore
+          </span>
 
-                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white leading-snug">
-                        Blockchain-Based E-Voting for University
-                    </h3>
+          <h3 class="text-lg sm:text-xl font-semibold leading-snug">
+            Blockchain-Based E-Voting for University
+          </h3>
 
-                    <p class="text-xs sm:text-sm text-gray-600 dark:text-white/70 mt-1">
-                        NetCrypt 2025 · Jawaharlal Nehru University
-                    </p>
-                </div>
-
-                <!-- CTA -->
-                <a href="#" target="_blank"
-                   class="inline-flex items-center gap-2 px-5 py-2
-                          rounded-full text-sm font-medium
-                          border border-gray-400
-                          bg-gradient-to-r from-[#b820e6]/90 to-[#da7d20]/90
-                          text-white hover:opacity-90 transition
-                          dark:border-transparent">
-                    View Paper
-                    <img src="./images/right-arrow-white.png" class="w-4">
-                </a>
-            </div>
-
-            <!-- Summary -->
-            <p class="mt-4 text-sm text-gray-700 dark:text-white/80 leading-relaxed">
-                Designed a permissioned e-voting architecture using blockchain and smart contracts to ensure
-                <strong>immutability</strong>, <strong>auditability</strong>, and <strong>verifiable results</strong>
-                while preserving voter privacy.
-            </p>
-
-            <!-- Engineering Relevance -->
-            <p class="mt-3 text-xs text-gray-600 dark:text-white/60">
-                <strong>Systems takeaway:</strong>
-                Secure access control, distributed trust, and fault-tolerant design concepts applicable to
-                cloud platforms and backend systems.
-            </p>
-
-            <!-- Tags -->
-            <div class="mt-4 flex flex-wrap gap-2">
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">Blockchain</span>
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">Smart Contracts</span>
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">System Security</span>
-            </div>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-white/70 mt-1">
+            NetCrypt 2025 · Jawaharlal Nehru University
+          </p>
         </div>
 
-        <!-- ===== Publication 2 ===== -->
-        <div class="reveal border border-gray-400 rounded-xl
-                    px-6 sm:px-8 py-6
-                    bg-white/50 dark:bg-transparent
-                    hover:-translate-y-1 hover:shadow-black duration-500
-                    dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
+        <!-- CTA -->
+        <a
+          href="#"
+          target="_blank"
+          class="inline-flex items-center gap-2 px-5 py-2
+                 rounded-full text-sm font-medium
+                 text-white
+                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
+                 hover:opacity-90 transition">
+          View Paper
+          <img src="./images/right-arrow-white.png" class="w-4" alt="">
+        </a>
+      </div>
 
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+      <!-- Summary -->
+      <p class="mt-4 text-sm text-gray-700 dark:text-white/80 leading-relaxed max-w-4xl">
+        Designed a permissioned blockchain-based e-voting architecture using smart contracts
+        to ensure immutability, auditability, and verifiable election results while
+        preserving voter privacy.
+      </p>
 
-                <div>
-                    <span class="inline-block mb-2 text-[11px] uppercase tracking-widest
-                                 px-3 py-1 rounded-full
-                                 bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-white/80">
-                        Published · IEEE Xplore
-                    </span>
+      <!-- Systems Takeaway -->
+      <p class="mt-3 text-xs text-gray-600 dark:text-white/60">
+        <strong>Systems takeaway:</strong>
+        Access control, distributed trust, and fault-tolerant design principles
+        applicable to cloud platforms and backend systems.
+      </p>
 
-                    <h3 class="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white leading-snug">
-                        Secure Medical Record & Prescription Verification Using
-                        Ethereum Smart Contracts and IPFS
-                    </h3>
+      <!-- Tags -->
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
+          Blockchain
+        </span>
+        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
+          Smart Contracts
+        </span>
+        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
+          System Security
+        </span>
+      </div>
+    </article>
 
-                    <p class="text-xs sm:text-sm text-gray-600 dark:text-white/70 mt-1">
-                        NetCrypt 2025 · Jawaharlal Nehru University
-                    </p>
-                </div>
+    <!-- ===== Publication 2 ===== -->
+    <article
+      class="reveal border border-gray-400 rounded-xl
+             px-6 sm:px-8 py-6
+             bg-white/50 dark:bg-transparent
+             hover:-translate-y-1 hover:shadow-black duration-500
+             dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
 
-                <a href="#" target="_blank"
-                   class="inline-flex items-center gap-2 px-5 py-2
-                          rounded-full text-sm font-medium
-                          border border-gray-400
-                          bg-gradient-to-r from-[#b820e6]/90 to-[#da7d20]/90
-                          text-white hover:opacity-90 transition
-                          dark:border-transparent">
-                    View Paper
-                    <img src="./images/right-arrow-white.png" class="w-4">
-                </a>
-            </div>
+      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5">
 
-            <p class="mt-4 text-sm text-gray-700 dark:text-white/80 leading-relaxed">
-                Built a role-based decentralized framework combining Ethereum smart contracts with IPFS
-                to ensure <strong>data integrity</strong>, <strong>traceability</strong>, and
-                controlled access across healthcare stakeholders.
-            </p>
+        <div>
+          <span
+            class="inline-block mb-2 text-[11px] uppercase tracking-widest
+                   px-3 py-1 rounded-full
+                   bg-gray-200 dark:bg-white/10
+                   text-gray-700 dark:text-white/80">
+            Peer-Reviewed · IEEE Xplore
+          </span>
 
-            <p class="mt-3 text-xs text-gray-600 dark:text-white/60">
-                <strong>Systems takeaway:</strong>
-                Experience with distributed storage, access control models,
-                and trust-based system design relevant to cloud and platform engineering.
-            </p>
+          <h3 class="text-lg sm:text-xl font-semibold leading-snug">
+            Secure Medical Record & Prescription Verification Using
+            Ethereum Smart Contracts and IPFS
+          </h3>
 
-            <div class="mt-4 flex flex-wrap gap-2">
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">Ethereum</span>
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">IPFS</span>
-                <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">Distributed Systems</span>
-            </div>
+          <p class="text-xs sm:text-sm text-gray-600 dark:text-white/70 mt-1">
+            NetCrypt 2025 · Jawaharlal Nehru University
+          </p>
         </div>
 
-    </div>
-</div>
+        <a
+          href="#"
+          target="_blank"
+          class="inline-flex items-center gap-2 px-5 py-2
+                 rounded-full text-sm font-medium
+                 text-white
+                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
+                 hover:opacity-90 transition">
+          View Paper
+          <img src="./images/right-arrow-white.png" class="w-4" alt="">
+        </a>
+      </div>
+
+      <p class="mt-4 text-sm text-gray-700 dark:text-white/80 leading-relaxed max-w-4xl">
+        Built a role-based decentralized framework combining Ethereum smart contracts
+        with IPFS to ensure data integrity, traceability, and controlled access
+        across healthcare stakeholders.
+      </p>
+
+      <p class="mt-3 text-xs text-gray-600 dark:text-white/60">
+        <strong>Systems takeaway:</strong>
+        Experience with distributed storage, access models, and trust-based
+        architecture relevant to cloud and platform engineering.
+      </p>
+
+      <div class="mt-4 flex flex-wrap gap-2">
+        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
+          Ethereum
+        </span>
+        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
+          IPFS
+        </span>
+        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
+          Distributed Systems
+        </span>
+      </div>
+    </article>
+
+  </div>
+</section>
 
 
 
+  
 <!-- ----- CONTACT ----- -->
 <div id="contact"
      class="w-full px-[12%] py-20 scroll-mt-20
@@ -1882,6 +1144,6 @@
 </div>
 
 <script src="./script.js"></script>
-
 </body>
 </html>
+

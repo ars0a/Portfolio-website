@@ -43,22 +43,15 @@ div[id] {
   transform: translateY(0);
 }
 
-/* ================= NAVBAR SHRINK ================= */
+/* ================= NAVBAR (NO SHRINK) ================= */
 #navbar {
   transition:
-
-    padding 0.25s ease,
-
-
     background-color 0.25s ease,
     backdrop-filter 0.25s ease;
 }
 
+/* Scroll state: background only, no height change */
 #navbar.nav-shrink {
-<<<<<<< HEAD
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-
   backdrop-filter: blur(12px);
   background-color: rgba(255, 255, 255, 0.6);
 }
@@ -66,6 +59,7 @@ div[id] {
 .dark #navbar.nav-shrink {
   background-color: rgba(10, 10, 10, 0.6);
 }
+
 
 /* ================= ACTIVE NAV LINK ================= */
 .nav-link {
