@@ -50,6 +50,15 @@ div[id] {
     backdrop-filter 0.25s ease;
 }
 
+
+/* Optical compensation for dark logo */
+.dark .nav-logo {
+  transform: scale(1.06);
+  transform-origin: left center;
+}
+
+
+
 /* Scroll state: background only, no height change */
 #navbar.nav-shrink {
   backdrop-filter: blur(12px);
@@ -95,5 +104,41 @@ div[id] {
     transform: none !important;
     animation: none !important;
     transition: none !important;
+  }
+}
+
+/* ================= CERTIFICATE MODAL ================= */
+#certModal {
+  backdrop-filter: blur(6px);
+}
+
+#certModal img {
+  max-height: 85vh;
+  object-fit: contain;
+}
+
+/* Close button hover */
+#certModal button {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#certModal button:hover {
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+/* Smooth entrance */
+#certModal.flex img {
+  animation: certZoomIn 0.35s ease-out;
+}
+
+@keyframes certZoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

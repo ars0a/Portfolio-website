@@ -40,20 +40,17 @@
 >
 
   <!-- Logo -->
-  <div class="absolute left-4 md:left-6 lg:left-8 xl:left-[8%] flex items-center h-full">
-    <a href="#top" aria-label="Scroll to top">
-      <img
-        src="./images/name-logo-light.png"
-        alt="Aditya Raj Singh logo"
-        class="w-32 sm:w-36 md:w-40 cursor-pointer hover:opacity-80 dark:hidden"
-      />
-      <img
-        src="./images/name-logo-dark.png"
-        alt="Aditya Raj Singh logo"
-        class="w-32 sm:w-36 md:w-40 cursor-pointer hover:opacity-80 hidden dark:block"
-      />
-    </a>
-  </div>
+<div class="absolute left-4 md:left-6 lg:left-8 xl:left-[8%] flex items-center h-full"> 
+  <a href="#top" aria-label="Scroll to top"> 
+    <img src="./images/logo-dark-normalized.png" 
+    alt="Aditya Raj Singh logo" 
+    class="w-32 sm:w-36 md:w-40 cursor-pointer hover:opacity-80 dark:hidden" /> 
+    
+    <img src="./images/logo-light-normalized.png" 
+    alt="Aditya Raj Singh logo" 
+    class="w-32 sm:w-36 md:w-40 cursor-pointer hover:opacity-80 hidden dark:block" /> 
+  </a> 
+</div>
 
   <!-- Desktop Nav -->
   <ul
@@ -102,7 +99,7 @@
       <img src="./images/arrow-icon-dark.png" class="w-3 hidden dark:block" />
     </a>
   </div>
-</nav>
+</nav> 
 
 <!-- ================= MOBILE MENU ================= -->
 <nav
@@ -142,7 +139,7 @@
   <div class="flex items-center gap-3 mt-8 pt-6 border-t
               border-gray-300 dark:border-gray-600">
     <a
-      href="https://github.com/iadityarajsingh"
+      href="https://github.com/ars0a/"
       target="_blank"
       aria-label="GitHub profile"
       class="w-9 h-9 flex items-center justify-center rounded-full
@@ -154,7 +151,7 @@
     </a>
 
     <a
-      href="https://www.linkedin.com/in/your-linkedin-url"
+      href="https://www.linkedin.com/in/ars0a/"
       target="_blank"
       aria-label="LinkedIn profile"
       class="w-9 h-9 flex items-center justify-center rounded-full
@@ -284,48 +281,94 @@
         <!-- Card 1 -->
         <div
           class="border border-gray-400 rounded-xl px-6 py-5 sm:py-6
-                 bg-white/50 dark:bg-transparent
-                 hover:-translate-y-1 hover:shadow-black duration-500
-                 dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-          <h3 class="font-semibold text-gray-800 dark:text-white mb-2">
-            Who I am
-          </h3>
+                bg-white/50 dark:bg-transparent
+                hover:-translate-y-1 hover:shadow-black duration-500
+                dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40"
+        >
+
+          <!-- Heading with icon -->
+          <div class="flex items-center gap-3 mb-2">
+
+            <!-- Icon (light / dark) -->
+            <div class="w-9 h-9 flex items-center justify-center shrink-0">
+              <img
+                src="./images/edu-icon.png"
+                alt=""
+                class="w-5 dark:hidden"
+              >
+              <img
+                src="./images/edu-icon-dark.png"
+                alt=""
+                class="w-5 hidden dark:block"
+              >
+            </div>
+
+            <h3 class="font-semibold text-gray-800 dark:text-white">
+              Who I am
+            </h3>
+          </div>
+
           <p class="text-sm text-gray-600 dark:text-white/80 leading-relaxed">
             A cloud & DevOps-focused developer who enjoys building,
             deploying, and operating real systems — not just writing code.
           </p>
+
         </div>
 
-        <!-- Card 2 -->
-        <div
-          class="border border-gray-400 rounded-xl px-6 py-5 sm:py-6
-                 bg-white/50 dark:bg-transparent
-                 hover:-translate-y-1 hover:shadow-black duration-500
-                 dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-          <h3 class="font-semibold text-gray-800 dark:text-white mb-2">
-            What I work on
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-white/80 leading-relaxed">
-            Cloud infrastructure, CI/CD pipelines, containerized workloads,
-            Linux systems, and cloud-hosted applications.
-          </p>
-        </div>
 
-        <!-- Card 3 -->
-        <div
-          class="border border-gray-400 rounded-xl px-6 py-5 sm:py-6
-                 bg-white/50 dark:bg-transparent
-                 hover:-translate-y-1 hover:shadow-black duration-500
-                 dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-          <h3 class="font-semibold text-gray-800 dark:text-white mb-2">
-            How I think
-          </h3>
-          <p class="text-sm text-gray-600 dark:text-white/80 leading-relaxed">
-            Reliability-first mindset. I like understanding how systems fail,
-            scale, recover, and behave under real-world constraints.
-          </p>
-        </div>
 
+<!-- Card 2 -->
+<div
+  class="border border-gray-400 rounded-xl px-6 py-5 sm:py-6
+         bg-white/50 dark:bg-transparent
+         hover:-translate-y-1 hover:shadow-black duration-500
+         dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40"
+>
+
+  <!-- Heading with icon -->
+  <div class="flex items-center gap-3 mb-2">
+    <div class="w-9 h-9 flex items-center justify-center shrink-0">
+      <img src="./images/project-icon.png" alt="" class="w-5 dark:hidden">
+      <img src="./images/project-icon-dark.png" alt="" class="w-5 hidden dark:block">
+    </div>
+
+    <h3 class="font-semibold text-gray-800 dark:text-white">
+      What I work on
+    </h3>
+  </div>
+
+  <p class="text-sm text-gray-600 dark:text-white/80 leading-relaxed">
+    Cloud infrastructure, CI/CD pipelines, containerized workloads,
+    Linux systems, and cloud-hosted applications.
+  </p>
+</div>
+
+
+<!-- Card 3 -->
+<div
+  class="border border-gray-400 rounded-xl px-6 py-5 sm:py-6
+         bg-white/50 dark:bg-transparent
+         hover:-translate-y-1 hover:shadow-black duration-500
+         dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40"
+>
+
+  <!-- Heading with icon -->
+  <div class="flex items-center gap-3 mb-2">
+    <div class="w-9 h-9 flex items-center justify-center shrink-0">
+      <img src="./images/code-icon.png" alt="" class="w-5 dark:hidden">
+      <img src="./images/code-icon-dark.png" alt="" class="w-5 hidden dark:block">
+    </div>
+
+    <h3 class="font-semibold text-gray-800 dark:text-white">
+      How I think
+    </h3>
+  </div>
+
+  <p class="text-sm text-gray-600 dark:text-white/80 leading-relaxed">
+    Reliability-first mindset. I like understanding how systems fail,
+    scale, recover, and behave under real-world constraints.
+  </p>
+</div>
       </div>
 
       <!-- Skill bars -->
@@ -386,71 +429,72 @@
       </div>
     </div>
   </div>
-</section>
 
-<!-- ------------ TOOLS ----------- -->
-<section id="tools" class="w-full px-[12%] mt-28 scroll-mt-20">
+  <div class="mt-20">
 
-  <h4 class="text-center text-3xl font-Ovo mb-12 reveal">
+  <h2 class="text-center text-2xl font-Ovo mb-10 reveal">
     Tools I Work With
-  </h4>
+  </h2>
 
-  <ul class="flex flex-wrap justify-center gap-6 max-w-4xl mx-auto reveal">
+  <ul class="flex flex-wrap justify-center gap-5 max-w-7xl mx-auto reveal">
 
-    <li class="tool-item">
-      <img src="./images/vscode.png" alt="VS Code" loading="lazy" class="w-7">
+    <!-- Tool -->
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/vscode.png" alt="VS Code" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/git.png" alt="Git" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/git.png" alt="Git" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/aws-icon.png" alt="AWS" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/aws-icon.png" alt="AWS" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/docker.png" alt="Docker" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/docker.png" alt="Docker" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/jenkins.png" alt="Jenkins" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/jenkins.png" alt="Jenkins" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/GitHub Actions.png" alt="GitHub Actions" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/GitHub Actions.png" alt="GitHub Actions" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/HashiCorp Terraform.png" alt="Terraform" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/HashiCorp Terraform.png" alt="Terraform" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/kubernetes.png" alt="Kubernetes" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/kubernetes.png" alt="Kubernetes" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/linux-icon.png" alt="Linux" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/linux-icon.png" alt="Linux" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/Python.png" alt="Python" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/Python.png" alt="Python" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/Ansible.png" alt="Ansible" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/Ansible.png" alt="Ansible" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/Grafana.png" alt="Grafana" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/Grafana.png" alt="Grafana" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
-    <li class="tool-item">
-      <img src="./images/NGINX.png" alt="NGINX" loading="lazy" class="w-7">
+    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
+      <img src="./images/NGINX.png" alt="NGINX" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
     </li>
 
   </ul>
+  </div>
 </section>
+
 
 
 <!-- ------------ EDUCATION ------------ -->
@@ -460,6 +504,10 @@
   <div class="reveal text-center">
     <h4 class="mb-2 text-lg font-Ovo">Academic Journey</h4>
     <h2 class="text-5xl font-Ovo">Education</h2>
+    <p class="text-center max-w-2xl mx-auto mt-6 text-gray-600 dark:text-gray-400 reveal">
+  From fundamentals to applied learning, this journey reflects consistent growth and a clear direction toward technology.
+</p>
+
   </div>
 
   <!-- Timeline -->
@@ -579,9 +627,13 @@
         </div>
 
         <!-- Verify -->
+ content-update
+        <button
+          onclick="openCert('./certificates/aws.pdf')"
         <a
           href="blob:https://skillbuilder.aws/bcb2f0fd-5ba9-4364-92e8-31a58e6076a2"
           target="_blank"
+ main
           class="inline-flex items-center gap-2
                  px-6 py-2 rounded-full text-sm font-medium
                  text-white
@@ -589,7 +641,7 @@
                  hover:opacity-90 transition">
           Verify Credential
           <img src="./images/right-arrow-white.png" class="w-4" alt="">
-        </a>
+        </button>
       </div>
     </div>
   </div>
@@ -601,6 +653,7 @@
     <div class="border border-gray-400 rounded-xl px-6 py-6 reveal
                 hover:-translate-y-1 hover:shadow-black duration-500
                 dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
+             
       <div class="flex items-start justify-between gap-4">
         <div>
           <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
@@ -614,15 +667,14 @@
           </p>
         </div>
 
-        <a
-          href="#"
-          target="_blank"
+        <button
+          onclick="openCert('./certificates/devops.pdf')"
           class="inline-flex items-center gap-2 px-4 py-1.5
                  rounded-full text-xs font-medium text-white
                  bg-gradient-to-r from-[#b820e6] to-[#da7d20]
                  hover:opacity-90 transition">
           Verify
-        </a>
+        </button>
       </div>
     </div>
 
@@ -643,15 +695,14 @@
           </p>
         </div>
 
-        <a
-          href="#"
-          target="_blank"
+        <button
+          onclick="openCert('./certificates/tcs-ion.pdf')"
           class="inline-flex items-center gap-2 px-4 py-1.5
                  rounded-full text-xs font-medium text-white
                  bg-gradient-to-r from-[#b820e6] to-[#da7d20]
                  hover:opacity-90 transition">
           Verify
-        </a>
+        </button>
       </div>
     </div>
 
@@ -672,15 +723,14 @@
           </p>
         </div>
 
-        <a
-          href="#"
-          target="_blank"
+        <button
+          onclick="openCert('./certificates/android-internshala.png')"
           class="inline-flex items-center gap-2 px-4 py-1.5
                  rounded-full text-xs font-medium text-white
                  bg-gradient-to-r from-[#b820e6] to-[#da7d20]
                  hover:opacity-90 transition">
           Verify
-        </a>
+        </button>
       </div>
     </div>
 
@@ -701,15 +751,14 @@
           </p>
         </div>
 
-        <a
-          href="#"
-          target="_blank"
+        <button
+          onclick="openCert('./certificates/genai-upgrad.png')"
           class="inline-flex items-center gap-2 px-4 py-1.5
                  rounded-full text-xs font-medium text-white
                  bg-gradient-to-r from-[#b820e6] to-[#da7d20]
                  hover:opacity-90 transition">
           Verify
-        </a>
+        </button>
       </div>
     </div>
 
@@ -718,141 +767,360 @@
 
 
 <!-- ------------ WORK / PROJECTS ------------ -->
-<section id="work" class="w-full px-[12%] py-20 scroll-mt-20">
+<section id="work" class="w-full py-20 scroll-mt-20">
 
-  <!-- Section intro -->
-  <div class="reveal text-center">
-    <h4 class="mb-2 text-lg font-Ovo">Portfolio</h4>
-    <h2 class="text-5xl font-Ovo">Selected Projects</h2>
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-    <p class="max-w-2xl mx-auto mt-6 mb-16 font-Ovo
-              text-gray-700 dark:text-white/80">
-      Real-world projects focused on cloud deployment, system design,
-      automation, and full-stack development.
-    </p>
+    <!-- Section intro -->
+    <div class="reveal text-center">
+      <h4 class="mb-2 text-lg font-Ovo">Portfolio</h4>
+      <h2 class="text-4xl sm:text-5xl font-Ovo">Selected Projects</h2>
+
+      <p class="max-w-2xl mx-auto mt-6 mb-16 font-Ovo text-gray-700 dark:text-white/80">
+        Real-world projects focused on cloud deployment, system design,
+        automation, and full-stack development.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+
+
+<!-- Project 1 -->
+<article class="reveal">
+  <div
+    class="relative group aspect-[4/3] rounded-xl overflow-hidden
+           bg-white dark:bg-darkHover
+           border border-black/10 dark:border-white/15
+           ring-1 ring-black/5 dark:ring-white/10
+           transition-all duration-300
+           hover:ring-black/20 dark:hover:ring-white/30"
+  >
+
+    <!-- Image -->
+    <div
+      class="absolute inset-0
+             bg-[url('./images/work-1.png')]
+             bg-cover bg-center
+             transition-transform duration-700
+             group-hover:scale-110">
+    </div>
+
+    <!-- Overlay -->
+    <div
+      class="absolute inset-0
+             bg-black/25
+             group-hover:bg-black/40
+             transition-colors duration-300">
+    </div>
+
+    <!-- Info card -->
+    <a
+      href="https://github.com/ars0a/devsecops-pipeline-project.git"
+      target="_blank"
+      class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%]
+             rounded-lg px-5 py-4
+             bg-white/95 dark:bg-black/80 backdrop-blur
+             text-gray-800 dark:text-white
+             transition-all duration-300
+             group-hover:-translate-y-1"
+    >
+
+      <!-- Content layout -->
+      <div class="flex items-center gap-4">
+
+        <!-- Text block (grows freely) -->
+        <div class="flex-1">
+          <h3 class="font-semibold text-sm sm:text-base leading-snug">
+            End-to-end DevSecOps CI/CD pipeline
+          </h3>
+
+          <p class="text-xs text-gray-600 dark:text-white/70 mt-1">
+            Jenkins, Docker, Kubernetes, SonarQube, Trivy, Argo and AWS
+          </p>
+
+          <!-- Extra info safe to extend -->
+          <p class="text-xs text-gray-500 dark:text-white/60 mt-2">
+            End-to-end pipeline focused on secure build, test, and deployment workflows
+          </p>
+        </div>
+
+        <!-- Fixed arrow -->
+        <div
+          class="shrink-0 w-9 h-9 rounded-full
+                 bg-black dark:bg-white
+                 flex items-center justify-center
+                 transition-transform duration-300
+                 group-hover:scale-105"
+        >
+          <img
+            src="./images/send-icon.png"
+            class="w-4 invert dark:invert-0"
+            alt=""
+          >
+        </div>
+
+      </div>
+    </a>
+
   </div>
+</article>
 
-  <!-- Projects Grid -->
-  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
 
-    <!-- Project 1 -->
-    <article class="reveal">
-      <div class="relative group overflow-hidden rounded-xl aspect-[4/3]">
 
-        <div class="absolute inset-0 bg-[url('./images/work-1.png')]
-                    bg-cover bg-center transition-transform duration-500
-                    group-hover:scale-110"></div>
+<!-- Project 2 -->
+<article class="reveal">
+  <div
+    class="relative group aspect-[4/3] rounded-xl overflow-hidden
+           bg-white dark:bg-darkHover
+           border border-black/10 dark:border-white/15
+           ring-1 ring-black/5 dark:ring-white/10
+           transition-all duration-300
+           hover:ring-black/20 dark:hover:ring-white/30"
+  >
 
-        <div class="absolute inset-0 bg-black/30 opacity-0
-                    group-hover:opacity-100 transition"></div>
+    <!-- Image -->
+    <div
+      class="absolute inset-0
+             bg-[url('./images/work-2.png')]
+             bg-cover bg-center
+             transition-transform duration-700
+             group-hover:scale-110">
+    </div>
 
-        <a href="https://github.com/iadityarajsingh/Login-and-SignUp-Form-with-Captcha-Validation"
-           target="_blank"
-           class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%]
-                  bg-white rounded-lg px-5 py-4
-                  flex items-start justify-between gap-4
-                  transition-all duration-300
-                  group-hover:-translate-y-1">
+    <!-- Overlay -->
+    <div
+      class="absolute inset-0
+             bg-black/25
+             group-hover:bg-black/40
+             transition-colors duration-300">
+    </div>
 
-          <div>
-            <h3 class="font-semibold text-sm sm:text-base">
-              User Authentication System
-            </h3>
-            <p class="text-xs text-gray-600 mt-1">
-              Secure login, signup & CAPTCHA validation
-            </p>
-          </div>
+    <!-- Info card -->
+    <a
+      href="https://github.com/ars0a/ec2-docker-node-rds-deployment.git"
+      target="_blank"
+      class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%]
+             rounded-lg px-5 py-4
+             bg-white/95 dark:bg-black/80 backdrop-blur
+             text-gray-800 dark:text-white
+             transition-all duration-300
+             group-hover:-translate-y-1"
+    >
 
-          <div class="w-9 h-9 rounded-full border border-black
-                      flex items-center justify-center
-                      shadow-[2px_2px_0_#000]
-                      group-hover:bg-lime-300 transition">
-            <img src="./images/send-icon.png" class="w-5" alt="">
-          </div>
-        </a>
+      <!-- Content layout -->
+      <div class="flex items-center gap-4">
+
+        <!-- Text block (grows freely) -->
+        <div class="flex-1">
+          <h3 class="font-semibold text-sm sm:text-base leading-snug">
+            ec2-docker-node-rds-deployment
+          </h3>
+
+          <p class="text-xs text-gray-600 dark:text-white/70 mt-1">
+            Docker, Nodejs, AWS, EC2, RDS, IAM
+          </p>
+
+          <!-- Extra info safe to extend -->
+          <p class="text-xs text-gray-500 dark:text-white/60 mt-2">
+            End-to-end deployment of a Dockerized Node.js backend on AWS EC2 integrated with Amazon RDS
+          </p>
+        </div>
+
+        <!-- Fixed arrow -->
+        <div
+          class="shrink-0 w-9 h-9 rounded-full
+                 bg-black dark:bg-white
+                 flex items-center justify-center
+                 transition-transform duration-300
+                 group-hover:scale-105"
+        >
+          <img
+            src="./images/send-icon.png"
+            class="w-4 invert dark:invert-0"
+            alt=""
+          >
+        </div>
+
       </div>
-    </article>
+    </a>
 
-    <!-- Project 2 -->
-    <article class="reveal">
-      <div class="relative group overflow-hidden rounded-xl aspect-[4/3]">
+  </div>
+</article>
 
-        <div class="absolute inset-0 bg-[url('./images/work-2.png')]
-                    bg-cover bg-center transition-transform duration-500
-                    group-hover:scale-110"></div>
 
-        <div class="absolute inset-0 bg-black/30 opacity-0
-                    group-hover:opacity-100 transition"></div>
 
-        <a href="#"
-           target="_blank"
-           class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%]
-                  bg-white rounded-lg px-5 py-4
-                  flex items-start justify-between gap-4
-                  transition-all duration-300
-                  group-hover:-translate-y-1">
+<!-- Project 3 -->
+<article class="reveal">
+  <div
+    class="relative group aspect-[4/3] rounded-xl overflow-hidden
+           bg-white dark:bg-darkHover
+           border border-black/10 dark:border-white/15
+           ring-1 ring-black/5 dark:ring-white/10
+           transition-all duration-300
+           hover:ring-black/20 dark:hover:ring-white/30"
+  >
 
-          <div>
-            <h3 class="font-semibold text-sm sm:text-base">
-              IT Service Management Portal
-            </h3>
-            <p class="text-xs text-gray-600 mt-1">
-              Full-stack Java · Role-based access
-            </p>
-          </div>
+    <!-- Image -->
+    <div
+      class="absolute inset-0
+             bg-[url('./images/work-3.jpg')]
+             bg-cover bg-center
+             transition-transform duration-700
+             group-hover:scale-110">
+    </div>
 
-          <div class="w-9 h-9 rounded-full border border-black
-                      flex items-center justify-center
-                      shadow-[2px_2px_0_#000]
-                      group-hover:bg-lime-300 transition">
-            <img src="./images/send-icon.png" class="w-5" alt="">
-          </div>
-        </a>
+    <!-- Overlay -->
+    <div
+      class="absolute inset-0
+             bg-black/25
+             group-hover:bg-black/40
+             transition-colors duration-300">
+    </div>
+
+    <!-- Info card -->
+    <a
+      href="https://github.com/ars0a/amplify-vite-react-template.git"
+      target="_blank"
+      class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%]
+             rounded-lg px-5 py-4
+             bg-white/95 dark:bg-black/80 backdrop-blur
+             text-gray-800 dark:text-white
+             transition-all duration-300
+             group-hover:-translate-y-1"
+    >
+
+      <!-- Content layout -->
+      <div class="flex items-center gap-4">
+
+        <!-- Text block (grows freely) -->
+        <div class="flex-1">
+          <h3 class="font-semibold text-sm sm:text-base leading-snug">
+            AWS amplify-vite-react-app
+          </h3>
+
+          <p class="text-xs text-gray-600 dark:text-white/70 mt-1">
+            aws, react, amplify, vite, cognito, dynamodb, s3
+          </p>
+
+          <!-- Extra info safe to extend -->
+          <p class="text-xs text-gray-500 dark:text-white/60 mt-2">
+            Created an applications using React+Vite and AWS Amplify template for authentication, API, and database capabilities.
+          </p>
+        </div>
+
+        <!-- Fixed arrow -->
+        <div
+          class="shrink-0 w-9 h-9 rounded-full
+                 bg-black dark:bg-white
+                 flex items-center justify-center
+                 transition-transform duration-300
+                 group-hover:scale-105"
+        >
+          <img
+            src="./images/send-icon.png"
+            class="w-4 invert dark:invert-0"
+            alt=""
+          >
+        </div>
+
       </div>
-    </article>
+    </a>
 
-    <!-- Project 3 -->
-    <article class="reveal">
-      <div class="relative group overflow-hidden rounded-xl aspect-[4/3]">
+  </div>
+</article>
 
-        <div class="absolute inset-0 bg-[url('./images/work-3.png')]
-                    bg-cover bg-center transition-transform duration-500
-                    group-hover:scale-110"></div>
 
-        <div class="absolute inset-0 bg-black/30 opacity-0
-                    group-hover:opacity-100 transition"></div>
 
-        <a href="#"
-           target="_blank"
-           class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%]
-                  bg-white rounded-lg px-5 py-4
-                  flex items-start justify-between gap-4
-                  transition-all duration-300
-                  group-hover:-translate-y-1">
 
-          <div>
-            <h3 class="font-semibold text-sm sm:text-base">
-              Remote Patient Monitoring
-            </h3>
-            <p class="text-xs text-gray-600 mt-1">
-              IoT · Cloud · Data monitoring
-            </p>
-          </div>
+<!-- Project 4 -->
+<article class="reveal">
+  <div
+    class="relative group aspect-[4/3] rounded-xl overflow-hidden
+           bg-white dark:bg-darkHover
+           border border-black/10 dark:border-white/15
+           ring-1 ring-black/5 dark:ring-white/10
+           transition-all duration-300
+           hover:ring-black/20 dark:hover:ring-white/30"
+  >
 
-          <div class="w-9 h-9 rounded-full border border-black
-                      flex items-center justify-center
-                      shadow-[2px_2px_0_#000]
-                      group-hover:bg-lime-300 transition">
-            <img src="./images/send-icon.png" class="w-5" alt="">
-          </div>
-        </a>
+    <!-- Image -->
+    <div
+      class="absolute inset-0
+             bg-[url('./images/work-4.jpg')]
+             bg-cover bg-center
+             transition-transform duration-700
+             group-hover:scale-110">
+    </div>
+
+    <!-- Overlay -->
+    <div
+      class="absolute inset-0
+             bg-black/25
+             group-hover:bg-black/40
+             transition-colors duration-300">
+    </div>
+
+    <!-- Info card -->
+    <a
+      href="https://github.com/ars0a/Login-and-SignUp-Form-with-Captcha-Validation.git"
+      target="_blank"
+      class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%]
+             rounded-lg px-5 py-4
+             bg-white/95 dark:bg-black/80 backdrop-blur
+             text-gray-800 dark:text-white
+             transition-all duration-300
+             group-hover:-translate-y-1"
+    >
+
+      <!-- Content layout -->
+      <div class="flex items-center gap-4">
+
+        <!-- Text block (grows freely) -->
+        <div class="flex-1">
+          <h3 class="font-semibold text-sm sm:text-base leading-snug">
+            User Authentication System
+          </h3>
+
+          <p class="text-xs text-gray-600 dark:text-white/70 mt-1">
+            Secure login, signup, CAPTCHA validation
+          </p>
+
+          <!-- Extra info safe to extend -->
+          <p class="text-xs text-gray-500 dark:text-white/60 mt-2">
+            HTML · CSS · JavaScript · SQL Server · Client-side security
+          </p>
+        </div>
+
+        <!-- Fixed arrow -->
+        <div
+          class="shrink-0 w-9 h-9 rounded-full
+                 bg-black dark:bg-white
+                 flex items-center justify-center
+                 transition-transform duration-300
+                 group-hover:scale-105"
+        >
+          <img
+            src="./images/send-icon.png"
+            class="w-4 invert dark:invert-0"
+            alt=""
+          >
+        </div>
+
       </div>
-    </article>
+    </a>
 
+  </div>
+</article>
+
+
+
+    
   </div>
 
   <!-- View more -->
-  <a href="https://github.com/iadityarajsingh"
+  <a href="https://github.com/ars0a"
      target="_blank"
      class="mt-20 mx-auto w-max flex items-center gap-2
             text-gray-700 border border-gray-700
@@ -887,7 +1155,7 @@
     <article
       class="reveal border border-gray-400 rounded-xl
              px-6 sm:px-8 py-6
-             bg-white/50 dark:bg-transparent
+             bg-white/40 dark:bg-transparent
              hover:-translate-y-1 hover:shadow-black duration-500
              dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
 
@@ -1026,7 +1294,7 @@
 
 
 
-  
+
 <!-- ----- CONTACT ----- -->
 <div id="contact"
      class="w-full px-[12%] py-20 scroll-mt-20
@@ -1041,13 +1309,12 @@
         </h4>
 
         <h2 class="text-5xl font-Ovo">
-            Get in touch
+            Let’s Work Together
         </h2>
 
         <p class="max-w-2xl mx-auto mt-6 mb-14 font-Ovo
                   text-gray-700 dark:text-white/80">
-            If you’d like to collaborate, discuss a project,
-            or just talk tech, feel free to reach out.
+                  If you’ve made it this far, we probably have something worth building together.
         </p>
     </div>
 
@@ -1105,9 +1372,9 @@
 <div class="mt-24">
 
     <div class="reveal text-center">
-        <img src="./images/name-logo-light.png"
+        <img src="./images/logo-dark-normalized.png"
              class="w-36 mx-auto mb-3 dark:hidden">
-        <img src="./images/name-logo-dark.png"
+        <img src="./images/logo-light-normalized.png"
              class="w-36 mx-auto mb-3 hidden dark:block">
 
         <div class="flex items-center gap-2 justify-center text-sm">
@@ -1122,20 +1389,20 @@
                 mt-12 py-6 text-sm">
 
         <p>
-            © Built & maintained by Aditya Raj Singh
+            © Built with ❤️ by Aditya Raj Singh
         </p>
 
         <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
             <li>
-                <a href="https://github.com/iadityarajsingh"
-                   target="_blank"
+                <a href="https://github.com/ars0a"
+                   target="github"
                    class="hover:underline">
                     GitHub
                 </a>
             </li>
             <li>
-                <a href="https://www.linkedin.com/ars01"
-                   target="_blank"
+                <a href="https://www.linkedin.com/in/ars0a/"
+                   target="linkedin"
                    class="hover:underline">
                     LinkedIn
                 </a>
@@ -1144,7 +1411,31 @@
     </div>
 </div>
 
+
+<!-- ===== Certificate Modal ===== -->
+<div
+  id="certModal"
+  class="fixed inset-0 hidden items-center justify-center
+         bg-black/80 z-50">
+
+  <div class="relative max-w-5xl w-full px-4">
+    <!-- Close -->
+    <button
+      onclick="closeCert()"
+      class="absolute -top-10 right-2 text-white text-3xl">
+      &times;
+    </button>
+
+    <!-- Certificate Viewer (PDF or Image) -->
+    <div
+      id="certViewer"
+      class="w-full h-[85vh] rounded-lg overflow-hidden shadow-xl">
+    </div>
+  </div>
+</div>
+
 <script src="./script.js"></script>
+
 </body>
 </html>
 
