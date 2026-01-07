@@ -4,6 +4,10 @@ const navbar = document.getElementById('navbar');
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section[id], div[id]');
 
+// ================= CERTIFICATE MODAL =================
+const certModal = document.getElementById('certModal');
+const certViewer = document.getElementById('certViewer');
+
 // ================= MOBILE MENU =================
 function openMenu() {
   sideMenu.style.transform = 'translateX(-16rem)';
@@ -59,7 +63,7 @@ function toggleTheme() {
     : 'light';
 }
 
-// ================= SCROLL REVEAL (IntersectionObserver) =================
+// ================= SCROLL REVEAL =================
 const prefersReducedMotion = window.matchMedia(
   '(prefers-reduced-motion: reduce)'
 ).matches;
@@ -76,9 +80,7 @@ if (!prefersReducedMotion) {
         }
       });
     },
-    {
-      threshold: 0.15
-    }
+    { threshold: 0.15 }
   );
 
   revealElements.forEach(el => revealObserver.observe(el));
@@ -86,4 +88,46 @@ if (!prefersReducedMotion) {
   document.querySelectorAll('.reveal').forEach(el => {
     el.classList.add('show');
   });
+}
+
+// ================= CERTIFICATE MODAL LOGIC =================
+function openCert(src) {
+  if (!certModal || !certViewer) {
+    console.error('Certificate modal elements missing');
+    return;
+  }
+
+  certViewer.innerHTML = '';
+
+  const lowerSrc = src.toLowerCase();
+
+  if (lowerSrc.endsWith('.pdf')) {
+    certViewer.innerHTML = `
+      <iframe
+        src="${src}"
+        class="w-full h-full"
+        frameborder="0">
+      </iframe>
+    `;
+  } else {
+    certViewer.innerHTML = `
+      <img
+        src="${src}"
+        class="w-full h-full object-contain"
+        alt="Certificate">
+    `;
+  }
+
+  certModal.classList.remove('hidden');
+  certModal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCert() {
+  if (!certModal || !certViewer) return;
+
+  certModal.classList.add('hidden');
+  certModal.classList.remove('flex');
+  certViewer.innerHTML = '';
+  document.body.style.overflow = '';
 }
