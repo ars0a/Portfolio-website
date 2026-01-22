@@ -1,133 +1,108 @@
 // ================= ELEMENT REFERENCES =================
-const sideMenu = document.querySelector('#sideMenu');
+const sideMenu = document.getElementById('sideMenu');
 const navbar = document.getElementById('navbar');
-const navLinks = document.querySelectorAll('.nav-link');
-const sections = document.querySelectorAll('section[id], div[id]');
+const navLinks = document.querySelectorAll('nav a[href^="#"]');
+const sections = document.querySelectorAll('main section[id]');
 
-// ================= CERTIFICATE MODAL =================
-const certModal = document.getElementById('certModal');
-const certViewer = document.getElementById('certViewer');
+const certOverlay = document.getElementById('certOverlay');
+const certFrame = document.getElementById('certFrame');
 
 // ================= MOBILE MENU =================
 function openMenu() {
-  sideMenu.style.transform = 'translateX(-16rem)';
+  sideMenu.classList.remove('translate-x-full');
+  sideMenu.classList.add('translate-x-0');
+  document.body.style.overflow = 'hidden';
 }
 
 function closeMenu() {
-  sideMenu.style.transform = 'translateX(16rem)';
+  sideMenu.classList.remove('translate-x-0');
+  sideMenu.classList.add('translate-x-full');
+  document.body.style.overflow = '';
 }
 
-// ================= NAVBAR SHRINK ON SCROLL =================
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && !sideMenu.classList.contains('translate-x-full')) {
+    closeMenu();
+  }
+});
+
+// ================= NAVBAR SHRINK =================
 window.addEventListener('scroll', () => {
   if (window.scrollY > 40) {
     navbar.classList.add('nav-shrink');
   } else {
     navbar.classList.remove('nav-shrink');
   }
-});
+}, { passive: true });
 
-// ================= ACTIVE NAV LINK ON SCROLL =================
-const sectionObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          const targetId = link.getAttribute('href')?.substring(1);
-          link.classList.toggle('active', targetId === entry.target.id);
-        });
-      }
-    });
-  },
-  {
-    rootMargin: '-45% 0px -45% 0px'
-  }
-);
+// ================= ACTIVE NAV =================
+const sectionObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.id;
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+      });
+    }
+  });
+}, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
 
 sections.forEach(section => sectionObserver.observe(section));
 
-// ================= DARK / LIGHT MODE =================
-if (
-  localStorage.theme === 'dark' ||
-  (!('theme' in localStorage) &&
-    window.matchMedia('(prefers-color-scheme: dark)').matches)
-) {
-  document.documentElement.classList.add('dark');
-} else {
-  document.documentElement.classList.remove('dark');
-}
+// ================= DARK MODE =================
+const initTheme = () => {
+  const isDark = localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+  document.documentElement.classList.toggle('dark', isDark);
+};
+
+initTheme();
 
 function toggleTheme() {
-  document.documentElement.classList.toggle('dark');
-  localStorage.theme = document.documentElement.classList.contains('dark')
-    ? 'dark'
-    : 'light';
+  const isDark = document.documentElement.classList.toggle('dark');
+  localStorage.theme = isDark ? 'dark' : 'light';
 }
 
-// ================= SCROLL REVEAL =================
-const prefersReducedMotion = window.matchMedia(
-  '(prefers-reduced-motion: reduce)'
-).matches;
-
-if (!prefersReducedMotion) {
-  const revealElements = document.querySelectorAll('.reveal');
-
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  revealElements.forEach(el => revealObserver.observe(el));
-} else {
-  document.querySelectorAll('.reveal').forEach(el => {
-    el.classList.add('show');
-  });
-}
-
-// ================= CERTIFICATE MODAL LOGIC =================
-function openCert(src) {
-  if (!certModal || !certViewer) {
-    console.error('Certificate modal elements missing');
-    return;
-  }
-
-  certViewer.innerHTML = '';
-
-  const lowerSrc = src.toLowerCase();
-
-  if (lowerSrc.endsWith('.pdf')) {
-    certViewer.innerHTML = `
-      <iframe
-        src="${src}"
-        class="w-full h-full"
-        frameborder="0">
-      </iframe>
-    `;
-  } else {
-    certViewer.innerHTML = `
-      <img
-        src="${src}"
-        class="w-full h-full object-contain"
-        alt="Certificate">
-    `;
-  }
-
-  certModal.classList.remove('hidden');
-  certModal.classList.add('flex');
+// ================= CERTIFICATE POPUP =================
+function openLocalCert(src) {
+  certFrame.innerHTML = `
+    <img src="${src}" class="max-h-[85vh] max-w-full object-contain rounded-md" />
+  `;
+  certOverlay.classList.remove('hidden');
+  certOverlay.classList.add('flex');
   document.body.style.overflow = 'hidden';
 }
 
-function closeCert() {
-  if (!certModal || !certViewer) return;
-
-  certModal.classList.add('hidden');
-  certModal.classList.remove('flex');
-  certViewer.innerHTML = '';
+function closeLocalCert() {
+  certOverlay.classList.add('hidden');
+  certOverlay.classList.remove('flex');
+  certFrame.innerHTML = '';
   document.body.style.overflow = '';
 }
+
+
+certOverlay.addEventListener('click', (e) => {
+  if (e.target === certOverlay) closeLocalCert();
+});
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeLocalCert();
+});
+
+// ================= LAZY LOAD FALLBACK =================
+if (!('loading' in HTMLImageElement.prototype)) {
+  const script = document.createElement('script');
+  script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+  document.body.appendChild(script);
+}
+
+// ================= PRELOAD =================
+['./images/profile-img.png','./images/logo-dark-normalized.png','./images/logo-light-normalized.png']
+  .forEach(src => {
+    const link = document.createElement('link');
+    link.rel = 'preload';
+    link.as = 'image';
+    link.href = src;
+    document.head.appendChild(link);
+  });
