@@ -1,76 +1,58 @@
-/* ================= HERO ENTRANCE ================= */
-.animate-hero {
-  opacity: 0;
-  transform: translateY(24px);
-  animation: heroFadeUp 0.8s ease-out forwards;
-}
+/* ================= ANIMATIONS ================= */
 
-.delay-1 { animation-delay: 0.1s; }
-.delay-2 { animation-delay: 0.25s; }
-.delay-3 { animation-delay: 0.4s; }
-.delay-4 { animation-delay: 0.55s; }
-.delay-5 { animation-delay: 0.7s; }
-
-@keyframes heroFadeUp {
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* ================= SCROLL OFFSET ================= */
-section,
-div[id] {
-  scroll-margin-top: 6rem;
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
 }
 
-@media (min-width: 768px) {
-  section,
-  div[id] {
-    scroll-margin-top: 7rem;
+
+/* Zoom for modal */
+@keyframes certZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
-/* ================= SCROLL REVEAL ================= */
-.reveal {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
 
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
+/* ================= NAVBAR ================= */
 
-/* ================= NAVBAR (NO SHRINK) ================= */
 #navbar {
-  transition:
-    background-color 0.25s ease,
-    backdrop-filter 0.25s ease;
+  transition: background-color 0.25s ease,
+              backdrop-filter 0.25s ease,
+              padding 0.25s ease;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
-
-/* Optical compensation for dark logo */
-.dark .nav-logo {
-  transform: scale(1.06);
-  transform-origin: left center;
-}
-
-
-
-/* Scroll state: background only, no height change */
 #navbar.nav-shrink {
   backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255,255,255,0.7);
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
 }
 
 .dark #navbar.nav-shrink {
-  background-color: rgba(10, 10, 10, 0.6);
+  background-color: rgba(15,15,15,0.7);
 }
 
 
-/* ================= ACTIVE NAV LINK ================= */
+/* ================= NAV ACTIVE LINK ================= */
+
 .nav-link {
   position: relative;
   padding: 0.25rem 0;
@@ -78,7 +60,7 @@ div[id] {
 }
 
 .nav-link.active {
-  color: #7c3aed; /* violet-600 */
+  color: #7c3aed;
 }
 
 .nav-link.active::after {
@@ -96,49 +78,102 @@ div[id] {
   color: #c4b5fd;
 }
 
-/* ================= REDUCED MOTION ================= */
-@media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .animate-hero {
-    opacity: 1 !important;
-    transform: none !important;
-    animation: none !important;
-    transition: none !important;
+
+/* ================= PROJECT CARD ================= */
+
+.project-card {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+
+/* ================= TOOL ITEM ================= */
+
+.tool-item {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: .5rem;
+  background: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.dark .tool-item {
+  background: #131313;
+  border-color: rgba(255,255,255,0.15);
+}
+
+.tool-item:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+
+.dark .tool-item:hover {
+  box-shadow: 0 8px 16px rgba(255,255,255,0.1);
+}
+
+@media(min-width:640px) {
+  .tool-item {
+    width: 3.75rem;
+    height: 3.75rem;
   }
 }
+
 
 /* ================= CERTIFICATE MODAL ================= */
-#certModal {
-  backdrop-filter: blur(6px);
+
+#certOverlay {
+  opacity: 0;
+  transition: opacity .25s ease;
 }
 
-#certModal img {
-  max-height: 85vh;
-  object-fit: contain;
+#certOverlay.flex {
+  opacity: 1;
 }
 
-/* Close button hover */
-#certModal button {
-  transition: opacity 0.2s ease, transform 0.2s ease;
+#certPopup {
+  animation: certZoom .25s ease forwards;
 }
 
-#certModal button:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
+
+/* ================= SCROLL BEHAVIOR ================= */
+
+main section[id] {
+  scroll-margin-top: 5rem;
 }
 
-/* Smooth entrance */
-#certModal.flex img {
-  animation: certZoomIn 0.35s ease-out;
-}
-
-@keyframes certZoomIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
+@media(min-width:768px) {
+  main section[id] {
+    scroll-margin-top: 6rem;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+}
+
+
+/* ================= ACCESSIBILITY ================= */
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration: .01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration: .01ms!important;
+    scroll-behavior:auto!important;
   }
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline:2px solid #7c3aed;
+  outline-offset:2px;
+  border-radius: .25rem;
+}
+
+.dark a:focus-visible,
+.dark button:focus-visible {
+  outline-color:#c4b5fd;
 }

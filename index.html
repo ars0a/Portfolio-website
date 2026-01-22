@@ -1,1441 +1,662 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portfolio · Aditya Raj Singh</title>
 
-  <!-- Tailwind -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="./tailwind.config.js"></script>
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="./style.css" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap"
-    rel="stylesheet"
-  />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet" />
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./style.css" />
 </head>
 
-<body class="overflow-x-hidden font-Outfit leading-8 dark:bg-darkTheme dark:text-white">
+<body class="overflow-x-hidden font-Outfit leading-relaxed bg-white text-gray-900 dark:bg-darkTheme dark:text-white">
 
-<!-- ========= BACKGROUND ACCENT ========= -->
-<div class="fixed top-0 right-0 w-11/12 -z-10 -translate-y-[80%] dark:hidden">
-  <img src="./images/header-bg-color.png" alt="" class="w-full" />
-</div>
-
-<!-- ========= NAVBAR ========= -->
-<nav
-  id="navbar"
-  class="fixed top-0 z-50 w-full
-         px-4 md:px-6 lg:px-8 xl:px-[8%]
-         py-6 md:py-4
-         flex items-center justify-center
-         transition-all duration-300"
->
-
-  <!-- Logo -->
-<div class="absolute left-4 md:left-6 lg:left-8 xl:left-[8%] flex items-center h-full"> 
-  <a href="#top" aria-label="Scroll to top"> 
-    <img src="./images/logo-dark-normalized.png" 
-    alt="Aditya Raj Singh logo" 
-    class="w-32 sm:w-36 md:w-40 cursor-pointer hover:opacity-80 dark:hidden" /> 
-    
-    <img src="./images/logo-light-normalized.png" 
-    alt="Aditya Raj Singh logo" 
-    class="w-32 sm:w-36 md:w-40 cursor-pointer hover:opacity-80 hidden dark:block" /> 
-  </a> 
-</div>
-
-  <!-- Desktop Nav -->
-  <ul
-    id="navLinks"
-    class="hidden md:flex items-center gap-6 lg:gap-8
-           rounded-full px-10 py-3
-           bg-white/60 backdrop-blur
-           shadow-sm font-Ovo
-           dark:bg-transparent dark:border dark:border-white/50"
-  >
-    <li><a href="#top" class="nav-link">Home</a></li>
-    <li><a href="#about" class="nav-link">About</a></li>
-    <li><a href="#education" class="nav-link">Education</a></li>
-    <li><a href="#certifications" class="nav-link">Certifications</a></li>
-    <li><a href="#work" class="nav-link">Work</a></li>
-    <li><a href="#publications" class="nav-link">Publications</a></li>
-    <li><a href="#contact" class="nav-link">Contact</a></li>
-  </ul>
-
-  <!-- Right Controls -->
-  <div
-    class="absolute right-4 md:right-6 lg:right-8 xl:right-[8%]
-           flex items-center gap-2 h-full"
-  >
-    <!-- Theme toggle -->
-    <button onclick="toggleTheme()" class="p-2" aria-label="Toggle theme">
-      <img src="./images/moon_icon.png" class="w-6 dark:hidden" />
-      <img src="./images/sun_icon.png" class="w-6 hidden dark:block" />
-    </button>
-
-    <!-- Mobile menu -->
-    <button class="md:hidden p-2" onclick="openMenu()" aria-label="Open menu">
-      <img src="./images/menu-black.png" class="w-6 dark:hidden" />
-      <img src="./images/menu-white.png" class="w-6 hidden dark:block" />
-    </button>
-
-    <!-- Contact button (desktop only) -->
-    <a
-      href="#contact"
-      class="hidden lg:flex items-center gap-2 px-8 py-2.5
-             border border-gray-500 rounded-full font-Ovo
-             dark:border-white/50"
-    >
-      Contact
-      <img src="./images/arrow-icon.png" class="w-3 dark:hidden" />
-      <img src="./images/arrow-icon-dark.png" class="w-3 hidden dark:block" />
-    </a>
-  </div>
-</nav> 
-
-<!-- ================= MOBILE MENU ================= -->
-<nav
-  id="sideMenu"
-  class="fixed top-0 right-[-16rem] z-50
-         h-screen w-64
-         flex flex-col
-         py-20 px-10
-         bg-rose-50 font-Ovo
-         transition-transform duration-500
-         md:hidden
-         dark:bg-darkHover dark:text-white"
-  aria-label="Mobile navigation"
->
-
-  <!-- Close -->
-  <button
-    class="absolute top-6 right-6"
-    onclick="closeMenu()"
-    aria-label="Close menu"
-  >
-    <img src="./images/close-black.png" class="w-5 dark:hidden">
-    <img src="./images/close-white.png" class="w-5 hidden dark:block">
-  </button>
-
-  <ul class="flex flex-col gap-4">
-    <li><a href="#top" onclick="closeMenu()">Home</a></li>
-    <li><a href="#about" onclick="closeMenu()">About</a></li>
-    <li><a href="#education" onclick="closeMenu()">Education</a></li>
-    <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
-    <li><a href="#work" onclick="closeMenu()">Work</a></li>
-    <li><a href="#publications" onclick="closeMenu()">Publications</a></li>
-    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-  </ul>
-
-  <!-- Mobile socials -->
-  <div class="flex items-center gap-3 mt-8 pt-6 border-t
-              border-gray-300 dark:border-gray-600">
-    <a
-      href="https://github.com/ars0a/"
-      target="_blank"
-      aria-label="GitHub profile"
-      class="w-9 h-9 flex items-center justify-center rounded-full
-             border border-gray-400 bg-rose-100
-             dark:bg-darkHover dark:border-white/60"
-    >
-      <img src="./images/github-mark.png" class="w-5 dark:hidden">
-      <img src="./images/github-mark-white.png" class="w-5 hidden dark:block">
-    </a>
-
-    <a
-      href="https://www.linkedin.com/in/ars0a/"
-      target="_blank"
-      aria-label="LinkedIn profile"
-      class="w-9 h-9 flex items-center justify-center rounded-full
-             border border-gray-400 bg-rose-100
-             dark:bg-darkHover dark:border-white/60"
-    >
-      <img src="./images/linkedin.png" class="w-5">
-    </a>
-  </div>
-</nav>
-
-
-<!-- ===== HERO SECTION ===== -->
-<section
-  id="top"
-  class="scroll-mt-28 md:scroll-mt-32
-         w-11/12 max-w-3xl mx-auto
-         min-h-screen
-         pt-28 sm:pt-32 md:pt-28
-         flex flex-col items-center justify-center gap-4 text-center"
->
-
-  <!-- Profile image -->
-  <img
-    src="./images/profile-img.png"
-    alt="Aditya Raj Singh profile photo"
-    width="128"
-    height="128"
-    loading="eager"
-    class="rounded-full animate-hero delay-1"
-  />
-
-  <!-- Availability status -->
-  <div class="flex items-center gap-2 animate-hero delay-2">
-    <span class="relative flex">
-      <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
-      <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
-    </span>
-    <span class="text-xs sm:text-sm text-gray-700 dark:text-white/80">
-      Open for Cloud & DevOps roles
-    </span>
+  <!-- Background Accent -->
+  <div class="pointer-events-none fixed top-0 right-0 w-11/12 -z-10 -translate-y-[80%] dark:hidden">
+    <img src="./images/header-bg-color.png" alt="" class="w-full select-none" />
   </div>
 
-  <!-- Intro -->
-  <h3 class="text-xl md:text-2xl font-Ovo animate-hero delay-3">
-    Hi, I’m Aditya Raj Singh
-  </h3>
+  <!-- ================================== HEADER ================================== -->
+  <header class="fixed top-0 left-0 w-full z-50">
+    <nav id="navbar" class="w-full px-4 sm:px-6 lg:px-8 py-4 transition-all duration-300">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
 
-  <!-- Headline -->
-  <h1 class="text-3xl sm:text-6xl lg:text-[66px] font-Ovo animate-hero delay-4">
-    Cloud & DevOps Engineer
-    <br class="hidden sm:block" />
-    with Full-Stack experience
-  </h1>
+        <!-- Logo -->
+        <a href="#top" aria-label="Go to home" class="shrink-0">
+          <img src="./images/logo-dark-normalized.png" alt="logo" class="w-28 sm:w-32 md:w-36 dark:hidden" />
+          <img src="./images/logo-light-normalized.png" alt="logo" class="w-28 sm:w-32 md:w-36 hidden dark:block" />
+        </a>
 
-  <!-- Status badge -->
-  <div class="animate-hero delay-5">
-    <span class="inline-block text-xs px-4 py-1 rounded-full
-                 bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10
-                 text-gray-700 dark:text-white/80">
-      Currently building cloud-native projects · Portfolio in active development
-    </span>
-  </div>
+        <!-- Desktop Navigation -->
+        <ul class="hidden lg:flex items-center gap-6 rounded-full px-8 py-2.5 bg-white/60 backdrop-blur-sm shadow-sm font-Ovo dark:bg-transparent dark:border dark:border-white/50">
+          <li><a href="#top" class="nav-link">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#education" class="nav-link">Education</a></li>
+          <li><a href="#certifications" class="nav-link">Certifications</a></li>
+          <li><a href="#work" class="nav-link">Work</a></li>
+          <li><a href="#publications" class="nav-link">Publications</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
 
-  <!-- Summary -->
-  <p class="max-w-2xl font-Ovo animate-hero delay-5">
-    I build, deploy, automate, and debug real systems across cloud,
-    DevOps pipelines, and modern web stacks.
-  </p>
+        <!-- Right Controls -->
+        <div class="flex items-center gap-2">
+          <!-- Theme Toggle -->
+          <button onclick="toggleTheme()" aria-label="Toggle theme" class="p-2 hover:scale-110 transition-transform">
+            <img src="./images/moon_icon.png" class="w-5 dark:hidden" alt="">
+            <img src="./images/sun_icon.png" class="w-5 hidden dark:block" alt="">
+          </button>
 
-  <!-- CTA buttons -->
-  <div class="flex flex-col sm:flex-row items-center gap-4 mt-6 animate-hero delay-5">
-    <a
-      href="#contact"
-      class="px-10 py-3 rounded-full
-             bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-             text-white flex items-center gap-2"
-    >
-      Contact me
-      <img src="./images/right-arrow-white.png" alt="" class="w-4">
-    </a>
+          <!-- Mobile Menu Button -->
+          <button onclick="openMenu()" aria-label="Open menu" class="lg:hidden p-2 hover:scale-110 transition-transform">
+            <img src="./images/menu-black.png" class="w-6 dark:hidden" alt="">
+            <img src="./images/menu-white.png" class="w-6 hidden dark:block" alt="">
+          </button>
 
-      <a
-        href="./images/Resume.pdf"
-        download="Aditya_Raj_Singh_Resume.pdf"
-        class="px-10 py-3 rounded-full border border-gray-500
-              flex items-center gap-2 bg-white dark:text-black"
-      >
-        My resume
-        <img src="./images/download-icon.png" alt="Download resume" class="w-4">
-      </a>
+          <!-- Desktop Contact -->
+          <a href="#contact" class="hidden lg:flex items-center gap-2 px-6 py-2 border border-gray-500 rounded-full font-Ovo hover:bg-gray-50 dark:border-white/50 dark:hover:bg-white/5 transition-colors">
+            Contact
+            <img src="./images/arrow-icon.png" class="w-3 dark:hidden" alt="">
+            <img src="./images/arrow-icon-dark.png" class="w-3 hidden dark:block" alt="">
+          </a>
+        </div>
+      </div>
+    </nav>
 
-  </div>
+    <!-- ================= MOBILE MENU ================= -->
+    <aside id="sideMenu" class="fixed top-0 right-0 translate-x-full z-50 h-screen w-64 py-20 px-8 bg-rose-50 font-Ovo transition-transform duration-300 lg:hidden dark:bg-darkHover dark:text-white">
+      <button onclick="closeMenu()" aria-label="Close menu" class="absolute top-6 right-6 hover:scale-110 transition-transform">
+        <img src="./images/close-black.png" class="w-5 dark:hidden" alt="">
+        <img src="./images/close-white.png" class="w-5 hidden dark:block" alt="">
+      </button>
 
-</section>
+      <ul class="flex flex-col gap-4">
+        <li><a href="#top" onclick="closeMenu()">Home</a></li>
+        <li><a href="#about" onclick="closeMenu()">About</a></li>
+        <li><a href="#education" onclick="closeMenu()">Education</a></li>
+        <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
+        <li><a href="#work" onclick="closeMenu()">Work</a></li>
+        <li><a href="#publications" onclick="closeMenu()">Publications</a></li>
+        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+      </ul>
 
+      <!-- Mobile Socials -->
+      <div class="flex items-center gap-3 mt-8 pt-6 border-t border-gray-300 dark:border-gray-600">
+        <a href="https://github.com/ars0a/" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 bg-rose-100 hover:scale-110 transition-transform dark:bg-darkHover dark:border-white/60">
+          <img src="./images/github-mark.png" class="w-5 dark:hidden" alt="">
+          <img src="./images/github-mark-white.png" class="w-5 hidden dark:block" alt="">
+        </a>
+        <a href="https://www.linkedin.com/in/ars0a/" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 bg-rose-100 hover:scale-110 transition-transform dark:bg-darkHover dark:border-white/60">
+          <img src="./images/linkedin.png" class="w-5" alt="">
+        </a>
+      </div>
+    </aside>
+  </header>
 
+  <!-- ================================== MAIN ================================== -->
+  <main>
 
-<!-- ------------ ABOUT / EXPERTISE ----------- -->
-<section id="about" class="w-full px-[12%] py-20 scroll-mt-20">
+    <!-- ========= HERO / HOME SECTION ========= -->
+    <section id="top" class="min-h-screen flex flex-col items-center justify-center px-4 pt-24 sm:pt-28 md:pt-32">
+      <div class="max-w-3xl mx-auto w-full text-center space-y-4">
 
-  <!-- Heading -->
-  <div class="reveal text-center">
-    <h4 class="mb-2 text-lg font-Ovo">Who I Am</h4>
-    <h2 class="text-5xl font-Ovo">About Me</h2>
-  </div>
+        <img src="./images/profile-img.png" alt="profile" width="128" height="128" class="rounded-full mx-auto">
 
-  <!-- Main layout -->
-  <div class="mt-20 flex flex-col lg:flex-row gap-16 items-start">
+        <div class="flex items-center gap-2 justify-center">
+          <span class="relative flex">
+            <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+            <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
+          </span>
+          <span class="text-xs sm:text-sm text-gray-700 dark:text-white/80">Open for Cloud & DevOps roles</span>
+        </div>
 
-    <!-- Image -->
-    <div class="mx-auto lg:mx-0 reveal">
-      <img
-        src="./images/user-image.png"
-        alt="Aditya Raj Singh"
-        loading="lazy"
-        class="w-56 sm:w-64 rounded-3xl"
-      />
-    </div>
+        <h3 class="text-xl md:text-2xl font-Ovo">Hi, I'm Aditya Raj Singh</h3>
 
-    <!-- Cards + Skills -->
-    <div class="flex-1 space-y-10">
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-Ovo leading-tight">
+          Cloud & DevOps Engineer<br class="hidden sm:block">with Full-Stack experience
+        </h1>
 
-      <!-- About cards -->
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+        <span class="inline-block text-xs px-4 py-1.5 rounded-full bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10 text-gray-700 dark:text-white/80">
+          Currently building cloud-native projects · Portfolio in active development
+        </span>
 
-        <!-- Card 1 -->
-        <div
-          class="border border-gray-400 rounded-xl px-6 py-5 sm:py-6
-                bg-white/50 dark:bg-transparent
-                hover:-translate-y-1 hover:shadow-black duration-500
-                dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40"
-        >
+        <p class="max-w-2xl mx-auto font-Ovo text-gray-600 dark:text-gray-300">
+          I build, deploy, automate, and debug real systems across cloud, DevOps pipelines, and modern web stacks.
+        </p>
 
-          <!-- Heading with icon -->
-          <div class="flex items-center gap-3 mb-2">
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
+          <a href="#contact" class="px-8 py-3 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 hover:scale-105 transition-all">
+            Contact me
+            <img src="./images/right-arrow-white.png" class="w-4" alt="">
+          </a>
+          <a href="./images/Aditya_resume.pdf" download class="px-8 py-3 rounded-full border border-gray-500 flex items-center gap-2 bg-white dark:text-black hover:bg-gray-50 dark:hover:bg-gray-100 transition-colors">
+            My resume
+            <img src="./images/download-icon.png" class="w-4" alt="">
+          </a>
+        </div>
+      </div>
+    </section>
 
-            <!-- Icon (light / dark) -->
-            <div class="w-9 h-9 flex items-center justify-center shrink-0">
-              <img
-                src="./images/edu-icon.png"
-                alt=""
-                class="w-5 dark:hidden"
-              >
-              <img
-                src="./images/edu-icon-dark.png"
-                alt=""
-                class="w-5 hidden dark:block"
-              >
+    <!-- ========= ABOUT SECTION ========= -->
+    <section id="about" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto">
+
+        <div class="text-center mb-12 sm:mb-16">
+          <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Who I Am</h4>
+          <h2 class="text-4xl sm:text-5xl font-Ovo">About Me</h2>
+        </div>
+
+        <div class="grid lg:grid-cols-[auto_1fr] gap-12 lg:gap-16 items-start">
+
+          <div class="mx-auto lg:mx-0">
+            <img src="./images/user-image.png" alt="profile" loading="lazy" class="w-48 sm:w-56 md:w-64 rounded-3xl">
+          </div>
+
+          <div class="space-y-10">
+            <!-- small cards -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+
+              <div class="border border-gray-400 rounded-xl p-6 bg-white/50 dark:bg-transparent dark:border-white">
+                <h3 class="font-semibold mb-2 text-gray-800 dark:text-white">Who I am</h3>
+                <p class="text-sm text-gray-600 dark:text-white/80">
+                  Self Learned cloud & DevOps-focused developer who enjoys building, deploying, and operating real systems.
+                </p>
+              </div>
+
+              <div class="border border-gray-400 rounded-xl p-6 bg-white/50 dark:bg-transparent dark:border-white">
+                <h3 class="font-semibold mb-2 text-gray-800 dark:text-white">What I work on</h3>
+                <p class="text-sm text-gray-600 dark:text-white/80">
+                  Cloud infrastructure, CI/CD pipelines, container workloads, Linux systems, and cloud-hosted applications.
+                </p>
+              </div>
+
+              <div class="border border-gray-400 rounded-xl p-6 bg-white/50 dark:bg-transparent dark:border-white sm:col-span-2 lg:col-span-1">
+                <h3 class="font-semibold mb-2 text-gray-800 dark:text-white">How I think</h3>
+                <p class="text-sm text-gray-600 dark:text-white/80">
+                  Reliability-first mindset — understanding how systems fail, scale, recover, and behave in real conditions.
+                </p>
+              </div>
             </div>
 
-            <h3 class="font-semibold text-gray-800 dark:text-white">
-              Who I am
-            </h3>
-          </div>
+            <!-- skills -->
+            <div class="space-y-6">
+              <div>
+                <div class="flex justify-between mb-2">
+                  <h4 class="font-semibold text-sm sm:text-base text-gray-800 dark:text-white">☁️ Cloud & Infrastructure</h4>
+                  <span class="text-xs sm:text-sm text-gray-500">Advanced</span>
+                </div>
+                <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
+                  <div class="h-full w-[85%] bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
+                </div>
+              </div>
 
-          <p class="text-sm text-gray-600 dark:text-white/80 leading-relaxed">
-            A cloud & DevOps-focused developer who enjoys building,
-            deploying, and operating real systems — not just writing code.
+              <div>
+                <div class="flex justify-between mb-2">
+                  <h4 class="font-semibold text-sm sm:text-base text-gray-800 dark:text-white">⚙️ DevOps & Automation</h4>
+                  <span class="text-xs sm:text-sm text-gray-500">Strong</span>
+                </div>
+                <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
+                  <div class="h-full w-[75%] bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <h4 class="font-semibold text-sm sm:text-base text-gray-800 dark:text-white">🧠 Linux & Systems</h4>
+                  <span class="text-xs sm:text-sm text-gray-500">Strong</span>
+                </div>
+                <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
+                  <div class="h-full w-[78%] bg-gradient-to-r from-orange-500 to-amber-500 rounded-full"></div>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between mb-2">
+                  <h4 class="font-semibold text-sm sm:text-base text-gray-800 dark:text-white">🌐 Web Development</h4>
+                  <span class="text-xs sm:text-sm text-gray-500">Working</span>
+                </div>
+                <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
+                  <div class="h-full w-[65%] bg-gradient-to-r from-pink-500 to-rose-500 rounded-full"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- tools -->
+        <div class="mt-16 sm:mt-20">
+          <h2 class="text-center text-2xl font-Ovo mb-8 sm:mb-10">Tools I Work With</h2>
+          <ul class="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-4xl mx-auto">
+            <li><img src="./images/vscode.png" alt="VS Code" class="w-7 sm:w-8"></li>
+            <li><img src="./images/git.png" alt="Git" class="w-7 sm:w-8"></li>
+            <li><img src="./images/aws-icon.png" alt="AWS" class="w-7 sm:w-8"></li>
+            <li><img src="./images/docker.png" alt="Docker" class="w-7 sm:w-8"></li>
+            <li><img src="./images/jenkins.png" alt="Jenkins" class="w-7 sm:w-8"></li>
+            <li><img src="./images/GitHub Actions.png" alt="GitHub Actions" class="w-7 sm:w-8"></li>
+            <li><img src="./images/HashiCorp Terraform.png" alt="Terraform" class="w-7 sm:w-8"></li>
+            <li><img src="./images/kubernetes.png" alt="Kubernetes" class="w-7 sm:w-8"></li>
+            <li><img src="./images/linux-icon.png" alt="Linux" class="w-7 sm:w-8"></li>
+            <li><img src="./images/Python.png" alt="Python" class="w-7 sm:w-8"></li>
+            <li><img src="./images/Ansible.png" alt="Ansible" class="w-7 sm:w-8"></li>
+            <li><img src="./images/Grafana.png" alt="Grafana" class="w-7 sm:w-8"></li>
+            <li><img src="./images/NGINX.png" alt="NGINX" class="w-7 sm:w-8"></li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+        <!-- ========= EDUCATION SECTION ========= -->
+    <section id="education" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+
+        <div class="text-center mb-12 sm:mb-16">
+          <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Academic Journey</h4>
+          <h2 class="text-4xl sm:text-5xl font-Ovo">Education</h2>
+          <p class="max-w-2xl mx-auto mt-4 sm:mt-6 text-gray-600 dark:text-gray-400">
+            From fundamentals to applied learning, this journey reflects consistent growth and a clear direction toward technology.
           </p>
-
         </div>
 
+        <div class="relative">
+          <div class="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-400 to-transparent dark:via-white/40"></div>
 
-
-<!-- Card 2 -->
-<div
-  class="border border-gray-400 rounded-xl px-6 py-5 sm:py-6
-         bg-white/50 dark:bg-transparent
-         hover:-translate-y-1 hover:shadow-black duration-500
-         dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40"
->
-
-  <!-- Heading with icon -->
-  <div class="flex items-center gap-3 mb-2">
-    <div class="w-9 h-9 flex items-center justify-center shrink-0">
-      <img src="./images/project-icon.png" alt="" class="w-5 dark:hidden">
-      <img src="./images/project-icon-dark.png" alt="" class="w-5 hidden dark:block">
-    </div>
-
-    <h3 class="font-semibold text-gray-800 dark:text-white">
-      What I work on
-    </h3>
-  </div>
-
-  <p class="text-sm text-gray-600 dark:text-white/80 leading-relaxed">
-    Cloud infrastructure, CI/CD pipelines, containerized workloads,
-    Linux systems, and cloud-hosted applications.
-  </p>
-</div>
-
-
-<!-- Card 3 -->
-<div
-  class="border border-gray-400 rounded-xl px-6 py-5 sm:py-6
-         bg-white/50 dark:bg-transparent
-         hover:-translate-y-1 hover:shadow-black duration-500
-         dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40"
->
-
-  <!-- Heading with icon -->
-  <div class="flex items-center gap-3 mb-2">
-    <div class="w-9 h-9 flex items-center justify-center shrink-0">
-      <img src="./images/code-icon.png" alt="" class="w-5 dark:hidden">
-      <img src="./images/code-icon-dark.png" alt="" class="w-5 hidden dark:block">
-    </div>
-
-    <h3 class="font-semibold text-gray-800 dark:text-white">
-      How I think
-    </h3>
-  </div>
-
-  <p class="text-sm text-gray-600 dark:text-white/80 leading-relaxed">
-    Reliability-first mindset. I like understanding how systems fail,
-    scale, recover, and behave under real-world constraints.
-  </p>
-</div>
-      </div>
-
-      <!-- Skill bars -->
-      <div class="space-y-8 max-w-2xl reveal">
-
-        <!-- Cloud -->
-        <div>
-          <div class="flex justify-between mb-2">
-            <h4 class="font-semibold text-gray-800 dark:text-white">
-              ☁️ Cloud & Infrastructure
-            </h4>
-            <span class="text-sm text-gray-500">Advanced</span>
+          <div class="flex gap-6 sm:gap-8 mb-12 sm:mb-16 relative">
+            <div class="relative z-10 mt-2">
+              <div class="w-4 h-4 rounded-full border-2 border-gray-500 bg-white dark:bg-darkTheme dark:border-white"></div>
+            </div>
+            <div class="border border-gray-400 rounded-xl p-6 sm:p-8 bg-white/40 dark:bg-transparent dark:border-white flex-1">
+              <p class="text-xs uppercase tracking-widest text-gray-500 dark:text-white/70 mb-2">2023 – 2025</p>
+              <h3 class="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white">Master of Computer Applications (MCA)</h3>
+              <p class="text-sm text-gray-600 dark:text-white/75 mt-1">Central University of Himachal Pradesh</p>
+            </div>
           </div>
-          <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-            <div class="h-full w-[85%] bg-gradient-to-r from-indigo-500 to-purple-500"></div>
+
+          <div class="flex gap-6 sm:gap-8 relative">
+            <div class="relative z-10 mt-2">
+              <div class="w-4 h-4 rounded-full border-2 border-gray-500 bg-white dark:bg-darkTheme dark:border-white"></div>
+            </div>
+            <div class="border border-gray-400 rounded-xl p-6 sm:p-8 bg-white/40 dark:bg-transparent dark:border-white flex-1">
+              <p class="text-xs uppercase tracking-widest text-gray-500 dark:text-white/70 mb-2">2018 – 2021</p>
+              <h3 class="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white">Bachelor of Computer Applications (BCA)</h3>
+              <p class="text-sm text-gray-600 dark:text-white/75 mt-1">Lovely Professional University</p>
+            </div>
           </div>
-        </div>
-
-        <!-- DevOps -->
-        <div>
-          <div class="flex justify-between mb-2">
-            <h4 class="font-semibold text-gray-800 dark:text-white">
-              ⚙️ DevOps & Automation
-            </h4>
-            <span class="text-sm text-gray-500">Strong</span>
-          </div>
-          <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-            <div class="h-full w-[75%] bg-gradient-to-r from-emerald-500 to-teal-500"></div>
-          </div>
-        </div>
-
-        <!-- Systems -->
-        <div>
-          <div class="flex justify-between mb-2">
-            <h4 class="font-semibold text-gray-800 dark:text-white">
-              🧠 Linux & Systems
-            </h4>
-            <span class="text-sm text-gray-500">Strong</span>
-          </div>
-          <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-            <div class="h-full w-[78%] bg-gradient-to-r from-orange-500 to-amber-500"></div>
-          </div>
-        </div>
-
-        <!-- Web -->
-        <div>
-          <div class="flex justify-between mb-2">
-            <h4 class="font-semibold text-gray-800 dark:text-white">
-              🌐 Web Development
-            </h4>
-            <span class="text-sm text-gray-500">Working</span>
-          </div>
-          <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-            <div class="h-full w-[65%] bg-gradient-to-r from-pink-500 to-rose-500"></div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <div class="mt-20">
-
-  <h2 class="text-center text-2xl font-Ovo mb-10 reveal">
-    Tools I Work With
-  </h2>
-
-  <ul class="flex flex-wrap justify-center gap-5 max-w-7xl mx-auto reveal">
-
-    <!-- Tool -->
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/vscode.png" alt="VS Code" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/git.png" alt="Git" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/aws-icon.png" alt="AWS" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/docker.png" alt="Docker" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/jenkins.png" alt="Jenkins" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/GitHub Actions.png" alt="GitHub Actions" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/HashiCorp Terraform.png" alt="Terraform" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/kubernetes.png" alt="Kubernetes" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/linux-icon.png" alt="Linux" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/Python.png" alt="Python" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/Ansible.png" alt="Ansible" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/Grafana.png" alt="Grafana" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-    <li class="tool-item group w-13 h-13 sm:w-14 sm:h-14 rounded-lg bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 flex items-center justify-center transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:shadow-lg dark:hover:shadow-white/10">
-      <img src="./images/NGINX.png" alt="NGINX" loading="lazy" class="w-7 sm:w-8 transition-transform duration-300 group-hover:scale-110">
-    </li>
-
-  </ul>
-  </div>
-</section>
-
-
-
-<!-- ------------ EDUCATION ------------ -->
-<section id="education" class="w-full px-[12%] py-20 scroll-mt-20">
-
-  <!-- Heading -->
-  <div class="reveal text-center">
-    <h4 class="mb-2 text-lg font-Ovo">Academic Journey</h4>
-    <h2 class="text-5xl font-Ovo">Education</h2>
-    <p class="text-center max-w-2xl mx-auto mt-6 text-gray-600 dark:text-gray-400 reveal">
-  From fundamentals to applied learning, this journey reflects consistent growth and a clear direction toward technology.
-</p>
-
-  </div>
-
-  <!-- Timeline -->
-  <div class="max-w-4xl mx-auto mt-20 relative">
-
-    <!-- Vertical line -->
-    <div
-      class="absolute left-6 top-0 bottom-0 w-px
-             bg-gradient-to-b from-transparent via-gray-400 to-transparent
-             dark:via-white/40">
-    </div>
-
-    <!-- ===== MCA ===== -->
-    <div class="flex gap-8 mb-16 relative reveal">
-
-      <!-- Dot -->
-      <div class="relative z-10 mt-2">
-        <div class="w-4 h-4 rounded-full border-2 border-gray-500
-                    bg-white dark:bg-darkTheme dark:border-white">
         </div>
       </div>
+    </section>
 
-      <!-- Card -->
-      <div
-        class="flex-1 border border-gray-400 rounded-xl px-8 py-6
-               bg-white/40 dark:bg-transparent
-               hover:-translate-y-1 hover:shadow-black duration-500
-               dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
+    <!-- ========= CERTIFICATIONS SECTION ========= -->
 
-        <p class="text-xs uppercase tracking-widest text-gray-500 dark:text-white/70 mb-2">
-          2023 – 2025
-        </p>
+    <section id="certifications" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
 
-        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
-          Master of Computer Applications (MCA)
-        </h3>
+        <!-- Section Heading -->
+        <div class="text-center mb-12 sm:mb-16">
+          <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Training & Certifications</h4>
+          <h2 class="text-4xl sm:text-5xl font-Ovo">Certifications</h2>
+          <p class="max-w-2xl mx-auto mt-4 sm:mt-6 dark:text-white/80">
+            Credentials demonstrating practical competency in DevOps, cloud computing, and professional development.
+          </p>
+        </div>
 
-        <p class="text-sm text-gray-600 dark:text-white/75 mt-1">
-          Central University of Himachal Pradesh
-        </p>
-      </div>
-    </div>
+        <!-- Certificate Grid -->
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
 
-    <!-- ===== BCA ===== -->
-    <div class="flex gap-8 relative reveal">
+          <!-- AWS CCP -->
+          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
+            <div class="flex flex-col justify-between h-full gap-3">
+              <div>
+                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">Cloud Computing</span>
+                <h3 class="text-lg font-semibold mt-1">AWS Certified Solutions Architect - Associate</h3>
+                <p class="text-sm text-gray-500 dark:text-white/70">Amazon Web Services • 2025</p>
+              </div>
+              <div class="flex justify-end">
+                <button type="button"
+                  onclick="openLocalCert('./certificates/aws-ccp.png')"
+                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
+                  Verify
+                </button>
+              </div>
+            </div>
+          </div>
 
-      <!-- Dot -->
-      <div class="relative z-10 mt-2">
-        <div class="w-4 h-4 rounded-full border-2 border-gray-500
-                    bg-white dark:bg-darkTheme dark:border-white">
+          <!-- DevOps Engineering -->
+          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
+            <div class="flex flex-col justify-between h-full gap-3">
+              <div>
+                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">DevOps Training</span>
+                <h3 class="text-lg font-semibold mt-1">DevOps Engineering Program</h3>
+                <p class="text-sm text-gray-500 dark:text-white/70">GeeksforGeeks • 2025</p>
+              </div>
+              <div class="flex justify-end">
+                <button type="button"
+                  onclick="openLocalCert('./certificates/devops.png')"
+                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
+                  Verify
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Docker & Kubernetes -->
+          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
+            <div class="flex flex-col justify-between h-full gap-3">
+              <div>
+                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">Masterclass</span>
+                <h3 class="text-lg font-semibold mt-1">Fundamantal of Docker & Kubernetes</h3>
+                <p class="text-sm text-gray-500 dark:text-white/70">Scaler • 2025</p>
+              </div>
+              <div class="flex justify-end">
+                <button type="button"
+                  onclick="openLocalCert('./certificates/scaler.png')"
+                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
+                  Verify
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- TCS iON -->
+          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
+            <div class="flex flex-col justify-between h-full gap-3">
+              <div>
+                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">Career Skill</span>
+                <h3 class="text-lg font-semibold mt-1">Career Edge: Young Professional</h3>
+                <p class="text-sm text-gray-500 dark:text-white/70">TCS iON • 2024</p>
+              </div>
+              <div class="flex justify-end">
+                <button type="button"
+                  onclick="openLocalCert('./certificates/TCS iON-1.png')"
+                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
+                  Verify
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- NPTEL Certificate -->
+          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
+            <div class="flex flex-col justify-between h-full gap-3">
+              <div>
+                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">Soft Skill Development</span>
+                <h3 class="text-lg font-semibold mt-1">Enhancing Soft Skill and Personality</h3>
+                <p class="text-sm text-gray-500 dark:text-white/70">Indian Institute Of Technology Kanpur • 2024</p>
+              </div>
+              <div class="flex justify-end">
+                <button type="button"
+                  onclick="openLocalCert('./certificates/nptel.png')"
+                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
+                  Verify
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Space Internship -->
+          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
+            <div class="flex flex-col justify-between h-full gap-3">
+              <div>
+                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">Internship</span>
+                <h3 class="text-lg font-semibold mt-1">Agnirva Space Internship Program</h3>
+                <p class="text-sm text-gray-500 dark:text-white/70">Agnirva Institute • 2024</p>
+              </div>
+              <div class="flex justify-end">
+                <button type="button"
+                  onclick="openLocalCert('./certificates/agnirva-1.png')"
+                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
+                  Verify
+                </button>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+    </section>
 
-      <!-- Card -->
-      <div
-        class="flex-1 border border-gray-400 rounded-xl px-8 py-6
-               bg-white/40 dark:bg-transparent
-               hover:-translate-y-1 hover:shadow-black duration-500
-               dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
 
-        <p class="text-xs uppercase tracking-widest text-gray-500 dark:text-white/70 mb-2">
-          2018 – 2021
-        </p>
+    <!-- ========= WORK SECTION ========= -->
 
-        <h3 class="text-xl font-semibold text-gray-800 dark:text-white">
-          Bachelor of Computer Applications (BCA)
-        </h3>
+  <section id="work" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
 
-        <p class="text-sm text-gray-600 dark:text-white/75 mt-1">
-          Lovely Professional University
+      <div class="text-center mb-12 sm:mb-16">
+        <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Portfolio</h4>
+        <h2 class="text-4xl sm:text-5xl font-Ovo">Selected Projects</h2>
+        <p class="max-w-2xl mx-auto mt-4 sm:mt-6 text-gray-700 dark:text-white/80">
+          Real-world projects focused on cloud deployment, system design, automation, and full-stack development.
         </p>
       </div>
-    </div>
 
-  </div>
-</section>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
+        <!-- Project 1 -->
+        <article class="project-card group">
+          <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 ring-1 ring-black/5 dark:ring-white/10">
+            <div class="absolute inset-0 bg-[url('./images/work-1.png')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors duration-300"></div>
 
-<!-- ----------- CERTIFICATIONS --------- -->
-<section id="certifications" class="w-full px-[12%] py-20 scroll-mt-20">
+            <a href="https://github.com/ars0a/devsecops-pipeline-project.git" target="_blank" class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-lg px-5 py-4 bg-white/95 dark:bg-black/80 backdrop-blur text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-1">
+              <div class="flex items-center gap-4">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-sm sm:text-base leading-snug">End-to-end DevSecOps CI/CD pipeline</h3>
+                  <p class="text-xs text-gray-600 dark:text-white/70 mt-1">Jenkins, Docker, Kubernetes, SonarQube, Trivy, Argo, AWS</p>
+                  <p class="text-xs text-gray-500 dark:text-white/60 mt-2">Secure build, test, scan and deploy pipeline.</p>
+                </div>
+                <div class="shrink-0 w-9 h-9 rounded-full bg-black dark:bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <img src="./images/send-icon.png" class="w-4 invert dark:invert-0" alt="">
+                </div>
+              </div>
+            </a>
+          </div>
+        </article>
 
-  <!-- Heading -->
-  <div class="text-center reveal">
-    <h4 class="mb-2 text-lg font-Ovo">Credentials</h4>
-    <h2 class="text-5xl font-Ovo">Certifications</h2>
-    <p class="max-w-2xl mx-auto mt-6 text-gray-700 dark:text-white/80 font-Ovo">
-      Industry-recognized certifications and structured programs validating my
-      cloud, DevOps, and professional skill set.
-    </p>
-  </div>
+        <!-- Project 2 -->
+        <article class="project-card group">
+          <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 ring-1 ring-black/5 dark:ring-white/10">
+            <div class="absolute inset-0 bg-[url('./images/work-2.png')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors duration-300"></div>
 
-  <!-- ===== Featured Certification ===== -->
-  <div class="max-w-4xl mx-auto mt-16 reveal">
-    <div
-      class="border-2 border-gray-500 rounded-2xl px-8 py-8
-             bg-white/60 dark:bg-darkHover/30
-             hover:-translate-y-1 hover:shadow-black duration-500
-             dark:border-white/70 dark:hover:shadow-white">
+            <a href="https://github.com/ars0a/ec2-docker-node-rds-deployment.git" target="_blank" class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-lg px-5 py-4 bg-white/95 dark:bg-black/80 backdrop-blur text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-1">
+              <div class="flex items-center gap-4">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-sm sm:text-base leading-snug">EC2 Docker Node RDS Deployment</h3>
+                  <p class="text-xs text-gray-600 dark:text-white/70 mt-1">Docker, Node.js, AWS EC2, RDS, IAM</p>
+                  <p class="text-xs text-gray-500 dark:text-white/60 mt-2">Dockerized Node.js backend deployed on AWS with RDS.</p>
+                </div>
+                <div class="shrink-0 w-9 h-9 rounded-full bg-black dark:bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <img src="./images/send-icon.png" class="w-4 invert dark:invert-0" alt="">
+                </div>
+              </div>
+            </a>
+          </div>
+        </article>
 
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-        <div>
-          <span
-            class="inline-block mb-2 text-xs uppercase tracking-widest
-                   px-3 py-1 rounded-full
-                   bg-gray-200 dark:bg-white/10
-                   text-gray-700 dark:text-white/80">
-            Core Cloud Certification
-          </span>
+        <!-- Project 3 -->
+        <article class="project-card group">
+          <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 ring-1 ring-black/5 dark:ring-white/10">
+            <div class="absolute inset-0 bg-[url('./images/work-3.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors duration-300"></div>
 
-          <h3 class="text-2xl font-semibold text-gray-800 dark:text-white">
-            AWS Certified Cloud Practitioner
-          </h3>
+            <a href="https://github.com/ars0a/amplify-vite-react-template.git" target="_blank" class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-lg px-5 py-4 bg-white/95 dark:bg-black/80 backdrop-blur text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-1">
+              <div class="flex items-center gap-4">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-sm sm:text-base leading-snug">AWS Amplify + Vite React App</h3>
+                  <p class="text-xs text-gray-600 dark:text-white/70 mt-1">React, Vite, Amplify, Cognito, DynamoDB</p>
+                  <p class="text-xs text-gray-500 dark:text-white/60 mt-2">Authentication, DB & file storage using Amplify boilerplate.</p>
+                </div>
+                <div class="shrink-0 w-9 h-9 rounded-full bg-black dark:bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <img src="./images/send-icon.png" class="w-4 invert dark:invert-0" alt="">
+                </div>
+              </div>
+            </a>
+          </div>
+        </article>
 
-          <p class="text-sm text-gray-600 dark:text-white/70 mt-1">
-            Amazon Web Services
-          </p>
-        </div>
+        <!-- Project 4 -->
+        <article class="project-card group">
+          <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 ring-1 ring-black/5 dark:ring-white/10">
+            <div class="absolute inset-0 bg-[url('./images/work-4.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors duration-300"></div>
 
-        <!-- Verify -->
- content-update
-        <button
-          onclick="openCert('./certificates/aws.pdf')"
-        <a
-          href="blob:https://skillbuilder.aws/bcb2f0fd-5ba9-4364-92e8-31a58e6076a2"
-          target="_blank"
- main
-          class="inline-flex items-center gap-2
-                 px-6 py-2 rounded-full text-sm font-medium
-                 text-white
-                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                 hover:opacity-90 transition">
-          Verify Credential
-          <img src="./images/right-arrow-white.png" class="w-4" alt="">
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ===== Other Certifications ===== -->
-  <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto mt-16">
-
-    <!-- DevOps -->
-    <div class="border border-gray-400 rounded-xl px-6 py-6 reveal
-                hover:-translate-y-1 hover:shadow-black duration-500
-                dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-             
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
-            DevOps Training
-          </span>
-          <h3 class="text-lg font-semibold mt-1">
-            DevOps Engineering Program
-          </h3>
-          <p class="text-sm text-gray-500 dark:text-white/70">
-            GeeksforGeeks · 2025
-          </p>
-        </div>
-
-        <button
-          onclick="openCert('./certificates/devops.pdf')"
-          class="inline-flex items-center gap-2 px-4 py-1.5
-                 rounded-full text-xs font-medium text-white
-                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                 hover:opacity-90 transition">
-          Verify
-        </button>
-      </div>
-    </div>
-
-    <!-- TCS iON -->
-    <div class="border border-gray-400 rounded-xl px-6 py-6 reveal
-                hover:-translate-y-1 hover:shadow-black duration-500
-                dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
-            Professional Readiness
-          </span>
-          <h3 class="text-lg font-semibold mt-1">
-            TCS iON Career Edge
-          </h3>
-          <p class="text-sm text-gray-500 dark:text-white/70">
-            TCS iON
-          </p>
-        </div>
-
-        <button
-          onclick="openCert('./certificates/tcs-ion.pdf')"
-          class="inline-flex items-center gap-2 px-4 py-1.5
-                 rounded-full text-xs font-medium text-white
-                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                 hover:opacity-90 transition">
-          Verify
-        </button>
-      </div>
-    </div>
-
-    <!-- Android -->
-    <div class="border border-gray-400 rounded-xl px-6 py-6 reveal
-                hover:-translate-y-1 hover:shadow-black duration-500
-                dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
-            Mobile Development
-          </span>
-          <h3 class="text-lg font-semibold mt-1">
-            Android App Development
-          </h3>
-          <p class="text-sm text-gray-500 dark:text-white/70">
-            Internshala
-          </p>
-        </div>
-
-        <button
-          onclick="openCert('./certificates/android-internshala.png')"
-          class="inline-flex items-center gap-2 px-4 py-1.5
-                 rounded-full text-xs font-medium text-white
-                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                 hover:opacity-90 transition">
-          Verify
-        </button>
-      </div>
-    </div>
-
-    <!-- GenAI -->
-    <div class="border border-gray-400 rounded-xl px-6 py-6 reveal
-                hover:-translate-y-1 hover:shadow-black duration-500
-                dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-      <div class="flex items-start justify-between gap-4">
-        <div>
-          <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">
-            Emerging Tech
-          </span>
-          <h3 class="text-lg font-semibold mt-1">
-            Foundations of Generative AI
-          </h3>
-          <p class="text-sm text-gray-500 dark:text-white/70">
-            UpGrad
-          </p>
-        </div>
-
-        <button
-          onclick="openCert('./certificates/genai-upgrad.png')"
-          class="inline-flex items-center gap-2 px-4 py-1.5
-                 rounded-full text-xs font-medium text-white
-                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                 hover:opacity-90 transition">
-          Verify
-        </button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ------------ WORK / PROJECTS ------------ -->
-<section id="work" class="w-full py-20 scroll-mt-20">
-
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-
-    <!-- Section intro -->
-    <div class="reveal text-center">
-      <h4 class="mb-2 text-lg font-Ovo">Portfolio</h4>
-      <h2 class="text-4xl sm:text-5xl font-Ovo">Selected Projects</h2>
-
-      <p class="max-w-2xl mx-auto mt-6 mb-16 font-Ovo text-gray-700 dark:text-white/80">
-        Real-world projects focused on cloud deployment, system design,
-        automation, and full-stack development.
-      </p>
-    </div>
-
-    <!-- Projects Grid -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-
-
-<!-- Project 1 -->
-<article class="reveal">
-  <div
-    class="relative group aspect-[4/3] rounded-xl overflow-hidden
-           bg-white dark:bg-darkHover
-           border border-black/10 dark:border-white/15
-           ring-1 ring-black/5 dark:ring-white/10
-           transition-all duration-300
-           hover:ring-black/20 dark:hover:ring-white/30"
-  >
-
-    <!-- Image -->
-    <div
-      class="absolute inset-0
-             bg-[url('./images/work-1.png')]
-             bg-cover bg-center
-             transition-transform duration-700
-             group-hover:scale-110">
-    </div>
-
-    <!-- Overlay -->
-    <div
-      class="absolute inset-0
-             bg-black/25
-             group-hover:bg-black/40
-             transition-colors duration-300">
-    </div>
-
-    <!-- Info card -->
-    <a
-      href="https://github.com/ars0a/devsecops-pipeline-project.git"
-      target="_blank"
-      class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%]
-             rounded-lg px-5 py-4
-             bg-white/95 dark:bg-black/80 backdrop-blur
-             text-gray-800 dark:text-white
-             transition-all duration-300
-             group-hover:-translate-y-1"
-    >
-
-      <!-- Content layout -->
-      <div class="flex items-center gap-4">
-
-        <!-- Text block (grows freely) -->
-        <div class="flex-1">
-          <h3 class="font-semibold text-sm sm:text-base leading-snug">
-            End-to-end DevSecOps CI/CD pipeline
-          </h3>
-
-          <p class="text-xs text-gray-600 dark:text-white/70 mt-1">
-            Jenkins, Docker, Kubernetes, SonarQube, Trivy, Argo and AWS
-          </p>
-
-          <!-- Extra info safe to extend -->
-          <p class="text-xs text-gray-500 dark:text-white/60 mt-2">
-            End-to-end pipeline focused on secure build, test, and deployment workflows
-          </p>
-        </div>
-
-        <!-- Fixed arrow -->
-        <div
-          class="shrink-0 w-9 h-9 rounded-full
-                 bg-black dark:bg-white
-                 flex items-center justify-center
-                 transition-transform duration-300
-                 group-hover:scale-105"
-        >
-          <img
-            src="./images/send-icon.png"
-            class="w-4 invert dark:invert-0"
-            alt=""
-          >
-        </div>
+            <a href="https://github.com/ars0a/Login-and-SignUp-Form-with-Captcha-Validation.git" target="_blank" class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-lg px-5 py-4 bg-white/95 dark:bg-black/80 backdrop-blur text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-1">
+              <div class="flex items-center gap-4">
+                <div class="flex-1">
+                  <h3 class="font-semibold text-sm sm:text-base leading-snug">User Authentication System</h3>
+                  <p class="text-xs text-gray-600 dark:text-white/70 mt-1">Login, Signup, CAPTCHA Security</p>
+                  <p class="text-xs text-gray-500 dark:text-white/60 mt-2">HTML · CSS · JavaScript · SQL Server</p>
+                </div>
+                <div class="shrink-0 w-9 h-9 rounded-full bg-black dark:bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <img src="./images/send-icon.png" class="w-4 invert dark:invert-0" alt="">
+                </div>
+              </div>
+            </a>
+          </div>
+        </article>
 
       </div>
-    </a>
 
-  </div>
-</article>
+      <a href="https://github.com/ars0a" target="_blank" class="mt-12 sm:mt-16 mx-auto w-max flex items-center gap-2 text-gray-700 border border-gray-700 rounded-full px-8 py-3 hover:bg-lightHover dark:text-white dark:border-white dark:hover:bg-darkHover transition-colors">
+        View more on GitHub
+        <img src="./images/right-arrow-bold.png" class="w-4 dark:hidden" alt="">
+        <img src="./images/right-arrow-bold-dark.png" class="w-4 hidden dark:block" alt="">
+      </a>
 
-
-
-<!-- Project 2 -->
-<article class="reveal">
-  <div
-    class="relative group aspect-[4/3] rounded-xl overflow-hidden
-           bg-white dark:bg-darkHover
-           border border-black/10 dark:border-white/15
-           ring-1 ring-black/5 dark:ring-white/10
-           transition-all duration-300
-           hover:ring-black/20 dark:hover:ring-white/30"
-  >
-
-    <!-- Image -->
-    <div
-      class="absolute inset-0
-             bg-[url('./images/work-2.png')]
-             bg-cover bg-center
-             transition-transform duration-700
-             group-hover:scale-110">
     </div>
-
-    <!-- Overlay -->
-    <div
-      class="absolute inset-0
-             bg-black/25
-             group-hover:bg-black/40
-             transition-colors duration-300">
-    </div>
-
-    <!-- Info card -->
-    <a
-      href="https://github.com/ars0a/ec2-docker-node-rds-deployment.git"
-      target="_blank"
-      class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%]
-             rounded-lg px-5 py-4
-             bg-white/95 dark:bg-black/80 backdrop-blur
-             text-gray-800 dark:text-white
-             transition-all duration-300
-             group-hover:-translate-y-1"
-    >
-
-      <!-- Content layout -->
-      <div class="flex items-center gap-4">
-
-        <!-- Text block (grows freely) -->
-        <div class="flex-1">
-          <h3 class="font-semibold text-sm sm:text-base leading-snug">
-            ec2-docker-node-rds-deployment
-          </h3>
-
-          <p class="text-xs text-gray-600 dark:text-white/70 mt-1">
-            Docker, Nodejs, AWS, EC2, RDS, IAM
-          </p>
-
-          <!-- Extra info safe to extend -->
-          <p class="text-xs text-gray-500 dark:text-white/60 mt-2">
-            End-to-end deployment of a Dockerized Node.js backend on AWS EC2 integrated with Amazon RDS
-          </p>
-        </div>
-
-        <!-- Fixed arrow -->
-        <div
-          class="shrink-0 w-9 h-9 rounded-full
-                 bg-black dark:bg-white
-                 flex items-center justify-center
-                 transition-transform duration-300
-                 group-hover:scale-105"
-        >
-          <img
-            src="./images/send-icon.png"
-            class="w-4 invert dark:invert-0"
-            alt=""
-          >
-        </div>
-
-      </div>
-    </a>
-
-  </div>
-</article>
-
-
-
-<!-- Project 3 -->
-<article class="reveal">
-  <div
-    class="relative group aspect-[4/3] rounded-xl overflow-hidden
-           bg-white dark:bg-darkHover
-           border border-black/10 dark:border-white/15
-           ring-1 ring-black/5 dark:ring-white/10
-           transition-all duration-300
-           hover:ring-black/20 dark:hover:ring-white/30"
-  >
-
-    <!-- Image -->
-    <div
-      class="absolute inset-0
-             bg-[url('./images/work-3.jpg')]
-             bg-cover bg-center
-             transition-transform duration-700
-             group-hover:scale-110">
-    </div>
-
-    <!-- Overlay -->
-    <div
-      class="absolute inset-0
-             bg-black/25
-             group-hover:bg-black/40
-             transition-colors duration-300">
-    </div>
-
-    <!-- Info card -->
-    <a
-      href="https://github.com/ars0a/amplify-vite-react-template.git"
-      target="_blank"
-      class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%]
-             rounded-lg px-5 py-4
-             bg-white/95 dark:bg-black/80 backdrop-blur
-             text-gray-800 dark:text-white
-             transition-all duration-300
-             group-hover:-translate-y-1"
-    >
-
-      <!-- Content layout -->
-      <div class="flex items-center gap-4">
-
-        <!-- Text block (grows freely) -->
-        <div class="flex-1">
-          <h3 class="font-semibold text-sm sm:text-base leading-snug">
-            AWS amplify-vite-react-app
-          </h3>
-
-          <p class="text-xs text-gray-600 dark:text-white/70 mt-1">
-            aws, react, amplify, vite, cognito, dynamodb, s3
-          </p>
-
-          <!-- Extra info safe to extend -->
-          <p class="text-xs text-gray-500 dark:text-white/60 mt-2">
-            Created an applications using React+Vite and AWS Amplify template for authentication, API, and database capabilities.
-          </p>
-        </div>
-
-        <!-- Fixed arrow -->
-        <div
-          class="shrink-0 w-9 h-9 rounded-full
-                 bg-black dark:bg-white
-                 flex items-center justify-center
-                 transition-transform duration-300
-                 group-hover:scale-105"
-        >
-          <img
-            src="./images/send-icon.png"
-            class="w-4 invert dark:invert-0"
-            alt=""
-          >
-        </div>
-
-      </div>
-    </a>
-
-  </div>
-</article>
-
-
-
-
-<!-- Project 4 -->
-<article class="reveal">
-  <div
-    class="relative group aspect-[4/3] rounded-xl overflow-hidden
-           bg-white dark:bg-darkHover
-           border border-black/10 dark:border-white/15
-           ring-1 ring-black/5 dark:ring-white/10
-           transition-all duration-300
-           hover:ring-black/20 dark:hover:ring-white/30"
-  >
-
-    <!-- Image -->
-    <div
-      class="absolute inset-0
-             bg-[url('./images/work-4.jpg')]
-             bg-cover bg-center
-             transition-transform duration-700
-             group-hover:scale-110">
-    </div>
-
-    <!-- Overlay -->
-    <div
-      class="absolute inset-0
-             bg-black/25
-             group-hover:bg-black/40
-             transition-colors duration-300">
-    </div>
-
-    <!-- Info card -->
-    <a
-      href="https://github.com/ars0a/Login-and-SignUp-Form-with-Captcha-Validation.git"
-      target="_blank"
-      class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%]
-             rounded-lg px-5 py-4
-             bg-white/95 dark:bg-black/80 backdrop-blur
-             text-gray-800 dark:text-white
-             transition-all duration-300
-             group-hover:-translate-y-1"
-    >
-
-      <!-- Content layout -->
-      <div class="flex items-center gap-4">
-
-        <!-- Text block (grows freely) -->
-        <div class="flex-1">
-          <h3 class="font-semibold text-sm sm:text-base leading-snug">
-            User Authentication System
-          </h3>
-
-          <p class="text-xs text-gray-600 dark:text-white/70 mt-1">
-            Secure login, signup, CAPTCHA validation
-          </p>
-
-          <!-- Extra info safe to extend -->
-          <p class="text-xs text-gray-500 dark:text-white/60 mt-2">
-            HTML · CSS · JavaScript · SQL Server · Client-side security
-          </p>
-        </div>
-
-        <!-- Fixed arrow -->
-        <div
-          class="shrink-0 w-9 h-9 rounded-full
-                 bg-black dark:bg-white
-                 flex items-center justify-center
-                 transition-transform duration-300
-                 group-hover:scale-105"
-        >
-          <img
-            src="./images/send-icon.png"
-            class="w-4 invert dark:invert-0"
-            alt=""
-          >
-        </div>
-
-      </div>
-    </a>
-
-  </div>
-</article>
-
-
-
-    
-  </div>
-
-  <!-- View more -->
-  <a href="https://github.com/ars0a"
-     target="_blank"
-     class="mt-20 mx-auto w-max flex items-center gap-2
-            text-gray-700 border border-gray-700
-            rounded-full px-10 py-3
-            hover:bg-lightHover duration-500
-            dark:text-white dark:border-white dark:hover:bg-darkHover">
-    View more on GitHub
-    <img src="./images/right-arrow-bold.png" class="w-4 dark:hidden" alt="">
-    <img src="./images/right-arrow-bold-dark.png" class="w-4 hidden dark:block" alt="">
-  </a>
-
-</section>
-
-
-
-<!-- ----------- PUBLICATIONS --------- -->
-<section id="publications" class="w-full px-[12%] py-20 scroll-mt-20">
-
-  <!-- Heading -->
-  <div class="text-center reveal">
-    <h4 class="mb-2 text-lg font-Ovo">Research & Writing</h4>
-    <h2 class="text-5xl font-Ovo">Publications</h2>
-    <p class="max-w-2xl mx-auto mt-6 text-gray-700 dark:text-white/80 font-Ovo">
-      Applied research exploring secure, distributed systems and real-world
-      institutional architectures.
-    </p>
-  </div>
-
-  <div class="max-w-5xl mx-auto mt-16 space-y-8">
-
-    <!-- ===== Publication 1 (Primary) ===== -->
-    <article
-      class="reveal border border-gray-400 rounded-xl
-             px-6 sm:px-8 py-6
-             bg-white/40 dark:bg-transparent
-             hover:-translate-y-1 hover:shadow-black duration-500
-             dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-
-      <!-- Header -->
-      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5">
-
-        <div>
-          <span
-            class="inline-block mb-2 text-[11px] uppercase tracking-widest
-                   px-3 py-1 rounded-full
-                   bg-gray-200 dark:bg-white/10
-                   text-gray-700 dark:text-white/80">
-            Peer-Reviewed · IEEE Xplore
-          </span>
-
-          <h3 class="text-lg sm:text-xl font-semibold leading-snug">
-            Blockchain-Based E-Voting for University
-          </h3>
-
-          <p class="text-xs sm:text-sm text-gray-600 dark:text-white/70 mt-1">
-            NetCrypt 2025 · Jawaharlal Nehru University
-          </p>
-        </div>
-
-        <!-- CTA -->
-        <a
-          href="#"
-          target="_blank"
-          class="inline-flex items-center gap-2 px-5 py-2
-                 rounded-full text-sm font-medium
-                 text-white
-                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                 hover:opacity-90 transition">
-          View Paper
-          <img src="./images/right-arrow-white.png" class="w-4" alt="">
-        </a>
-      </div>
-
-      <!-- Summary -->
-      <p class="mt-4 text-sm text-gray-700 dark:text-white/80 leading-relaxed max-w-4xl">
-        Designed a permissioned blockchain-based e-voting architecture using smart contracts
-        to ensure immutability, auditability, and verifiable election results while
-        preserving voter privacy.
-      </p>
-
-      <!-- Systems Takeaway -->
-      <p class="mt-3 text-xs text-gray-600 dark:text-white/60">
-        <strong>Systems takeaway:</strong>
-        Access control, distributed trust, and fault-tolerant design principles
-        applicable to cloud platforms and backend systems.
-      </p>
-
-      <!-- Tags -->
-      <div class="mt-4 flex flex-wrap gap-2">
-        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-          Blockchain
-        </span>
-        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-          Smart Contracts
-        </span>
-        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-          System Security
-        </span>
-      </div>
-    </article>
-
-    <!-- ===== Publication 2 ===== -->
-    <article
-      class="reveal border border-gray-400 rounded-xl
-             px-6 sm:px-8 py-6
-             bg-white/50 dark:bg-transparent
-             hover:-translate-y-1 hover:shadow-black duration-500
-             dark:border-white dark:hover:shadow-white dark:hover:bg-darkHover/40">
-
-      <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5">
-
-        <div>
-          <span
-            class="inline-block mb-2 text-[11px] uppercase tracking-widest
-                   px-3 py-1 rounded-full
-                   bg-gray-200 dark:bg-white/10
-                   text-gray-700 dark:text-white/80">
-            Peer-Reviewed · IEEE Xplore
-          </span>
-
-          <h3 class="text-lg sm:text-xl font-semibold leading-snug">
-            Secure Medical Record & Prescription Verification Using
-            Ethereum Smart Contracts and IPFS
-          </h3>
-
-          <p class="text-xs sm:text-sm text-gray-600 dark:text-white/70 mt-1">
-            NetCrypt 2025 · Jawaharlal Nehru University
-          </p>
-        </div>
-
-        <a
-          href="#"
-          target="_blank"
-          class="inline-flex items-center gap-2 px-5 py-2
-                 rounded-full text-sm font-medium
-                 text-white
-                 bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-                 hover:opacity-90 transition">
-          View Paper
-          <img src="./images/right-arrow-white.png" class="w-4" alt="">
-        </a>
-      </div>
-
-      <p class="mt-4 text-sm text-gray-700 dark:text-white/80 leading-relaxed max-w-4xl">
-        Built a role-based decentralized framework combining Ethereum smart contracts
-        with IPFS to ensure data integrity, traceability, and controlled access
-        across healthcare stakeholders.
-      </p>
-
-      <p class="mt-3 text-xs text-gray-600 dark:text-white/60">
-        <strong>Systems takeaway:</strong>
-        Experience with distributed storage, access models, and trust-based
-        architecture relevant to cloud and platform engineering.
-      </p>
-
-      <div class="mt-4 flex flex-wrap gap-2">
-        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-          Ethereum
-        </span>
-        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-          IPFS
-        </span>
-        <span class="text-xs px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10">
-          Distributed Systems
-        </span>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-
-
-
-<!-- ----- CONTACT ----- -->
-<div id="contact"
-     class="w-full px-[12%] py-20 scroll-mt-20
-            bg-[url('./images/footer-bg-color.png')]
-            bg-no-repeat bg-[length:90%_auto] bg-center
-            dark:bg-none">
-
-    <!-- Section intro -->
-    <div class="reveal text-center">
-        <h4 class="mb-2 text-lg font-Ovo">
-            Connect with me
-        </h4>
-
-        <h2 class="text-5xl font-Ovo">
-            Let’s Work Together
-        </h2>
-
-        <p class="max-w-2xl mx-auto mt-6 mb-14 font-Ovo
-                  text-gray-700 dark:text-white/80">
-                  If you’ve made it this far, we probably have something worth building together.
+  </section>
+
+    <!-- ========= PUBLICATIONS SECTION ========= -->
+  <section id="publications" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
+
+      <div class="text-center mb-12 sm:mb-16">
+        <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Research & Writing</h4>
+        <h2 class="text-4xl sm:text-5xl font-Ovo">Publications</h2>
+        <p class="max-w-2xl mx-auto mt-4 sm:mt-6 dark:text-white/80">
+          Applied research exploring secure distributed voting, cryptographic trust models, and institutional blockchain architectures.
         </p>
+      </div>
+
+      <div class="space-y-6 sm:space-y-8">
+
+        <!-- Publication 1 -->
+        <article class="border border-gray-300 dark:border-white/40 rounded-xl p-6">
+          <h3 class="font-semibold text-lg sm:text-xl">Permissioned Smart Contract-Based e-Voting System for Universities</h3>
+          <p class="text-sm mt-1 text-gray-600 dark:text-white/70">
+            A blockchain-driven model for secure, transparent, and institution-friendly academic elections leveraging Hyperledger smart contracts.
+          </p>
+
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
+            Status: Under Development (Research + Prototype Build)
+          </p>
+        </article>
+
+        <!-- Publication 2 -->
+        <article class="border border-gray-300 dark:border-white/40 rounded-xl p-6">
+          <h3 class="font-semibold text-lg sm:text-xl">Future Directions in Blockchain-Based e-Voting: Consensus, Quantum Resistance, and Interoperability</h3>
+          <p class="text-sm mt-1 text-gray-600 dark:text-white/70">
+            A review on technical and legal constraints of decentralized voting with emphasis on future-proof cryptography and cross-chain compatibility.
+          </p>
+
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
+            Status: Review Paper (Drafting Phase)
+          </p>
+        </article>
+
+      </div>
+
     </div>
+  </section>
 
-    <!-- Contact form -->
-    <form method="POST"
-          action="https://api.web3forms.com/submit"
-          class="reveal max-w-2xl mx-auto">
 
-        <input type="hidden" name="access_key"
-               value="9630561b-62b0-4a75-9624-72a96af1fecf">
+    <!-- ========= CONTACT SECTION ========= -->
+    <section id="contact" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto">
 
-        <div class="grid sm:grid-cols-2 gap-6 mt-10 mb-8">
-            <input type="text"
-                   name="name"
-                   required
-                   placeholder="Your name"
-                   class="p-3 rounded-md outline-none
-                          border border-gray-400
-                          bg-white
-                          dark:bg-darkHover/30 dark:border-white/80">
-
-            <input type="email"
-                   name="email"
-                   required
-                   placeholder="Your email"
-                   class="p-3 rounded-md outline-none
-                          border border-gray-400
-                          bg-white
-                          dark:bg-darkHover/30 dark:border-white/80">
+        <div class="text-center mb-12 sm:mb-14">
+          <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Connect with me</h4>
+          <h2 class="text-4xl sm:text-5xl font-Ovo">Let's Work Together</h2>
+          <p class="max-w-xl mx-auto mt-4 sm:mt-6 font-Ovo text-gray-700 dark:text-white/80">
+            If you've made it this far, we probably have something worth building together.
+          </p>
         </div>
 
-        <textarea rows="6"
-                  name="message"
-                  required
-                  placeholder="Your message"
-                  class="w-full p-4 rounded-md outline-none
-                         border border-gray-400
-                         bg-white mb-8
-                         dark:bg-darkHover/30 dark:border-white/80"></textarea>
+        <form method="POST" action="https://api.web3forms.com/submit" class="space-y-6">
+          <input type="hidden" name="access_key" value="9630561b-62b0-4a75-9624-72a96af1fecf">
 
-        <button type="submit"
-                class="mx-auto flex items-center gap-2
-                       px-8 py-3 rounded-full
-                       bg-black/80 text-white
-                       hover:bg-black transition
-                       dark:bg-transparent dark:border dark:border-white/60
-                       dark:hover:bg-darkHover">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <input type="text" name="name" required placeholder="Your name" class="p-3 rounded-md border border-gray-400 bg-white dark:bg-darkHover/30 dark:border-white/80 focus:ring-2 focus:ring-violet-500">
+            <input type="email" name="email" required placeholder="Your email" class="p-3 rounded-md border border-gray-400 bg-white dark:bg-darkHover/30 dark:border-white/80 focus:ring-2 focus:ring-violet-500">
+          </div>
+
+          <textarea rows="6" name="message" required placeholder="Your message" class="w-full p-4 rounded-md border border-gray-400 bg-white dark:bg-darkHover/30 dark:border-white/80 focus:ring-2 focus:ring-violet-500"></textarea>
+
+          <button type="submit" class="mx-auto flex items-center gap-2 px-8 py-3 rounded-full bg-black/80 text-white hover:bg-black dark:hover:bg-darkHover hover:scale-105 transition-all">
             Submit message
-            <img src="./images/right-arrow-white.png" class="w-4">
-        </button>
-    </form>
-</div>
+            <img src="./images/right-arrow-white.png" class="w-4" alt="">
+          </button>
+        </form>
 
-<!-- ----- FOOTER ----- -->
-<div class="mt-24">
+      </div>
+    </section>
 
-    <div class="reveal text-center">
-        <img src="./images/logo-dark-normalized.png"
-             class="w-36 mx-auto mb-3 dark:hidden">
-        <img src="./images/logo-light-normalized.png"
-             class="w-36 mx-auto mb-3 hidden dark:block">
+  </main>
 
-        <div class="flex items-center gap-2 justify-center text-sm">
-            <img src="./images/mail_icon.png" class="w-5 dark:hidden">
-            <img src="./images/mail_icon_dark.png" class="w-5 hidden dark:block">
-            adityarsingh.work@gmail.com
-        </div>
+  <!-- ========= FOOTER ========= -->
+  <footer class="mt-20 sm:mt-24 pb-6 text-center">
+    <div class="mb-8">
+      <img src="./images/logo-dark-normalized.png" class="w-32 mx-auto mb-3 dark:hidden" alt="">
+      <img src="./images/logo-light-normalized.png" class="w-32 mx-auto mb-3 hidden dark:block" alt="">
+      <div class="flex items-center gap-2 justify-center">
+        <img src="./images/mail_icon.png" class="w-5 dark:hidden" alt="">
+        <img src="./images/mail_icon_dark.png" class="w-5 hidden dark:block" alt="">
+        <span class="text-sm">adityarsingh.work@gmail.com</span>
+      </div>
     </div>
 
-    <div class="reveal text-center sm:flex items-center justify-between
-                border-t border-gray-400 mx-[10%]
-                mt-12 py-6 text-sm">
-
-        <p>
-            © Built with ❤️ by Aditya Raj Singh
-        </p>
-
-        <ul class="flex items-center gap-10 justify-center mt-4 sm:mt-0">
-            <li>
-                <a href="https://github.com/ars0a"
-                   target="github"
-                   class="hover:underline">
-                    GitHub
-                </a>
-            </li>
-            <li>
-                <a href="https://www.linkedin.com/in/ars0a/"
-                   target="linkedin"
-                   class="hover:underline">
-                    LinkedIn
-                </a>
-            </li>
-        </ul>
+    <div class="border-t border-gray-400 mx-[10%] pt-6 text-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p>© Built with ❤️ by Aditya Raj Singh</p>
+      <ul class="flex items-center gap-8">
+        <li><a href="https://github.com/ars0a" target="_blank" class="hover:text-violet-600">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/ars0a/" target="_blank" class="hover:text-violet-600">LinkedIn</a></li>
+      </ul>
     </div>
-</div>
+  </footer>
 
 
-<!-- ===== Certificate Modal ===== -->
-<div
-  id="certModal"
-  class="fixed inset-0 hidden items-center justify-center
-         bg-black/80 z-50">
 
-  <div class="relative max-w-5xl w-full px-4">
-    <!-- Close -->
-    <button
-      onclick="closeCert()"
-      class="absolute -top-10 right-2 text-white text-3xl">
-      &times;
-    </button>
+    <!-- Certificate Image Modal -->
+    <div id="certOverlay"
+      class="fixed inset-0 hidden items-center justify-center bg-black/60 backdrop-blur-sm z-[9999]">
 
-    <!-- Certificate Viewer (PDF or Image) -->
-    <div
-      id="certViewer"
-      class="w-full h-[85vh] rounded-lg overflow-hidden shadow-xl">
+      <div id="certPopup"
+        class="relative bg-white dark:bg-black rounded-lg shadow-xl w-auto max-w-[95vw] p-2">
+
+        <button 
+          onclick="closeLocalCert()" 
+          class="absolute top-2 right-2 text-white bg-black/50 rounded-full w-8 h-8 flex items-center justify-center text-lg"
+        > ×
+      </button>
+
+        <div id="certFrame" class="flex items-center justify-center"></div>
+
+      </div>
     </div>
-  </div>
-</div>
 
-<script src="./script.js"></script>
+
+
+
+  <!-- Scripts -->
+  <script src="./script.js"></script>
 
 </body>
 </html>
-
