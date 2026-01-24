@@ -109,7 +109,6 @@ if (!('loading' in HTMLImageElement.prototype)) {
 
 
 // ================= CONFIG =================
-// const BACKEND_URL = "http://127.0.0.1:3001/chat";
 const BACKEND_URL = "https://portfolio-ai-backend-k0m4.onrender.com/chat";
 
 
@@ -175,9 +174,9 @@ function openChat() {
   chatOverlay.classList.remove("hidden");
 
   if (window.innerWidth >= 768) {
-    chatBox.style.transform = "translateY(0)"; // desktop
+    chatBox.style.transform = "translateY(0)";
   } else {
-    chatBox.style.transform = "translateY(0)"; // mobile (same)
+    chatBox.style.transform = "translateY(0)";
   }
 
   if (aiLog.children.length === 0) aiAutoGreet();
@@ -191,24 +190,24 @@ function closeChat() {
   chatOverlay.classList.remove("active");
 
   if (window.innerWidth >= 768) {
-    chatBox.style.transform = "translateY(calc(100% + 20px))"; // desktop hide
+    chatBox.style.transform = "translateY(calc(100% + 20px))";
   } else {
-    chatBox.style.transform = "translateY(100%)"; // mobile hide
+    chatBox.style.transform = "translateY(100%)";
   }
 
   setTimeout(() => {
     if (!chatOverlay.classList.contains("active")) chatOverlay.classList.add("hidden");
   }, 300);
-}
 
+  // Reset keyboard offset if any
+  chatBox.style.bottom = "0px";
+}
 
 
 // ================= EVENT BINDINGS =================
 
 chatBtn.addEventListener("click", openChat);
 chatClose.addEventListener("click", closeChat);
-
-// click outside to close
 chatOverlay.addEventListener("click", closeChat);
 
 
@@ -256,7 +255,28 @@ function aiAutoGreet() {
 // ================= INPUT EVENTS =================
 
 aiSend.addEventListener("click", aiSendMessage);
-
 aiInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") aiSendMessage();
 });
+
+
+// ================= KEYBOARD SAFE BEHAVIOR (MOBILE) =================
+
+(function enableKeyboardSafeChat() {
+  if (!window.visualViewport) return;
+
+  const adjustForKeyboard = () => {
+    const vv = window.visualViewport;
+    const keyboardOpen = vv.height < window.innerHeight;
+
+    if (keyboardOpen) {
+      const bottomOffset = window.innerHeight - vv.height;
+      chatBox.style.bottom = `${bottomOffset}px`;
+    } else {
+      chatBox.style.bottom = "0px";
+    }
+  };
+
+  visualViewport.addEventListener("resize", adjustForKeyboard);
+  visualViewport.addEventListener("scroll", adjustForKeyboard);
+})();
