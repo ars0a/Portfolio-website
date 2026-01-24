@@ -117,27 +117,20 @@ const chatBox = document.getElementById("chatBox");
 const chatOverlay = document.getElementById("chatOverlay");
 const chatClose = document.getElementById("chatClose");
 
-// ================= UI HELPERS =================
+// ================= HELPERS =================
 function appendMessage(sender, text, isError = false) {
   const wrapper = document.createElement("div");
   const bubble = document.createElement("div");
-
   wrapper.className = `flex mb-1 ${sender === "You" ? "justify-end" : "justify-start"}`;
-
   bubble.className = `
     inline-block max-w-[80%] px-3 py-2 rounded-lg text-sm whitespace-pre-line
-    ${isError
-      ? "bg-red-600 text-white"
-      : sender === "You"
-        ? "bg-purple-600 text-white"
-        : "bg-gray-200 text-black dark:bg-darkHover/40 dark:text-white"
-    }
+    ${isError ? "bg-red-600 text-white"
+      : sender === "You" ? "bg-purple-600 text-white"
+      : "bg-gray-200 text-black dark:bg-darkHover/40 dark:text-white"}
   `;
-
   bubble.textContent = text;
   wrapper.appendChild(bubble);
   aiLog.appendChild(wrapper);
-
   aiLog.scrollTop = aiLog.scrollHeight;
 }
 
@@ -150,110 +143,114 @@ function showTyping() {
   aiLog.appendChild(typing);
   aiLog.scrollTop = aiLog.scrollHeight;
 }
-
 function hideTyping() {
   const typing = document.getElementById("ai-typing");
   if (typing) typing.remove();
 }
 
-// ================= CHAT CONTROL =================
+// ================= CHAT OPEN/CLOSE =================
 function openChat() {
   chatBtn.style.opacity = "0";
   chatBtn.style.pointerEvents = "none";
 
   chatOverlay.classList.add("active");
-  chatOverlay.classList.remove("hidden");
-  chatOverlay.style.opacity = "1"; // ensure reset
+  chatBox.classList.add("active");
 
-  chatBox.style.transform = "translateY(0)";
+  // Lock scroll only on mobile
+  if (window.innerWidth < 768) {
+    document.body.style.overflow = "hidden";
+  }
+
+  setTimeout(() => aiInput.focus(), 100);
 
   if (aiLog.children.length === 0) aiAutoGreet();
-  aiInput.focus();
-
-  setTimeout(() => {
-    aiLog.scrollTop = aiLog.scrollHeight;
-  }, 150);
 }
 
 function closeChat() {
-  chatBtn.style.opacity = "1";
-  chatBtn.style.pointerEvents = "auto";
+  // fade overlay out immediately
+  chatOverlay.style.opacity = "0";
+  chatOverlay.style.pointerEvents = "none";
 
+  // close chat box
+  chatBox.classList.remove("active");
   chatOverlay.classList.remove("active");
-  chatOverlay.style.opacity = "1";
 
-  if (window.innerWidth >= 768) {
-    chatBox.style.transform = "translateY(calc(100% + 20px))";
-  } else {
-    chatBox.style.transform = "translateY(100%)";
+  if (window.innerWidth < 768) {
+    document.body.style.overflow = "";
   }
 
   setTimeout(() => {
-    if (!chatOverlay.classList.contains("active")) chatOverlay.classList.add("hidden");
+    chatBox.style.transform = "translateY(0)";
+    chatOverlay.style.opacity = "1"; // reset for next open
+
+    chatBtn.style.opacity = "1";
+    chatBtn.style.pointerEvents = "auto";
   }, 300);
 }
 
-// ================= SWIPE TO CLOSE (MOBILE) =================
-(function enableSwipeToClose() {
-  const chatHeader = document.querySelector('.chat-header');
-  if (!chatHeader) return;
 
+
+// ================= FULL-PANEL SWIPE =================
+(function swipeClose() {
   let startY = 0;
   let currentY = 0;
-  let isDragging = false;
+  let dragging = false;
+  const threshold = 120;
+  const fadeFactor = 400;
 
-  const handleTouchStart = (e) => {
-    if (window.innerWidth >= 768) return;
-    if (!e.target.closest('.chat-header')) return;
+  const isMobile = () => window.innerWidth < 768;
 
-    isDragging = true;
+  const onStart = (e) => {
+    if (!isMobile()) return;
+    dragging = true;
     startY = e.touches[0].clientY;
     currentY = startY;
-
-    chatBox.style.transition = 'none';
-    chatOverlay.style.transition = 'none';
+    chatBox.style.transition = "none";
+    chatOverlay.style.transition = "none";
   };
 
-  const handleTouchMove = (e) => {
-    if (!isDragging) return;
+  const onMove = (e) => {
+    if (!dragging || !isMobile()) return;
+
+    e.preventDefault(); // prevent page scroll
 
     currentY = e.touches[0].clientY;
     const deltaY = currentY - startY;
 
     if (deltaY > 0) {
       chatBox.style.transform = `translateY(${deltaY}px)`;
-      chatOverlay.style.opacity = Math.max(0.3, 1 - (deltaY / 400));
+      const opacity = Math.max(0, 1 - deltaY / fadeFactor);
+      chatOverlay.style.opacity = opacity;
     }
   };
 
-  const handleTouchEnd = () => {
-    if (!isDragging) return;
-    isDragging = false;
+  const onEnd = () => {
+    if (!dragging || !isMobile()) return;
+    dragging = false;
 
     const deltaY = currentY - startY;
+    chatBox.style.transition = "transform .25s ease-out";
+    chatOverlay.style.transition = "opacity .25s ease-out";
 
-    chatBox.style.transition = '';
-    chatOverlay.style.transition = '';
-
-    if (deltaY > 100) {
+    if (deltaY > threshold) {
       closeChat();
     } else {
-      chatBox.style.transform = 'translateY(0)';
-      chatOverlay.style.opacity = '1';
+      chatBox.style.transform = "translateY(0)";
+      chatOverlay.style.opacity = "1";
     }
   };
 
-  chatHeader.addEventListener('touchstart', handleTouchStart, { passive: true });
-  document.addEventListener('touchmove', handleTouchMove, { passive: true });
-  document.addEventListener('touchend', handleTouchEnd, { passive: true });
+  chatBox.addEventListener("touchstart", onStart, { passive: true });
+  chatBox.addEventListener("touchmove", onMove, { passive: false });
+  chatBox.addEventListener("touchend", onEnd, { passive: true });
 })();
 
-// ================= EVENT BINDINGS =================
+// ================= EVENTS =================
 chatBtn.addEventListener("click", openChat);
 chatClose.addEventListener("click", closeChat);
 chatOverlay.addEventListener("click", closeChat);
 
-// ================= AI SEND LOGIC =================
+// ================= SEND LOGIC =================
 async function aiSendMessage() {
   const message = aiInput.value.trim();
   if (!message) return;
@@ -265,8 +262,8 @@ async function aiSendMessage() {
   try {
     const res = await fetch(BACKEND_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message })
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({message})
     });
 
     hideTyping();
@@ -278,14 +275,13 @@ async function aiSendMessage() {
 
     const data = await res.json();
     appendMessage("Debs", data?.reply || "No response");
-
   } catch (err) {
     hideTyping();
     appendMessage("Error", "Failed to reach AI backend", true);
   }
 }
 
-// ================= AUTO GREETING =================
+// ================= GREET =================
 function aiAutoGreet() {
   appendMessage("Debs", "Hi, my name is Debs, your AI assistant. How may I help you today?");
 }
@@ -295,42 +291,3 @@ aiSend.addEventListener("click", aiSendMessage);
 aiInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") aiSendMessage();
 });
-
-// ================= KEYBOARD SAFE BEHAVIOR (MOBILE) =================
-(function enableKeyboardSafeChat() {
-  if (!window.visualViewport) return;
-
-  const adjustForKeyboard = () => {
-    const vv = window.visualViewport;
-    const inputArea = chatBox.querySelector('.input-area');
-    if (!inputArea) return;
-
-    const keyboardOpen = vv.height < window.innerHeight;
-
-    if (keyboardOpen) {
-      const bottomOffset = window.innerHeight - vv.height - vv.offsetTop;
-      inputArea.style.transform = `translateY(-${bottomOffset}px)`;
-    } else {
-      inputArea.style.transform = 'translateY(0)';
-    }
-  };
-
-  let vhTimer;
-  const applyViewportHeight = () => {
-    clearTimeout(vhTimer);
-    vhTimer = setTimeout(() => {
-      if (window.innerWidth >= 768) return;
-      const vv = visualViewport;
-      chatBox.style.height = `${vv.height}px`;
-      chatBox.style.maxHeight = `${vv.height}px`;
-    }, 50);
-  };
-
-  visualViewport.addEventListener("resize", adjustForKeyboard);
-  visualViewport.addEventListener("scroll", adjustForKeyboard);
-
-  visualViewport.addEventListener("resize", applyViewportHeight);
-  visualViewport.addEventListener("scroll", applyViewportHeight);
-
-  applyViewportHeight();
-})();

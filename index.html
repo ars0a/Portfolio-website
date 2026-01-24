@@ -740,7 +740,7 @@
     </div>
 
 
- <!-- Floating Chat Button -->
+<!-- Floating Chat Button -->
 <div id="chatButton"
   class="fixed bottom-5 right-5 z-50 flex items-center justify-center
   w-14 h-14 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white
@@ -755,67 +755,66 @@
 
 <!-- Chat Overlay -->
 <div id="chatOverlay"
-  class="hidden"
-  aria-hidden="true"></div>
+  class="hidden fixed inset-0 bg-black/30 z-40"
+  aria-hidden="true">
+</div>
 
-<!-- Chat Container (Dialog) -->
+<!-- Chat Container -->
 <div id="chatBox"
+  class="hidden fixed inset-0 z-50 flex flex-col bg-white dark:bg-[#131313]"
   role="dialog"
   aria-labelledby="chat-header-title"
   aria-modal="true"
   aria-hidden="true">
 
   <!-- Header -->
-  <div class="chat-header">
-    <div class="swipe-indicator"></div>
+  <div class="chat-header flex items-center justify-between px-4 py-3 border-b border-black/10 dark:border-white/20 flex-none select-none">
+    <div class="swipe-indicator block sm:hidden absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1.5 rounded-full bg-black/20 dark:bg-white/30"></div>
 
-    <span id="chat-header-title"
-      class="font-medium text-sm">
+    <span id="chat-header-title" class="font-medium text-sm">
       Debs – AI Assistant
     </span>
 
     <button id="chatClose"
-      class="w-5 h-5 flex items-center justify-center"
+      class="w-6 h-6 flex items-center justify-center"
       aria-label="Close chat"
       type="button">
-      <img src="images/close-black.png"
-        class="w-full h-full dark:hidden object-contain"
-        alt="Close" />
-      <img src="images/close-white.png"
-        class="w-full h-full hidden dark:block object-contain"
-        alt="Close" />
+      <img src="images/close-black.png" class="dark:hidden w-full h-full object-contain" alt="Close">
+      <img src="images/close-white.png" class="hidden dark:block w-full h-full object-contain" alt="Close">
     </button>
   </div>
 
-  <!-- Messages -->
+  <!-- Messages (flex grows & scrolls) -->
   <div id="ai-chat-log"
+    class="flex-1 overflow-y-auto px-4 py-3 space-y-2 scroll-smooth"
     role="log"
     aria-live="polite"
     aria-atomic="false">
   </div>
 
   <!-- Input -->
-  <div class="input-area">
+  <div class="input-area flex items-center gap-2 px-3 py-2 border-t border-black/10 dark:border-white/20 bg-white dark:bg-[#131313] flex-none">
     <input id="ai-chat-input"
       type="text"
       class="flex-1 px-3 py-2 rounded-md border border-gray-300 dark:border-white/30
-      bg-white dark:bg-darkHover/30 text-sm focus:outline-none"
+             bg-white dark:bg-[#1e1e1e] text-sm focus:outline-none focus:ring-0"
       placeholder="Ask something..."
       aria-label="Type your message"
       autocomplete="off"
       autocorrect="off"
       autocapitalize="sentences"
-      spellcheck="true" />
+      spellcheck="true">
 
     <button id="ai-chat-send"
       type="button"
       class="px-4 py-2 rounded-md text-white text-sm
-      bg-gradient-to-r from-[#b820e6] to-[#da7d20]
-      hover:scale-105 transition-transform active:scale-95"
+             bg-gradient-to-r from-[#b820e6] to-[#da7d20]
+             hover:scale-105 transition-transform active:scale-95"
       aria-label="Send message">
       Send
     </button>
   </div>
+
 </div>
 
   <!-- Scripts -->
