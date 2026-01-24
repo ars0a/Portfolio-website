@@ -118,16 +118,20 @@ const aiLog = document.getElementById("ai-chat-log");
 const aiInput = document.getElementById("ai-chat-input");
 const aiSend = document.getElementById("ai-chat-send");
 
+const chatBtn = document.getElementById("chatButton");
+const chatBox = document.getElementById("chatBox");
+const chatOverlay = document.getElementById("chatOverlay");
+const chatClose = document.getElementById("chatClose");
+
+
 // ================= UI HELPERS =================
 
 function appendMessage(sender, text, isError = false) {
   const wrapper = document.createElement("div");
   const bubble = document.createElement("div");
 
-  // alignment (You = right, Debs = left)
   wrapper.className = `flex mb-1 ${sender === "You" ? "justify-end" : "justify-start"}`;
 
-  // bubble styling
   bubble.className = `
     inline-block max-w-[80%] px-3 py-2 rounded-lg text-sm whitespace-pre-line
     ${isError
@@ -139,22 +143,18 @@ function appendMessage(sender, text, isError = false) {
   `;
 
   bubble.textContent = text;
-  
   wrapper.appendChild(bubble);
   aiLog.appendChild(wrapper);
 
-  // auto scroll to bottom
   aiLog.scrollTop = aiLog.scrollHeight;
 }
 
 function showTyping() {
-  hideTyping(); // prevent duplicates
-
+  hideTyping();
   const typing = document.createElement("div");
   typing.id = "ai-typing";
   typing.className = "text-xs italic text-gray-500 dark:text-gray-400 mt-1";
   typing.textContent = "Debs is typing...";
-
   aiLog.appendChild(typing);
   aiLog.scrollTop = aiLog.scrollHeight;
 }
@@ -165,36 +165,61 @@ function hideTyping() {
 }
 
 
-// ================= CHATBOX TOGGLE =================
+// ================= CHAT CONTROL =================
 
-const chatBtn = document.getElementById("chatButton");
-const chatBox = document.getElementById("chatBox");
-const chatClose = document.getElementById("chatClose");
+function openChat() {
+  chatBtn.style.opacity = "0";
+  chatBtn.style.pointerEvents = "none";
 
-chatBtn.onclick = () => {
-  chatBox.classList.remove("hidden");
+  chatOverlay.classList.add("active");
+  chatOverlay.classList.remove("hidden");
 
-  // Only greet if chat is empty
-  if (aiLog.children.length === 0) {
-    aiAutoGreet();
+  if (window.innerWidth >= 768) {
+    chatBox.style.transform = "translateY(0)"; // desktop
+  } else {
+    chatBox.style.transform = "translateY(0)"; // mobile (same)
   }
 
+  if (aiLog.children.length === 0) aiAutoGreet();
   aiInput.focus();
-};
+}
+
+function closeChat() {
+  chatBtn.style.opacity = "1";
+  chatBtn.style.pointerEvents = "auto";
+
+  chatOverlay.classList.remove("active");
+
+  if (window.innerWidth >= 768) {
+    chatBox.style.transform = "translateY(calc(100% + 20px))"; // desktop hide
+  } else {
+    chatBox.style.transform = "translateY(100%)"; // mobile hide
+  }
+
+  setTimeout(() => {
+    if (!chatOverlay.classList.contains("active")) chatOverlay.classList.add("hidden");
+  }, 300);
+}
 
 
-chatClose.onclick = () => {
-  chatBox.classList.add("hidden");
-};
+
+// ================= EVENT BINDINGS =================
+
+chatBtn.addEventListener("click", openChat);
+chatClose.addEventListener("click", closeChat);
+
+// click outside to close
+chatOverlay.addEventListener("click", closeChat);
+
 
 // ================= AI SEND LOGIC =================
+
 async function aiSendMessage() {
   const message = aiInput.value.trim();
   if (!message) return;
 
   appendMessage("You", message);
   aiInput.value = "";
-
   showTyping();
 
   try {
@@ -220,15 +245,18 @@ async function aiSendMessage() {
   }
 }
 
+
 // ================= AUTO GREETING =================
+
 function aiAutoGreet() {
-  appendMessage("Debs", "Hi, my name is Debs, an AI assistant. How may I help you today?");
+  appendMessage("Debs", "Hi, my name is Debs, your AI assistant. How may I help you today?");
 }
 
-// ================= EVENTS =================
+
+// ================= INPUT EVENTS =================
+
 aiSend.addEventListener("click", aiSendMessage);
-aiInput.addEventListener("keydown", e => {
+
+aiInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") aiSendMessage();
 });
-
-

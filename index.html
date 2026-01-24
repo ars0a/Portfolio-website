@@ -196,10 +196,10 @@
           <img src="./images/right-arrow-white.png" class="w-4" alt="">
         </a>
 
-        <a href="./images/aditya_resume.pdf" download="Aditya_Raj_Singh_Resume.pdf"
-          class="px-8 py-3 rounded-full border border-gray-500 flex items-center gap-2 bg-white text-black dark:bg-white dark:text-black hover:bg-gray-50 transition-colors">
+        <a href="./images/Aditya_resume.pdf" download="Aditya_Raj_Singh_Resume.pdf"
+          class="px-8 py-3 rounded-full border border-gray-500 flex items-center gap-2 bg-white text-black dark:bg-white dark:text-black hover:scale-105 hover:bg-gray-50 transition-all">
           My resume
-          <img src="./images/download-icon.png" class="w-4" alt="">
+          <img src="./images/download-icon.png" class="w-4" alt="Download">
         </a>
       </div>
 
@@ -740,41 +740,47 @@
     </div>
 
 
- <!-- Floating Chat Button -->
-<div id="chatButton" class="fixed bottom-5 right-5 z-50 flex items-center justify-center 
-  w-14 h-14 rounded-full bg-purple-600 text-white shadow-lg cursor-pointer
-  hover:shadow-xl hover:scale-105 transition">
-  💬
-</div>
+    <!-- Floating Chat Button -->
+    <div id="chatButton"
+      class="fixed bottom-5 right-5 z-50 flex items-center justify-center
+      w-14 h-14 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white
+      shadow-lg cursor-pointer hover:scale-105 transition-all">
+      💬
+    </div>
 
-<!-- Chat Box -->
-<div id="chatBox"
-  class="hidden fixed bottom-20 right-4 z-50 
-  w-80 max-h-[70vh] 
-  sm:right-5 
-  sm:w-80 
-  xs:w-[92vw]
-  bg-white dark:bg-darkTheme 
-  shadow-2xl rounded-lg flex flex-col overflow-hidden 
-  border border-gray-200 dark:border-white/20">
+    <!-- Chat Overlay (Dim background) -->
+    <div id="chatOverlay"
+      class="hidden"></div>
 
+    <!-- Chat Container -->
+    <div id="chatBox">
 
-  <div class="p-3 border-b border-gray-200 dark:border-white/20 flex justify-between items-center">
-    <span class="font-medium">Debs - AI Assistant</span>
-    <button id="chatClose" class="text-gray-500 hover:text-black dark:hover:text-white text-xl">&times;</button>
-  </div>
+      <!-- Header -->
+      <div class="chat-header">
+        <span class="font-medium text-sm">Debs – AI Assistant</span>
 
-  <div id="ai-chat-log" class="space-y-2 p-2"></div>
-  <div class="p-2 border-t border-gray-200 dark:border-white/20 flex items-center gap-2">
-    <input id="ai-chat-input" type="text" placeholder="Ask something..."
-      class="flex-1 p-2 rounded-md border border-gray-300 dark:border-white/30 
-      bg-white dark:bg-darkHover/30 text-sm" />
-    <button id="ai-chat-send" class="px-3 py-2 rounded-md bg-purple-600 text-white text-sm">
-      Send
-    </button>
-  </div>
-</div>
+        <button id="chatClose" class="w-5 h-5 flex items-center justify-center">
+          <img src="images/close-black.png" class="w-full h-full dark:hidden object-contain" />
+          <img src="images/close-white.png" class="w-full h-full hidden dark:block object-contain" />
+        </button>
+      </div>
 
+      <!-- Messages -->
+      <div id="ai-chat-log"></div>
+
+      <!-- Input -->
+      <div class="input-area">
+        <input id="ai-chat-input"
+          class="flex-1 px-3 py-2 rounded-md border border-gray-300 dark:border-white/30
+          bg-white dark:bg-darkHover/30 text-sm focus:outline-none"
+          placeholder="Ask something..." />
+
+        <button id="ai-chat-send"
+          class="px-4 py-2 rounded-md text-white text-sm bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform">
+          Send
+        </button>
+      </div>
+    </div>
 
 
   <!-- Scripts -->
