@@ -206,7 +206,7 @@ button:focus-visible {
   right: 0;
   z-index: 50;
 
-  /* Option 1: Full viewport height for chat apps */
+  /* Full viewport height for chat apps */
   height: 100dvh;
   max-height: 100dvh;
 
@@ -221,6 +221,9 @@ button:focus-visible {
   /* hidden by default */
   transform: translateY(100%);
   transition: transform .3s cubic-bezier(0.16,1,0.3,1);
+  
+  /* CRITICAL: Prevent entire box from shifting when keyboard appears */
+  overflow: hidden;
 }
 
 .dark #chatBox {
@@ -252,10 +255,60 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: inherit;
+  z-index: 1;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+  touch-action: pan-y;
+}
+
+#chatBox .chat-header:active {
+  cursor: grabbing;
 }
 
 .dark #chatBox .chat-header {
   border-color: rgba(255,255,255,0.15);
+}
+
+/* Swipe Indicator - Mobile Only */
+.swipe-indicator {
+  position: absolute;
+  top: 6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36px;
+  height: 4px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 999px;
+  pointer-events: none;
+  animation: swipeHint 2s ease-in-out infinite;
+}
+
+@keyframes swipeHint {
+  0%, 100% {
+    opacity: 0.4;
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translateX(-50%) translateY(2px);
+  }
+}
+
+.dark .swipe-indicator {
+  background: rgba(255,255,255,0.3);
+}
+
+/* Hide swipe indicator on desktop */
+@media(min-width:768px) {
+  .swipe-indicator {
+    display: none;
+  }
+  
+  #chatBox .chat-header {
+    cursor: default;
+  }
 }
 
 /* Close Icon */
@@ -275,6 +328,7 @@ button:focus-visible {
   flex-direction: column;
   gap: 6px;
   scroll-behavior: smooth;
+  overscroll-behavior: contain;
 }
 
 /* Custom Scrollbar */
@@ -289,7 +343,7 @@ button:focus-visible {
   background: rgba(255,255,255,0.2);
 }
 
-/* INPUT (Pinned) */
+/* INPUT (Pinned) - This moves when keyboard appears */
 #chatBox .input-area {
   flex: 0 0 auto;
   padding: 10px 12px;
@@ -299,6 +353,11 @@ button:focus-visible {
   gap: 8px;
   align-items: center;
   background: inherit;
+  z-index: 1;
+  
+  /* CRITICAL: Smooth transition when keyboard opens/closes */
+  transition: transform 0.2s ease-out;
+  will-change: transform;
 }
 
 .dark #chatBox .input-area {
@@ -313,12 +372,23 @@ button:focus-visible {
   border: 1px solid rgba(0,0,0,0.2);
   background: #ffffff;
   font-size: 14px;
+  outline: none;
+}
+
+#ai-chat-input:focus {
+  border-color: rgba(184, 32, 230, 0.5);
+  box-shadow: 0 0 0 3px rgba(184, 32, 230, 0.1);
 }
 
 .dark #ai-chat-input {
   background: rgba(255,255,255,0.08);
   border-color: rgba(255,255,255,0.25);
   color: #ffffff;
+}
+
+.dark #ai-chat-input:focus {
+  border-color: rgba(196, 181, 253, 0.5);
+  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.1);
 }
 
 /* Send Button */
@@ -329,11 +399,17 @@ button:focus-visible {
   border: none;
   border-radius: 8px;
   font-size: 14px;
+  cursor: pointer;
   transition: transform .15s ease-out;
+  user-select: none;
 }
 
 #ai-chat-send:hover {
   transform: scale(1.05);
+}
+
+#ai-chat-send:active {
+  transform: scale(0.98);
 }
 
 /* Prevent viewport overflow issues */
@@ -347,4 +423,26 @@ button:focus-visible {
 /* Launcher Fade/Scale */
 #chatButton {
   transition: opacity .2s ease, transform .2s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+#chatButton:hover {
+  transform: scale(1.1);
+}
+
+#chatButton:active {
+  transform: scale(0.95);
+}
+
+/* Prevent text selection during drag on mobile */
+#chatBox * {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+  #chatBox {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
 }

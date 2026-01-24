@@ -740,48 +740,71 @@
     </div>
 
 
-    <!-- Floating Chat Button -->
+ <!-- Floating Chat Button -->
     <div id="chatButton"
       class="fixed bottom-5 right-5 z-50 flex items-center justify-center
       w-14 h-14 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white
-      shadow-lg cursor-pointer hover:scale-105 transition-all">
+      shadow-lg cursor-pointer hover:scale-105 transition-all"
+      role="button"
+      aria-label="Open chat with AI assistant"
+      tabindex="0">
       💬
     </div>
 
     <!-- Chat Overlay (Dim background) -->
     <div id="chatOverlay"
-      class="hidden"></div>
+      class="hidden"
+      aria-hidden="true"></div>
 
     <!-- Chat Container -->
-    <div id="chatBox">
+    <div id="chatBox"
+      role="dialog"
+      aria-labelledby="chat-header-title"
+      aria-modal="true">
 
       <!-- Header -->
       <div class="chat-header">
-        <span class="font-medium text-sm">Debs – AI Assistant</span>
+        <!-- Swipe Indicator (Mobile Only) -->
+        <div class="swipe-indicator"></div>
+        
+        <span id="chat-header-title" class="font-medium text-sm">Debs – AI Assistant</span>
 
-        <button id="chatClose" class="w-5 h-5 flex items-center justify-center">
-          <img src="images/close-black.png" class="w-full h-full dark:hidden object-contain" />
-          <img src="images/close-white.png" class="w-full h-full hidden dark:block object-contain" />
+        <button id="chatClose" 
+          class="w-5 h-5 flex items-center justify-center"
+          aria-label="Close chat"
+          type="button">
+          <img src="images/close-black.png" class="w-full h-full dark:hidden object-contain" alt="Close" />
+          <img src="images/close-white.png" class="w-full h-full hidden dark:block object-contain" alt="Close" />
         </button>
       </div>
 
       <!-- Messages -->
-      <div id="ai-chat-log"></div>
+      <div id="ai-chat-log"
+        role="log"
+        aria-live="polite"
+        aria-atomic="false"></div>
 
       <!-- Input -->
       <div class="input-area">
         <input id="ai-chat-input"
+          type="text"
           class="flex-1 px-3 py-2 rounded-md border border-gray-300 dark:border-white/30
           bg-white dark:bg-darkHover/30 text-sm focus:outline-none"
-          placeholder="Ask something..." />
+          placeholder="Ask something..."
+          aria-label="Type your message"
+          autocomplete="off"
+          autocorrect="off"
+          autocapitalize="sentences"
+          spellcheck="true" />
 
         <button id="ai-chat-send"
-          class="px-4 py-2 rounded-md text-white text-sm bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform">
+          type="button"
+          class="px-4 py-2 rounded-md text-white text-sm bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95"
+          aria-label="Send message">
           Send
         </button>
       </div>
     </div>
-
 
   <!-- Scripts -->
   <script src="./script.js"></script>

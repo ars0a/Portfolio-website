@@ -198,10 +198,75 @@ function closeChat() {
   setTimeout(() => {
     if (!chatOverlay.classList.contains("active")) chatOverlay.classList.add("hidden");
   }, 300);
-
-  // Reset keyboard offset if any
-  chatBox.style.bottom = "0px";
 }
+
+
+// ================= SWIPE TO CLOSE (MOBILE) =================
+
+(function enableSwipeToClose() {
+  const chatHeader = document.querySelector('.chat-header');
+  if (!chatHeader) return;
+
+  let startY = 0;
+  let currentY = 0;
+  let isDragging = false;
+
+  const handleTouchStart = (e) => {
+    // Only allow swipe on mobile
+    if (window.innerWidth >= 768) return;
+    
+    // Only start drag if touching the header area
+    if (!e.target.closest('.chat-header')) return;
+
+    isDragging = true;
+    startY = e.touches[0].clientY;
+    currentY = startY;
+    
+    // Disable transition during drag
+    chatBox.style.transition = 'none';
+  };
+
+  const handleTouchMove = (e) => {
+    if (!isDragging) return;
+
+    currentY = e.touches[0].clientY;
+    const deltaY = currentY - startY;
+
+    // Only allow dragging down (positive deltaY)
+    if (deltaY > 0) {
+      chatBox.style.transform = `translateY(${deltaY}px)`;
+      
+      // Add visual feedback - reduce opacity as user drags
+      const opacity = Math.max(0.3, 1 - (deltaY / 400));
+      chatOverlay.style.opacity = opacity;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (!isDragging) return;
+
+    isDragging = false;
+    const deltaY = currentY - startY;
+
+    // Re-enable transition
+    chatBox.style.transition = '';
+    chatOverlay.style.transition = '';
+
+    // If dragged down more than 100px, close the chat
+    if (deltaY > 100) {
+      closeChat();
+    } else {
+      // Snap back to original position
+      chatBox.style.transform = 'translateY(0)';
+      chatOverlay.style.opacity = '1';
+    }
+  };
+
+  // Add event listeners
+  chatHeader.addEventListener('touchstart', handleTouchStart, { passive: true });
+  document.addEventListener('touchmove', handleTouchMove, { passive: true });
+  document.addEventListener('touchend', handleTouchEnd, { passive: true });
+})();
 
 
 // ================= EVENT BINDINGS =================
@@ -270,10 +335,17 @@ aiInput.addEventListener("keydown", (e) => {
     const keyboardOpen = vv.height < window.innerHeight;
 
     if (keyboardOpen) {
-      const bottomOffset = window.innerHeight - vv.height;
-      chatBox.style.bottom = `${bottomOffset}px`;
+      // Only adjust input area, not entire chat box
+      const bottomOffset = window.innerHeight - vv.height - vv.offsetTop;
+      const inputArea = chatBox.querySelector('.input-area');
+      if (inputArea) {
+        inputArea.style.transform = `translateY(-${bottomOffset}px)`;
+      }
     } else {
-      chatBox.style.bottom = "0px";
+      const inputArea = chatBox.querySelector('.input-area');
+      if (inputArea) {
+        inputArea.style.transform = 'translateY(0)';
+      }
     }
   };
 
