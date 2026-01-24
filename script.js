@@ -110,7 +110,7 @@ if (!('loading' in HTMLImageElement.prototype)) {
 
 // ================= CONFIG =================
 // const BACKEND_URL = "http://127.0.0.1:3001/chat";
-const BACKEND_URL = "https://portfolio-ai-backend-wg2g.onrender.com/chat";
+const BACKEND_URL = "https://portfolio-ai-backend-k0m4.onrender.com/chat";
 
 
 // ================= ELEMENTS =================
