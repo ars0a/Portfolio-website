@@ -106,3 +106,37 @@ if (!('loading' in HTMLImageElement.prototype)) {
     link.href = src;
     document.head.appendChild(link);
   });
+
+
+  // ================= AI CHAT LOGIC =================
+
+const aiLog = document.getElementById("ai-chat-log");
+const aiInput = document.getElementById("ai-chat-input");
+const aiSend = document.getElementById("ai-chat-send");
+
+async function aiSendMessage() {
+  const message = aiInput.value.trim();
+  if (!message) return;
+
+  // Show user message
+  aiLog.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
+  aiLog.scrollTop = aiLog.scrollHeight;
+  aiInput.value = "";
+
+  try {
+    const res = await fetch("http://localhost:3001/chat", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await res.json();
+    aiLog.innerHTML += `<div><strong>Bot:</strong> ${data.reply}</div>`;
+    aiLog.scrollTop = aiLog.scrollHeight;
+  } catch (err) {
+    aiLog.innerHTML += `<div style="color:red;"><strong>Error:</strong> Failed to reach AI backend</div>`;
+  }
+}
+
+aiSend.onclick = aiSendMessage;
+aiInput.onkeydown = e => (e.key === "Enter" ? aiSendMessage() : null);
