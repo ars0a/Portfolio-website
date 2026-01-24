@@ -108,21 +108,86 @@ if (!('loading' in HTMLImageElement.prototype)) {
   });
 
 
-// ================= AI CHAT LOGIC =================
+// ================= CONFIG =================
+// const BACKEND_URL = "http://127.0.0.1:3001/chat";
+const BACKEND_URL = "https://portfolio-ai-backend-wg2g.onrender.com/chat";
 
+
+// ================= ELEMENTS =================
 const aiLog = document.getElementById("ai-chat-log");
 const aiInput = document.getElementById("ai-chat-input");
 const aiSend = document.getElementById("ai-chat-send");
 
-// helpers
+// ================= UI HELPERS =================
+
 function appendMessage(sender, text, isError = false) {
-  const div = document.createElement("div");
-  div.innerHTML = `<strong>${sender}:</strong> ${text}`;
-  if (isError) div.style.color = "red";
-  aiLog.appendChild(div);
+  const wrapper = document.createElement("div");
+  const bubble = document.createElement("div");
+
+  // alignment (You = right, Debs = left)
+  wrapper.className = `flex mb-1 ${sender === "You" ? "justify-end" : "justify-start"}`;
+
+  // bubble styling
+  bubble.className = `
+    inline-block max-w-[80%] px-3 py-2 rounded-lg text-sm whitespace-pre-line
+    ${isError
+      ? "bg-red-600 text-white"
+      : sender === "You"
+        ? "bg-purple-600 text-white"
+        : "bg-gray-200 text-black dark:bg-darkHover/40 dark:text-white"
+    }
+  `;
+
+  bubble.textContent = text;
+  
+  wrapper.appendChild(bubble);
+  aiLog.appendChild(wrapper);
+
+  // auto scroll to bottom
   aiLog.scrollTop = aiLog.scrollHeight;
 }
 
+function showTyping() {
+  hideTyping(); // prevent duplicates
+
+  const typing = document.createElement("div");
+  typing.id = "ai-typing";
+  typing.className = "text-xs italic text-gray-500 dark:text-gray-400 mt-1";
+  typing.textContent = "Debs is typing...";
+
+  aiLog.appendChild(typing);
+  aiLog.scrollTop = aiLog.scrollHeight;
+}
+
+function hideTyping() {
+  const typing = document.getElementById("ai-typing");
+  if (typing) typing.remove();
+}
+
+
+// ================= CHATBOX TOGGLE =================
+
+const chatBtn = document.getElementById("chatButton");
+const chatBox = document.getElementById("chatBox");
+const chatClose = document.getElementById("chatClose");
+
+chatBtn.onclick = () => {
+  chatBox.classList.remove("hidden");
+
+  // Only greet if chat is empty
+  if (aiLog.children.length === 0) {
+    aiAutoGreet();
+  }
+
+  aiInput.focus();
+};
+
+
+chatClose.onclick = () => {
+  chatBox.classList.add("hidden");
+};
+
+// ================= AI SEND LOGIC =================
 async function aiSendMessage() {
   const message = aiInput.value.trim();
   if (!message) return;
@@ -130,12 +195,16 @@ async function aiSendMessage() {
   appendMessage("You", message);
   aiInput.value = "";
 
+  showTyping();
+
   try {
-    const res = await fetch("https://portfolio-ai-backend-wg2g.onrender.com/chat", {
+    const res = await fetch(BACKEND_URL, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message })
     });
+
+    hideTyping();
 
     if (!res.ok) {
       appendMessage("Error", `Backend returned ${res.status}`, true);
@@ -143,16 +212,23 @@ async function aiSendMessage() {
     }
 
     const data = await res.json();
-    const reply = data?.reply || "No response from AI";
-    appendMessage("Bot", reply);
+    appendMessage("Debs", data?.reply || "No response");
 
   } catch (err) {
+    hideTyping();
     appendMessage("Error", "Failed to reach AI backend", true);
   }
 }
 
-// events
+// ================= AUTO GREETING =================
+function aiAutoGreet() {
+  appendMessage("Debs", "Hi, my name is Debs, an AI assistant. How may I help you today?");
+}
+
+// ================= EVENTS =================
 aiSend.addEventListener("click", aiSendMessage);
 aiInput.addEventListener("keydown", e => {
   if (e.key === "Enter") aiSendMessage();
 });
+
+
