@@ -108,35 +108,51 @@ if (!('loading' in HTMLImageElement.prototype)) {
   });
 
 
-  // ================= AI CHAT LOGIC =================
+// ================= AI CHAT LOGIC =================
 
 const aiLog = document.getElementById("ai-chat-log");
 const aiInput = document.getElementById("ai-chat-input");
 const aiSend = document.getElementById("ai-chat-send");
 
+// helpers
+function appendMessage(sender, text, isError = false) {
+  const div = document.createElement("div");
+  div.innerHTML = `<strong>${sender}:</strong> ${text}`;
+  if (isError) div.style.color = "red";
+  aiLog.appendChild(div);
+  aiLog.scrollTop = aiLog.scrollHeight;
+}
+
 async function aiSendMessage() {
   const message = aiInput.value.trim();
   if (!message) return;
 
-  // Show user message
-  aiLog.innerHTML += `<div><strong>You:</strong> ${message}</div>`;
-  aiLog.scrollTop = aiLog.scrollHeight;
+  appendMessage("You", message);
   aiInput.value = "";
 
   try {
-    const res = await fetch("http://localhost:3001/chat", {
+    const res = await fetch("https://portfolio-ai-backend-wg2g.onrender.com/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message })
     });
 
+    if (!res.ok) {
+      appendMessage("Error", `Backend returned ${res.status}`, true);
+      return;
+    }
+
     const data = await res.json();
-    aiLog.innerHTML += `<div><strong>Bot:</strong> ${data.reply}</div>`;
-    aiLog.scrollTop = aiLog.scrollHeight;
+    const reply = data?.reply || "No response from AI";
+    appendMessage("Bot", reply);
+
   } catch (err) {
-    aiLog.innerHTML += `<div style="color:red;"><strong>Error:</strong> Failed to reach AI backend</div>`;
+    appendMessage("Error", "Failed to reach AI backend", true);
   }
 }
 
-aiSend.onclick = aiSendMessage;
-aiInput.onkeydown = e => (e.key === "Enter" ? aiSendMessage() : null);
+// events
+aiSend.addEventListener("click", aiSendMessage);
+aiInput.addEventListener("keydown", e => {
+  if (e.key === "Enter") aiSendMessage();
+});
