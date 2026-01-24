@@ -206,9 +206,9 @@ button:focus-visible {
   right: 0;
   z-index: 50;
 
-  /* Full viewport height for chat apps */
-  height: 100dvh;
-  max-height: 100dvh;
+  /* Viewport height handled by JS for keyboard safety */
+  height: 100vh;
+  max-height: 100vh;
 
   display: flex;
   flex-direction: column;
@@ -221,8 +221,8 @@ button:focus-visible {
   /* hidden by default */
   transform: translateY(100%);
   transition: transform .3s cubic-bezier(0.16,1,0.3,1);
-  
-  /* CRITICAL: Prevent entire box from shifting when keyboard appears */
+
+  /* Prevent entire box from shifting when keyboard appears */
   overflow: hidden;
 }
 
@@ -232,7 +232,7 @@ button:focus-visible {
 }
 
 /* Desktop panel mode */
-@media(min-width:768px) {
+@media (min-width: 768px) {
   #chatBox {
     width: 380px;
     height: 520px;
@@ -301,11 +301,10 @@ button:focus-visible {
 }
 
 /* Hide swipe indicator on desktop */
-@media(min-width:768px) {
+@media (min-width: 768px) {
   .swipe-indicator {
     display: none;
   }
-  
   #chatBox .chat-header {
     cursor: default;
   }
@@ -343,7 +342,7 @@ button:focus-visible {
   background: rgba(255,255,255,0.2);
 }
 
-/* INPUT (Pinned) - This moves when keyboard appears */
+/* INPUT (Pinned, moves with keyboard) */
 #chatBox .input-area {
   flex: 0 0 auto;
   padding: 10px 12px;
@@ -354,8 +353,8 @@ button:focus-visible {
   align-items: center;
   background: inherit;
   z-index: 1;
-  
-  /* CRITICAL: Smooth transition when keyboard opens/closes */
+
+  /* Smooth transition for keyboard open/close */
   transition: transform 0.2s ease-out;
   will-change: transform;
 }
@@ -376,8 +375,8 @@ button:focus-visible {
 }
 
 #ai-chat-input:focus {
-  border-color: rgba(184, 32, 230, 0.5);
-  box-shadow: 0 0 0 3px rgba(184, 32, 230, 0.1);
+  border-color: rgba(184,32,230,0.5);
+  box-shadow: 0 0 0 3px rgba(184,32,230,0.1);
 }
 
 .dark #ai-chat-input {
@@ -387,8 +386,8 @@ button:focus-visible {
 }
 
 .dark #ai-chat-input:focus {
-  border-color: rgba(196, 181, 253, 0.5);
-  box-shadow: 0 0 0 3px rgba(196, 181, 253, 0.1);
+  border-color: rgba(196,181,253,0.5);
+  box-shadow: 0 0 0 3px rgba(196,181,253,0.1);
 }
 
 /* Send Button */
@@ -413,10 +412,11 @@ button:focus-visible {
 }
 
 /* Prevent viewport overflow issues */
-#chatBox,
+#chatBox {
+  overscroll-behavior: contain;
+}
+
 #chatOverlay {
-  max-width: 100vw;
-  max-height: 100vh;
   overscroll-behavior: contain;
 }
 
