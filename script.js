@@ -117,6 +117,8 @@ const chatBox = document.getElementById("chatBox");
 const chatOverlay = document.getElementById("chatOverlay");
 const chatClose = document.getElementById("chatClose");
 
+const inputArea = document.querySelector(".input-area");
+
 // ================= HELPERS =================
 function appendMessage(sender, text, isError = false) {
   const wrapper = document.createElement("div");
@@ -167,11 +169,9 @@ function openChat() {
 }
 
 function closeChat() {
-  // fade overlay out immediately
   chatOverlay.style.opacity = "0";
   chatOverlay.style.pointerEvents = "none";
 
-  // close chat box
   chatBox.classList.remove("active");
   chatOverlay.classList.remove("active");
 
@@ -179,10 +179,12 @@ function closeChat() {
     document.body.style.overflow = "";
   }
 
+  // Reset keyboard transforms
+  resetKeyboardFix();
+
   setTimeout(() => {
     chatBox.style.transform = "translateY(0)";
-    chatOverlay.style.opacity = "1"; // reset for next open
-
+    chatOverlay.style.opacity = "1";
     chatBtn.style.opacity = "1";
     chatBtn.style.pointerEvents = "auto";
   }, 300);
@@ -190,7 +192,7 @@ function closeChat() {
 
 
 
-// ================= FULL-PANEL SWIPE =================
+// ================= FULL-PANEL SWIPE (MOBILE) =================
 (function swipeClose() {
   let startY = 0;
   let currentY = 0;
@@ -212,7 +214,7 @@ function closeChat() {
   const onMove = (e) => {
     if (!dragging || !isMobile()) return;
 
-    e.preventDefault(); // prevent page scroll
+    e.preventDefault();
 
     currentY = e.touches[0].clientY;
     const deltaY = currentY - startY;
@@ -245,10 +247,43 @@ function closeChat() {
   chatBox.addEventListener("touchend", onEnd, { passive: true });
 })();
 
+
+// ================= MOBILE KEYBOARD HANDLING =================
+if (window.visualViewport) {
+  const viewport = window.visualViewport;
+
+  const keyboardAdjust = () => {
+    const isMobile = window.innerWidth < 768;
+    if (!isMobile) return resetKeyboardFix();
+
+    const keyboardOpen = viewport.height < window.innerHeight;
+    const offset = keyboardOpen ? window.innerHeight - viewport.height : 0;
+
+    // Lift only the input bar
+    inputArea.style.transform = `translateY(-${offset}px)`;
+
+    // Prevent last messages from hiding behind the keyboard
+    aiLog.style.paddingBottom = `${offset + 10}px`;
+
+    // Keep scrolling available
+    aiLog.scrollTop = aiLog.scrollHeight;
+  };
+
+  viewport.addEventListener("resize", keyboardAdjust);
+  viewport.addEventListener("scroll", keyboardAdjust);
+}
+
+function resetKeyboardFix() {
+  inputArea.style.transform = "";
+  aiLog.style.paddingBottom = "";
+}
+
+
 // ================= EVENTS =================
 chatBtn.addEventListener("click", openChat);
 chatClose.addEventListener("click", closeChat);
 chatOverlay.addEventListener("click", closeChat);
+
 
 // ================= SEND LOGIC =================
 async function aiSendMessage() {
@@ -281,10 +316,12 @@ async function aiSendMessage() {
   }
 }
 
+
 // ================= GREET =================
 function aiAutoGreet() {
   appendMessage("Debs", "Hi, my name is Debs, your AI assistant. How may I help you today?");
 }
+
 
 // ================= INPUT EVENTS =================
 aiSend.addEventListener("click", aiSendMessage);
