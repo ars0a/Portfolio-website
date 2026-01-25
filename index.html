@@ -755,17 +755,20 @@
 <!-- Chat Overlay -->
 <div
   id="chatOverlay"
-  class="hidden fixed inset-0 bg-black/30 z-40"
-  aria-hidden="true"></div>
+  class="fixed inset-0 bg-black/30 z-40 hidden"
+  aria-hidden="true">
+</div>
+
 
 <!-- Chat Container -->
 <div
   id="chatBox"
-  class="hidden fixed inset-0 z-50 flex flex-col bg-white dark:bg-[#131313]"
+  class="fixed inset-0 z-50 bg-white dark:bg-[#131313] hidden"
   role="dialog"
   aria-labelledby="chat-header-title"
   aria-modal="true"
   aria-hidden="true">
+
 
   <!-- Header -->
   <div class="chat-header flex items-center justify-between px-4 py-3 border-b border-black/10 dark:border-white/20 flex-none select-none relative">
