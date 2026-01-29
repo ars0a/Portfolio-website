@@ -133,78 +133,98 @@
     <!-- ================================== MAIN ================================== -->
     <main>
 
-  <!-- ========= HERO / HOME SECTION ========= -->
-  <section id="top" class="min-h-screen flex flex-col items-center justify-center px-4 pt-24 sm:pt-28 md:pt-32">
+<!-- ========= HERO / HOME SECTION ========= -->
+<section id="top" class="min-h-screen flex flex-col items-center justify-center px-4 pt-24 sm:pt-28 md:pt-32">
 
-    <div class="max-w-3xl mx-auto w-full text-center space-y-4">
+  <div class="max-w-3xl mx-auto w-full text-center space-y-5 sm:space-y-6">
 
-      <!-- Profile Image -->
-      <img src="./images/profile-img.png" alt="Profile picture" width="128" height="128" class="rounded-full mx-auto">
+    <!-- Profile Image -->
+    <img src="./images/profile-img.png" alt="Profile picture" width="128" height="128" class="rounded-full mx-auto">
 
-      <!-- Availability Badge -->
-      <div class="flex items-center gap-2 justify-center">
-        <span class="relative flex">
-          <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
-          <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
+    <!-- Availability Badge -->
+    <div class="flex items-center gap-2 justify-center">
+      <span class="relative flex">
+        <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+        <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
+      </span>
+      <span class="text-xs sm:text-sm text-gray-700 dark:text-white/80">
+        Open for Cloud & DevOps roles
+      </span>
+    </div>
+
+    <!-- Intro -->
+    <h3 class="text-xl md:text-2xl font-Ovo">
+      Hello, I'm Aditya Raj Singh 
+    </h3>
+
+      <h1 class="font-Ovo font-medium leading-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center">
+
+        <span class="relative inline-block">
+
+          <!-- Width keeper -->
+          <span class="invisible font-semibold whitespace-nowrap" aria-hidden="true">
+            Full Stack Engineer 
+          </span>
+
+          <!-- Typing text -->
+          <span class="absolute inset-0 flex items-center justify-center typing-gradient font-semibold whitespace-nowrap">
+            <span id="typing-text"></span>
+            <span class="typing-cursor"></span>
+          </span>
+
         </span>
-        <span class="text-xs sm:text-sm text-gray-700 dark:text-white/80">Open for Cloud & DevOps roles</span>
-      </div>
 
-      <!-- Intro -->
-      <h3 class="text-xl md:text-2xl font-Ovo">Hi, I'm Aditya Raj Singh</h3>
-
-      <!-- Headline -->
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-Ovo leading-tight">
-        Cloud & DevOps Engineer<br class="hidden sm:block"> with Full-Stack Experience
       </h1>
 
-      <!-- Status Tag -->
-      <span class="inline-block text-xs px-4 py-1.5 rounded-full bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10 text-gray-700 dark:text-white/80">
-        Currently building cloud-native projects · Portfolio in active development
-      </span>
 
-      <!-- Short Description -->
-      <p class="max-w-2xl mx-auto font-Ovo text-gray-600 dark:text-gray-300">
-        I build, deploy, automate, and debug real systems across cloud platforms, DevOps pipelines, and modern web stacks.
-      </p>
+    <!-- Status Tag -->
+    <span class="inline-block text-xs px-4 py-1.5 rounded-full bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10 text-gray-700 dark:text-white/80">
+      Currently building cloud-native projects · Portfolio in active development
+    </span>
 
-      <!-- Social Icons -->
-      <div class="flex items-center justify-center gap-3 pt-2">
-        <a href="https://github.com/ars0a/" target="_blank"
-          class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:scale-110 transition-transform dark:border-white/60 dark:bg-darkHover">
-          <img src="./images/github-mark.png" class="w-5 dark:hidden" alt="GitHub">
-          <img src="./images/github-mark-white.png" class="w-5 hidden dark:block" alt="GitHub">
-        </a>
+    <!-- Short Description -->
+    <p class="max-w-2xl mx-auto font-Ovo text-gray-600 dark:text-gray-300">
+      I build, deploy, automate, and debug real systems across cloud platforms,
+      DevOps pipelines, and modern web stacks.
+    </p>
 
-        <a href="https://www.linkedin.com/in/ars0a/" target="_blank"
-          class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:scale-110 transition-transform dark:border-white/60 dark:bg-darkHover">
-          <img src="./images/linkedin.png" class="w-5" alt="LinkedIn">
-        </a>
+    <!-- Social Icons -->
+    <div class="flex items-center justify-center gap-3 pt-2">
+      <a href="https://github.com/ars0a/" target="_blank"
+        class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:scale-110 transition-transform dark:border-white/60 dark:bg-darkHover">
+        <img src="./images/github-mark.png" class="w-5 dark:hidden" alt="GitHub">
+        <img src="./images/github-mark-white.png" class="w-5 hidden dark:block" alt="GitHub">
+      </a>
 
-        <a href="https://medium.com/@ars0a" target="_blank"
-          class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:scale-110 transition-transform dark:border-white/60 dark:bg-darkHover">
-          <img src="./images/Medium-Icon-Black.png" class="w-5 dark:hidden" alt="Medium">
-          <img src="./images/Medium-Icon-White.png" class="w-5 hidden dark:block" alt="Medium">
-        </a>
-      </div>
+      <a href="https://www.linkedin.com/in/ars0a/" target="_blank"
+        class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:scale-110 transition-transform dark:border-white/60 dark:bg-darkHover">
+        <img src="./images/linkedin.png" class="w-5" alt="LinkedIn">
+      </a>
 
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
-        <a href="#contact"
-          class="px-8 py-3 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 hover:scale-105 transition-all">
-          Contact me
-          <img src="./images/right-arrow-white.png" class="w-4" alt="">
-        </a>
-
-        <a href="./images/Aditya_resume.pdf" download="Aditya_Raj_Singh_Resume.pdf"
-          class="px-8 py-3 rounded-full border border-gray-500 flex items-center gap-2 bg-white text-black dark:bg-white dark:text-black hover:scale-105 hover:bg-gray-50 transition-all">
-          My resume
-          <img src="./images/download-icon.png" class="w-4" alt="Download">
-        </a>
-      </div>
-
+      <a href="https://medium.com/@ars0a" target="_blank"
+        class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:scale-110 transition-transform dark:border-white/60 dark:bg-darkHover">
+        <img src="./images/Medium-Icon-Black.png" class="w-5 dark:hidden" alt="Medium">
+        <img src="./images/Medium-Icon-White.png" class="w-5 hidden dark:block" alt="Medium">
+      </a>
     </div>
-  </section>
+
+    <!-- CTA Buttons -->
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
+      <a href="#contact"
+        class="px-8 py-3 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 hover:scale-105 transition-all">
+        Contact me
+        <img src="./images/right-arrow-white.png" class="w-4" alt="">
+      </a>
+
+      <a href="./images/Aditya_resume.pdf" download="Aditya_Raj_Singh_Resume.pdf"
+        class="px-8 py-3 rounded-full border border-gray-500 flex items-center gap-2 bg-white text-black dark:bg-white dark:text-black hover:scale-105 hover:bg-gray-50 transition-all">
+        My resume
+        <img src="./images/download-icon.png" class="w-4" alt="Download">
+      </a>
+    </div>
+
+  </div>
+</section>
 
 
     <!-- ========= ABOUT SECTION ========= -->

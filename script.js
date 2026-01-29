@@ -328,3 +328,90 @@ aiSend.addEventListener("click", aiSendMessage);
 aiInput.addEventListener("keydown", (e) => {
   if (e.key === "Enter") aiSendMessage();
 });
+
+
+// ================= TYPING EFFECT =================
+
+document.addEventListener("DOMContentLoaded", () => {
+  const typingText = document.getElementById("typing-text");
+  const cursor = document.querySelector(".typing-cursor");
+
+  const roles = [
+    "Cloud Engineer",
+    "DevOps Engineer",
+    "Full Stack Engineer"
+  ];
+
+  const config = {
+    typingSpeed: 100,
+    typingVariance: 40,
+    deletingSpeed: 50,
+    deletingVariance: 20,
+    pauseAfterTyping: 2000,
+    pauseAfterDeleting: 500
+  };
+
+  let currentRoleIndex = 0;
+  let currentCharIndex = 0;
+  let isDeleting = false;
+  let timeoutId = null;
+
+  function getRandomVariance(base, variance) {
+    return base + Math.random() * variance - variance / 2;
+  }
+
+  function typeEffect() {
+    const currentRole = roles[currentRoleIndex];
+
+    cursor?.classList.toggle("typing-active", !isDeleting);
+
+    if (isDeleting) {
+      currentCharIndex--;
+    } else {
+      currentCharIndex++;
+    }
+
+    currentCharIndex = Math.max(0, currentCharIndex);
+    typingText.textContent = currentRole.slice(0, currentCharIndex);
+
+    let nextDelay;
+
+    if (!isDeleting && currentCharIndex === currentRole.length) {
+      nextDelay = config.pauseAfterTyping;
+      isDeleting = true;
+
+    } else if (isDeleting && currentCharIndex === 0) {
+      isDeleting = false;
+      currentRoleIndex = (currentRoleIndex + 1) % roles.length;
+      nextDelay = config.pauseAfterDeleting;
+
+    } else if (isDeleting) {
+      nextDelay = getRandomVariance(
+        config.deletingSpeed,
+        config.deletingVariance
+      );
+
+    } else {
+      nextDelay = getRandomVariance(
+        config.typingSpeed,
+        config.typingVariance
+      );
+    }
+
+    timeoutId = setTimeout(typeEffect, nextDelay);
+  }
+
+  function handleVisibilityChange() {
+    clearTimeout(timeoutId);
+    if (!document.hidden) {
+      timeoutId = setTimeout(typeEffect, 300);
+    }
+  }
+
+  document.addEventListener("visibilitychange", handleVisibilityChange);
+
+  if (!typingText) return;
+
+  typingText.textContent = "";
+  typeEffect();
+});
