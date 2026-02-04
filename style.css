@@ -28,6 +28,13 @@
   }
 }
 
+/* Skill bar fill animation */
+@keyframes skillFill {
+  from {
+    width: 0;
+  }
+}
+
 
 /* ================= NAVBAR ================= */
 
@@ -90,39 +97,157 @@
 }
 
 
+/* ================= INFO CARD (ABOUT SECTION) ================= */
+
+.info-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  border-color: rgba(184, 32, 230, 0.3);
+}
+
+.dark .info-card:hover {
+  box-shadow: 0 12px 28px rgba(255, 255, 255, 0.08);
+  border-color: rgba(184, 32, 230, 0.5);
+}
+
+
+/* ================= SKILL BAR ANIMATIONS ================= */
+
+.skill-bar-container {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.skill-bar-container:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.skill-bar-container:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.skill-bar-container:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.skill-bar-container:nth-child(4) {
+  animation-delay: 0.4s;
+}
+
+.skill-bar {
+  animation: skillFill 1.2s ease-out forwards;
+}
+
+.skill-bar-container:nth-child(1) .skill-bar {
+  animation-delay: 0.3s;
+}
+
+.skill-bar-container:nth-child(2) .skill-bar {
+  animation-delay: 0.4s;
+}
+
+.skill-bar-container:nth-child(3) .skill-bar {
+  animation-delay: 0.5s;
+}
+
+.skill-bar-container:nth-child(4) .skill-bar {
+  animation-delay: 0.6s;
+}
+
+
 /* ================= TOOL ITEM ================= */
 
 .tool-item {
-  width: 3.5rem;
-  height: 3.5rem;
-  border-radius: .5rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: .75rem;
   background: white;
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 2px solid rgba(0,0,0,0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform .3s ease, box-shadow .3s ease;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
 
 .dark .tool-item {
-  background: #131313;
-  border-color: rgba(255,255,255,0.15);
+  background: #1f2937;
+  border-color: rgba(255,255,255,0.1);
 }
 
 .tool-item:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-color: rgba(184, 32, 230, 0.3);
 }
 
 .dark .tool-item:hover {
-  box-shadow: 0 8px 16px rgba(255,255,255,0.1);
+  box-shadow: 0 8px 20px rgba(255,255,255,0.08);
+  border-color: rgba(184, 32, 230, 0.4);
+}
+
+/* Grayscale by default, color on hover - NO SIZE CHANGE */
+.tool-icon {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.tool-item:hover .tool-icon {
+  filter: grayscale(0%);
 }
 
 @media(min-width:640px) {
   .tool-item {
-    width: 3.75rem;
-    height: 3.75rem;
+    width: 5.5rem;
+    height: 5.5rem;
   }
+}
+
+
+/* ================= EDUCATION ITEMS ================= */
+
+.education-item {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.education-item.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+
+/* ================= CERTIFICATE CARDS ================= */
+
+.cert-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.cert-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ================= PUBLICATION CARDS ================= */
+
+.publication-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.publication-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 
@@ -178,18 +303,46 @@ button:focus-visible {
   outline-color:#c4b5fd;
 }
 
+
+/* ================= FOOTER ================= */
+
+footer a {
+  position: relative;
+}
+
+footer a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #b820e6, #da7d20);
+  transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+  width: 100%;
+}
+
 /* =======================================
    CHAT SYSTEM — MOBILE + DESKTOP MODES
 ======================================= */
 
-/* Launcher */
+/* Enhanced Chat Launcher with pulse animation */
 #chatButton {
   transition: opacity .2s ease, transform .2s ease;
   cursor: pointer;
   user-select: none;
 }
-#chatButton:hover { transform: scale(1.1); }
-#chatButton:active { transform: scale(0.95); }
+
+#chatButton:hover .relative > div:first-child {
+  transform: scale(1.1);
+}
+
+#chatButton:active .relative > div:first-child {
+  transform: scale(0.95);
+}
 
 /* Overlay */
 #chatOverlay {
@@ -337,5 +490,3 @@ button:focus-visible {
     padding-bottom: calc(10px + env(safe-area-inset-bottom));
   }
 }
-
-

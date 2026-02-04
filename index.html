@@ -45,7 +45,7 @@
 <body class="overflow-x-hidden font-Outfit leading-relaxed bg-white text-gray-900 dark:bg-darkTheme dark:text-white">
   
 
-  <!-- Background Accent -->
+ <!-- Background Accent -->
   <div class="pointer-events-none fixed top-0 right-0 w-11/12 -z-10 -translate-y-[80%] dark:hidden">
     <img src="./images/header-bg-color.png" alt="" class="w-full select-none" />
   </div>
@@ -56,471 +56,795 @@
       <div class="max-w-7xl mx-auto flex items-center justify-between">
 
         <!-- Logo -->
-        <a href="#top" aria-label="Go to home" class="shrink-0">
-          <img src="./images/logo-dark-normalized.png" alt="logo" class="w-28 sm:w-32 md:w-36 dark:hidden" />
-          <img src="./images/logo-light-normalized.png" alt="logo" class="w-28 sm:w-32 md:w-36 hidden dark:block" />
+        <a href="#top" aria-label="Go to home" class="shrink-0 group">
+          <img src="./images/logo-dark-normalized.png" alt="Aditya Raj Singh Logo" 
+               class="w-32 sm:w-36 md:w-40 dark:hidden transition-transform group-hover:scale-105" />
+          <img src="./images/logo-light-normalized.png" alt="Aditya Raj Singh Logo" 
+               class="w-32 sm:w-36 md:w-40 hidden dark:block transition-transform group-hover:scale-105" />
         </a>
 
         <!-- Desktop Navigation -->
-        <ul class="hidden lg:flex items-center gap-6 rounded-full px-8 py-2.5 bg-white/60 backdrop-blur-sm shadow-sm font-Ovo dark:bg-transparent dark:border dark:border-white/50">
-          <li><a href="#top" class="nav-link">Home</a></li>
-          <li><a href="#about" class="nav-link">About</a></li>
-          <li><a href="#education" class="nav-link">Education</a></li>
-          <li><a href="#certifications" class="nav-link">Certifications</a></li>
-          <li><a href="#work" class="nav-link">Work</a></li>
-          <li><a href="#publications" class="nav-link">Publications</a></li>
-          <li><a href="#contact" class="nav-link">Contact</a></li>
+        <ul class="hidden lg:flex items-center gap-1 rounded-full px-6 py-2 bg-white/70 backdrop-blur-md shadow-lg border border-gray-200/50 font-Ovo dark:bg-gray-900/70 dark:border-gray-700/50">
+          <li>
+            <a href="#top" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#b820e6] dark:hover:text-[#b820e6] hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#about" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#b820e6] dark:hover:text-[#b820e6] hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#education" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#b820e6] dark:hover:text-[#b820e6] hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+              Education
+            </a>
+          </li>
+          <li>
+            <a href="#certifications" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#b820e6] dark:hover:text-[#b820e6] hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+              Certifications
+            </a>
+          </li>
+          <li>
+            <a href="#work" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#b820e6] dark:hover:text-[#b820e6] hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+              Work
+            </a>
+          </li>
+          <li>
+            <a href="#publications" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#b820e6] dark:hover:text-[#b820e6] hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+              Publications
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-[#b820e6] dark:hover:text-[#b820e6] hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+              Contact
+            </a>
+          </li>
         </ul>
 
         <!-- Right Controls -->
-        <div class="flex items-center gap-2">
+        <div class="flex items-center gap-3">
           <!-- Theme Toggle -->
-          <button onclick="toggleTheme()" aria-label="Toggle theme" class="p-2 hover:scale-110 transition-transform">
-            <img src="./images/moon_icon.png" class="w-5 dark:hidden" alt="">
-            <img src="./images/sun_icon.png" class="w-5 hidden dark:block" alt="">
+          <button onclick="toggleTheme()" 
+                  aria-label="Toggle dark mode" 
+                  class="w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all hover:scale-110">
+            <svg class="w-5 h-5 text-gray-700 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+            <svg class="w-5 h-5 text-gray-300 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
           </button>
 
           <!-- Mobile Menu Button -->
-          <button onclick="openMenu()" aria-label="Open menu" class="lg:hidden p-2 hover:scale-110 transition-transform">
-            <img src="./images/menu-black.png" class="w-6 dark:hidden" alt="">
-            <img src="./images/menu-white.png" class="w-6 hidden dark:block" alt="">
+          <button onclick="openMenu()" 
+                  aria-label="Open menu" 
+                  class="lg:hidden w-10 h-10 flex items-center justify-center rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all hover:scale-110">
+            <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
           </button>
 
-          <!-- Desktop Contact -->
-          <a href="#contact" class="hidden lg:flex items-center gap-2 px-6 py-2 border border-gray-500 rounded-full font-Ovo hover:bg-gray-50 dark:border-white/50 dark:hover:bg-white/5 transition-colors">
-            Contact
-            <img src="./images/arrow-icon.png" class="w-3 dark:hidden" alt="">
-            <img src="./images/arrow-icon-dark.png" class="w-3 hidden dark:block" alt="">
+          <!-- Desktop Contact Button -->
+          <a href="#contact" 
+             class="hidden lg:flex items-center gap-2 px-6 py-2.5 rounded-full font-medium text-sm bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white hover:scale-105 hover:shadow-lg transition-all duration-300">
+            Let's Talk
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
           </a>
         </div>
       </div>
     </nav>
 
     <!-- ================= MOBILE MENU ================= -->
-    <aside id="sideMenu" class="fixed top-0 right-0 translate-x-full z-50 h-screen w-64 py-20 px-8 bg-rose-50 font-Ovo transition-transform duration-300 lg:hidden dark:bg-darkHover dark:text-white">
-      <button onclick="closeMenu()" aria-label="Close menu" class="absolute top-6 right-6 hover:scale-110 transition-transform">
-        <img src="./images/close-black.png" class="w-5 dark:hidden" alt="">
-        <img src="./images/close-white.png" class="w-5 hidden dark:block" alt="">
-      </button>
+    <aside id="sideMenu" 
+           class="fixed top-0 right-0 translate-x-full z-50 h-screen w-80 bg-white dark:bg-gray-900 transition-transform duration-300 lg:hidden shadow-2xl overflow-y-auto">
+      
+      <!-- Mobile Menu Header -->
+      <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] flex items-center justify-center text-white font-bold">
+            AR
+          </div>
+          <div>
+            <p class="font-bold text-gray-900 dark:text-white text-sm">Aditya Raj Singh</p>
+            <p class="text-xs text-gray-500 dark:text-gray-400">Portfolio</p>
+          </div>
+        </div>
+        <button onclick="closeMenu()" 
+                aria-label="Close menu" 
+                class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+          <svg class="w-6 h-6 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
 
-      <ul class="flex flex-col gap-4">
-        <li><a href="#top" onclick="closeMenu()">Home</a></li>
-        <li><a href="#about" onclick="closeMenu()">About</a></li>
-        <li><a href="#education" onclick="closeMenu()">Education</a></li>
-        <li><a href="#certifications" onclick="closeMenu()">Certifications</a></li>
-        <li><a href="#work" onclick="closeMenu()">Work</a></li>
-        <li><a href="#publications" onclick="closeMenu()">Publications</a></li>
-        <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
-      </ul>
+      <!-- Mobile Navigation Links -->
+      <nav class="p-6">
+        <ul class="space-y-2">
+          <li>
+            <a href="#top" 
+               onclick="closeMenu()" 
+               class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-[#b820e6]/10 hover:to-[#da7d20]/10 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-all group">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+              </svg>
+              <span class="font-medium">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#about" 
+               onclick="closeMenu()" 
+               class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-[#b820e6]/10 hover:to-[#da7d20]/10 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-all group">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+              </svg>
+              <span class="font-medium">About</span>
+            </a>
+          </li>
+          <li>
+            <a href="#education" 
+               onclick="closeMenu()" 
+               class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-[#b820e6]/10 hover:to-[#da7d20]/10 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-all group">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+              </svg>
+              <span class="font-medium">Education</span>
+            </a>
+          </li>
+          <li>
+            <a href="#certifications" 
+               onclick="closeMenu()" 
+               class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-[#b820e6]/10 hover:to-[#da7d20]/10 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-all group">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+              </svg>
+              <span class="font-medium">Certifications</span>
+            </a>
+          </li>
+          <li>
+            <a href="#work" 
+               onclick="closeMenu()" 
+               class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-[#b820e6]/10 hover:to-[#da7d20]/10 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-all group">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              <span class="font-medium">Work</span>
+            </a>
+          </li>
+          <li>
+            <a href="#publications" 
+               onclick="closeMenu()" 
+               class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-[#b820e6]/10 hover:to-[#da7d20]/10 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-all group">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              <span class="font-medium">Publications</span>
+            </a>
+          </li>
+          <li>
+            <a href="#contact" 
+               onclick="closeMenu()" 
+               class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl text-gray-700 dark:text-gray-300 hover:bg-gradient-to-r hover:from-[#b820e6]/10 hover:to-[#da7d20]/10 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-all group">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+              <span class="font-medium">Contact</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
 
-      <!-- Mobile Socials -->
-      <div class="flex items-center gap-3 mt-8 pt-6 border-t border-gray-300 dark:border-gray-600">
-        <a href="https://github.com/ars0a/" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 bg-rose-100 hover:scale-110 transition-transform dark:bg-darkHover dark:border-white/60">
-          <img src="./images/github-mark.png" class="w-5 dark:hidden" alt="">
-          <img src="./images/github-mark-white.png" class="w-5 hidden dark:block" alt="">
-        </a>
-        <a href="https://www.linkedin.com/in/ars0a/" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 bg-rose-100 hover:scale-110 transition-transform dark:bg-darkHover dark:border-white/60">
-          <img src="./images/linkedin.png" class="w-5" alt="">
-        </a>
-        <a href="https://medium.com/@ars0a" target="_blank" class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 bg-rose-100 hover:scale-110 transition-transform dark:bg-darkHover dark:border-white/60">
-          <img src="./images/Medium-Icon-Black.png" class="w-5 dark:hidden" alt="">
-          <img src="./images/Medium-Icon-White.png" class="w-5 hidden dark:block" alt="">
+      <!-- Mobile CTA Button -->
+      <div class="px-6 pb-6">
+        <a href="#contact" 
+           onclick="closeMenu()"
+           class="flex items-center justify-center gap-2 w-full px-6 py-3.5 rounded-xl font-semibold text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 hover:shadow-lg transition-all duration-300">
+          Get in Touch
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
         </a>
       </div>
+
+      <!-- Mobile Social Links -->
+      <div class="px-6 pb-8 border-t border-gray-200 dark:border-gray-800 pt-6">
+        <p class="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">Follow Me</p>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://github.com/ars0a" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all text-sm font-medium text-gray-700 dark:text-gray-300">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/ars0a/" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all text-sm font-medium text-gray-700 dark:text-gray-300">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
+          </a>
+          <a href="https://medium.com/@ars0a" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all text-sm font-medium text-gray-700 dark:text-gray-300">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+            </svg>
+            Medium
+          </a>
+          <a href="https://adityarajsingh.hashnode.dev/" 
+             target="_blank" 
+             rel="noopener noreferrer"
+             class="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-all text-sm font-medium text-gray-700 dark:text-gray-300">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.351 8.019l-6.37-6.37a5.63 5.63 0 0 0-7.962 0l-6.37 6.37a5.63 5.63 0 0 0 0 7.962l6.37 6.37a5.63 5.63 0 0 0 7.962 0l6.37-6.37a5.63 5.63 0 0 0 0-7.962zM12 15.953a3.953 3.953 0 1 1 0-7.906 3.953 3.953 0 0 1 0 7.906z"/>
+            </svg>
+            Hashnode
+          </a>
+        </div>
+      </div>
+
     </aside>
   </header>
 
     <!-- ================================== MAIN ================================== -->
     <main>
+<!-- ========= HERO / HOME SECTION ========= -->
+  <section id="top" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
+    <div class="max-w-6xl mx-auto w-full">
+      
+      <div class="text-center space-y-6 sm:space-y-8">
+        
+        <!-- Profile Image -->
+        <div class="flex justify-center">
+          <img src="./images/profile-img.png" alt="Aditya Raj Singh" 
+               class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-gray-200 dark:border-gray-700 shadow-lg">
+        </div>
 
-  <!-- ========= HERO / HOME SECTION ========= -->
-  <section id="top" class="min-h-screen flex flex-col items-center justify-center px-4 pt-24 sm:pt-28 md:pt-32">
+        <!-- Availability Badge -->
+        <div class="flex items-center gap-2 justify-center">
+          <span class="relative flex">
+            <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+            <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
+          </span>
+          <span class="text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium">
+            Open for Cloud & DevOps roles
+          </span>
+        </div>
 
-    <div class="max-w-3xl mx-auto w-full text-center space-y-4">
+        <!-- Intro -->
+        <h3 class="text-xl sm:text-2xl md:text-3xl font-Ovo text-gray-800 dark:text-gray-200">
+          Hi, I'm Aditya Raj Singh
+        </h3>
 
-      <!-- Profile Image -->
-      <img src="./images/profile-img.png" alt="Profile picture" width="128" height="128" class="rounded-full mx-auto">
+        <!-- Headline -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-Ovo font-bold leading-tight text-gray-900 dark:text-white">
+          Cloud & DevOps Engineer
+          <br class="hidden sm:block">
+          <span class="bg-gradient-to-r from-[#b820e6] to-[#da7d20] bg-clip-text text-transparent">
+            with Full-Stack Experience
+          </span>
+        </h1>
 
-      <!-- Availability Badge -->
-      <div class="flex items-center gap-2 justify-center">
-        <span class="relative flex">
-          <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
-          <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
-        </span>
-        <span class="text-xs sm:text-sm text-gray-700 dark:text-white/80">Open for Cloud & DevOps roles</span>
+        <!-- Status Tag -->
+        <div class="flex justify-center">
+          <span class="inline-flex items-center px-5 py-2 rounded-full bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10 border border-gray-300 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300">
+            Currently building cloud-native projects · Portfolio in active development
+          </span>
+        </div>
+
+        <!-- Short Description -->
+        <p class="max-w-3xl mx-auto text-base sm:text-lg font-Ovo text-gray-600 dark:text-gray-400 leading-relaxed px-4">
+          I build, deploy, automate, and debug real systems across cloud platforms, DevOps pipelines, and modern web stacks.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+          <a href="#contact"
+            class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white font-medium flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg transition-all">
+            Contact me
+            <img src="./images/right-arrow-white.png" class="w-4" alt="">
+          </a>
+
+          <a href="./images/Aditya_resume.pdf" download="Aditya_Raj_Singh_Resume.pdf"
+            class="w-full sm:w-auto px-8 py-3.5 rounded-full border-2 border-gray-400 dark:border-gray-600 flex items-center justify-center gap-2 bg-white text-gray-900 dark:bg-gray-800 dark:text-white font-medium hover:scale-105 hover:border-gray-500 dark:hover:border-gray-500 hover:shadow-lg transition-all">
+            My resume
+            <img src="./images/download-icon.png" class="w-4 dark:invert" alt="Download">
+          </a>
+        </div>
+
+        <!-- Social Icons -->
+        <div class="flex items-center justify-center gap-4 pt-6">
+          <a href="https://github.com/ars0a/" target="_blank"
+            class="w-11 h-11 flex items-center justify-center rounded-full border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:scale-110 hover:border-gray-400 dark:hover:border-gray-500 transition-all">
+            <img src="./images/github-mark.png" class="w-5 dark:hidden" alt="GitHub">
+            <img src="./images/github-mark-white.png" class="w-5 hidden dark:block" alt="GitHub">
+          </a>
+
+          <a href="https://www.linkedin.com/in/ars0a/" target="_blank"
+            class="w-11 h-11 flex items-center justify-center rounded-full border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:scale-110 hover:border-gray-400 dark:hover:border-gray-500 transition-all">
+            <img src="./images/linkedin.png" class="w-5" alt="LinkedIn">
+          </a>
+
+          <a href="https://medium.com/@ars0a" target="_blank"
+            class="w-11 h-11 flex items-center justify-center rounded-full border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:scale-110 hover:border-gray-400 dark:hover:border-gray-500 transition-all">
+            <img src="./images/Medium-Icon-Black.png" class="w-5 dark:hidden" alt="Medium">
+            <img src="./images/Medium-Icon-White.png" class="w-5 hidden dark:block" alt="Medium">
+          </a>
+
+          <a href="https://adityarajsingh.hashnode.dev/" target="_blank"
+            class="w-11 h-11 flex items-center justify-center rounded-full border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 hover:scale-110 hover:border-gray-400 dark:hover:border-gray-500 transition-all">
+            <img src="./images/hashnode-icon.png" class="w-5" alt="Hashnode">
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ========= ABOUT SECTION ========= -->
+  <section id="about" class="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Section Header -->
+      <div class="text-center mb-16 sm:mb-20">
+        <h4 class="mb-3 text-base sm:text-lg font-Ovo text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+          Who I Am
+        </h4>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-Ovo font-bold text-gray-900 dark:text-white">
+          About Me
+        </h2>
+        <div class="mt-4 w-24 h-1 bg-gradient-to-r from-[#b820e6] to-[#da7d20] mx-auto rounded-full"></div>
       </div>
 
-      <!-- Intro -->
-      <h3 class="text-xl md:text-2xl font-Ovo">Hi, I'm Aditya Raj Singh</h3>
+      <!-- Two Column Layout: Cards Left, Skills Right -->
+      <div class="grid lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
-      <!-- Headline -->
-      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-Ovo leading-tight">
-        Cloud & DevOps Engineer<br class="hidden sm:block"> with Full-Stack Experience
-      </h1>
+        <!-- LEFT: Information Cards -->
+        <div class="space-y-6">
+          <div class="info-card border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-8 bg-white dark:bg-gray-800 shadow-sm">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-[#b820e6] to-[#da7d20] flex items-center justify-center text-white text-xl">
+                👤
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2 text-gray-900 dark:text-white">Who I am</h3>
+                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                  Self Learned cloud & DevOps-focused developer who enjoys building, deploying, and operating real systems.
+                </p>
+              </div>
+            </div>
+          </div>
 
-      <!-- Status Tag -->
-      <span class="inline-block text-xs px-4 py-1.5 rounded-full bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10 text-gray-700 dark:text-white/80">
-        Currently building cloud-native projects · Portfolio in active development
-      </span>
+          <div class="info-card border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-8 bg-white dark:bg-gray-800 shadow-sm">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-[#b820e6] to-[#da7d20] flex items-center justify-center text-white text-xl">
+                ⚡
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2 text-gray-900 dark:text-white">What I work on</h3>
+                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                  Cloud infrastructure, CI/CD pipelines, container workloads, Linux systems, and cloud-hosted applications.
+                </p>
+              </div>
+            </div>
+          </div>
 
-      <!-- Short Description -->
-      <p class="max-w-2xl mx-auto font-Ovo text-gray-600 dark:text-gray-300">
-        I build, deploy, automate, and debug real systems across cloud platforms, DevOps pipelines, and modern web stacks.
-      </p>
+          <div class="info-card border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-8 bg-white dark:bg-gray-800 shadow-sm">
+            <div class="flex items-start gap-4">
+              <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-[#b820e6] to-[#da7d20] flex items-center justify-center text-white text-xl">
+                🧠
+              </div>
+              <div>
+                <h3 class="font-bold text-lg mb-2 text-gray-900 dark:text-white">How I think</h3>
+                <p class="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                  Reliability-first mindset — understanding how systems fail, scale, recover, and behave in real conditions.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6">
-        <a href="#contact"
-          class="px-8 py-3 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white flex items-center gap-2 hover:scale-105 transition-all">
-          Contact me
-          <img src="./images/right-arrow-white.png" class="w-4" alt="">
-        </a>
+        <!-- RIGHT: Skills -->
+        <div class="space-y-8">
+          <div class="skill-bar-container">
+            <div class="flex justify-between items-center mb-3">
+              <h4 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white flex items-center gap-2">
+                <span>☁️</span>
+                <span>Cloud & Infrastructure</span>
+              </h4>
+              <span class="text-sm font-medium px-3 py-1 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300">
+                Advanced
+              </span>
+            </div>
+            <div class="h-3 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden shadow-inner">
+              <div class="skill-bar h-full w-[85%] bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/20"></div>
+              </div>
+            </div>
+          </div>
 
-        <a href="./images/Aditya_resume.pdf" download="Aditya_Raj_Singh_Resume.pdf"
-          class="px-8 py-3 rounded-full border border-gray-500 flex items-center gap-2 bg-white text-black dark:bg-white dark:text-black hover:scale-105 hover:bg-gray-50 transition-all">
-          My resume
-          <img src="./images/download-icon.png" class="w-4" alt="Download">
-        </a>
+          <div class="skill-bar-container">
+            <div class="flex justify-between items-center mb-3">
+              <h4 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white flex items-center gap-2">
+                <span>⚙️</span>
+                <span>DevOps & Automation</span>
+              </h4>
+              <span class="text-sm font-medium px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
+                Strong
+              </span>
+            </div>
+            <div class="h-3 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden shadow-inner">
+              <div class="skill-bar h-full w-[75%] bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/20"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-bar-container">
+            <div class="flex justify-between items-center mb-3">
+              <h4 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white flex items-center gap-2">
+                <span>🧠</span>
+                <span>Linux & Systems</span>
+              </h4>
+              <span class="text-sm font-medium px-3 py-1 rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300">
+                Strong
+              </span>
+            </div>
+            <div class="h-3 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden shadow-inner">
+              <div class="skill-bar h-full w-[78%] bg-gradient-to-r from-orange-500 to-amber-500 rounded-full relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/20"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="skill-bar-container">
+            <div class="flex justify-between items-center mb-3">
+              <h4 class="font-bold text-base sm:text-lg text-gray-900 dark:text-white flex items-center gap-2">
+                <span>🌐</span>
+                <span>Web Development</span>
+              </h4>
+              <span class="text-sm font-medium px-3 py-1 rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300">
+                Working
+              </span>
+            </div>
+            <div class="h-3 rounded-full bg-gray-200 dark:bg-gray-700 overflow-hidden shadow-inner">
+              <div class="skill-bar h-full w-[65%] bg-gradient-to-r from-pink-500 to-rose-500 rounded-full relative">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent to-white/20"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-            <!-- Social Icons -->
-      <div class="flex items-center justify-center gap-3 pt-2">
-        <a href="https://github.com/ars0a/" target="_blank"
-          class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:scale-110 transition-transform dark:border-white/60 dark:bg-darkHover">
-          <img src="./images/github-mark.png" class="w-5 dark:hidden" alt="GitHub">
-          <img src="./images/github-mark-white.png" class="w-5 hidden dark:block" alt="GitHub">
-        </a>
+      <!-- Tools Section -->
+      <div class="mt-20 sm:mt-24">
+        <h2 class="text-center text-3xl sm:text-4xl font-Ovo font-bold mb-12 text-gray-900 dark:text-white">
+          Tools I Work With
+        </h2>
+        <ul class="flex flex-wrap justify-center gap-5 sm:gap-6 max-w-5xl mx-auto">
+          <li class="tool-item">
+            <img src="./images/vscode.png" alt="VS Code" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/git.png" alt="Git" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/aws-icon.png" alt="AWS" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/docker.png" alt="Docker" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/jenkins.png" alt="Jenkins" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/GitHub Actions.png" alt="GitHub Actions" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/HashiCorp Terraform.png" alt="Terraform" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/kubernetes.png" alt="Kubernetes" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/linux-icon.png" alt="Linux" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/Python.png" alt="Python" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/Ansible.png" alt="Ansible" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/Grafana.png" alt="Grafana" class="tool-icon w-12 sm:w-14">
+          </li>
+          <li class="tool-item">
+            <img src="./images/NGINX.png" alt="NGINX" class="tool-icon w-12 sm:w-14">
+          </li>
+        </ul>
+      </div>
 
-        <a href="https://www.linkedin.com/in/ars0a/" target="_blank"
-          class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:scale-110 transition-transform dark:border-white/60 dark:bg-darkHover">
-          <img src="./images/linkedin.png" class="w-5" alt="LinkedIn">
-        </a>
+    </div>
+  </section>
 
-        <a href="https://medium.com/@ars0a" target="_blank"
-          class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:scale-110 transition-transform dark:border-white/60 dark:bg-darkHover">
-          <img src="./images/Medium-Icon-Black.png" class="w-5 dark:hidden" alt="Medium">
-          <img src="./images/Medium-Icon-White.png" class="w-5 hidden dark:block" alt="Medium">
-        </a>
+<!-- ========= EDUCATION SECTION ========= -->
+  <section id="education" class="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto">
 
-        <a href="https://adityarajsingh.hashnode.dev/" target="_blank"
-          class="w-9 h-9 flex items-center justify-center rounded-full border border-gray-400 hover:scale-110 transition-transform dark:border-white/60 dark:bg-darkHover">
-          <img src="./images/hashnode-icon.png" class="w-5" alt="Hashnode">
-        </a>
+      <!-- Section Header -->
+      <div class="text-center mb-16 sm:mb-20">
+        <h4 class="mb-3 text-base sm:text-lg font-Ovo text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+          Academic Journey
+        </h4>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-Ovo font-bold text-gray-900 dark:text-white">
+          Education
+        </h2>
+        <div class="mt-4 w-24 h-1 bg-gradient-to-r from-[#b820e6] to-[#da7d20] mx-auto rounded-full"></div>
+        <p class="max-w-2xl mx-auto mt-6 text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+          From fundamentals to applied learning, this journey reflects consistent growth and a clear direction toward technology.
+        </p>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative">
+        <!-- Vertical Line -->
+        <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-gray-300 to-transparent dark:via-gray-600"></div>
+
+        <!-- Education Item 1 -->
+        <div class="education-item flex gap-6 sm:gap-8 mb-12 sm:mb-16 relative">
+          <div class="relative z-10 mt-2">
+            <div class="w-5 h-5 rounded-full border-4 border-white dark:border-gray-900 bg-gradient-to-r from-[#b820e6] to-[#da7d20] shadow-lg"></div>
+          </div>
+          <div class="border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-sm flex-1 hover:shadow-lg hover:border-[#b820e6]/30 dark:hover:border-[#b820e6]/50 transition-all duration-300">
+            <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest rounded-full bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10 text-gray-700 dark:text-gray-300 mb-3">
+              2023 – 2025
+            </span>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
+              Master of Computer Applications (MCA)
+            </h3>
+            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+              Central University of Himachal Pradesh
+            </p>
+          </div>
+        </div>
+
+        <!-- Education Item 2 -->
+        <div class="education-item flex gap-6 sm:gap-8 relative">
+          <div class="relative z-10 mt-2">
+            <div class="w-5 h-5 rounded-full border-4 border-white dark:border-gray-900 bg-gradient-to-r from-[#b820e6] to-[#da7d20] shadow-lg"></div>
+          </div>
+          <div class="border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-sm flex-1 hover:shadow-lg hover:border-[#b820e6]/30 dark:hover:border-[#b820e6]/50 transition-all duration-300">
+            <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-widest rounded-full bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10 text-gray-700 dark:text-gray-300 mb-3">
+              2018 – 2021
+            </span>
+            <h3 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2">
+              Bachelor of Computer Applications (BCA)
+            </h3>
+            <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 flex items-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+              </svg>
+              Lovely Professional University
+            </p>
+          </div>
+        </div>
       </div>
 
     </div>
   </section>
 
 
-    <!-- ========= ABOUT SECTION ========= -->
-    <section id="about" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-7xl mx-auto">
-
-        <div class="text-center mb-12 sm:mb-16">
-          <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Who I Am</h4>
-          <h2 class="text-4xl sm:text-5xl font-Ovo">About Me</h2>
-        </div>
-
-        <div class="grid lg:grid-cols-[auto_1fr] gap-12 lg:gap-16 items-start">
-
-          <div class="mx-auto lg:mx-0">
-            <img src="./images/user-image.png" alt="profile" loading="lazy" class="w-48 sm:w-56 md:w-64 rounded-3xl">
-          </div>
-
-          <div class="space-y-10">
-            <!-- small cards -->
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-
-              <div class="border border-gray-400 rounded-xl p-6 bg-white/50 dark:bg-transparent dark:border-white">
-                <h3 class="font-semibold mb-2 text-gray-800 dark:text-white">Who I am</h3>
-                <p class="text-sm text-gray-600 dark:text-white/80">
-                  Self Learned cloud & DevOps-focused developer who enjoys building, deploying, and operating real systems.
-                </p>
-              </div>
-
-              <div class="border border-gray-400 rounded-xl p-6 bg-white/50 dark:bg-transparent dark:border-white">
-                <h3 class="font-semibold mb-2 text-gray-800 dark:text-white">What I work on</h3>
-                <p class="text-sm text-gray-600 dark:text-white/80">
-                  Cloud infrastructure, CI/CD pipelines, container workloads, Linux systems, and cloud-hosted applications.
-                </p>
-              </div>
-
-              <div class="border border-gray-400 rounded-xl p-6 bg-white/50 dark:bg-transparent dark:border-white sm:col-span-2 lg:col-span-1">
-                <h3 class="font-semibold mb-2 text-gray-800 dark:text-white">How I think</h3>
-                <p class="text-sm text-gray-600 dark:text-white/80">
-                  Reliability-first mindset — understanding how systems fail, scale, recover, and behave in real conditions.
-                </p>
-              </div>
-            </div>
-
-            <!-- skills -->
-            <div class="space-y-6">
-              <div>
-                <div class="flex justify-between mb-2">
-                  <h4 class="font-semibold text-sm sm:text-base text-gray-800 dark:text-white">☁️ Cloud & Infrastructure</h4>
-                  <span class="text-xs sm:text-sm text-gray-500">Advanced</span>
-                </div>
-                <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-                  <div class="h-full w-[85%] bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full"></div>
-                </div>
-              </div>
-
-              <div>
-                <div class="flex justify-between mb-2">
-                  <h4 class="font-semibold text-sm sm:text-base text-gray-800 dark:text-white">⚙️ DevOps & Automation</h4>
-                  <span class="text-xs sm:text-sm text-gray-500">Strong</span>
-                </div>
-                <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-                  <div class="h-full w-[75%] bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full"></div>
-                </div>
-              </div>
-
-              <div>
-                <div class="flex justify-between mb-2">
-                  <h4 class="font-semibold text-sm sm:text-base text-gray-800 dark:text-white">🧠 Linux & Systems</h4>
-                  <span class="text-xs sm:text-sm text-gray-500">Strong</span>
-                </div>
-                <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-                  <div class="h-full w-[78%] bg-gradient-to-r from-orange-500 to-amber-500 rounded-full"></div>
-                </div>
-              </div>
-
-              <div>
-                <div class="flex justify-between mb-2">
-                  <h4 class="font-semibold text-sm sm:text-base text-gray-800 dark:text-white">🌐 Web Development</h4>
-                  <span class="text-xs sm:text-sm text-gray-500">Working</span>
-                </div>
-                <div class="h-2 rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden">
-                  <div class="h-full w-[65%] bg-gradient-to-r from-pink-500 to-rose-500 rounded-full"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- tools -->
-        <div class="mt-16 sm:mt-20">
-          <h2 class="text-center text-2xl font-Ovo mb-8 sm:mb-10">Tools I Work With</h2>
-          <ul class="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-4xl mx-auto">
-            <li><img src="./images/vscode.png" alt="VS Code" class="w-7 sm:w-8"></li>
-            <li><img src="./images/git.png" alt="Git" class="w-7 sm:w-8"></li>
-            <li><img src="./images/aws-icon.png" alt="AWS" class="w-7 sm:w-8"></li>
-            <li><img src="./images/docker.png" alt="Docker" class="w-7 sm:w-8"></li>
-            <li><img src="./images/jenkins.png" alt="Jenkins" class="w-7 sm:w-8"></li>
-            <li><img src="./images/GitHub Actions.png" alt="GitHub Actions" class="w-7 sm:w-8"></li>
-            <li><img src="./images/HashiCorp Terraform.png" alt="Terraform" class="w-7 sm:w-8"></li>
-            <li><img src="./images/kubernetes.png" alt="Kubernetes" class="w-7 sm:w-8"></li>
-            <li><img src="./images/linux-icon.png" alt="Linux" class="w-7 sm:w-8"></li>
-            <li><img src="./images/Python.png" alt="Python" class="w-7 sm:w-8"></li>
-            <li><img src="./images/Ansible.png" alt="Ansible" class="w-7 sm:w-8"></li>
-            <li><img src="./images/Grafana.png" alt="Grafana" class="w-7 sm:w-8"></li>
-            <li><img src="./images/NGINX.png" alt="NGINX" class="w-7 sm:w-8"></li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-        <!-- ========= EDUCATION SECTION ========= -->
-    <section id="education" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-4xl mx-auto">
-
-        <div class="text-center mb-12 sm:mb-16">
-          <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Academic Journey</h4>
-          <h2 class="text-4xl sm:text-5xl font-Ovo">Education</h2>
-          <p class="max-w-2xl mx-auto mt-4 sm:mt-6 text-gray-600 dark:text-gray-400">
-            From fundamentals to applied learning, this journey reflects consistent growth and a clear direction toward technology.
-          </p>
-        </div>
-
-        <div class="relative">
-          <div class="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gray-400 to-transparent dark:via-white/40"></div>
-
-          <div class="flex gap-6 sm:gap-8 mb-12 sm:mb-16 relative">
-            <div class="relative z-10 mt-2">
-              <div class="w-4 h-4 rounded-full border-2 border-gray-500 bg-white dark:bg-darkTheme dark:border-white"></div>
-            </div>
-            <div class="border border-gray-400 rounded-xl p-6 sm:p-8 bg-white/40 dark:bg-transparent dark:border-white flex-1">
-              <p class="text-xs uppercase tracking-widest text-gray-500 dark:text-white/70 mb-2">2023 – 2025</p>
-              <h3 class="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white">Master of Computer Applications (MCA)</h3>
-              <p class="text-sm text-gray-600 dark:text-white/75 mt-1">Central University of Himachal Pradesh</p>
-            </div>
-          </div>
-
-          <div class="flex gap-6 sm:gap-8 relative">
-            <div class="relative z-10 mt-2">
-              <div class="w-4 h-4 rounded-full border-2 border-gray-500 bg-white dark:bg-darkTheme dark:border-white"></div>
-            </div>
-            <div class="border border-gray-400 rounded-xl p-6 sm:p-8 bg-white/40 dark:bg-transparent dark:border-white flex-1">
-              <p class="text-xs uppercase tracking-widest text-gray-500 dark:text-white/70 mb-2">2018 – 2021</p>
-              <h3 class="text-lg sm:text-xl font-semibold text-gray-800 dark:text-white">Bachelor of Computer Applications (BCA)</h3>
-              <p class="text-sm text-gray-600 dark:text-white/75 mt-1">Lovely Professional University</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========= CERTIFICATIONS SECTION ========= -->
-
-    <section id="certifications" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-6xl mx-auto">
-
-        <!-- Section Heading -->
-        <div class="text-center mb-12 sm:mb-16">
-          <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Training & Certifications</h4>
-          <h2 class="text-4xl sm:text-5xl font-Ovo">Certifications</h2>
-          <p class="max-w-2xl mx-auto mt-4 sm:mt-6 dark:text-white/80">
-            Credentials demonstrating practical competency in DevOps, cloud computing, and professional development.
-          </p>
-        </div>
-
-        <!-- Certificate Grid -->
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-
-          <!-- AWS CCP -->
-          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
-            <div class="flex flex-col justify-between h-full gap-3">
-              <div>
-                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">Cloud Computing</span>
-                <h3 class="text-lg font-semibold mt-1">AWS Certified Solutions Architect - Associate</h3>
-                <p class="text-sm text-gray-500 dark:text-white/70">Amazon Web Services • 2025</p>
-              </div>
-              <div class="flex justify-end">
-                <button type="button"
-                  onclick="openLocalCert('./certificates/aws-ccp.png')"
-                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
-                  Verify
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- DevOps Engineering -->
-          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
-            <div class="flex flex-col justify-between h-full gap-3">
-              <div>
-                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">DevOps Training</span>
-                <h3 class="text-lg font-semibold mt-1">DevOps Engineering Program</h3>
-                <p class="text-sm text-gray-500 dark:text-white/70">GeeksforGeeks • 2025</p>
-              </div>
-              <div class="flex justify-end">
-                <button type="button"
-                  onclick="openLocalCert('./certificates/devops.png')"
-                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
-                  Verify
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Docker & Kubernetes -->
-          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
-            <div class="flex flex-col justify-between h-full gap-3">
-              <div>
-                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">Masterclass</span>
-                <h3 class="text-lg font-semibold mt-1">Fundamantal of Docker & Kubernetes</h3>
-                <p class="text-sm text-gray-500 dark:text-white/70">Scaler • 2025</p>
-              </div>
-              <div class="flex justify-end">
-                <button type="button"
-                  onclick="openLocalCert('./certificates/scaler.png')"
-                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
-                  Verify
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- TCS iON -->
-          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
-            <div class="flex flex-col justify-between h-full gap-3">
-              <div>
-                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">Career Skill</span>
-                <h3 class="text-lg font-semibold mt-1">Career Edge: Young Professional</h3>
-                <p class="text-sm text-gray-500 dark:text-white/70">TCS iON • 2024</p>
-              </div>
-              <div class="flex justify-end">
-                <button type="button"
-                  onclick="openLocalCert('./certificates/TCS iON-1.png')"
-                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
-                  Verify
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- NPTEL Certificate -->
-          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
-            <div class="flex flex-col justify-between h-full gap-3">
-              <div>
-                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">Soft Skill Development</span>
-                <h3 class="text-lg font-semibold mt-1">Enhancing Soft Skill and Personality</h3>
-                <p class="text-sm text-gray-500 dark:text-white/70">Indian Institute Of Technology Kanpur • 2024</p>
-              </div>
-              <div class="flex justify-end">
-                <button type="button"
-                  onclick="openLocalCert('./certificates/nptel.png')"
-                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
-                  Verify
-                </button>
-              </div>
-            </div>
-          </div>
-
-          <!-- Space Internship -->
-          <div class="border border-gray-400 dark:border-white/40 rounded-xl p-6">
-            <div class="flex flex-col justify-between h-full gap-3">
-              <div>
-                <span class="text-xs uppercase tracking-wide text-gray-500 dark:text-white/60">Internship</span>
-                <h3 class="text-lg font-semibold mt-1">Agnirva Space Internship Program</h3>
-                <p class="text-sm text-gray-500 dark:text-white/70">Agnirva Institute • 2024</p>
-              </div>
-              <div class="flex justify-end">
-                <button type="button"
-                  onclick="openLocalCert('./certificates/agnirva-1.png')"
-                  class="px-5 py-1.5 text-xs font-medium rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95">
-                  Verify
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-
-    <!-- ========= WORK SECTION ========= -->
-
-  <section id="work" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+   <!-- ========= CERTIFICATIONS SECTION ========= -->
+  <section id="certifications" class="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
     <div class="max-w-7xl mx-auto">
 
-      <div class="text-center mb-12 sm:mb-16">
-        <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Portfolio</h4>
-        <h2 class="text-4xl sm:text-5xl font-Ovo">Selected Projects</h2>
-        <p class="max-w-2xl mx-auto mt-4 sm:mt-6 text-gray-700 dark:text-white/80">
+      <!-- Section Header -->
+      <div class="text-center mb-16 sm:mb-20">
+        <h4 class="mb-3 text-base sm:text-lg font-Ovo text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+          Training & Certifications
+        </h4>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-Ovo font-bold text-gray-900 dark:text-white">
+          Certifications
+        </h2>
+        <div class="mt-4 w-24 h-1 bg-gradient-to-r from-[#b820e6] to-[#da7d20] mx-auto rounded-full"></div>
+        <p class="max-w-2xl mx-auto mt-6 text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
+          Credentials demonstrating practical competency in DevOps, cloud computing, and professional development.
+        </p>
+      </div>
+
+      <!-- Certificate Grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+
+        <!-- AWS CCP -->
+        <div class="cert-card border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl hover:border-[#b820e6]/30 dark:hover:border-[#b820e6]/50 transition-all duration-300">
+          <div class="flex flex-col justify-between h-full gap-4">
+            <div>
+              <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 mb-3">
+                Cloud Computing
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                AWS Certified Solutions Architect - Associate
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Amazon Web Services • 2025</p>
+            </div>
+            <div class="flex justify-end">
+              <button type="button"
+                onclick="openLocalCert('./certificates/aws-ccp.png')"
+                class="px-6 py-2.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95">
+                View Certificate
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- DevOps Engineering -->
+        <div class="cert-card border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl hover:border-[#b820e6]/30 dark:hover:border-[#b820e6]/50 transition-all duration-300">
+          <div class="flex flex-col justify-between h-full gap-4">
+            <div>
+              <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 mb-3">
+                DevOps Training
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                DevOps Engineering Program
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">GeeksforGeeks • 2025</p>
+            </div>
+            <div class="flex justify-end">
+              <button type="button"
+                onclick="openLocalCert('./certificates/devops.png')"
+                class="px-6 py-2.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95">
+                View Certificate
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Docker & Kubernetes -->
+        <div class="cert-card border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl hover:border-[#b820e6]/30 dark:hover:border-[#b820e6]/50 transition-all duration-300">
+          <div class="flex flex-col justify-between h-full gap-4">
+            <div>
+              <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 mb-3">
+                Masterclass
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                Fundamantal of Docker & Kubernetes
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Scaler • 2025</p>
+            </div>
+            <div class="flex justify-end">
+              <button type="button"
+                onclick="openLocalCert('./certificates/scaler.png')"
+                class="px-6 py-2.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95">
+                View Certificate
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TCS iON -->
+        <div class="cert-card border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl hover:border-[#b820e6]/30 dark:hover:border-[#b820e6]/50 transition-all duration-300">
+          <div class="flex flex-col justify-between h-full gap-4">
+            <div>
+              <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 mb-3">
+                Career Skill
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                Career Edge: Young Professional
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">TCS iON • 2024</p>
+            </div>
+            <div class="flex justify-end">
+              <button type="button"
+                onclick="openLocalCert('./certificates/TCS iON-1.png')"
+                class="px-6 py-2.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95">
+                View Certificate
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- NPTEL Certificate -->
+        <div class="cert-card border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl hover:border-[#b820e6]/30 dark:hover:border-[#b820e6]/50 transition-all duration-300">
+          <div class="flex flex-col justify-between h-full gap-4">
+            <div>
+              <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 mb-3">
+                Soft Skill Development
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                Soft Skill Development
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">NPTEL • 2024</p>
+            </div>
+            <div class="flex justify-end">
+              <button type="button"
+                onclick="openLocalCert('./certificates/NPTEL-1.png')"
+                class="px-6 py-2.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95">
+                View Certificate
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agnirva Certificate -->
+        <div class="cert-card border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl hover:border-[#b820e6]/30 dark:hover:border-[#b820e6]/50 transition-all duration-300">
+          <div class="flex flex-col justify-between h-full gap-4">
+            <div>
+              <span class="inline-block px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 mb-3">
+                Professional Development
+              </span>
+              <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2 leading-tight">
+                Professional Development Program
+              </h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400">Agnirva • 2024</p>
+            </div>
+            <div class="flex justify-end">
+              <button type="button"
+                onclick="openLocalCert('./certificates/agnirva-1.png')"
+                class="px-6 py-2.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95">
+                View Certificate
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ========= WORK SECTION ========= -->
+  <section id="work" class="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+
+      <!-- Section Header -->
+      <div class="text-center mb-16 sm:mb-20">
+        <h4 class="mb-3 text-base sm:text-lg font-Ovo text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+          Portfolio
+        </h4>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-Ovo font-bold text-gray-900 dark:text-white">
+          Selected Projects
+        </h2>
+        <div class="mt-4 w-24 h-1 bg-gradient-to-r from-[#b820e6] to-[#da7d20] mx-auto rounded-full"></div>
+        <p class="max-w-2xl mx-auto mt-6 text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
           Real-world projects focused on cloud deployment, system design, automation, and full-stack development.
         </p>
       </div>
 
+      <!-- Projects Grid -->
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
 
         <!-- Project 1 -->
         <article class="project-card group">
-          <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 ring-1 ring-black/5 dark:ring-white/10">
+          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 shadow-sm">
             <div class="absolute inset-0 bg-[url('./images/work-1.png')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
-            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors duration-300"></div>
+            <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300"></div>
 
-            <a href="https://github.com/ars0a/devsecops-pipeline-project.git" target="_blank" class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-lg px-5 py-4 bg-white/95 dark:bg-black/80 backdrop-blur text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-1">
+            <a href="https://github.com/ars0a/devsecops-pipeline-project.git" target="_blank" 
+               class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-xl px-5 py-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl border border-gray-200 dark:border-gray-700">
               <div class="flex items-center gap-4">
                 <div class="flex-1">
-                  <h3 class="font-semibold text-sm sm:text-base leading-snug">End-to-end DevSecOps CI/CD pipeline</h3>
-                  <p class="text-xs text-gray-600 dark:text-white/70 mt-1">Jenkins, Docker, Kubernetes, SonarQube, Trivy, Argo, AWS</p>
-                  <p class="text-xs text-gray-500 dark:text-white/60 mt-2">Secure build, test, scan and deploy pipeline.</p>
+                  <h3 class="font-bold text-sm sm:text-base leading-tight mb-1">End-to-end DevSecOps CI/CD pipeline</h3>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Jenkins, Docker, Kubernetes, SonarQube, Trivy, Argo, AWS</p>
+                  <p class="text-xs text-gray-500 dark:text-gray-500 mt-2">Secure build, test, scan and deploy pipeline.</p>
                 </div>
-                <div class="shrink-0 w-9 h-9 rounded-full bg-black dark:bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <img src="./images/send-icon.png" class="w-4 invert dark:invert-0" alt="">
+                <div class="shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
                 </div>
               </div>
             </a>
@@ -529,19 +853,22 @@
 
         <!-- Project 2 -->
         <article class="project-card group">
-          <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 ring-1 ring-black/5 dark:ring-white/10">
+          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 shadow-sm">
             <div class="absolute inset-0 bg-[url('./images/work-2.png')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
-            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors duration-300"></div>
+            <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300"></div>
 
-            <a href="https://github.com/ars0a/ec2-docker-node-rds-deployment.git" target="_blank" class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-lg px-5 py-4 bg-white/95 dark:bg-black/80 backdrop-blur text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-1">
+            <a href="https://github.com/ars0a/ec2-docker-node-rds-deployment.git" target="_blank" 
+               class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-xl px-5 py-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl border border-gray-200 dark:border-gray-700">
               <div class="flex items-center gap-4">
                 <div class="flex-1">
-                  <h3 class="font-semibold text-sm sm:text-base leading-snug">EC2 Docker Node RDS Deployment</h3>
-                  <p class="text-xs text-gray-600 dark:text-white/70 mt-1">Docker, Node.js, AWS EC2, RDS, IAM</p>
-                  <p class="text-xs text-gray-500 dark:text-white/60 mt-2">Dockerized Node.js backend deployed on AWS with RDS.</p>
+                  <h3 class="font-bold text-sm sm:text-base leading-tight mb-1">EC2 Docker Node RDS Deployment</h3>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Docker, Node.js, AWS EC2, RDS, IAM</p>
+                  <p class="text-xs text-gray-500 dark:text-gray-500 mt-2">Dockerized Node.js backend deployed on AWS with RDS.</p>
                 </div>
-                <div class="shrink-0 w-9 h-9 rounded-full bg-black dark:bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <img src="./images/send-icon.png" class="w-4 invert dark:invert-0" alt="">
+                <div class="shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
                 </div>
               </div>
             </a>
@@ -550,19 +877,22 @@
 
         <!-- Project 3 -->
         <article class="project-card group">
-          <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 ring-1 ring-black/5 dark:ring-white/10">
+          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 shadow-sm">
             <div class="absolute inset-0 bg-[url('./images/work-3.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
-            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors duration-300"></div>
+            <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300"></div>
 
-            <a href="https://github.com/ars0a/amplify-vite-react-template.git" target="_blank" class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-lg px-5 py-4 bg-white/95 dark:bg-black/80 backdrop-blur text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-1">
+            <a href="https://github.com/ars0a/amplify-vite-react-template.git" target="_blank" 
+               class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-xl px-5 py-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl border border-gray-200 dark:border-gray-700">
               <div class="flex items-center gap-4">
                 <div class="flex-1">
-                  <h3 class="font-semibold text-sm sm:text-base leading-snug">AWS Amplify + Vite React App</h3>
-                  <p class="text-xs text-gray-600 dark:text-white/70 mt-1">React, Vite, Amplify, Cognito, DynamoDB</p>
-                  <p class="text-xs text-gray-500 dark:text-white/60 mt-2">Authentication, DB & file storage using Amplify boilerplate.</p>
+                  <h3 class="font-bold text-sm sm:text-base leading-tight mb-1">AWS Amplify + Vite React App</h3>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">React, Vite, Amplify, Cognito, DynamoDB</p>
+                  <p class="text-xs text-gray-500 dark:text-gray-500 mt-2">Authentication, DB & file storage using Amplify boilerplate.</p>
                 </div>
-                <div class="shrink-0 w-9 h-9 rounded-full bg-black dark:bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <img src="./images/send-icon.png" class="w-4 invert dark:invert-0" alt="">
+                <div class="shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
                 </div>
               </div>
             </a>
@@ -571,19 +901,22 @@
 
         <!-- Project 4 -->
         <article class="project-card group">
-          <div class="relative aspect-[4/3] rounded-xl overflow-hidden bg-white dark:bg-darkHover border border-black/10 dark:border-white/15 ring-1 ring-black/5 dark:ring-white/10">
+          <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 shadow-sm">
             <div class="absolute inset-0 bg-[url('./images/work-4.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
-            <div class="absolute inset-0 bg-black/25 group-hover:bg-black/40 transition-colors duration-300"></div>
+            <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300"></div>
 
-            <a href="https://github.com/ars0a/Login-and-SignUp-Form-with-Captcha-Validation.git" target="_blank" class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-lg px-5 py-4 bg-white/95 dark:bg-black/80 backdrop-blur text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-1">
+            <a href="https://github.com/ars0a/Login-and-SignUp-Form-with-Captcha-Validation.git" target="_blank" 
+               class="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] rounded-xl px-5 py-4 bg-white/95 dark:bg-gray-900/95 backdrop-blur-md text-gray-800 dark:text-white transition-all duration-300 group-hover:-translate-y-2 group-hover:shadow-2xl border border-gray-200 dark:border-gray-700">
               <div class="flex items-center gap-4">
                 <div class="flex-1">
-                  <h3 class="font-semibold text-sm sm:text-base leading-snug">User Authentication System</h3>
-                  <p class="text-xs text-gray-600 dark:text-white/70 mt-1">Login, Signup, CAPTCHA Security</p>
-                  <p class="text-xs text-gray-500 dark:text-white/60 mt-2">HTML · CSS · JavaScript · SQL Server</p>
+                  <h3 class="font-bold text-sm sm:text-base leading-tight mb-1">User Authentication System</h3>
+                  <p class="text-xs text-gray-600 dark:text-gray-400 mt-1">Login, Signup, CAPTCHA Security</p>
+                  <p class="text-xs text-gray-500 dark:text-gray-500 mt-2">HTML · CSS · JavaScript · SQL Server</p>
                 </div>
-                <div class="shrink-0 w-9 h-9 rounded-full bg-black dark:bg-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <img src="./images/send-icon.png" class="w-4 invert dark:invert-0" alt="">
+                <div class="shrink-0 w-10 h-10 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] flex items-center justify-center group-hover:scale-110 transition-transform shadow-lg">
+                  <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+                  </svg>
                 </div>
               </div>
             </a>
@@ -592,23 +925,34 @@
 
       </div>
 
-      <a href="https://github.com/ars0a" target="_blank" class="mt-12 sm:mt-16 mx-auto w-max flex items-center gap-2 text-gray-700 border border-gray-700 rounded-full px-8 py-3 hover:bg-lightHover dark:text-white dark:border-white dark:hover:bg-darkHover transition-colors">
+      <!-- View More Button -->
+      <a href="https://github.com/ars0a" target="_blank" 
+         class="mt-12 sm:mt-16 mx-auto w-max flex items-center gap-3 text-gray-900 dark:text-white border-2 border-gray-300 dark:border-gray-700 rounded-full px-8 py-3.5 font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 hover:border-[#b820e6]/30 dark:hover:border-[#b820e6]/50 transition-all duration-300 hover:scale-105 hover:shadow-lg">
         View more on GitHub
-        <img src="./images/right-arrow-bold.png" class="w-4 dark:hidden" alt="">
-        <img src="./images/right-arrow-bold-dark.png" class="w-4 hidden dark:block" alt="">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
       </a>
 
     </div>
   </section>
 
-    <!-- ========= PUBLICATIONS SECTION ========= -->
-  <section id="publications" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+
+
+  <!-- ========= PUBLICATIONS SECTION ========= -->
+  <section id="publications" class="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8 bg-gray-50 dark:bg-gray-900/50">
     <div class="max-w-5xl mx-auto">
 
-      <div class="text-center mb-12 sm:mb-16">
-        <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Research & Writing</h4>
-        <h2 class="text-4xl sm:text-5xl font-Ovo">Publications</h2>
-        <p class="max-w-2xl mx-auto mt-4 sm:mt-6 dark:text-white/80">
+      <!-- Section Header -->
+      <div class="text-center mb-16 sm:mb-20">
+        <h4 class="mb-3 text-base sm:text-lg font-Ovo text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+          Research & Writing
+        </h4>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-Ovo font-bold text-gray-900 dark:text-white">
+          Publications
+        </h2>
+        <div class="mt-4 w-24 h-1 bg-gradient-to-r from-[#b820e6] to-[#da7d20] mx-auto rounded-full"></div>
+        <p class="max-w-2xl mx-auto mt-6 text-base sm:text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
           Applied research exploring secure distributed voting, cryptographic trust models, and institutional blockchain architectures.
         </p>
       </div>
@@ -616,27 +960,49 @@
       <div class="space-y-6 sm:space-y-8">
 
         <!-- Publication 1 -->
-        <article class="border border-gray-300 dark:border-white/40 rounded-xl p-6">
-          <h3 class="font-semibold text-lg sm:text-xl">Permissioned Smart Contract-Based e-Voting System for Universities</h3>
-          <p class="text-sm mt-1 text-gray-600 dark:text-white/70">
-            A blockchain-driven model for secure, transparent, and institution-friendly academic elections leveraging Hyperledger smart contracts.
-          </p>
-
-          <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
-            Status: Under Development (Research + Prototype Build)
-          </p>
+        <article class="publication-card border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl hover:border-[#b820e6]/30 dark:hover:border-[#b820e6]/50 transition-all duration-300">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-[#b820e6] to-[#da7d20] flex items-center justify-center text-white text-xl">
+              📄
+            </div>
+            <div class="flex-1">
+              <h3 class="font-bold text-xl sm:text-2xl text-gray-900 dark:text-white mb-3 leading-tight">
+                Permissioned Smart Contract-Based e-Voting System for Universities
+              </h3>
+              <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
+                A blockchain-driven model for secure, transparent, and institution-friendly academic elections leveraging Hyperledger smart contracts.
+              </p>
+              <div class="flex items-center gap-2">
+                <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-300">
+                  Under Development
+                </span>
+                <span class="text-xs text-gray-500 dark:text-gray-500">Research + Prototype Build</span>
+              </div>
+            </div>
+          </div>
         </article>
 
         <!-- Publication 2 -->
-        <article class="border border-gray-300 dark:border-white/40 rounded-xl p-6">
-          <h3 class="font-semibold text-lg sm:text-xl">Future Directions in Blockchain-Based e-Voting: Consensus, Quantum Resistance, and Interoperability</h3>
-          <p class="text-sm mt-1 text-gray-600 dark:text-white/70">
-            A review on technical and legal constraints of decentralized voting with emphasis on future-proof cryptography and cross-chain compatibility.
-          </p>
-
-          <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
-            Status: Review Paper (Drafting Phase)
-          </p>
+        <article class="publication-card border-2 border-gray-300 dark:border-gray-700 rounded-2xl p-6 sm:p-8 bg-white dark:bg-gray-800 shadow-sm hover:shadow-xl hover:border-[#b820e6]/30 dark:hover:border-[#b820e6]/50 transition-all duration-300">
+          <div class="flex items-start gap-4">
+            <div class="flex-shrink-0 w-12 h-12 rounded-lg bg-gradient-to-br from-[#b820e6] to-[#da7d20] flex items-center justify-center text-white text-xl">
+              📝
+            </div>
+            <div class="flex-1">
+              <h3 class="font-bold text-xl sm:text-2xl text-gray-900 dark:text-white mb-3 leading-tight">
+                Future Directions in Blockchain-Based e-Voting: Consensus, Quantum Resistance, and Interoperability
+              </h3>
+              <p class="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
+                A review on technical and legal constraints of decentralized voting with emphasis on future-proof cryptography and cross-chain compatibility.
+              </p>
+              <div class="flex items-center gap-2">
+                <span class="inline-block px-3 py-1 text-xs font-semibold rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300">
+                  Review Paper
+                </span>
+                <span class="text-xs text-gray-500 dark:text-gray-500">Drafting Phase</span>
+              </div>
+            </div>
+          </div>
         </article>
 
       </div>
@@ -645,116 +1011,228 @@
   </section>
 
 
-    <!-- ========= CONTACT SECTION ========= -->
-    <section id="contact" class="py-16 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto">
+  <!-- ========= CONTACT SECTION ========= -->
+  <section id="contact" class="py-20 sm:py-24 lg:py-32 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
 
-        <div class="text-center mb-12 sm:mb-14">
-          <h4 class="mb-2 text-lg font-Ovo text-gray-600 dark:text-gray-400">Connect with me</h4>
-          <h2 class="text-4xl sm:text-5xl font-Ovo">Let's Work Together</h2>
-          <p class="max-w-xl mx-auto mt-4 sm:mt-6 font-Ovo text-gray-700 dark:text-white/80">
-            If you've made it this far, we probably have something worth building together.
-          </p>
+      <!-- Section Header -->
+      <div class="text-center mb-12 sm:mb-16">
+        <h4 class="mb-3 text-base sm:text-lg font-Ovo text-gray-500 dark:text-gray-400 uppercase tracking-wide">
+          Connect with me
+        </h4>
+        <h2 class="text-4xl sm:text-5xl lg:text-6xl font-Ovo font-bold text-gray-900 dark:text-white">
+          Let's Work Together
+        </h2>
+        <div class="mt-4 w-24 h-1 bg-gradient-to-r from-[#b820e6] to-[#da7d20] mx-auto rounded-full"></div>
+        <p class="max-w-xl mx-auto mt-6 text-base sm:text-lg font-Ovo text-gray-600 dark:text-gray-400 leading-relaxed">
+          If you've made it this far, we probably have something worth building together.
+        </p>
+      </div>
+
+      <!-- Contact Form -->
+      <form method="POST" action="https://api.web3forms.com/submit" class="space-y-6">
+        <input type="hidden" name="access_key" value="9630561b-62b0-4a75-9624-72a96af1fecf">
+
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Name</label>
+            <input type="text" 
+                   id="name"
+                   name="name" 
+                   required 
+                   placeholder="John Doe" 
+                   class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-[#b820e6] focus:border-transparent transition-all">
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Email</label>
+            <input type="email" 
+                   id="email"
+                   name="email" 
+                   required 
+                   placeholder="john@example.com" 
+                   class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-[#b820e6] focus:border-transparent transition-all">
+          </div>
         </div>
 
-        <form method="POST" action="https://api.web3forms.com/submit" class="space-y-6">
-          <input type="hidden" name="access_key" value="9630561b-62b0-4a75-9624-72a96af1fecf">
+        <div>
+          <label for="message" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Your Message</label>
+          <textarea rows="6" 
+                    id="message"
+                    name="message" 
+                    required 
+                    placeholder="Tell me about your project..." 
+                    class="w-full px-4 py-3.5 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:ring-2 focus:ring-[#b820e6] focus:border-transparent transition-all resize-none"></textarea>
+        </div>
 
-          <div class="grid sm:grid-cols-2 gap-6">
-            <input type="text" name="name" required placeholder="Your name" class="p-3 rounded-md border border-gray-400 bg-white dark:bg-darkHover/30 dark:border-white/80 focus:ring-2 focus:ring-violet-500">
-            <input type="email" name="email" required placeholder="Your email" class="p-3 rounded-md border border-gray-400 bg-white dark:bg-darkHover/30 dark:border-white/80 focus:ring-2 focus:ring-violet-500">
-          </div>
+        <button type="submit" 
+                class="w-full sm:w-auto mx-auto flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white font-semibold text-lg hover:scale-105 hover:shadow-xl transition-all duration-300 active:scale-95">
+          Send Message
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+          </svg>
+        </button>
+      </form>
 
-          <textarea rows="6" name="message" required placeholder="Your message" class="w-full p-4 rounded-md border border-gray-400 bg-white dark:bg-darkHover/30 dark:border-white/80 focus:ring-2 focus:ring-violet-500"></textarea>
-
-          <button type="submit" class="mx-auto flex items-center gap-2 px-8 py-3 rounded-full bg-black/80 text-white hover:bg-black dark:hover:bg-darkHover hover:scale-105 transition-all">
-            Submit message
-            <img src="./images/right-arrow-white.png" class="w-4" alt="">
-          </button>
-        </form>
-
-      </div>
-    </section>
+    </div>
+  </section>
 
   </main>
+<!-- ========= FOOTER ========= -->
+  <footer class="mt-20 sm:mt-24 border-t border-gray-200 dark:border-gray-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+      
+      <!-- Footer Top -->
+      <div class="grid md:grid-cols-3 gap-8 sm:gap-12 mb-12">
+        
+        <!-- Brand & Contact -->
+        <div class="md:col-span-1">
+          <img src="./images/logo-dark-normalized.png" class="w-36 mb-4 dark:hidden" alt="Logo">
+          <img src="./images/logo-light-normalized.png" class="w-36 mb-4 hidden dark:block" alt="Logo">
+          <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
+            Cloud & DevOps Engineer building scalable systems and automating infrastructure.
+          </p>
+          <a href="mailto:adityarajsingh0a@gmail.com" class="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+            </svg>
+            adityarajsingh0a@gmail.com
+          </a>
+        </div>
 
-  <!-- ========= FOOTER ========= -->
-  <footer class="mt-20 sm:mt-24 pb-6 text-center">
-    <div class="mb-8">
-      <img src="./images/logo-dark-normalized.png" class="w-32 mx-auto mb-3 dark:hidden" alt="">
-      <img src="./images/logo-light-normalized.png" class="w-32 mx-auto mb-3 hidden dark:block" alt="">
-      <div class="flex items-center gap-2 justify-center">
-        <img src="./images/mail_icon.png" class="w-5 dark:hidden" alt="">
-        <img src="./images/mail_icon_dark.png" class="w-5 hidden dark:block" alt="">
-        <span class="text-sm">adityarsingh.work@gmail.com</span>
+        <!-- Quick Links -->
+        <div class="md:col-span-1">
+          <h3 class="text-base font-bold text-gray-900 dark:text-white mb-4">Quick Links</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="#about" class="text-sm text-gray-600 dark:text-gray-400 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-colors">About Me</a>
+            </li>
+            <li>
+              <a href="#education" class="text-sm text-gray-600 dark:text-gray-400 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-colors">Education</a>
+            </li>
+            <li>
+              <a href="#certifications" class="text-sm text-gray-600 dark:text-gray-400 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-colors">Certifications</a>
+            </li>
+            <li>
+              <a href="#work" class="text-sm text-gray-600 dark:text-gray-400 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-colors">Projects</a>
+            </li>
+            <li>
+              <a href="#publications" class="text-sm text-gray-600 dark:text-gray-400 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-colors">Publications</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Social Links -->
+        <div class="md:col-span-1">
+          <h3 class="text-base font-bold text-gray-900 dark:text-white mb-4">Connect</h3>
+          <ul class="space-y-3">
+            <li>
+              <a href="https://github.com/ars0a" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-colors group">
+                <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+                </svg>
+                GitHub
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/ars0a/" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-colors group">
+                <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+                LinkedIn
+              </a>
+            </li>
+            <li>
+              <a href="https://medium.com/@ars0a" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-colors group">
+                <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/>
+                </svg>
+                Medium
+              </a>
+            </li>
+            <li>
+              <a href="https://adityarajsingh.hashnode.dev/" target="_blank" rel="noopener noreferrer"
+                 class="inline-flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-colors group">
+                <svg class="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M22.351 8.019l-6.37-6.37a5.63 5.63 0 0 0-7.962 0l-6.37 6.37a5.63 5.63 0 0 0 0 7.962l6.37 6.37a5.63 5.63 0 0 0 7.962 0l6.37-6.37a5.63 5.63 0 0 0 0-7.962zM12 15.953a3.953 3.953 0 1 1 0-7.906 3.953 3.953 0 0 1 0 7.906z"/>
+                </svg>
+                Hashnode
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <div class="border-t border-gray-400 mx-[10%] pt-6 text-sm flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p>© Built with ❤️ by Aditya Raj Singh</p>
-        <ul class="flex items-center gap-6">
-
-    <!-- GitHub -->
-    <li>
-      <a href="https://github.com/ars0a" target="_blank"
-        class="flex items-center transition-opacity hover:opacity-80">
-        <img src="./images/GitHub_Logo.png" class="h-6 dark:hidden" alt="GitHub Logo">
-        <img src="./images/GitHub_Logo_White.png" class="h-6 hidden dark:block" alt="GitHub Logo">
-      </a>
-    </li>
-
-    <!-- LinkedIn -->
-    <li>
-      <a href="https://www.linkedin.com/in/ars0a/" target="_blank"
-        class="flex items-center transition-opacity hover:opacity-80">
-        <img src="./images/LI-Logo.png" class="h-4" alt="LinkedIn Logo">
-      </a>
-    </li>
-
-    <!-- Medium -->
-    <li>
-      <a href="https://medium.com/@ars0a" target="_blank"
-        class="flex items-center transition-opacity hover:opacity-80">
-        <img src="./images/Medium-Wordmark-Black.png" class="h-3 dark:hidden" alt="Medium Logo">
-        <img src="./images/Medium-Wordmark-White.png" class="h-3 hidden dark:block" alt="Medium Logo">
-      </a>
-    </li>
-
-  </ul>
-
+      <!-- Footer Bottom -->
+      <div class="pt-8 border-t border-gray-200 dark:border-gray-800">
+        <div class="flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p class="text-sm text-gray-600 dark:text-gray-400">
+            © 2025 <span class="font-semibold text-gray-900 dark:text-white">Aditya Raj Singh</span>. Built with ❤️ and dedication.
+          </p>
+          <div class="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+            <a href="#top" class="hover:text-[#b820e6] dark:hover:text-[#b820e6] transition-colors">
+              Back to top ↑
+            </a>
+          </div>
+        </div>
+      </div>
 
     </div>
   </footer>
 
-    <!-- Certificate Image Modal -->
-    <div id="certOverlay"
-      class="fixed inset-0 hidden items-center justify-center bg-black/60 backdrop-blur-sm z-[9999]">
 
-      <div id="certPopup"
-        class="relative bg-white dark:bg-black rounded-lg shadow-xl w-auto max-w-[95vw] p-2">
+  <!-- Certificate Image Modal -->
+  <div id="certOverlay"
+    class="fixed inset-0 hidden items-center justify-center bg-black/60 backdrop-blur-sm z-[9999]">
 
-        <button 
-          onclick="closeLocalCert()" 
-          class="absolute top-2 right-2 text-white bg-black/50 rounded-full w-8 h-8 flex items-center justify-center text-lg"
-        > ×
-      </button>
+    <div id="certPopup"
+      class="relative bg-white dark:bg-black rounded-2xl shadow-2xl w-auto max-w-[95vw] p-3">
 
-        <div id="certFrame" class="flex items-center justify-center"></div>
+      <button 
+        onclick="closeLocalCert()" 
+        class="absolute -top-4 -right-4 text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] rounded-full w-10 h-10 flex items-center justify-center text-2xl font-bold hover:scale-110 transition-transform shadow-lg"
+      > ×
+    </button>
 
-      </div>
+      <div id="certFrame" class="flex items-center justify-center"></div>
+
     </div>
+  </div>
 
 
-<!-- Floating Chat Button -->
+<!-- Enhanced Floating Chat Button -->
 <div
   id="chatButton"
-  class="fixed bottom-5 right-5 z-50 flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white shadow-lg cursor-pointer hover:scale-105 transition-all"
+  class="fixed bottom-6 right-6 z-50 group cursor-pointer"
   role="button"
   aria-label="Open chat with AI assistant"
   aria-expanded="false"
   aria-controls="chatBox"
   tabindex="0">
-  💬
+  
+  <div class="relative">
+    <!-- Pulse Animation Ring -->
+    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] opacity-75 animate-ping"></div>
+    
+    <!-- Main Button -->
+    <div class="relative flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white shadow-2xl group-hover:scale-110 transition-all duration-300">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path>
+      </svg>
+    </div>
+    
+    <!-- Tooltip -->
+    <div class="absolute bottom-full right-0 mb-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+      <div class="bg-gray-900 dark:bg-gray-100 text-white dark:text-gray-900 text-xs font-medium px-3 py-2 rounded-lg shadow-lg whitespace-nowrap">
+        Chat with AI Assistant
+        <div class="absolute top-full right-4 -mt-1">
+          <div class="border-4 border-transparent border-t-gray-900 dark:border-t-gray-100"></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- Chat Overlay -->
@@ -776,39 +1254,48 @@
 
 
   <!-- Header -->
-  <div class="chat-header flex items-center justify-between px-4 py-3 border-b border-black/10 dark:border-white/20 flex-none select-none relative">
-    <div class="swipe-indicator block sm:hidden absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1.5 rounded-full bg-black/20 dark:bg-white/30"></div>
+  <div class="chat-header flex items-center justify-between px-4 py-3 border-b border-gray-200 dark:border-gray-800 flex-none select-none relative bg-gradient-to-r from-[#b820e6]/5 to-[#da7d20]/5">
+    <div class="swipe-indicator block sm:hidden absolute top-2 left-1/2 -translate-x-1/2 w-10 h-1.5 rounded-full bg-gray-300 dark:bg-gray-600"></div>
 
-    <span id="chat-header-title" class="font-medium text-sm">
-      Debs – AI Assistant
-    </span>
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] flex items-center justify-center text-white font-bold shadow-lg">
+        AI
+      </div>
+      <div>
+        <span id="chat-header-title" class="font-semibold text-base text-gray-900 dark:text-white block">
+          Debs
+        </span>
+        <span class="text-xs text-gray-500 dark:text-gray-400">AI Assistant</span>
+      </div>
+    </div>
 
     <button
       id="chatClose"
-      class="w-6 h-6 flex items-center justify-center"
+      class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
       aria-label="Close chat"
       type="button">
-      <img src="images/close-black.png" class="dark:hidden w-full h-full object-contain" alt="Close">
-      <img src="images/close-white.png" class="hidden dark:block w-full h-full object-contain" alt="Close">
+      <svg class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
     </button>
   </div>
 
   <!-- Messages -->
   <div
     id="ai-chat-log"
-    class="flex-1 overflow-y-auto px-4 py-3 space-y-2 scroll-smooth"
+    class="flex-1 overflow-y-auto px-4 py-4 space-y-3 scroll-smooth bg-gray-50 dark:bg-gray-900/50"
     role="log"
     aria-live="polite"
     aria-atomic="false">
   </div>
 
   <!-- Input Bar -->
-  <div class="input-area flex items-center gap-2 px-3 py-2 border-t border-black/10 dark:border-white/20 bg-white dark:bg-[#131313] flex-none relative">
+  <div class="input-area flex items-center gap-3 px-4 py-4 border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-[#131313] flex-none relative">
     <input
       id="ai-chat-input"
       type="text"
-      class="flex-1 px-3 py-2 rounded-md border border-gray-300 dark:border-white/30 bg-white dark:bg-[#1e1e1e] text-sm focus:outline-none focus:ring-0"
-      placeholder="Ask something..."
+      class="flex-1 px-4 py-3 rounded-xl border-2 border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white text-sm focus:outline-none focus:ring-2 focus:ring-[#b820e6] focus:border-transparent transition-all"
+      placeholder="Type your message..."
       aria-label="Type your message"
       autocomplete="off"
       autocorrect="off"
@@ -818,14 +1305,15 @@
     <button
       id="ai-chat-send"
       type="button"
-      class="px-4 py-2 rounded-md text-white text-sm bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 transition-transform active:scale-95"
+      class="px-5 py-3 rounded-xl text-white text-sm font-semibold bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95 flex items-center gap-2"
       aria-label="Send message">
       Send
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+      </svg>
     </button>
   </div>
-
 </div>
-
 
   <!-- Scripts -->
   <script src="./script.js"></script>

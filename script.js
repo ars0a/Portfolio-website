@@ -12,12 +12,23 @@ function openMenu() {
   sideMenu.classList.remove('translate-x-full');
   sideMenu.classList.add('translate-x-0');
   document.body.style.overflow = 'hidden';
+  
+  // Add overlay backdrop for mobile menu
+  const backdrop = document.createElement('div');
+  backdrop.id = 'menuBackdrop';
+  backdrop.className = 'fixed inset-0 bg-black/50 z-40 lg:hidden';
+  backdrop.onclick = closeMenu;
+  document.body.appendChild(backdrop);
 }
 
 function closeMenu() {
   sideMenu.classList.remove('translate-x-0');
   sideMenu.classList.add('translate-x-full');
   document.body.style.overflow = '';
+  
+  // Remove backdrop
+  const backdrop = document.getElementById('menuBackdrop');
+  if (backdrop) backdrop.remove();
 }
 
 document.addEventListener('keydown', (e) => {
@@ -27,12 +38,18 @@ document.addEventListener('keydown', (e) => {
 });
 
 // ================= NAVBAR SHRINK =================
+let lastScroll = 0;
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 40) {
+  const currentScroll = window.scrollY;
+  
+  // Add shrink class when scrolled down
+  if (currentScroll > 40) {
     navbar.classList.add('nav-shrink');
   } else {
     navbar.classList.remove('nav-shrink');
   }
+  
+  lastScroll = currentScroll;
 }, { passive: true });
 
 // ================= ACTIVE NAV =================
@@ -41,7 +58,12 @@ const sectionObserver = new IntersectionObserver((entries) => {
     if (entry.isIntersecting) {
       const id = entry.target.id;
       navLinks.forEach(link => {
-        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+        const href = link.getAttribute('href');
+        if (href === `#${id}`) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
       });
     }
   });
@@ -62,10 +84,157 @@ function toggleTheme() {
   localStorage.theme = isDark ? 'dark' : 'light';
 }
 
+// ================= SKILL BAR ANIMATION ON SCROLL =================
+const skillBarContainers = document.querySelectorAll('.skill-bar-container');
+
+if (skillBarContainers.length > 0) {
+  const skillBarObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        
+        // Trigger skill bar fill animation
+        const skillBar = entry.target.querySelector('.skill-bar');
+        if (skillBar && !skillBar.classList.contains('animated')) {
+          skillBar.classList.add('animated');
+        }
+        
+        // Unobserve after animation
+        skillBarObserver.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  skillBarContainers.forEach(container => {
+    skillBarObserver.observe(container);
+  });
+}
+
+// ================= INFO CARD ANIMATION ON SCROLL =================
+const infoCards = document.querySelectorAll('.info-card');
+
+if (infoCards.length > 0) {
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, index * 100);
+        cardObserver.unobserve(entry.target);
+      }
+    });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  infoCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    cardObserver.observe(card);
+  });
+}
+
+// ================= EDUCATION ITEMS ANIMATION =================
+const educationItems = document.querySelectorAll('.education-item');
+
+if (educationItems.length > 0) {
+  const educationObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate-in');
+        }, index * 200);
+        educationObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  educationItems.forEach(item => educationObserver.observe(item));
+}
+
+// ================= CERTIFICATE CARDS ANIMATION =================
+const certCards = document.querySelectorAll('.cert-card');
+
+if (certCards.length > 0) {
+  const certObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate-in');
+        }, index * 100);
+        certObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  certCards.forEach(card => certObserver.observe(card));
+}
+
+// ================= PROJECT CARDS ANIMATION =================
+const projectCards = document.querySelectorAll('.project-card');
+
+if (projectCards.length > 0) {
+  const projectObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }, index * 100);
+        projectObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  projectCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    projectObserver.observe(card);
+  });
+}
+
+// ================= PUBLICATION CARDS ANIMATION =================
+const publicationCards = document.querySelectorAll('.publication-card');
+
+if (publicationCards.length > 0) {
+  const publicationObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('animate-in');
+        }, index * 150);
+        publicationObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  publicationCards.forEach(card => publicationObserver.observe(card));
+}
+
 // ================= CERTIFICATE POPUP =================
 function openLocalCert(src) {
   certFrame.innerHTML = `
-    <img src="${src}" class="max-h-[85vh] max-w-full object-contain rounded-md" />
+    <img src="${src}" class="max-h-[85vh] max-w-full object-contain rounded-md" alt="Certificate" />
   `;
   certOverlay.classList.remove('hidden');
   certOverlay.classList.add('flex');
@@ -84,7 +253,9 @@ certOverlay.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeLocalCert();
+  if (e.key === 'Escape' && certOverlay.classList.contains('flex')) {
+    closeLocalCert();
+  }
 });
 
 // ================= LAZY LOAD FALLBACK =================
@@ -94,7 +265,7 @@ if (!('loading' in HTMLImageElement.prototype)) {
   document.body.appendChild(script);
 }
 
-// ================= PRELOAD =================
+// ================= PRELOAD CRITICAL IMAGES =================
 ['./images/profile-img.png','./images/logo-dark-normalized.png','./images/logo-light-normalized.png']
 .forEach(src => {
   const link = document.createElement('link');
@@ -103,6 +274,33 @@ if (!('loading' in HTMLImageElement.prototype)) {
   link.href = src;
   document.head.appendChild(link);
 });
+
+// ================= SMOOTH SCROLL ENHANCEMENT =================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    const href = this.getAttribute('href');
+    if (href === '#' || href === '#top') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      // Close mobile menu if open
+      if (!sideMenu.classList.contains('translate-x-full')) {
+        closeMenu();
+      }
+    } else {
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Close mobile menu if open
+        if (!sideMenu.classList.contains('translate-x-full')) {
+          closeMenu();
+        }
+      }
+    }
+  });
+});
+
+// ================= AI CHAT SYSTEM =================
 
 // ================= CONFIG =================
 const BACKEND_URL = "https://portfolio-ai-backend-k0m4.onrender.com/chat";
@@ -123,28 +321,51 @@ const inputArea = document.querySelector(".input-area");
 function appendMessage(sender, text, isError = false) {
   const wrapper = document.createElement("div");
   const bubble = document.createElement("div");
-  wrapper.className = `flex mb-1 ${sender === "You" ? "justify-end" : "justify-start"}`;
+  wrapper.className = `flex mb-3 ${sender === "You" ? "justify-end" : "justify-start"}`;
   bubble.className = `
-    inline-block max-w-[80%] px-3 py-2 rounded-lg text-sm whitespace-pre-line
-    ${isError ? "bg-red-600 text-white"
-      : sender === "You" ? "bg-purple-600 text-white"
-      : "bg-gray-200 text-black dark:bg-darkHover/40 dark:text-white"}
+    inline-block max-w-[85%] px-4 py-3 rounded-2xl text-sm whitespace-pre-line leading-relaxed
+    ${isError ? "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 border border-red-300 dark:border-red-700"
+      : sender === "You" 
+        ? "bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white shadow-md"
+        : "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 shadow-sm"}
   `;
   bubble.textContent = text;
   wrapper.appendChild(bubble);
   aiLog.appendChild(wrapper);
-  aiLog.scrollTop = aiLog.scrollHeight;
+  
+  // Smooth scroll to bottom with a slight delay for better UX
+  setTimeout(() => {
+    aiLog.scrollTo({
+      top: aiLog.scrollHeight,
+      behavior: 'smooth'
+    });
+  }, 100);
 }
 
 function showTyping() {
   hideTyping();
   const typing = document.createElement("div");
   typing.id = "ai-typing";
-  typing.className = "text-xs italic text-gray-500 dark:text-gray-400 mt-1";
-  typing.textContent = "Debs is typing...";
+  typing.className = "flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 ml-2 mb-3";
+  typing.innerHTML = `
+    <div class="flex gap-1">
+      <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0ms"></div>
+      <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce" style="animation-delay: 150ms"></div>
+      <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce" style="animation-delay: 300ms"></div>
+    </div>
+    <span>Debs is typing...</span>
+  `;
   aiLog.appendChild(typing);
-  aiLog.scrollTop = aiLog.scrollHeight;
+  
+  // Smooth scroll to show typing indicator
+  setTimeout(() => {
+    aiLog.scrollTo({
+      top: aiLog.scrollHeight,
+      behavior: 'smooth'
+    });
+  }, 50);
 }
+
 function hideTyping() {
   const typing = document.getElementById("ai-typing");
   if (typing) typing.remove();
@@ -163,17 +384,20 @@ function openChat() {
     document.body.style.overflow = "hidden";
   }
 
-  setTimeout(() => aiInput.focus(), 100);
+  setTimeout(() => {
+    aiInput.focus();
+    // Ensure chat is scrolled to bottom
+    if (aiLog) {
+      aiLog.scrollTop = aiLog.scrollHeight;
+    }
+  }, 150);
 
   if (aiLog.children.length === 0) aiAutoGreet();
 }
 
 function closeChat() {
-  chatOverlay.style.opacity = "0";
-  chatOverlay.style.pointerEvents = "none";
-
-  chatBox.classList.remove("active");
   chatOverlay.classList.remove("active");
+  chatBox.classList.remove("active");
 
   if (window.innerWidth < 768) {
     document.body.style.overflow = "";
@@ -183,14 +407,10 @@ function closeChat() {
   resetKeyboardFix();
 
   setTimeout(() => {
-    chatBox.style.transform = "translateY(0)";
-    chatOverlay.style.opacity = "1";
     chatBtn.style.opacity = "1";
     chatBtn.style.pointerEvents = "auto";
   }, 300);
 }
-
-
 
 // ================= FULL-PANEL SWIPE (MOBILE) =================
 (function swipeClose() {
@@ -204,22 +424,26 @@ function closeChat() {
 
   const onStart = (e) => {
     if (!isMobile()) return;
-    dragging = true;
-    startY = e.touches[0].clientY;
-    currentY = startY;
-    chatBox.style.transition = "none";
-    chatOverlay.style.transition = "none";
+    
+    // Only allow swipe from header area
+    const chatHeader = document.querySelector('.chat-header');
+    if (chatHeader && chatHeader.contains(e.target)) {
+      dragging = true;
+      startY = e.touches[0].clientY;
+      currentY = startY;
+      chatBox.style.transition = "none";
+      chatOverlay.style.transition = "none";
+    }
   };
 
   const onMove = (e) => {
     if (!dragging || !isMobile()) return;
 
-    e.preventDefault();
-
     currentY = e.touches[0].clientY;
     const deltaY = currentY - startY;
 
     if (deltaY > 0) {
+      e.preventDefault();
       chatBox.style.transform = `translateY(${deltaY}px)`;
       const opacity = Math.max(0, 1 - deltaY / fadeFactor);
       chatOverlay.style.opacity = opacity;
@@ -247,7 +471,6 @@ function closeChat() {
   chatBox.addEventListener("touchend", onEnd, { passive: true });
 })();
 
-
 // ================= MOBILE KEYBOARD HANDLING =================
 if (window.visualViewport) {
   const viewport = window.visualViewport;
@@ -260,13 +483,18 @@ if (window.visualViewport) {
     const offset = keyboardOpen ? window.innerHeight - viewport.height : 0;
 
     // Lift only the input bar
-    inputArea.style.transform = `translateY(-${offset}px)`;
+    if (inputArea) {
+      inputArea.style.transform = `translateY(-${offset}px)`;
+    }
 
     // Prevent last messages from hiding behind the keyboard
-    aiLog.style.paddingBottom = `${offset + 10}px`;
-
-    // Keep scrolling available
-    aiLog.scrollTop = aiLog.scrollHeight;
+    if (aiLog) {
+      aiLog.style.paddingBottom = `${offset + 10}px`;
+      // Auto-scroll to bottom when keyboard opens
+      setTimeout(() => {
+        aiLog.scrollTop = aiLog.scrollHeight;
+      }, 100);
+    }
   };
 
   viewport.addEventListener("resize", keyboardAdjust);
@@ -274,16 +502,16 @@ if (window.visualViewport) {
 }
 
 function resetKeyboardFix() {
-  inputArea.style.transform = "";
-  aiLog.style.paddingBottom = "";
+  if (inputArea) inputArea.style.transform = "";
+  if (aiLog) aiLog.style.paddingBottom = "";
 }
 
-
 // ================= EVENTS =================
-chatBtn.addEventListener("click", openChat);
-chatClose.addEventListener("click", closeChat);
-chatOverlay.addEventListener("click", closeChat);
-
+if (chatBtn) chatBtn.addEventListener("click", openChat);
+if (chatClose) chatClose.addEventListener("click", closeChat);
+if (chatOverlay) chatOverlay.addEventListener("click", (e) => {
+  if (e.target === chatOverlay) closeChat();
+});
 
 // ================= SEND LOGIC =================
 async function aiSendMessage() {
@@ -292,6 +520,7 @@ async function aiSendMessage() {
 
   appendMessage("You", message);
   aiInput.value = "";
+  aiInput.style.height = 'auto'; // Reset textarea height if using textarea
   showTyping();
 
   try {
@@ -304,27 +533,88 @@ async function aiSendMessage() {
     hideTyping();
 
     if (!res.ok) {
-      appendMessage("Error", `Backend returned ${res.status}`, true);
+      appendMessage("Error", `Backend returned ${res.status}. Please try again.`, true);
       return;
     }
 
     const data = await res.json();
-    appendMessage("Debs", data?.reply || "No response");
+    appendMessage("Debs", data?.reply || "No response received.");
   } catch (err) {
     hideTyping();
-    appendMessage("Error", "Failed to reach AI backend", true);
+    console.error('Chat error:', err);
+    appendMessage("Error", "Failed to reach AI backend. Please check your connection and try again.", true);
   }
 }
 
-
 // ================= GREET =================
 function aiAutoGreet() {
-  appendMessage("Debs", "Hi, my name is Debs, your AI assistant. How may I help you today?");
+  setTimeout(() => {
+    appendMessage("Debs", "Hi! I'm Debs, your AI assistant. I can help answer questions about Aditya's experience, skills, and projects. How can I help you today?");
+  }, 500);
 }
 
-
 // ================= INPUT EVENTS =================
-aiSend.addEventListener("click", aiSendMessage);
-aiInput.addEventListener("keydown", (e) => {
-  if (e.key === "Enter") aiSendMessage();
+if (aiSend) {
+  aiSend.addEventListener("click", aiSendMessage);
+}
+
+if (aiInput) {
+  aiInput.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      aiSendMessage();
+    }
+  });
+
+  // Auto-resize input if it's a textarea (optional enhancement)
+  aiInput.addEventListener("input", () => {
+    aiInput.style.height = 'auto';
+    aiInput.style.height = aiInput.scrollHeight + 'px';
+  });
+}
+
+// ================= PERFORMANCE OPTIMIZATION =================
+// Debounce scroll events
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+  if (scrollTimeout) {
+    window.cancelAnimationFrame(scrollTimeout);
+  }
+  scrollTimeout = window.requestAnimationFrame(() => {
+    // Any scroll-based animations can be added here
+  });
+}, { passive: true });
+
+// Log page load performance
+window.addEventListener('load', () => {
+  if (window.performance && window.performance.timing) {
+    const perfData = window.performance.timing;
+    const pageLoadTime = perfData.loadEventEnd - perfData.navigationStart;
+    console.log(`✨ Portfolio loaded in ${pageLoadTime}ms`);
+  }
 });
+
+// Handle window resize for responsive behavior
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    // Close mobile menu if window is resized to desktop
+    if (window.innerWidth >= 1024 && !sideMenu.classList.contains('translate-x-full')) {
+      closeMenu();
+    }
+    // Reset chat keyboard fixes on resize
+    if (chatBox && chatBox.classList.contains('active')) {
+      resetKeyboardFix();
+    }
+  }, 250);
+});
+
+// Prevent chat overlay from closing when clicking inside chat box
+if (chatBox) {
+  chatBox.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+}
+
+console.log('🚀 Portfolio JavaScript loaded successfully');
