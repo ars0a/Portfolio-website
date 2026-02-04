@@ -89,6 +89,26 @@ body.no-snap {
   scroll-snap-type: none !important;
 }
 
+/* ===== REAL MOBILE MENU SCROLL FIX ===== */
+
+#sideMenu {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+}
+
+/* Prevent backdrop from eating touch */
+#menuBackdrop {
+  touch-action: none;
+  pointer-events: auto;
+}
+
+/* Ensure links are touchable */
+.mobile-nav-link {
+  touch-action: manipulation;
+}
+
+
 
 /* ================= ANIMATIONS ================= */
 
@@ -414,24 +434,8 @@ button:focus-visible {
 
 /* ================= FOOTER ================= */
 
-footer a {
-  position: relative;
-}
 
-footer a::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(to right, #b820e6, #da7d20);
-  transition: width 0.3s ease;
-}
 
-footer a:hover::after {
-  width: 100%;
-}
 
 /* =======================================
    CHAT SYSTEM — MOBILE + DESKTOP MODES

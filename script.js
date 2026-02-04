@@ -24,8 +24,9 @@ function openMenu() {
   // Disable snap scrolling when menu is open
   disableSnapScrolling();
   
-  // Lock body scroll
-  document.body.style.overflow = 'hidden';
+document.documentElement.style.overflow = 'hidden';
+sideMenu.style.pointerEvents = 'auto';
+
   
   // Add overlay backdrop for mobile menu
   const backdrop = document.createElement('div');
@@ -38,17 +39,19 @@ function openMenu() {
 function closeMenu() {
   sideMenu.classList.remove('translate-x-0');
   sideMenu.classList.add('translate-x-full');
-  
+
   // Re-enable snap scrolling
   enableSnapScrolling();
-  
-  // Unlock body scroll
-  document.body.style.overflow = '';
-  
+
+  // Unlock page scroll PROPERLY for mobile
+  document.documentElement.style.overflow = '';
+  sideMenu.style.pointerEvents = '';
+
   // Remove backdrop
   const backdrop = document.getElementById('menuBackdrop');
   if (backdrop) backdrop.remove();
 }
+
 
 // Close menu when clicking navigation links
 navLinks.forEach(link => {

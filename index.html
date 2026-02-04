@@ -138,8 +138,9 @@
     </nav>
 
     <!-- ================= MOBILE MENU ================= -->
-    <aside id="sideMenu" 
-           class="fixed top-0 right-0 translate-x-full z-50 h-screen w-80 bg-white dark:bg-gray-900 transition-transform duration-300 lg:hidden shadow-2xl overflow-y-auto">
+<aside id="sideMenu"
+  class="fixed top-0 right-0 translate-x-full z-50 h-[100dvh] max-h-[100dvh] w-80 bg-white dark:bg-gray-900 transition-transform duration-300 lg:hidden shadow-2xl overflow-y-auto overscroll-contain touch-auto">
+
       
       <!-- Mobile Menu Header -->
       <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-800">
@@ -298,71 +299,75 @@
     <!-- ================================== MAIN ================================== -->
     <main>
 <!-- ========= HERO / HOME SECTION ========= -->
-  <section id="top" class="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20">
-    <div class="max-w-6xl mx-auto w-full">
+<section id="top" class="min-h-screen px-4 sm:px-6 lg:px-8 pt-24 pb-10">
+  <div class="max-w-6xl mx-auto w-full">
+    
+    <div class="text-center space-y-6 sm:space-y-8">
       
-      <div class="text-center space-y-6 sm:space-y-8">
-        
-        <!-- Profile Image -->
-        <div class="flex justify-center">
-          <img src="./images/profile-img.png" alt="Aditya Raj Singh" 
-               class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-gray-200 dark:border-gray-700 shadow-lg">
-        </div>
+      <!-- Profile Image -->
+      <div class="flex justify-center">
+        <img src="./images/profile-img.png" alt="Aditya Raj Singh" 
+             class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-gray-200 dark:border-gray-700 shadow-lg">
+      </div>
 
-        <!-- Availability Badge -->
-        <div class="flex items-center gap-2 justify-center">
-          <span class="relative flex">
-            <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
-            <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
-          </span>
-          <span class="text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium">
-            Open for Cloud & DevOps roles
-          </span>
-        </div>
+      <!-- Availability Badge -->
+      <div class="flex items-center gap-2 justify-center">
+        <span class="relative flex">
+          <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+          <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
+        </span>
+        <span class="text-sm sm:text-base text-gray-700 dark:text-gray-300 font-medium">
+          Open for Cloud & DevOps roles
+        </span>
+      </div>
 
-        <!-- Intro -->
-        <h3 class="text-xl sm:text-2xl md:text-3xl font-Ovo text-gray-800 dark:text-gray-200">
-          Hi, I'm Aditya Raj Singh
-        </h3>
+      <!-- Intro -->
+      <h3 class="text-xl sm:text-2xl md:text-3xl font-Ovo text-gray-800 dark:text-gray-200">
+        Hi, I'm Aditya Raj Singh
+      </h3>
 
-        <!-- Headline -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-Ovo font-bold leading-tight text-gray-900 dark:text-white">
+      <!-- Headline -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-Ovo font-bold leading-tight">
+        <span class="bg-gradient-to-r from-[#b820e6] to-[#da7d20] bg-clip-text text-transparent">
           Cloud & DevOps Engineer
-          <br class="hidden sm:block">
-          <span class="bg-gradient-to-r from-[#b820e6] to-[#da7d20] bg-clip-text text-transparent">
-            with Full-Stack Experience
-          </span>
-        </h1>
+        </span>
+        <br class="hidden sm:block">
+        <span class="text-gray-900 dark:text-white">
+          with Full-Stack Experience
+        </span>
+      </h1>
 
-        <!-- Status Tag -->
-        <div class="flex justify-center">
-          <span class="inline-flex items-center px-5 py-2 rounded-full bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10 border border-gray-300 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300">
-            Currently building cloud-native projects · Portfolio in active development
-          </span>
-        </div>
 
-        <!-- Short Description -->
-        <p class="max-w-3xl mx-auto text-base sm:text-lg font-Ovo text-gray-600 dark:text-gray-400 leading-relaxed px-4">
-          I build, deploy, automate, and debug real systems across cloud platforms, DevOps pipelines, and modern web stacks.
-        </p>
+      <!-- Status Tag -->
+      <div class="flex justify-center">
+        <span class="inline-flex items-center px-5 py-2 rounded-full bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10 border border-gray-300 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300">
+          Currently building cloud-native projects · Portfolio in active development
+        </span>
+      </div>
 
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
-          <a href="#contact"
-            class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white font-medium flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg transition-all">
-            Contact me
-            <img src="./images/right-arrow-white.png" class="w-4" alt="">
-          </a>
+      <!-- Short Description -->
+      <p class="max-w-3xl mx-auto text-base sm:text-lg font-Ovo text-gray-600 dark:text-gray-400 leading-relaxed px-4">
+        I build, deploy, automate, and debug real systems across cloud platforms, DevOps pipelines, and modern web stacks.
+      </p>
 
-          <a href="./images/Aditya_resume.pdf" download="Aditya_Raj_Singh_Resume.pdf"
-            class="w-full sm:w-auto px-8 py-3.5 rounded-full border-2 border-gray-400 dark:border-gray-600 flex items-center justify-center gap-2 bg-white text-gray-900 dark:bg-gray-800 dark:text-white font-medium hover:scale-105 hover:border-gray-500 dark:hover:border-gray-500 hover:shadow-lg transition-all">
-            My resume
-            <img src="./images/download-icon.png" class="w-4 dark:invert" alt="Download">
-          </a>
-        </div>
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+        <a href="#contact"
+          class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white font-medium flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg transition-all">
+          Contact me
+          <img src="./images/right-arrow-white.png" class="w-4" alt="">
+        </a>
 
-        <!-- Social Links -->
-        <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 pt-6 px-4">
+        <a href="./images/Aditya_resume.pdf" download="Aditya_Raj_Singh_Resume.pdf"
+          class="w-full sm:w-auto px-8 py-3.5 rounded-full border-2 border-gray-400 dark:border-gray-600 flex items-center justify-center gap-2 bg-white text-gray-900 dark:bg-gray-800 dark:text-white font-medium hover:scale-105 hover:border-gray-500 dark:hover:border-gray-500 hover:shadow-lg transition-all">
+          My resume
+          <img src="./images/download-icon.png" class="w-4 dark:invert" alt="Download">
+        </a>
+      </div>
+
+      <!-- Social Links -->
+        <!-- Social Links - Responsive Design -->
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-6 px-4">
           
           <!-- GitHub -->
           <a href="https://github.com/ars0a/" 
@@ -409,9 +414,10 @@
           </a>
         </div>
 
-      </div>
     </div>
-  </section>
+  </div>
+</section>
+
 
 
   <!-- ========= ABOUT SECTION ========= -->
@@ -793,7 +799,7 @@
             </div>
             <div class="flex justify-end">
               <button type="button"
-                onclick="openLocalCert('./certificates/NPTEL-1.png')"
+                onclick="openLocalCert('./certificates/nptel.png')"
                 class="px-6 py-2.5 text-sm font-semibold rounded-full text-white bg-gradient-to-r from-[#b820e6] to-[#da7d20] hover:scale-105 hover:shadow-lg transition-all duration-300 active:scale-95">
                 View Certificate
               </button>
