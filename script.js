@@ -259,14 +259,22 @@ if (window.visualViewport) {
     const keyboardOpen = viewport.height < window.innerHeight;
     const offset = keyboardOpen ? window.innerHeight - viewport.height : 0;
 
-    // Lift only the input bar
-    inputArea.style.transform = `translateY(-${offset}px)`;
-
-    // Prevent last messages from hiding behind the keyboard
-    aiLog.style.paddingBottom = `${offset + 10}px`;
-
-    // Keep scrolling available
-    aiLog.scrollTop = aiLog.scrollHeight;
+    if (keyboardOpen) {
+      // Position chat box to stay within visible viewport
+      chatBox.style.height = `${viewport.height}px`;
+      chatBox.style.bottom = '0px';
+      chatBox.style.top = 'auto';
+      
+      // Add padding to chat log so messages aren't hidden
+      aiLog.style.paddingBottom = `10px`;
+      
+      // Keep scrolling to bottom
+      setTimeout(() => {
+        aiLog.scrollTop = aiLog.scrollHeight;
+      }, 100);
+    } else {
+      resetKeyboardFix();
+    }
   };
 
   viewport.addEventListener("resize", keyboardAdjust);
@@ -274,7 +282,9 @@ if (window.visualViewport) {
 }
 
 function resetKeyboardFix() {
-  inputArea.style.transform = "";
+  chatBox.style.height = '';
+  chatBox.style.bottom = '';
+  chatBox.style.top = '';
   aiLog.style.paddingBottom = "";
 }
 
