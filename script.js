@@ -477,33 +477,54 @@ if (window.visualViewport) {
 
   const keyboardAdjust = () => {
     const isMobile = window.innerWidth < 768;
-    if (!isMobile) return resetKeyboardFix();
-
-    const keyboardOpen = viewport.height < window.innerHeight;
-    const offset = keyboardOpen ? window.innerHeight - viewport.height : 0;
-
-    // Lift only the input bar
-    if (inputArea) {
-      inputArea.style.transform = `translateY(-${offset}px)`;
+    if (!isMobile || !chatBox.classList.contains('active')) {
+      return resetKeyboardFix();
     }
 
-    // Prevent last messages from hiding behind the keyboard
-    if (aiLog) {
-      aiLog.style.paddingBottom = `${offset + 10}px`;
-      // Auto-scroll to bottom when keyboard opens
-      setTimeout(() => {
-        aiLog.scrollTop = aiLog.scrollHeight;
-      }, 100);
+    // Calculate keyboard height
+    const visualHeight = viewport.height;
+    const windowHeight = window.innerHeight;
+    const keyboardHeight = windowHeight - visualHeight;
+
+    if (keyboardHeight > 100) {
+      // Keyboard is open
+      if (chatBox) {
+        chatBox.style.paddingBottom = `${keyboardHeight}px`;
+      }
+      
+      // Add extra padding to message area
+      if (aiLog) {
+        aiLog.style.paddingBottom = `${keyboardHeight + 20}px`;
+        // Scroll to bottom to show latest message
+        setTimeout(() => {
+          aiLog.scrollTop = aiLog.scrollHeight;
+        }, 100);
+      }
+    } else {
+      // Keyboard is closed
+      resetKeyboardFix();
     }
   };
 
+  // Listen for viewport changes
   viewport.addEventListener("resize", keyboardAdjust);
   viewport.addEventListener("scroll", keyboardAdjust);
+  
+  // Also listen to input focus events
+  if (aiInput) {
+    aiInput.addEventListener("focus", () => {
+      setTimeout(keyboardAdjust, 300);
+    });
+    aiInput.addEventListener("blur", () => {
+      setTimeout(resetKeyboardFix, 100);
+    });
+  }
 }
 
 function resetKeyboardFix() {
-  if (inputArea) inputArea.style.transform = "";
+  if (chatBox) chatBox.style.paddingBottom = "";
   if (aiLog) aiLog.style.paddingBottom = "";
+  if (inputArea) inputArea.style.transform = "";
 }
 
 // ================= EVENTS =================
