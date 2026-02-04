@@ -7,10 +7,24 @@ const sections = document.querySelectorAll('main section[id]');
 const certOverlay = document.getElementById('certOverlay');
 const certFrame = document.getElementById('certFrame');
 
+// ================= DISABLE SNAP SCROLLING HELPER =================
+function disableSnapScrolling() {
+  document.body.classList.add('no-snap');
+}
+
+function enableSnapScrolling() {
+  document.body.classList.remove('no-snap');
+}
+
 // ================= MOBILE MENU =================
 function openMenu() {
   sideMenu.classList.remove('translate-x-full');
   sideMenu.classList.add('translate-x-0');
+  
+  // Disable snap scrolling when menu is open
+  disableSnapScrolling();
+  
+  // Lock body scroll
   document.body.style.overflow = 'hidden';
   
   // Add overlay backdrop for mobile menu
@@ -24,12 +38,26 @@ function openMenu() {
 function closeMenu() {
   sideMenu.classList.remove('translate-x-0');
   sideMenu.classList.add('translate-x-full');
+  
+  // Re-enable snap scrolling
+  enableSnapScrolling();
+  
+  // Unlock body scroll
   document.body.style.overflow = '';
   
   // Remove backdrop
   const backdrop = document.getElementById('menuBackdrop');
   if (backdrop) backdrop.remove();
 }
+
+// Close menu when clicking navigation links
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (!sideMenu.classList.contains('translate-x-full')) {
+      closeMenu();
+    }
+  });
+});
 
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && !sideMenu.classList.contains('translate-x-full')) {
@@ -52,10 +80,12 @@ window.addEventListener('scroll', () => {
   lastScroll = currentScroll;
 }, { passive: true });
 
-// ================= ACTIVE NAV =================
+// ================= ACTIVE NAV - IMPROVED FOR SNAP SCROLLING =================
+// Use a more precise intersection observer for snap scrolling
 const sectionObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting) {
+    // Only update if the section is mostly visible (more than 50% in viewport)
+    if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
       const id = entry.target.id;
       navLinks.forEach(link => {
         const href = link.getAttribute('href');
@@ -67,9 +97,38 @@ const sectionObserver = new IntersectionObserver((entries) => {
       });
     }
   });
-}, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+}, { 
+  // Watch for when section occupies more than 50% of viewport
+  threshold: [0.5, 0.75, 1.0],
+  rootMargin: '0px'
+});
 
 sections.forEach(section => sectionObserver.observe(section));
+
+// ================= SMOOTH SCROLL TO SECTIONS =================
+// Add smooth scroll behavior for navigation links
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const targetId = link.getAttribute('href');
+    const targetSection = document.querySelector(targetId);
+    
+    if (targetSection) {
+      // Temporarily disable snap for smoother programmatic scrolling
+      disableSnapScrolling();
+      
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+      
+      // Re-enable snap after scroll completes
+      setTimeout(() => {
+        enableSnapScrolling();
+      }, 1000);
+    }
+  });
+});
 
 // ================= DARK MODE =================
 const initTheme = () => {
@@ -238,6 +297,9 @@ function openLocalCert(src) {
   `;
   certOverlay.classList.remove('hidden');
   certOverlay.classList.add('flex');
+  
+  // Disable snap and lock scroll when modal is open
+  disableSnapScrolling();
   document.body.style.overflow = 'hidden';
 }
 
@@ -245,6 +307,9 @@ function closeLocalCert() {
   certOverlay.classList.add('hidden');
   certOverlay.classList.remove('flex');
   certFrame.innerHTML = '';
+  
+  // Re-enable snap and unlock scroll
+  enableSnapScrolling();
   document.body.style.overflow = '';
 }
 
@@ -262,122 +327,82 @@ document.addEventListener('keydown', (e) => {
 if (!('loading' in HTMLImageElement.prototype)) {
   const script = document.createElement('script');
   script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
-  document.body.appendChild(script);
+  document.head.appendChild(script);
 }
 
-// ================= PRELOAD CRITICAL IMAGES =================
-['./images/profile-img.png','./images/logo-dark-normalized.png','./images/logo-light-normalized.png']
-.forEach(src => {
-  const link = document.createElement('link');
-  link.rel = 'preload';
-  link.as = 'image';
-  link.href = src;
-  document.head.appendChild(link);
-});
+// ================= AI CHAT BACKEND =================
+const BACKEND_URL = "https://aiportfoliobackend.onrender.com/chat";
 
-// ================= SMOOTH SCROLL ENHANCEMENT =================
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    const href = this.getAttribute('href');
-    if (href === '#' || href === '#top') {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      // Close mobile menu if open
-      if (!sideMenu.classList.contains('translate-x-full')) {
-        closeMenu();
-      }
-    } else {
-      const target = document.querySelector(href);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Close mobile menu if open
-        if (!sideMenu.classList.contains('translate-x-full')) {
-          closeMenu();
-        }
-      }
-    }
-  });
-});
-
-// ================= AI CHAT SYSTEM =================
-
-// ================= CONFIG =================
-const BACKEND_URL = "https://portfolio-ai-backend-k0m4.onrender.com/chat";
-
-// ================= ELEMENTS =================
-const aiLog = document.getElementById("ai-chat-log");
-const aiInput = document.getElementById("ai-chat-input");
-const aiSend = document.getElementById("ai-chat-send");
-
+// ================= AI CHAT ELEMENTS =================
 const chatBtn = document.getElementById("chatButton");
 const chatBox = document.getElementById("chatBox");
-const chatOverlay = document.getElementById("chatOverlay");
 const chatClose = document.getElementById("chatClose");
-
+const chatOverlay = document.getElementById("chatOverlay");
+const aiInput = document.getElementById("ai-chat-input");
+const aiSend = document.getElementById("ai-chat-send");
+const aiLog = document.getElementById("ai-chat-log");
 const inputArea = document.querySelector(".input-area");
 
-// ================= HELPERS =================
+// ================= CHAT UI HELPERS =================
 function appendMessage(sender, text, isError = false) {
-  const wrapper = document.createElement("div");
+  const msgDiv = document.createElement("div");
+  msgDiv.className = `flex gap-3 ${sender === "You" ? "justify-end" : ""}`;
+
   const bubble = document.createElement("div");
-  wrapper.className = `flex mb-3 ${sender === "You" ? "justify-end" : "justify-start"}`;
-  bubble.className = `
-    inline-block max-w-[85%] px-4 py-3 rounded-2xl text-sm whitespace-pre-line leading-relaxed
-    ${isError ? "bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 border border-red-300 dark:border-red-700"
-      : sender === "You" 
-        ? "bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white shadow-md"
-        : "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 shadow-sm"}
+  bubble.className = `rounded-2xl px-4 py-3 max-w-[85%] break-words ${
+    sender === "You"
+      ? "bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white ml-auto"
+      : isError
+      ? "bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200 border border-red-200 dark:border-red-800"
+      : "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100"
+  }`;
+
+  // Parse markdown-style formatting for links
+  const formattedText = text.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    '<a href="$2" target="_blank" rel="noopener noreferrer" class="underline hover:opacity-80">$1</a>'
+  );
+
+  bubble.innerHTML = `
+    ${sender !== "You" ? `<div class="text-xs font-semibold mb-1 opacity-70">${sender}</div>` : ""}
+    <div class="text-sm leading-relaxed">${formattedText}</div>
   `;
-  bubble.textContent = text;
-  wrapper.appendChild(bubble);
-  aiLog.appendChild(wrapper);
-  
-  // Smooth scroll to bottom with a slight delay for better UX
-  setTimeout(() => {
-    aiLog.scrollTo({
-      top: aiLog.scrollHeight,
-      behavior: 'smooth'
-    });
-  }, 100);
+
+  msgDiv.appendChild(bubble);
+  aiLog.appendChild(msgDiv);
+  aiLog.scrollTop = aiLog.scrollHeight;
 }
 
 function showTyping() {
-  hideTyping();
-  const typing = document.createElement("div");
-  typing.id = "ai-typing";
-  typing.className = "flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 ml-2 mb-3";
-  typing.innerHTML = `
-    <div class="flex gap-1">
+  const typingDiv = document.createElement("div");
+  typingDiv.id = "typing-indicator";
+  typingDiv.className = "flex gap-3";
+  typingDiv.innerHTML = `
+    <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl px-4 py-3 flex items-center gap-1">
       <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce" style="animation-delay: 0ms"></div>
       <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce" style="animation-delay: 150ms"></div>
       <div class="w-2 h-2 bg-gray-400 dark:bg-gray-500 rounded-full animate-bounce" style="animation-delay: 300ms"></div>
     </div>
-    <span>Debs is typing...</span>
   `;
-  aiLog.appendChild(typing);
-  
-  // Smooth scroll to show typing indicator
-  setTimeout(() => {
-    aiLog.scrollTo({
-      top: aiLog.scrollHeight,
-      behavior: 'smooth'
-    });
-  }, 50);
+  aiLog.appendChild(typingDiv);
+  aiLog.scrollTop = aiLog.scrollHeight;
 }
 
 function hideTyping() {
-  const typing = document.getElementById("ai-typing");
+  const typing = document.getElementById("typing-indicator");
   if (typing) typing.remove();
 }
 
-// ================= CHAT OPEN/CLOSE =================
+// ================= OPEN/CLOSE CHAT =================
 function openChat() {
   chatBtn.style.opacity = "0";
   chatBtn.style.pointerEvents = "none";
 
   chatOverlay.classList.add("active");
   chatBox.classList.add("active");
+
+  // Disable snap scrolling when chat is open
+  disableSnapScrolling();
 
   // Lock scroll only on mobile
   if (window.innerWidth < 768) {
@@ -398,6 +423,9 @@ function openChat() {
 function closeChat() {
   chatOverlay.classList.remove("active");
   chatBox.classList.remove("active");
+
+  // Re-enable snap scrolling when chat closes
+  enableSnapScrolling();
 
   if (window.innerWidth < 768) {
     document.body.style.overflow = "";
@@ -638,4 +666,4 @@ if (chatBox) {
   });
 }
 
-console.log('🚀 Portfolio JavaScript loaded successfully');
+console.log('🚀 Portfolio JavaScript loaded successfully with snap scrolling enabled');

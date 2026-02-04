@@ -1,3 +1,95 @@
+/* ================= SCROLL SNAP BEHAVIOR ================= */
+
+/* Enable smooth snap scrolling on the body/main container */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  /* Prevent horizontal overflow */
+  overflow-x: hidden;
+  /* Enable vertical scroll with snap */
+  overflow-y: scroll;
+  /* Set up scroll snap container */
+  scroll-snap-type: y mandatory;
+  /* Smooth scrolling for better UX */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Each section should be a snap point and fill the viewport */
+main > section {
+  /* Full viewport height minimum */
+  min-height: 100vh;
+  min-height: 100dvh; /* Dynamic viewport height for mobile */
+  
+  /* Snap to start of section */
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  
+  /* Ensure proper positioning */
+  position: relative;
+  
+  /* Account for fixed navbar - add padding at top */
+  padding-top: 5rem;
+  
+  /* Ensure sections display properly */
+  display: flex;
+  flex-direction: column;
+  
+  /* Default: center content vertically for short sections */
+  justify-content: center;
+  
+  /* Prevent content compression */
+  width: 100%;
+  
+  /* Allow natural height expansion beyond viewport */
+  height: auto;
+}
+
+/* Ensure child containers take full width and don't shrink */
+main > section > div {
+  width: 100%;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+/* For sections with grids or lots of content, align to top instead of center */
+main > section:has(.grid) {
+  justify-content: flex-start;
+  padding-bottom: 3rem;
+}
+
+/* Specific handling for work section with project cards */
+#work {
+  justify-content: flex-start;
+  padding-bottom: 4rem;
+}
+
+/* Same for education, certifications, and publications */
+#education,
+#certifications,
+#publications {
+  justify-content: flex-start;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  main > section {
+    padding-top: 6rem;
+  }
+}
+
+/* Remove scroll-margin-top as we're using padding instead */
+main section[id] {
+  scroll-margin-top: 0;
+}
+
+/* Disable snap scrolling when mobile menu or chat is open */
+body.no-snap {
+  scroll-snap-type: none !important;
+}
+
+
 /* ================= ANIMATIONS ================= */
 
 @keyframes fadeIn {
@@ -292,19 +384,6 @@
 }
 
 
-/* ================= SCROLL BEHAVIOR ================= */
-
-main section[id] {
-  scroll-margin-top: 5rem;
-}
-
-@media(min-width:768px) {
-  main section[id] {
-    scroll-margin-top: 6rem;
-  }
-}
-
-
 /* ================= ACCESSIBILITY ================= */
 
 @media(prefers-reduced-motion:reduce) {
@@ -313,6 +392,10 @@ main section[id] {
     animation-iteration-count:1!important;
     transition-duration: .01ms!important;
     scroll-behavior:auto!important;
+  }
+  
+  body {
+    scroll-snap-type: none !important;
   }
 }
 
