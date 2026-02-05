@@ -338,9 +338,9 @@ const BACKEND_URL =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1"
     ? "http://localhost:3001/chat"
-    : "https://aiportfoliobackend.onrender.com/chat";
+    : "https://portfolio-ai-backend-k0m4.onrender.com/chat";
 
-
+    
 // ================= AI CHAT ELEMENTS =================
 const chatBtn = document.getElementById("chatButton");
 const chatBox = document.getElementById("chatBox");
