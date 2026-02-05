@@ -334,6 +334,8 @@ if (!('loading' in HTMLImageElement.prototype)) {
 }
 
 // ================= AI CHAT BACKEND =================
+/*c onst BACKEND_URL = "http://localhost:3001/chat"; */
+
 const BACKEND_URL = "https://aiportfoliobackend.onrender.com/chat";
 
 // ================= AI CHAT ELEMENTS =================
