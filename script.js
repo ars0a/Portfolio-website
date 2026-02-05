@@ -334,9 +334,12 @@ if (!('loading' in HTMLImageElement.prototype)) {
 }
 
 // ================= AI CHAT BACKEND =================
-/*c onst BACKEND_URL = "http://localhost:3001/chat"; */
+const BACKEND_URL =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "http://localhost:3001/chat"
+    : "https://aiportfoliobackend.onrender.com/chat";
 
-const BACKEND_URL = "https://aiportfoliobackend.onrender.com/chat";
 
 // ================= AI CHAT ELEMENTS =================
 const chatBtn = document.getElementById("chatButton");
