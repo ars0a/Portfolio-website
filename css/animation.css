@@ -1,0 +1,180 @@
+/* ===============================================
+   ANIMATIONS.CSS
+   All keyframes, transitions, and animation classes
+   =============================================== */
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+
+/* Zoom for modal */
+@keyframes certZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Skill bar fill animation */
+@keyframes skillFill {
+  from {
+    width: 0;
+  }
+}
+
+
+/* ================= HERO SECTION ANIMATIONS ================= */
+
+/* Profile Image Animation - Scale & Fade */
+@keyframes heroProfileEnter {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Badge Slide from Top */
+@keyframes heroSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Text Fade Up */
+@keyframes heroFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Buttons Scale In */
+@keyframes heroScaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Social Links Stagger Fade */
+@keyframes heroSocialFade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Initial Hidden State for Hero Elements */
+.hero-profile,
+.hero-badge,
+.hero-intro,
+.hero-headline,
+.hero-status,
+.hero-description,
+.hero-buttons,
+.hero-social {
+  opacity: 0;
+}
+
+/* Animated State Classes */
+.hero-profile.animate-in {
+  animation: heroProfileEnter 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.hero-badge.animate-in {
+  animation: heroSlideDown 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.3s;
+}
+
+.hero-intro.animate-in {
+  animation: heroFadeUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.5s;
+}
+
+.hero-headline.animate-in {
+  animation: heroFadeUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.7s;
+}
+
+.hero-status.animate-in {
+  animation: heroFadeUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.9s;
+}
+
+.hero-description.animate-in {
+  animation: heroFadeUp 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 1.1s;
+}
+
+.hero-buttons.animate-in {
+  animation: heroScaleIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: 1.3s;
+}
+
+.hero-social.animate-in {
+  animation: heroSocialFade 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 1.5s;
+}
+
+/* Profile Image Hover Effect */
+.hero-profile img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+.hero-profile img:hover {
+  transform: scale(1.03);
+}
+
+
+
+.dark .hero-profile img:hover {
+  box-shadow: 0 20px 40px rgba(184, 32, 230, 0.3);
+}
+
+.hero-profile img {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+

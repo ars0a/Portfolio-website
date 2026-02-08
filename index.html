@@ -27,18 +27,17 @@
   <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
   <link rel="apple-touch-icon" href="./images/favicon.png">
 
-
-  <!-- Tailwind CSS (CDN) -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="./tailwind.config.js"></script>
-
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Ovo&display=swap" rel="stylesheet">
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="css/output.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animation.css">
+  <link rel="stylesheet" href="css/chatapp.css">
+
 </head>
 
 
@@ -305,13 +304,13 @@
     <div class="text-center space-y-6 sm:space-y-8">
       
       <!-- Profile Image -->
-      <div class="flex justify-center">
+      <div class="flex justify-center hero-profile">
         <img src="./images/profile-img.png" alt="Aditya Raj Singh" 
              class="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-gray-200 dark:border-gray-700 shadow-lg">
       </div>
 
       <!-- Availability Badge -->
-      <div class="flex items-center gap-2 justify-center">
+      <div class="flex items-center gap-2 justify-center hero-badge">
         <span class="relative flex">
           <span class="absolute inline-flex h-3 w-3 rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
           <span class="relative inline-flex h-3 w-3 rounded-full bg-emerald-500"></span>
@@ -322,12 +321,12 @@
       </div>
 
       <!-- Intro -->
-      <h3 class="text-xl sm:text-2xl md:text-3xl font-Ovo text-gray-800 dark:text-gray-200">
+      <h3 class="text-xl sm:text-2xl md:text-3xl font-Ovo text-gray-800 dark:text-gray-200 hero-intro">
         Hi, I'm Aditya Raj Singh
       </h3>
 
       <!-- Headline -->
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-Ovo font-bold leading-tight">
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-Ovo font-bold leading-tight hero-headline">
         <span class="bg-gradient-to-r from-[#b820e6] to-[#da7d20] bg-clip-text text-transparent">
           Cloud & DevOps Engineer
         </span>
@@ -339,19 +338,19 @@
 
 
       <!-- Status Tag -->
-      <div class="flex justify-center">
+      <div class="flex justify-center hero-status">
         <span class="inline-flex items-center px-5 py-2 rounded-full bg-gradient-to-r from-[#b820e6]/10 to-[#da7d20]/10 border border-gray-300 dark:border-gray-700 text-sm text-gray-700 dark:text-gray-300">
           Currently building cloud-native projects · Portfolio in active development
         </span>
       </div>
 
       <!-- Short Description -->
-      <p class="max-w-3xl mx-auto text-base sm:text-lg font-Ovo text-gray-600 dark:text-gray-400 leading-relaxed px-4">
+      <p class="max-w-3xl mx-auto text-base sm:text-lg font-Ovo text-gray-600 dark:text-gray-400 leading-relaxed px-4 hero-description">
         I build, deploy, automate, and debug real systems across cloud platforms, DevOps pipelines, and modern web stacks.
       </p>
 
       <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4">
+      <div class="flex flex-col sm:flex-row justify-center items-center gap-4 pt-4 hero-buttons">
         <a href="#contact"
           class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white font-medium flex items-center justify-center gap-2 hover:scale-105 hover:shadow-lg transition-all">
           Contact me
@@ -367,7 +366,7 @@
 
       <!-- Social Links -->
         <!-- Social Links - Responsive Design -->
-        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-6 px-4">
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-6 px-4 hero-social">
           
           <!-- GitHub -->
           <a href="https://github.com/ars0a/" 
@@ -561,45 +560,77 @@
           Tools I Work With
         </h2>
         <ul class="flex flex-wrap justify-center gap-5 sm:gap-6 max-w-5xl mx-auto">
-          <li class="tool-item">
-            <img src="./images/vscode.png" alt="VS Code" class="tool-icon w-12 sm:w-14">
-          </li>
-          <li class="tool-item">
-            <img src="./images/git.png" alt="Git" class="tool-icon w-12 sm:w-14">
-          </li>
-          <li class="tool-item">
-            <img src="./images/aws-icon.png" alt="AWS" class="tool-icon w-12 sm:w-14">
-          </li>
-          <li class="tool-item">
-            <img src="./images/docker.png" alt="Docker" class="tool-icon w-12 sm:w-14">
-          </li>
-          <li class="tool-item">
-            <img src="./images/jenkins.png" alt="Jenkins" class="tool-icon w-12 sm:w-14">
-          </li>
-          <li class="tool-item">
-            <img src="./images/GitHub Actions.png" alt="GitHub Actions" class="tool-icon w-12 sm:w-14">
-          </li>
-          <li class="tool-item">
-            <img src="./images/HashiCorp Terraform.png" alt="Terraform" class="tool-icon w-12 sm:w-14">
-          </li>
-          <li class="tool-item">
-            <img src="./images/kubernetes.png" alt="Kubernetes" class="tool-icon w-12 sm:w-14">
-          </li>
+
           <li class="tool-item">
             <img src="./images/linux-icon.png" alt="Linux" class="tool-icon w-12 sm:w-14">
           </li>
+
+          <li class="tool-item">
+            <img src="./images/vscode.png" alt="VS Code" class="tool-icon w-12 sm:w-14">
+          </li>
+
+          <li class="tool-item">
+            <img src="./images/Anaconda.png" alt="Anaconda" class="tool-icon w-12 sm:w-14">
+          </li>
+
           <li class="tool-item">
             <img src="./images/Python.png" alt="Python" class="tool-icon w-12 sm:w-14">
           </li>
+
           <li class="tool-item">
-            <img src="./images/Ansible.png" alt="Ansible" class="tool-icon w-12 sm:w-14">
+            <img src="./images/AWS.png" alt="AWS" class="tool-icon w-12 sm:w-14">
           </li>
+
           <li class="tool-item">
-            <img src="./images/Grafana.png" alt="Grafana" class="tool-icon w-12 sm:w-14">
+            <img src="./images/Azure.png" alt="Azure" class="tool-icon w-12 sm:w-14">
           </li>
+
+          <li class="tool-item">
+            <img src="./images/git.png" alt="Git" class="tool-icon w-12 sm:w-14">
+          </li>
+
+          <li class="tool-item">
+            <img src="./images/GitLab.png" alt="GitLab" class="tool-icon w-12 sm:w-14">
+          </li>
+
+          <li class="tool-item">
+            <img src="./images/GitHub Actions.png" alt="GitHub Actions" class="tool-icon w-12 sm:w-14">
+          </li>
+
+          <li class="tool-item">
+            <img src="./images/jenkins.png" alt="Jenkins" class="tool-icon w-12 sm:w-14">
+          </li>
+
           <li class="tool-item">
             <img src="./images/NGINX.png" alt="NGINX" class="tool-icon w-12 sm:w-14">
           </li>
+
+          <li class="tool-item">
+            <img src="./images/docker.png" alt="Docker" class="tool-icon w-12 sm:w-14">
+          </li>
+
+          <li class="tool-item">
+            <img src="./images/Kubernetes.png" alt="Kubernetes" class="tool-icon w-12 sm:w-14">
+          </li>
+          
+          <li class="tool-item">
+            <img src="./images/HashiCorp Terraform.png" alt="Terraform" class="tool-icon w-12 sm:w-14">
+          </li>
+
+          <li class="tool-item">
+            <img src="./images/Ansible.png" alt="Ansible" class="tool-icon w-12 sm:w-14">
+          </li>
+
+          <li class="tool-item">
+            <img src="./images/Grafana.png" alt="Grafana" class="tool-icon w-12 sm:w-14">
+          </li>
+
+          <li class="tool-item">
+            <img src="./images/Argo-CD.png" alt="Argo CD" class="tool-icon w-12 sm:w-14">
+          </li>
+
+
+          
         </ul>
       </div>
 
@@ -859,7 +890,7 @@
         <!-- Project 1 -->
         <article class="project-card group">
           <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 shadow-sm">
-            <div class="absolute inset-0 bg-[url('./images/work-1.png')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+            <div class="absolute inset-0 bg-project-card project-1 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300"></div>
 
             <a href="https://github.com/ars0a/devsecops-pipeline-project.git" target="_blank" 
@@ -883,7 +914,7 @@
         <!-- Project 2 -->
         <article class="project-card group">
           <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 shadow-sm">
-            <div class="absolute inset-0 bg-[url('./images/work-2.png')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+            <div class="absolute inset-0 bg-project-card project-2 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300"></div>
 
             <a href="https://github.com/ars0a/ec2-docker-node-rds-deployment.git" target="_blank" 
@@ -907,7 +938,7 @@
         <!-- Project 3 -->
         <article class="project-card group">
           <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 shadow-sm">
-            <div class="absolute inset-0 bg-[url('./images/work-3.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+            <div class="absolute inset-0 bg-project-card project-3 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300"></div>
 
             <a href="https://github.com/ars0a/amplify-vite-react-template.git" target="_blank" 
@@ -931,7 +962,7 @@
         <!-- Project 4 -->
         <article class="project-card group">
           <div class="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 shadow-sm">
-            <div class="absolute inset-0 bg-[url('./images/work-4.jpg')] bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
+            <div class="absolute inset-0 bg-project-card project-4 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"></div>
             <div class="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300"></div>
 
             <a href="https://github.com/ars0a/Login-and-SignUp-Form-with-Captcha-Validation.git" target="_blank" 
@@ -1120,12 +1151,17 @@
           <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed mb-4">
             Cloud & DevOps Engineer building scalable systems and automating infrastructure.
           </p>
-          <a href="mailto:adityarajsingh0a@gmail.com" class="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
+          <a href="mailto:adityarsingh.work@gmail.com" 
+            class="inline-flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300 hover:text-[#b820e6] transition-colors">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+              </path>
             </svg>
-            adityarsingh.work@gmail.com
+
+            <span>adityarsingh.work@gmail.com</span>
           </a>
+
         </div>
 
         <!-- Quick Links -->
@@ -1243,7 +1279,7 @@
   
   <div class="relative">
     <!-- Pulse Animation Ring -->
-    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] opacity-75 animate-ping"></div>
+    <div class="absolute inset-0 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] chat-pulse"></div>
     
     <!-- Main Button -->
     <div class="relative flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-[#b820e6] to-[#da7d20] text-white shadow-2xl group-hover:scale-110 transition-all duration-300">
@@ -1345,7 +1381,10 @@
 </div>
 
   <!-- Scripts -->
-  <script src="./script.js"></script>
+  <script src="js/utils.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/chat.js"></script>
+
 
 </body>
 </html>
